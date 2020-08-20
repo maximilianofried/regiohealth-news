@@ -1,0 +1,1 @@
+# gt-strapi-react
