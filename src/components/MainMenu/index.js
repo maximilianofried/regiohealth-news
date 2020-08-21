@@ -1,9 +1,11 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useState, useEffect} from 'react';
 import FontAwesome from "../uiStyle/FontAwesome";
 import tempIcon from '../../doc/img/icon/temp.png';
 import {Link, NavLink} from "react-router-dom";
 import SearchModal from "../SearchModal";
 import SidebarMenu from "../SidebarMenu";
+import { fetchMenu } from '../../store/actions/menuActions';
+import { connect } from 'react-redux';
 
 const menus = [
     {
@@ -412,11 +414,14 @@ const menusDark = [
     },
 ];
 
-const MainMenu = ({className, dark}) => {
+const MainMenu = ({className, dark, fetchMenu, menuData}) => {
+    useEffect(() => {
+        fetchMenu()
+    }, [])
     const [searchShow, setSearchShow] = useState(false);
     const [sideShow, setSideShow] = useState(false);
 
-    const arr = dark ? menusDark : menus;
+    const arr = dark ? menusDark : menuData.menu;
     return (
         <Fragment>
             <div className={`main-menu ${className ? className : ''}`} id="header">
@@ -527,4 +532,19 @@ const MainMenu = ({className, dark}) => {
     );
 };
 
-export default MainMenu;
+const mapStateToProps = state => {
+    return {
+        menuData: state.menu,
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchMenu: () => dispatch(fetchMenu()),
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(MainMenu);

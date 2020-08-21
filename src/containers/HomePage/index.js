@@ -1,6 +1,6 @@
 import React, {Fragment, useState, useEffect} from 'react';
 import {connect} from 'react-redux';
-import {fetchArticles, fetchCategories} from "../../store/actions";
+import {fetchArticles} from "../../store/actions";
 import PostCarousel from "../../components/PostCarousel";
 import PostGallery from "../../components/PostGallery";
 import FeatureNews from "../../components/FeatureNews";
@@ -84,11 +84,9 @@ const businessNews = [
     },
 ];
 
-const HomePage = ({articlesData, fetchArticles, fetchCategories}) => {
-    console.log(articlesData)
+const HomePage = ({articlesData, fetchArticles, categoriesData}) => {
     useEffect(() => {
         fetchArticles()
-        fetchCategories()
     }, [])
 
     return (
@@ -181,7 +179,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchArticles: () => dispatch(fetchArticles()),
-        fetchCategories: () => dispatch(fetchCategories())
     }
 }
 export default connect(

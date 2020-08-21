@@ -32,7 +32,6 @@ export const fetchArticles = () => {
         dispatch(fetchArticlesRequest);
         axios.get('http://cms.gesundheitsticket.de/articles')
             .then(response => {
-                console.log(response)
                 //separar en categorias y guardar en objeto los array correspondientes
                 const articles = response.data;
                 dispatch(fetchArticlesSuccess(articles))
