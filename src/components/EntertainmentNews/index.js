@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Link} from "react-router-dom";
 import moment from 'moment';
 import { buyCake, fetchArticles } from '../../store/actions';
-
+//Image size 700x500
 const EntertainmentNews = ({entertainments}) => {
     return (
         <Fragment>
@@ -13,7 +13,7 @@ const EntertainmentNews = ({entertainments}) => {
                         <div className="post_img">
                             <div className="img_wrap">
                                 <Link to="/">
-                                   { item.main_image ? <img src={"http://cms.gesundheitsticket.de/" + item.main_image.formats.thumbnail.url} alt="thumb"/> : ''}
+                                   { item.main_image ? <img src={"http://cms.gesundheitsticket.de/" + item.main_image.url} alt="thumb"/> : ''}
                                 </Link>
                             </div>
                         </div>
