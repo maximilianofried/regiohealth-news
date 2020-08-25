@@ -171,7 +171,7 @@ const HomePage = ({articlesData, fetchArticles, categoriesData}) => {
 
 const mapStateToProps = state => {
     return {
-        articlesData: state.article,
+        articlesData: state.articles,
         categoriesData: state.category
     }
 }

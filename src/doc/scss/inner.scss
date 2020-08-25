@@ -357,6 +357,13 @@
   font-weight: $wightMedium
 }
 
+.markdownContainer{
+  img {
+    margin: 0 auto;
+    display: block;
+  }
+}
+
 
 span.img_desc {
   color: #888E92;

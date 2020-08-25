@@ -21,7 +21,7 @@ const EntertainmentNews = ({entertainments}) => {
                             <div className="meta3"><Link to="/">TECHNOLOGY</Link>
                                 <Link to="/">{moment(item.createdAt).format("LL")}</Link>
                             </div>
-                            <h4><Link to="/post1">{item.title}</Link></h4>
+                            <h4><Link to={`/post2/${item._id}`}>{item.title}</Link></h4>
                             <div className="space-10"/>
                             <p className="post-p">{item.description}</p>
                         </div>
@@ -32,26 +32,4 @@ const EntertainmentNews = ({entertainments}) => {
     );
 };
 
-// const mapStateToProps = (state, ownProps) => {
-//     const itemState = ownProps.articles 
-//     ? state.cake.numOfCakes 
-//     : state.article.articles;
-
-//     return {
-//         propItem: itemState
-//     }
-// }
-
-// const mapDispatchToProps = (dispatch, ownProps) => {
-//     const dispatchFunction = ownProps.articles
-//     ? () => dispatch(buyCake())
-//     : () => dispatch(fetchArticles())
-
-//     return {
-//         propBuyItem: dispatchFunction
-//     }
-    
-// }
-
 export default EntertainmentNews;
-// export default connect(null, mapDispatchToProps)(EntertainmentNews);

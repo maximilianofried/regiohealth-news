@@ -3,6 +3,7 @@ import {toast, ToastContainer} from "react-toastify";
 import {connect} from "react-redux";
 import Routes from "../__Routes";
 import ScrollTopButton from "../../components/ScrollTopButton";
+import ScrollToTop from "../../components/ScrollToTop";
 
 const App = (props) => {
     const {error, success} = props;
@@ -11,6 +12,7 @@ const App = (props) => {
     return (
         <Fragment>
             {props.loading && <h1>loading...</h1>}
+            <ScrollToTop/>
             <Routes/>
             <ToastContainer position="top-center"/>
             <ScrollTopButton/>
