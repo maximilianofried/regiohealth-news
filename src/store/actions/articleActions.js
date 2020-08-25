@@ -1,44 +1,44 @@
 import axios from 'axios';
 import {
-    FETCH_ARTICLES_REQUEST,
-    FETCH_ARTICLES_SUCCESS,
-    FETCH_ARTICLES_FAILURE
+    FETCH_ARTICLE_BY_ID_REQUEST,
+    FETCH_ARTICLE_BY_ID_SUCCESS,
+    FETCH_ARTICLE_BY_ID_FAILURE
 } from "../constants/articleTypes";
 
-const fetchArticlesRequest = () => {
+const fetchArticleRequest = () => {
     return {
-        type: FETCH_ARTICLES_REQUEST
+        type: FETCH_ARTICLE_BY_ID_REQUEST
     }
 }
 
-const fetchArticlesSuccess = articles => {
+const fetchArticleSuccess = article => {
     return {
-        type: FETCH_ARTICLES_SUCCESS,
-        payload: articles
+        type: FETCH_ARTICLE_BY_ID_SUCCESS,
+        payload: article
     }
 }
 
 
-const fetchArticlesFailure = error => {
+const fetchArticleFailure = error => {
     return {
-        type: FETCH_ARTICLES_FAILURE,
+        type: FETCH_ARTICLE_BY_ID_FAILURE,
         payload: error
     }
 }
 
 // action creator, return function not object, not pure function ,async api calls
-export const fetchArticles = () => {
+export const fetchArticle = (id) => {
     return (dispatch) => {
-        dispatch(fetchArticlesRequest);
-        axios.get('http://cms.gesundheitsticket.de/articles')
+        dispatch(fetchArticleRequest);
+        axios.get(`http://cms.gesundheitsticket.de/articles/${id}`)
             .then(response => {
                 //separar en categorias y guardar en objeto los array correspondientes
-                const articles = response.data;
-                dispatch(fetchArticlesSuccess(articles))
+                const article = response.data;
+                dispatch(fetchArticleSuccess(article))
             })
             .catch(error => {
                 const errorMsg = error.message;
-                dispatch(fetchArticlesFailure(errorMsg));
+                dispatch(fetchArticleFailure(errorMsg));
             })
     }
 }

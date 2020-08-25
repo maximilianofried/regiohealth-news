@@ -1,6 +1,7 @@
 export {buyCake} from "./cakeActions";
-export * from "./articleActions";
+export * from "./articlesActions";
 export * from "./categoryActions";
+export * from "./articleActions";
 
  // import {DEFAULT} from "../constants";
 

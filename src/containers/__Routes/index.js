@@ -142,7 +142,7 @@ const Routes = () => {
                 component={PostOnePage}/>
             <PrivateRoute
                 exact
-                path="/post2"
+                path="/post2/:id"
                 parentClass="theme-1"
                 component={PostTwoPage}/>
             <PrivateRoute

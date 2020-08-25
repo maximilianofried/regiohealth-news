@@ -1,8 +1,8 @@
 import {
-    FETCH_ARTICLE_BY_ID_REQUEST,
-    FETCH_ARTICLE_BY_ID_SUCCESS,
-    FETCH_ARTICLE_BY_ID_FAILURE
-} from "../constants/articleTypes";
+    FETCH_ARTICLES_REQUEST,
+    FETCH_ARTICLES_SUCCESS,
+    FETCH_ARTICLES_FAILURE}
+from "../constants/articlesTypes";
 
 const initialState = {
     loading: false,
@@ -10,20 +10,20 @@ const initialState = {
     error: ''
 }
 
-const articleReducer = (state = initialState, action) => {
+const articlesReducer = (state = initialState, action) => {
     switch(action.type) {
-        case FETCH_ARTICLE_BY_ID_REQUEST: 
+        case FETCH_ARTICLES_REQUEST: 
         return {
             ...state,
             loading: true
         }
-        case FETCH_ARTICLE_BY_ID_SUCCESS: 
+        case FETCH_ARTICLES_SUCCESS: 
         return {
             loading: false,
-            article: action.payload,
+            articles: action.payload,
             error: ''
         }
-        case FETCH_ARTICLE_BY_ID_FAILURE: 
+        case FETCH_ARTICLES_FAILURE: 
         return {
             loading: false,
             articles: [],
@@ -33,4 +33,4 @@ const articleReducer = (state = initialState, action) => {
     }
 }
 
-export default articleReducer;
+export default articlesReducer;
