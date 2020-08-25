@@ -56,7 +56,7 @@ const PostTwoPage = ({articleData, fetchArticle}) => {
                                                 <img src={author2} alt="author2"/>
                                             </div>
                                         </div> */}
-                                        <Link to="/">Shuvas Chandra</Link>
+                                        <Link to="/">{article.author}</Link>
                                         <ul>
                                             {/* <li><Link to="/">March 26, 2020</Link></li> */}
                                             <li>{moment(article.createdAt).format("LL")}</li>
