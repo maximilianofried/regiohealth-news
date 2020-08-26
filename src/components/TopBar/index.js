@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import Swiper from 'react-id-swiper';
 import FontAwesome from "../uiStyle/FontAwesome";
-
+import moment from 'moment';
 const TopBar = ({className, dark}) => {
+    const currentDate = moment().format("LLL");
     const [swiper, setSwiper] = useState(null);
 
     const goNext = () => {
@@ -61,7 +62,7 @@ const TopBar = ({className, dark}) => {
                     <div className="col-md-4 align-self-center">
                         <div className="top_date_social text-right">
                             <div className={`paper_date ${dark ? 'white' : ''}`}>
-                                <p>Thursday, March 26, 2020</p>
+                                <p>{currentDate}</p>
                             </div>
                             <div className={`social1 ${dark ? 'white' : ''}`}>
                                 <ul className="inline">

@@ -97,6 +97,11 @@ const Routes = () => {
                 component={BusinessPage}/>
             <PrivateRoute
                 exact
+                path="/art"
+                parentClass="theme-1"
+                component={BusinessPage}/>
+            <PrivateRoute
+                exact
                 path="/entertainment"
                 parentClass="theme-1"
                 component={EntertainmentPage}/>

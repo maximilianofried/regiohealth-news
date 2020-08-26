@@ -93,9 +93,6 @@ const HomePage = ({articlesData, fetchArticles, categoriesData}) => {
         <Fragment>
             <PostCarousel className="fifth_bg"/>
             <PostGallery className="fifth_bg"/>
-            {/* <h2>Number of cakes - {props.numOfCakes}</h2>
-            <Button onClick={() => props.buyCake(number)}>BUY {number} CAKE</Button>
-            <input type="text" value={number} onChange={e => setNumber(e.target.value)}></input> */}
             <FeatureNews/>
             <div className="container">
                 <div className="row">

@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import BreadCrumb from "../../components/BreadCrumb";
 import BusinessNews from "../../components/BusinessNews";
 import FontAwesome from "../../components/uiStyle/FontAwesome";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import WidgetTab from "../../components/WidgetTab";
 import WidgetTrendingNews from "../../components/WidgetTrendingNews";
 import NewsLetter from "../../components/NewsLetter";
@@ -74,9 +74,11 @@ const businessNews = [
     },
 ];
 const BusinessPage = () => {
+    const pathname = useLocation().pathname.replace("/", "");
+    console.log(pathname)
     return (
         <Fragment>
-            <BreadCrumb title="Business"/>
+            <BreadCrumb className="capitalize" title={pathname}/>
             <div className="archives padding-top-30">
                 <div className="container">
                     <div className="row">
@@ -85,7 +87,7 @@ const BusinessPage = () => {
                                 <div className="row">
                                     <div className="col-12 align-self-center">
                                         <div className="categories_title">
-                                            <h5>Category: <Link to="/">Business</Link></h5>
+                                            <h5>Category: <Link className="capitalize" to="/">{pathname}</Link></h5>
                                         </div>
                                     </div>
                                 </div>

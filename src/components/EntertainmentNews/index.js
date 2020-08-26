@@ -18,9 +18,9 @@ const EntertainmentNews = ({entertainments}) => {
                             </div>
                         </div>
                         <div className="single_post_text">
-                            <div className="meta3"><Link to="/">{item.categories.length > 0 ? item.categories[0].name.toUpperCase() : ""}</Link>
+                            {/* <div className="meta3"><Link to="/">{item.categories.length > 0 ? item.categories[0].name.toUpperCase() : ""}</Link>
                                 <Link to="/">{moment(item.createdAt).format("LL")}</Link>
-                            </div>
+                            </div> */}
                             <h4><Link to={`/post2/${item._id}`}>{item.title}</Link></h4>
                             <div className="space-10"/>
                             <p className="post-p">{item.description}</p>
