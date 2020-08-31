@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-
-const BusinessNews = ({businessNews, headerHide}) => {
+import moment from 'moment';
+const BusinessNews = ({businessArticles, headerHide}) => {
     return (
         <div className="row">
             <div className="col-12">
@@ -17,23 +17,22 @@ const BusinessNews = ({businessNews, headerHide}) => {
                         </div>}
                     <div className="row">
                         <div className="col-12">
-                            {businessNews.map((item, i) => (
+                            {businessArticles.map((item, i) => (
                                 <div key={i} className="single_post post_type3 post_type12 mb30">
                                     <div className="post_img">
                                         <div className="img_wrap">
-                                            <Link to="/">
-                                                <img src={item.image} alt="thumb"/>
+                                            <Link to={`/post2/${item._id}`}>
+                                            { item.main_image ? <img src={"http://cms.gesundheitsticket.de" + item.main_image.url} alt="thumb"/> : ''}
                                             </Link>
                                         </div>
                                     </div>
                                     <div className="single_post_text">
-                                        <div className="meta3"><Link to="/">uiux.subash</Link>
-                                            <Link to="#">March 26, 2020</Link>
+                                        <div className="meta3"><Link to="/">{item.author}</Link>
+                                            <Link to="#">{moment(item.createdAt).format("LL")}</Link>
                                         </div>
-                                        <h4><Link to="/post1">Copa America: Luis Suarez from devastated US</Link></h4>
+                                        <h4><Link to={`/post2/${item._id}`}>{item.title}</Link></h4>
                                         <div className="space-10"/>
-                                        <p className="post-p">The property, complete with 30-seat screening from room, a
-                                            100-seat amphitheater and a swimming pond with…</p>
+                                        <p className="post-p">{item.description}</p>
                                         <div className="space-20"/>
                                         <Link to="/" className="readmore">Read more</Link>
                                     </div>

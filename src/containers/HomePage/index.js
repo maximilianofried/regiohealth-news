@@ -1,4 +1,4 @@
-import React, {Fragment, useState, useEffect} from 'react';
+import React, {Fragment, useEffect} from 'react';
 import {connect} from 'react-redux';
 import {fetchArticles} from "../../store/actions";
 import PostCarousel from "../../components/PostCarousel";
@@ -84,7 +84,7 @@ const businessNews = [
     },
 ];
 
-const HomePage = ({articlesData, fetchArticles, categoriesData}) => {
+const HomePage = ({businessArticles, fetchArticles}) => {
     useEffect(() => {
         fetchArticles()
     }, [])
@@ -122,7 +122,7 @@ const HomePage = ({articlesData, fetchArticles, categoriesData}) => {
                             <div className="entertrainment_carousel mb30">
                                 <div className="entertrainment_item">
                                     <div className="row justify-content-center">
-                                        <EntertainmentNews entertainments={articlesData.articles}/>
+                                        {/* <EntertainmentNews entertainments={articlesData.articles}/> */}
                                     </div>
                                 </div>
                             </div>
@@ -133,7 +133,7 @@ const HomePage = ({articlesData, fetchArticles, categoriesData}) => {
                                     <img src={banner1} alt="banner1"/>
                                 </Link>
                             </div>
-                            <BusinessNews businessNews={businessNews}/>
+                            <BusinessNews businessArticles={businessArticles}/>
                         </div>
                         <div className="col-lg-4">
                             <div className="row">
@@ -168,8 +168,9 @@ const HomePage = ({articlesData, fetchArticles, categoriesData}) => {
 
 const mapStateToProps = state => {
     return {
-        articlesData: state.articles,
-        categoriesData: state.category
+        businessArticles: state.articles.articles
+            .filter((article) =>
+                article.categories.some((category) => category.name === "business"))
     }
 }
 

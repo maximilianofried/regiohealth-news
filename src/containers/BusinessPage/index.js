@@ -1,4 +1,6 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useEffect} from 'react';
+import {connect} from 'react-redux';
+import {fetchArticles} from "../../store/actions";
 import BreadCrumb from "../../components/BreadCrumb";
 import BusinessNews from "../../components/BusinessNews";
 import FontAwesome from "../../components/uiStyle/FontAwesome";
@@ -73,12 +75,16 @@ const businessNews = [
         body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
     },
 ];
-const BusinessPage = () => {
-    const pathname = useLocation().pathname.replace("/", "");
-    console.log(pathname)
+const BusinessPage = ({businessArticles, fetchArticles}) => {
+    const onHandlePageChange = (event) => {
+        console.log(event);
+    }
+    useEffect(() => {
+        fetchArticles()
+    },[])
     return (
         <Fragment>
-            <BreadCrumb className="capitalize" title={pathname}/>
+            <BreadCrumb className="capitalize"/>
             <div className="archives padding-top-30">
                 <div className="container">
                     <div className="row">
@@ -87,28 +93,28 @@ const BusinessPage = () => {
                                 <div className="row">
                                     <div className="col-12 align-self-center">
                                         <div className="categories_title">
-                                            <h5>Category: <Link className="capitalize" to="/">{pathname}</Link></h5>
+                                            <h5>Category: <Link className="capitalize" to="/">Business</Link></h5>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col-12">
-                                        <BusinessNews headerHide={true} businessNews={businessNews}/>
+                                        <BusinessNews businessArticles={businessArticles} headerHide={true}/>
                                     </div>
                                 </div>
                                 <div className="row">
-                                    <div className="col-12">
+                                    <div className="col-12"> 
                                         <div className="cpagination">
                                             <nav aria-label="Page navigation example">
                                                 <ul className="pagination">
                                                     <li className="page-item">
-                                                        <Link className="page-link" to="/" aria-label="Previous">
+                                                         <Link className="page-link" to="/" aria-label="Previous">
                                                                 <span aria-hidden="true"><FontAwesome
                                                                     name="caret-left"/></span>
                                                         </Link>
                                                     </li>
-                                                    <li className="page-item">
-                                                        <Link className="page-link" to="/">1</Link>
+                                                    <li className="page-item" onClick={onHandlePageChange}>
+                                                        <Link className="page-link" >1</Link>
                                                     </li>
                                                     <li className="page-item">
                                                         <Link className="page-link" to="/">..</Link>
@@ -149,4 +155,20 @@ const BusinessPage = () => {
     );
 };
 
-export default BusinessPage;
+const mapStateToProps = state => {
+    return {
+        businessArticles: state.articles.articles.filter((article) =>
+        article.categories.some((category) => category.name === "business"))
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchArticles: () => dispatch(fetchArticles()),
+    }
+}
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(BusinessPage);
+// export default BusinessPage;
