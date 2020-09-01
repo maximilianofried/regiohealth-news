@@ -1,6 +1,6 @@
 import React, {Fragment, useState, useEffect} from 'react';
 import {connect} from 'react-redux';
-import {fetchArticle} from "../../store/actions";
+import {fetchArticle, fetchArticleCleanUp} from "../../store/actions";
 import BreadCrumb from "../../components/BreadCrumb";
 import FontAwesome from "../../components/uiStyle/FontAwesome";
 import {Link, useParams} from "react-router-dom";
@@ -28,6 +28,8 @@ const PostTwoPage = ({articleData, fetchArticle}) => {
     let { id } = useParams();
     useEffect(() => {
         fetchArticle(id)
+
+        return () => fetchArticleCleanUp();
     }, [])
     const article = articleData.article || null;
     const [vModal, setvModal] = useState(false);

@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {fetchArticles} from "../../store/actions";
 import PostCarousel from "../../components/PostCarousel";
 import PostGallery from "../../components/PostGallery";
-import FeatureNews from "../../components/FeatureNews";
+import FeatureNewsNoImage from "../../components/FeatureNewsNoImage";
 import TrendingNews from "../../components/TrendingNews";
 import FollowUs from "../../components/FollowUs";
 import MostView from "../../components/MostView";
@@ -84,33 +84,32 @@ const businessNews = [
     },
 ];
 
-const HomePage = ({businessArticles, fetchArticles}) => {
+const HomePage = ({latestArticles, fetchArticles}) => {
     useEffect(() => {
         fetchArticles()
     }, [])
-
     return (
         <Fragment>
-            <PostCarousel className="fifth_bg"/>
-            <PostGallery className="fifth_bg"/>
-            <FeatureNews/>
+            {/* <PostCarousel className="fifth_bg"/> */}
+            <PostGallery latestArticles={latestArticles} className="fifth_bg"/>
+            <FeatureNewsNoImage/>
             <div className="container">
                 <div className="row">
-                    <div className="col-lg-8">
+                    {/* <div className="col-lg-8">
                         <TrendingNews/>
-                    </div>
-                    <div className="col-md-12 col-lg-4">
+                    </div> */}
+                    {/* <div className="col-md-12 col-lg-4">
                         <FollowUs title="Follow Us"/>
                         <MostView/>
-                    </div>
+                    </div> */}
                 </div>
             </div>
-            <MixCarousel className="half_bg1"/>
-            <VideoPost className="pt30 half_bg60"/>
+            {/* <MixCarousel className="half_bg1"/> */}
+            {/* <VideoPost className="pt30 half_bg60"/> */}
             <div className="entertrainments">
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-8">
+                        {/* <div className="col-lg-8">
                             <div className="row">
                                 <div className="col-12">
                                     <div className="heading">
@@ -118,15 +117,15 @@ const HomePage = ({businessArticles, fetchArticles}) => {
                                     </div>
                                 </div>
                             </div>
-                            {/*CAROUSEL START*/}
+                            CAROUSEL START
                             <div className="entertrainment_carousel mb30">
                                 <div className="entertrainment_item">
                                     <div className="row justify-content-center">
-                                        {/* <EntertainmentNews entertainments={articlesData.articles}/> */}
+                                        <EntertainmentNews entertainments={articlesData.articles}/>
                                     </div>
                                 </div>
                             </div>
-                            {/*CAROUSEL END*/}
+                            CAROUSEL END
                             <SportsNews/>
                             <div className="banner_area mt50 mb60 xs-mt60">
                                 <Link to="/">
@@ -134,17 +133,14 @@ const HomePage = ({businessArticles, fetchArticles}) => {
                                 </Link>
                             </div>
                             <BusinessNews businessArticles={businessArticles}/>
-                        </div>
-                        <div className="col-lg-4">
+                        </div> */}
+                        {/* <div className="col-lg-4">
                             <div className="row">
                                 <div className="col-lg-12">
                                     <MostShareWidget title="Most share"/>
                                 </div>
                                 <div className="col-lg-12">
                                     <UpcomingMatches/>
-                                </div>
-                                <div className="col-lg-12">
-                                    <NewsLetter/>
                                 </div>
                                 <div className="col-lg-12">
                                     <CategoriesWidget/>
@@ -156,8 +152,11 @@ const HomePage = ({businessArticles, fetchArticles}) => {
                                         </Link>
                                     </div>
                                 </div>
+                                <div className="col-lg-12">
+                                    <NewsLetter/>
+                                </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
@@ -170,7 +169,9 @@ const mapStateToProps = state => {
     return {
         businessArticles: state.articles.articles
             .filter((article) =>
-                article.categories.some((category) => category.name === "business"))
+                article.categories.some((category) => category.name === "business")),
+        latestArticles: state.articles.articles.slice(0, 5)
+            
     }
 }
 

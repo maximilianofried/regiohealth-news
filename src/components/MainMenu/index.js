@@ -509,7 +509,7 @@ const MainMenu = ({className, dark, fetchMenu, menuData}) => {
                                             </li>
                                         </ul>
                                     </div>
-                                    <div className="temp d-none d-lg-block">
+                                    {/* <div className="temp d-none d-lg-block">
                                         <div className="temp_wap">
                                             <div className="temp_icon">
                                                 <img src={tempIcon} alt="temp icon"/>
@@ -517,7 +517,7 @@ const MainMenu = ({className, dark, fetchMenu, menuData}) => {
                                             <h3 className="temp_count">13</h3>
                                             <p>San Francisco</p>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>

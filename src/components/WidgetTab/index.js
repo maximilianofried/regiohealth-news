@@ -2,22 +2,21 @@ import React, {Fragment, useState} from 'react';
 import {TabContent, TabPane, Nav, NavItem, Fade} from 'reactstrap';
 import classnames from 'classnames';
 import {Link} from "react-router-dom";
-
+import {CMS_LINK} from '../../utils/constants';
 import thumb1 from '../../doc/img/header/widget/tab1.jpg';
 import thumb2 from '../../doc/img/header/widget/tab2.jpg';
 import thumb3 from '../../doc/img/header/widget/tab3.jpg';
 import thumb4 from '../../doc/img/header/widget/tab4.jpg';
 import thumb5 from '../../doc/img/header/widget/tab5.jpg';
-
+import moment from 'moment';
 const data = [
     {
-        image: thumb1,
         title: 'Copa America: Luis Suarez from devastated US',
         category: 'TECHNOLOGY',
         date: 'March 26, 2020'
     },
     {
-        image: thumb2,
+        
         title: 'Nancy Zhang a Chinese busy woman and Dhaka',
         category: 'TECHNOLOGY',
         date: 'March 26, 2020'
@@ -35,32 +34,33 @@ const data = [
         date: 'March 26, 2020'
     },
     {
-        image: thumb5,
         title: 'Cheap smartphone sensor could help you old food safe',
         category: 'TECHNOLOGY',
         date: 'March 26, 2020'
     },
 ];
 
-const WidgetTabPane = ({arr, a_id, id, dark}) => {
+const WidgetTabPane = ({latestArticles, a_id, id, dark}) => {
+    console.log(latestArticles);
     return (
         <Fade in={id === a_id}>
             <div className="widget tab_widgets">
-                {arr.map((item, i) => (
+                {latestArticles.map((item, i) => (
                     <Fragment key={i}>
-                        <div className="single_post widgets_small">
-                            <div className="post_img">
+                        <div className={"single_post widgets_small " + (item.main_image ? '' : 'widgets_small_no_image')}>
+                            {item.main_image && item.main_image.formats &&
+                             <div className="post_img">
                                 <div className="img_wrap">
-                                    <Link to="/">
-                                        <img src={item.image} alt="thumb"/>
+                                    <Link to={`/post2/${item._id}`}>
+                                        <img src={CMS_LINK + item.main_image.formats.thumbnail.url} alt="thumb"/>
                                     </Link>
                                 </div>
-                            </div>
+                            </div>}
                             <div className="single_post_text">
-                                <div className="meta2 meta_separator1"><Link to="#">{item.category}</Link>
-                                    <Link to="#">{item.date}</Link>
+                                <div className="meta2 meta_separator1"><Link to="#">{item.categories[0].name}</Link>
+                                    <Link to="#">{moment(item.createdAt).format("LL")}</Link>
                                 </div>
-                                <h4><Link to="/post1">{item.title}</Link></h4>
+                                <h4><Link to={`/post2/${item._id}`}>{item.title}</Link></h4>
                             </div>
                         </div>
                         <div className="space-15"/>
@@ -73,16 +73,15 @@ const WidgetTabPane = ({arr, a_id, id, dark}) => {
     )
 };
 
-const WidgetTab = ({className, dark}) => {
+const WidgetTab = ({className, dark, latestArticles}) => {
     const [activeTab, setActiveTab] = useState('1');
 
     const toggle = tab => {
         if (activeTab !== tab) setActiveTab(tab);
     };
-
     return (
         <div className={`widget_tab md-mt-30 ${className}`}>
-            <Nav tabs>
+            {/* <Nav tabs>
                 <NavItem>
                     <Link
                         to="/"
@@ -116,11 +115,11 @@ const WidgetTab = ({className, dark}) => {
                         POPULAR
                     </Link>
                 </NavItem>
-            </Nav>
+            </Nav> */}
             <TabContent activeTab={activeTab}>
-                <TabPane tabId='1'><WidgetTabPane dark={dark} a_id={activeTab} id="1" arr={data}/></TabPane>
-                <TabPane tabId='2'><WidgetTabPane dark={dark} a_id={activeTab} id="2" arr={data}/></TabPane>
-                <TabPane tabId='3'><WidgetTabPane dark={dark} a_id={activeTab} id="3" arr={data}/></TabPane>
+                <TabPane tabId='1'><WidgetTabPane latestArticles={latestArticles} dark={dark} a_id={activeTab} id="1" arr={data}/></TabPane>
+                {/* <TabPane tabId='2'><WidgetTabPane dark={dark} a_id={activeTab} id="2" arr={data}/></TabPane>
+                <TabPane tabId='3'><WidgetTabPane dark={dark} a_id={activeTab} id="3" arr={data}/></TabPane> */}
             </TabContent>
         </div>
     );

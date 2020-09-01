@@ -66,10 +66,10 @@ const TopBar = ({className, dark}) => {
                             </div>
                             <div className={`social1 ${dark ? 'white' : ''}`}>
                                 <ul className="inline">
-                                    <li><Link to="#"><FontAwesome name="twitter"/></Link></li>
-                                    <li><Link to="#"><FontAwesome name="facebook-f"/></Link></li>
-                                    <li><Link to="#"><FontAwesome name="youtube-play"/></Link></li>
-                                    <li><Link to="#"><FontAwesome name="instagram"/></Link></li>
+                                    <li><a href="https://twitter.com/gesundticket" target="_blank"><FontAwesome name="twitter"/></a></li>
+                                    <li><a href="https://www.facebook.com/GesundheitsTicket" target="_blank"><FontAwesome name="facebook-f"/></a></li>
+                                    {/* <li><Link to="#"><FontAwesome name="youtube-play"/></Link></li> */}
+                                    <li><a href="https://www.instagram.com/gesundheitsticket/" target="_blank"><FontAwesome name="instagram"/></a></li>
                                 </ul>
                             </div>
                         </div>

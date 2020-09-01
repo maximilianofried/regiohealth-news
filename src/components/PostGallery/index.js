@@ -23,7 +23,7 @@ const thumbs = [gsil1, gsil2, gsil3, gsil4, gsil5, gsil6, gsil7, gsil4, gsil3];
 const postSlider = [
     {
         image: sliderImg1,
-        title: 'Japan’s virus success has puzzled the world. Is its luck running out?',
+        title: 'Trump’s virus success has puzzled the world. Is its luck running out?',
         body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…',
         category: 'TECHNOLOGY',
         date: 'March 26, 2020'
@@ -129,7 +129,7 @@ class PostGallery extends Component {
     };
 
     render() {
-        const {className} = this.props;
+        const {className, latestArticles} = this.props;
         const {nav1, nav2, vModal, videoId} = this.state;
 
         const navSettings = {
@@ -174,13 +174,13 @@ class PostGallery extends Component {
                                             fade={true}
                                             ref={slider => (this.slider1 = slider)}
                                         >
-                                            {postSlider.slice(0, 9).map((item, i) => (
+                                            {postSlider.slice(0, 1).map((item, i) => (
                                                 <div key={i} className="single_post post_type6 xs-mb30">
                                                     <div className="post_img gradient1">
                                                         <img src={item.image} alt="thumb"/>
-                                                        <span onClick={() => this.modalHandler(true)}
+                                                        {/* <span onClick={() => this.modalHandler(true)}
                                                               className="tranding"><FontAwesome
-                                                            name="play"/></span>
+                                                            name="play"/></span> */}
                                                     </div>
                                                     <div className="single_post_text">
                                                         <div className="meta meta_separator1">
@@ -196,7 +196,7 @@ class PostGallery extends Component {
                                             ))}
                                         </Slider>
                                     </div>
-                                    <div className="slider_demo1">
+                                    {/* <div className="slider_demo1">
                                         <Slider
                                             ref={slider => (this.slider2 = slider)}
                                             asNavFor={nav1}
@@ -208,17 +208,17 @@ class PostGallery extends Component {
                                                 </div>
                                             ))}
                                         </Slider>
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div className="col-xl-4">
-                                    <WidgetTab dark={true}/>
+                                    <WidgetTab latestArticles={latestArticles} dark={true}/>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <ModalVideo channel='youtube' isOpen={vModal} videoId={videoId}
-                            onClose={() => this.modalHandler(false)}/>
+                {/* <ModalVideo channel='youtube' isOpen={vModal} videoId={videoId}
+                            onClose={() => this.modalHandler(false)}/> */}
             </div>
         );
     }

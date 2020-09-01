@@ -2,7 +2,8 @@ import axios from 'axios';
 import {
     FETCH_ARTICLE_BY_ID_REQUEST,
     FETCH_ARTICLE_BY_ID_SUCCESS,
-    FETCH_ARTICLE_BY_ID_FAILURE
+    FETCH_ARTICLE_BY_ID_FAILURE,
+    FETCH_ARTICLE_CLEAN_UP
 } from "../constants/articleTypes";
 
 const fetchArticleRequest = () => {
@@ -26,11 +27,23 @@ const fetchArticleFailure = error => {
     }
 }
 
+export const fetchArticleCleanUp = () => {
+    return {
+        type: FETCH_ARTICLE_CLEAN_UP
+    }
+}
+
 // action creator, return function not object, not pure function ,async api calls
 export const fetchArticle = (id) => {
-    return (dispatch) => {
-        dispatch(fetchArticleRequest);
-        axios.get(`http://cms.gesundheitsticket.de/articles/${id}`)
+    return (dispatch, state) => {
+        dispatch(fetchArticleRequest)
+        const articles = state().articles.articles;
+        if(articles.length > 0) {
+            const article = articles.find(article => article._id === id);
+            dispatch(fetchArticleSuccess(article))
+        } 
+        else {
+            axios.get(`http://cms.gesundheitsticket.de/articles/${id}`)
             .then(response => {
                 //separar en categorias y guardar en objeto los array correspondientes
                 const article = response.data;
@@ -40,5 +53,6 @@ export const fetchArticle = (id) => {
                 const errorMsg = error.message;
                 dispatch(fetchArticleFailure(errorMsg));
             })
+        }
     }
 }

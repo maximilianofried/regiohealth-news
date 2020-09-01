@@ -114,7 +114,7 @@ const BusinessPage = ({businessArticles, fetchArticles}) => {
                                                         </Link>
                                                     </li>
                                                     <li className="page-item" onClick={onHandlePageChange}>
-                                                        <Link className="page-link" >1</Link>
+                                                        <Link className="page-link" to="/" >1</Link>
                                                     </li>
                                                     <li className="page-item">
                                                         <Link className="page-link" to="/">..</Link>
@@ -136,7 +136,7 @@ const BusinessPage = ({businessArticles, fetchArticles}) => {
                             </div>
                         </div>
                         <div className="col-md-6 col-lg-4">
-                            <WidgetTab/>
+                            {/* <WidgetTab/> */}
                             <WidgetTrendingNews/>
                             <NewsLetter/>
                             <FollowUs title="Follow Us"/>
