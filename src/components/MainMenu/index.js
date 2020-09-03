@@ -484,7 +484,7 @@ const MainMenu = ({className, dark, fetchMenu, menuData}) => {
                                     <SidebarMenu sideShow={sideShow} setSideShow={setSideShow} menus={arr}/>
                                 </div>
                             </nav>
-                            <div className="col-lg-4 align-self-center">
+                            {/* <div className="col-lg-4 align-self-center">
                                 <div className="menu_right">
                                     <div className="users_area">
                                         <ul className="inline">
@@ -509,7 +509,7 @@ const MainMenu = ({className, dark, fetchMenu, menuData}) => {
                                             </li>
                                         </ul>
                                     </div>
-                                    {/* <div className="temp d-none d-lg-block">
+                                    <div className="temp d-none d-lg-block">
                                         <div className="temp_wap">
                                             <div className="temp_icon">
                                                 <img src={tempIcon} alt="temp icon"/>
@@ -517,9 +517,9 @@ const MainMenu = ({className, dark, fetchMenu, menuData}) => {
                                             <h3 className="temp_count">13</h3>
                                             <p>San Francisco</p>
                                         </div>
-                                    </div> */}
+                                    </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

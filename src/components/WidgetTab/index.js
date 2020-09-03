@@ -9,6 +9,7 @@ import thumb3 from '../../doc/img/header/widget/tab3.jpg';
 import thumb4 from '../../doc/img/header/widget/tab4.jpg';
 import thumb5 from '../../doc/img/header/widget/tab5.jpg';
 import moment from 'moment';
+import banner2 from '../../doc/img/bg/sidebar-1.png';
 const data = [
     {
         title: 'Copa America: Luis Suarez from devastated US',
@@ -64,7 +65,8 @@ const WidgetTabPane = ({latestArticles, a_id, id, dark}) => {
                             </div>
                         </div>
                         <div className="space-15"/>
-                        {dark ? <div className="border_white"/> : <div className="border_black"/>}
+                        <div className="border_black"/>
+                        {/* {dark ? <div className="border_white"/> : <div className="border_black"/>} */}
                         <div className="space-15"/>
                     </Fragment>
                 ))}
@@ -121,6 +123,16 @@ const WidgetTab = ({className, dark, latestArticles}) => {
                 {/* <TabPane tabId='2'><WidgetTabPane dark={dark} a_id={activeTab} id="2" arr={data}/></TabPane>
                 <TabPane tabId='3'><WidgetTabPane dark={dark} a_id={activeTab} id="3" arr={data}/></TabPane> */}
             </TabContent>
+            <div className="row">
+                <div className="col-lg-12">
+                    <div className="banner2 mb30">
+                        <Link to="/">
+                            <img src={banner2} alt="thumb"/>
+                        </Link>
+                    </div>
+                </div>
+            </div>
+    
         </div>
     );
 };

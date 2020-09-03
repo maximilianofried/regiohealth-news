@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import "../../../node_modules/slick-carousel/slick/slick.css";
 import FontAwesome from "../uiStyle/FontAwesome";
 import ModalVideo from 'react-modal-video'
-
+import TrendingNews from "../../components/TrendingNews";
 // images
 import gsil1 from '../../doc/img/blog/post_gsi1.jpg';
 import gsil2 from '../../doc/img/blog/post_gsi2.jpg';
@@ -167,7 +167,8 @@ class PostGallery extends Component {
                         <div className="col-lg-12">
                             <div className="row">
                                 <div className="col-xl-8">
-                                    <div className="slider_demo2">
+                                <TrendingNews latestArticles={latestArticles.slice(0, 9)}/>
+                                    {/* <div className="slider_demo2">
                                         <Slider
                                             asNavFor={nav2}
                                             arrows={false}
@@ -178,9 +179,9 @@ class PostGallery extends Component {
                                                 <div key={i} className="single_post post_type6 xs-mb30">
                                                     <div className="post_img gradient1">
                                                         <img src={item.image} alt="thumb"/>
-                                                        {/* <span onClick={() => this.modalHandler(true)}
+                                                        <span onClick={() => this.modalHandler(true)}
                                                               className="tranding"><FontAwesome
-                                                            name="play"/></span> */}
+                                                            name="play"/></span>
                                                     </div>
                                                     <div className="single_post_text">
                                                         <div className="meta meta_separator1">
@@ -196,7 +197,7 @@ class PostGallery extends Component {
                                             ))}
                                         </Slider>
                                     </div>
-                                    {/* <div className="slider_demo1">
+                                    <div className="slider_demo1">
                                         <Slider
                                             ref={slider => (this.slider2 = slider)}
                                             asNavFor={nav1}
@@ -211,7 +212,7 @@ class PostGallery extends Component {
                                     </div> */}
                                 </div>
                                 <div className="col-xl-4">
-                                    <WidgetTab latestArticles={latestArticles} dark={true}/>
+                                    <WidgetTab latestArticles={latestArticles.slice(9, 14)} dark={true}/>
                                 </div>
                             </div>
                         </div>

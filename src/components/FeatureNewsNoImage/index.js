@@ -10,31 +10,26 @@ import FontAwesome from "../uiStyle/FontAwesome";
 
 const news = [
     {
-        image: fnewsImg2,
         category: 'TECHNOLOGY',
         date: 'March 26, 2020',
         title: 'Best garden wing supplies for the horticu ltural'
     },
     {
-        image: fnewsImg3,
         category: 'TECHNOLOGY',
         date: 'March 26, 2020',
         title: 'Copa America: Luis Suarez from devastated US'
     },
     {
-        image: fnewsImg4,
         category: 'TECHNOLOGY',
         date: 'March 26, 2020',
         title: 'Best garden wing supplies for the horticu ltural'
     },
     {
-        image: fnewsImg3,
         category: 'TECHNOLOGY',
         date: 'March 26, 2020',
         title: 'Copa America: Luis Suarez from devastated US'
     },
     {
-        image: fnewsImg4,
         category: 'TECHNOLOGY',
         date: 'March 26, 2020',
         title: 'Best garden wing supplies for the horticu ltural'
@@ -99,7 +94,7 @@ const FeatureNewsNoImage = ({className}) => {
                             <Swiper getSwiper={setSwiper} {...params}>
                                 {news.map((item, i) => (
                                     <div key={i} className="single_post post_type6 post_type7">
-                                        <div className="post_img gradient1">
+                                        <div className="post_img">
                                             <Link to="/"><img src={item.image} alt="thumb"/></Link>
                                         </div>
                                         <div className="single_post_text">

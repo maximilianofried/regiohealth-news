@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import FontAwesome from "../uiStyle/FontAwesome";
 import {Link} from "react-router-dom";
 import Swiper from 'react-id-swiper';
-
+import moment from 'moment';
+import {CMS_LINK} from '../../utils/constants';
 import trendbig1 from "../../doc/img/trending/trendbig1.jpg";
 import trendbig2 from "../../doc/img/trending/trendbig2.jpg";
 
@@ -30,10 +31,11 @@ const trendingNews = [
         image: trendbig1,
     },
 ];
-const TrendingNewsSlider = () => {
+const TrendingNewsSlider = ({dark, latestArticles}) => {
     const [swiper, setSwiper] = useState(null);
 
     const goNext = () => {
+        console.log("swiper",swiper)
         if (swiper !== null) {
             swiper.slideNext();
         }
@@ -69,26 +71,21 @@ const TrendingNewsSlider = () => {
     };
     return (
         <div className="carousel_post2_type3 nav_style1">
-            <Swiper getSwiper={setSwiper} className="trancarousel" {...params}>
-                {trendingNews.map((item, i) => (
-                    <div key={i} className="single_post post_type3">
-                        <div className="post_img">
-                            <div className="img_wrap">
-                                <img src={item.image} alt="thumb"/>
-                            </div>
-                            <span className="tranding"><FontAwesome name="fa-bolt"/></span>
+            <Swiper getSwiper={setSwiper} className="trancarousel" {...params} shouldSwiperUpdate>
+                { latestArticles.map((item, i) => 
+                (<div key={i} className="single_post post_type3">
+                    <div className="single_post_text">
+                        <div className="meta3"><Link to="/">{item.categories[0].name}</Link>
+                            <Link to="/">{moment(item.createdAt).format("LL")}</Link>
                         </div>
-                        <div className="single_post_text">
-                            <div className="meta3"><Link to="/">{item.category}</Link>
-                                <Link to="/">{item.date}</Link>
-                            </div>
-                            <h4><Link to="/post1">{item.title}</Link></h4>
-                            <div className="space-10"/>
-                            <p className="post-p">{item.body}</p>
-                        </div>
+                        <h4><Link to="/post1">{item.title}</Link></h4>
+                        <div className="space-10"/>
+                        <p className="post-p">{item.description}</p>
                     </div>
-                ))}
+                </div>)
+                )}
             </Swiper>
+            <div className="border_black"/>
             <div className="navBtns">
                 <div onClick={goPrev} className="navBtn prevtBtn"><FontAwesome name="angle-left"/></div>
                 <div onClick={goNext} className="navBtn nextBtn"><FontAwesome name="angle-right"/></div>

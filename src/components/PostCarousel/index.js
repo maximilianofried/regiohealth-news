@@ -11,19 +11,17 @@ import FontAwesome from "../uiStyle/FontAwesome";
 
 const postSlider = [
     {
-        title: 'The home decorations document: photograph of an',
+        title: 'The home decorations document, photograph of an',
         body: 'People have been infected',
         image: hside4
     },
     {
         title: 'U.S. Response subash says he will label regions by risk of…',
-        body: 'People have been infected',
-        image: hside5
+        body: 'People have been infected'
     },
     {
         title: 'Stimul package will transform the government fundamentally.',
         body: 'People have been infected',
-        image: hside6
     },
     {
         title: 'U.S. Response subash says he will label regions by risk of…',
@@ -89,17 +87,17 @@ const PostCarousel = ({className}) => {
                             <div className="px-4 position-relative">
                                 <Swiper getSwiper={setSwiper} className="trancarousel" {...params}>
                                     {postSlider.map((item, i) => (
-                                        <div key={i} className="single_post widgets_small post_type5">
-                                            <div className="post_img">
+                                        <div key={i} className={"single_post widgets_small post_type5 "  + (item.image ? '' : 'no_padding_left')}>
+                                          {item.image && <div className="post_img">
                                                 <div className="img_wrap">
                                                     <Link to="/">
                                                         <img src={item.image} alt="slider5"/>
                                                     </Link>
                                                 </div>
-                                            </div>
+                                            </div>}
                                             <div className="single_post_text">
                                                 <h4><Link to="/post1">{item.title}</Link></h4>
-                                                <p>{item.body}</p>
+                                               {item.categories && <p>{item.categories[0].name}</p>}
                                             </div>
                                         </div>
                                     ))}

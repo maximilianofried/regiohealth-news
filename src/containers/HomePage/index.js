@@ -91,13 +91,15 @@ const HomePage = ({latestArticles, fetchArticles}) => {
     return (
         <Fragment>
             {/* <PostCarousel className="fifth_bg"/> */}
+            <PostCarousel className="fifth_bg"/>
             <PostGallery latestArticles={latestArticles} className="fifth_bg"/>
-            <FeatureNewsNoImage/>
+            
+            {/* <FeatureNewsNoImage/> */}
             <div className="container">
                 <div className="row">
-                    {/* <div className="col-lg-8">
-                        <TrendingNews/>
-                    </div> */}
+                    <div className="col-lg-8">
+                        {/* <TrendingNews/> */}
+                    </div>
                     {/* <div className="col-md-12 col-lg-4">
                         <FollowUs title="Follow Us"/>
                         <MostView/>
@@ -170,7 +172,7 @@ const mapStateToProps = state => {
         businessArticles: state.articles.articles
             .filter((article) =>
                 article.categories.some((category) => category.name === "business")),
-        latestArticles: state.articles.articles.slice(0, 5)
+        latestArticles: state.articles.articles
             
     }
 }
