@@ -6,7 +6,7 @@ import moment from 'moment';
 import {CMS_LINK} from '../../utils/constants';
 import trendbig1 from "../../doc/img/trending/trendbig1.jpg";
 import trendbig2 from "../../doc/img/trending/trendbig2.jpg";
-
+import tp_banner from "../../doc/img/bg/banner1.png"
 
 const trendingNews = [
     {
@@ -86,10 +86,18 @@ const TrendingNewsSlider = ({dark, latestArticles}) => {
                 )}
             </Swiper>
             <div className="border_black"/>
+            <div className="space-10"/>
             <div className="navBtns">
                 <div onClick={goPrev} className="navBtn prevtBtn"><FontAwesome name="angle-left"/></div>
                 <div onClick={goNext} className="navBtn nextBtn"><FontAwesome name="angle-right"/></div>
             </div>
+            <div className="col-lg-12 align-self-center">
+                        <div className="banner1">
+                            <Link to="#">
+                                <img src={tp_banner} alt="banner"/>
+                            </Link>
+                        </div>
+                    </div>
         </div>
     );
 };
