@@ -30,7 +30,7 @@ const TopBar = ({className, dark}) => {
                 <div className="row">
                     <div className="col-md-8 align-self-center">
                         <div className={`trancarousel_area ${dark ? 'white' : ''}`}>
-                            <p className="trand">Tranding</p>
+                            <p className="trand">Local News</p>
                             <div className="nav_style1">
                                 <Swiper getSwiper={setSwiper} className="trancarousel" {...params}>
                                     <div className="trancarousel_item">
@@ -66,10 +66,10 @@ const TopBar = ({className, dark}) => {
                             </div>
                             <div className={`social1 ${dark ? 'white' : ''}`}>
                                 <ul className="inline">
-                                    <li><Link to="#"><FontAwesome name="twitter"/></Link></li>
-                                    <li><Link to="#"><FontAwesome name="facebook-f"/></Link></li>
-                                    <li><Link to="#"><FontAwesome name="youtube-play"/></Link></li>
-                                    <li><Link to="#"><FontAwesome name="instagram"/></Link></li>
+                                    <li><a href="https://twitter.com/gesundticket" target="_blank"><FontAwesome name="twitter"/></a></li>
+                                    <li><a href="https://www.facebook.com/GesundheitsTicket" target="_blank"><FontAwesome name="facebook-f"/></a></li>
+                                    {/* <li><Link to="#"><FontAwesome name="youtube-play"/></Link></li> */}
+                                    <li><a href="https://www.instagram.com/gesundheitsticket/" target="_blank"><FontAwesome name="instagram"/></a></li>
                                 </ul>
                             </div>
                         </div>

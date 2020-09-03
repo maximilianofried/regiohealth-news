@@ -484,7 +484,7 @@ const MainMenu = ({className, dark, fetchMenu, menuData}) => {
                                     <SidebarMenu sideShow={sideShow} setSideShow={setSideShow} menus={arr}/>
                                 </div>
                             </nav>
-                            <div className="col-lg-4 align-self-center">
+                            {/* <div className="col-lg-4 align-self-center">
                                 <div className="menu_right">
                                     <div className="users_area">
                                         <ul className="inline">
@@ -519,7 +519,7 @@ const MainMenu = ({className, dark, fetchMenu, menuData}) => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

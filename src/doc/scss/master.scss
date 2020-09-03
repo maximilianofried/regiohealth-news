@@ -785,7 +785,9 @@ span.tranding.tranding_border {
 
 
 /*POST TYPE-1*/
-
+.no_padding_left {
+  padding-left: 0 !important;
+}
 
 .widgets_small {
   padding-left: 117px;
@@ -835,6 +837,16 @@ span.tranding.tranding_border {
       line-height: 20px;
     }
   }
+
+  .img_wrap {
+    height: 77px;
+    width: 100px;
+  }
+}
+
+.widgets_small_no_image {
+  padding-left: 0;
+  min-height: 0;
 }
 
 .img_wrap {
@@ -1239,7 +1251,7 @@ span.tranding {
     }
 
     a {
-      color: $white;
+      color: black;
       font-size: $body_font_size;
       line-height: 21px;
       font-weight: $wightBold;
@@ -1537,7 +1549,7 @@ span.tranding {
       z-index: 2;
       line-height: 17px;
       margin-bottom: 5px;
-      color: $white;
+      color: black;
 
       &:last-child {
         margin-left: 20px;
@@ -1552,7 +1564,7 @@ span.tranding {
           top: 50%;
           margin-top: -10px;
           line-height: 20px;
-          color: $white;
+          color: black;
           text-align: center;
         }
       }
@@ -2518,7 +2530,7 @@ a.cbtn3 {
         z-index: 2;
         line-height: 17px;
         margin-bottom: 5px;
-        color: $white;
+        color: black;
 
         &:last-child {
           margin-left: 20px;
@@ -2533,7 +2545,7 @@ a.cbtn3 {
             top: 50%;
             margin-top: -10px;
             line-height: 20px;
-            color: $white;
+            color: black;
             text-align: center;
 
           }

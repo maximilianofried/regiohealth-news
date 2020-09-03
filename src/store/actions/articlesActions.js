@@ -30,7 +30,7 @@ const fetchArticlesFailure = error => {
 export const fetchArticles = () => {
     return (dispatch) => {
         dispatch(fetchArticlesRequest);
-        axios.get('http://cms.gesundheitsticket.de/articles')
+        axios.get('http://cms.gesundheitsticket.de/articles?_sort=createdAt:DESC')
             .then(response => {
                 //separar en categorias y guardar en objeto los array correspondientes
                 const articles = response.data;
