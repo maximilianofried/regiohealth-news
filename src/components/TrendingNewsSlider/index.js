@@ -80,7 +80,7 @@ const TrendingNewsSlider = ({dark, latestArticles}) => {
                         </div>
                         <h4><Link to={`/post2/${item._id}`}>{item.title}</Link></h4>
                         <div className="space-10"/>
-                        <p className="post-p">{item.description}</p>
+                        {/* <p className="post-p">{item.description}</p> */}
                     </div>
                 </div>)
                 )}
