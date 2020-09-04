@@ -75,7 +75,7 @@ const TrendingNews = ({dark, latestArticles}) => {
                                 </div>}
                                 <div className="single_post_text">
                                     <div className="meta2">
-                                        <Link to="/">{item.categories[0].name}</Link>
+                                    {item.categories.length > 0 ? <Link to="/">{item.categories[0].name}</Link>: ''}
                                         <Link to="/">{moment(item.createdAt).format("LL")}</Link>
                                     </div>
                                     <h4><Link to={`/post2/${item._id}`}>{item.title}</Link></h4>
@@ -105,7 +105,7 @@ const TrendingNews = ({dark, latestArticles}) => {
                             }
                                 <div className="single_post_text">
                                     <div className="meta2">
-                                        <Link to="/">{item.categories[0].name}</Link>
+                                        {item.categories.length > 0 ? <Link to="/">{item.categories[0].name}</Link>: ''}
                                         <Link to="/">{moment(item.createdAt).format("LL")}</Link>
                                     </div>
                                     <h4><Link to={`/post2/${item._id}`}>{item.title}</Link></h4>

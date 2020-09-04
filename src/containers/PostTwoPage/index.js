@@ -81,7 +81,7 @@ const PostTwoPage = ({articleData, fetchArticle}) => {
                                 <div className="col-12">
                                     <div className="page_comments">
                                         <ul className="inline">
-                                            <li className="page_category">{article.categories[0].name.toUpperCase()}</li>
+                                            <li className="page_category">{article.categories.length > 0 ? article.categories[0].name.toUpperCase() : ''}</li>
                                             <li><FontAwesome name="comment"/>563</li>
                                             <li><FontAwesome name="fire"/>536</li>
                                         </ul>
