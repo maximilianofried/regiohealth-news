@@ -10,6 +10,7 @@ import thumb4 from '../../doc/img/header/widget/tab4.jpg';
 import thumb5 from '../../doc/img/header/widget/tab5.jpg';
 import moment from 'moment';
 import banner2 from '../../doc/img/bg/sidebar-1.png';
+import qualitrain from '../../doc/img/ads/qualitrain.jpg'
 const data = [
     {
         title: 'Copa America: Luis Suarez from devastated US',
@@ -127,7 +128,7 @@ const WidgetTab = ({className, dark, latestArticles}) => {
                 <div className="col-lg-12">
                     <div className="banner2 mb30">
                         <Link to="/">
-                            <img src={banner2} alt="thumb"/>
+                            <img src={qualitrain} alt="thumb"/>
                         </Link>
                     </div>
                 </div>

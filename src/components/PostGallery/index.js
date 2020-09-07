@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
+import moment from 'moment';
 import WidgetTab from "../WidgetTab";
 import Slider from "react-slick";
 import "../../../node_modules/slick-carousel/slick/slick.css";
@@ -16,9 +17,8 @@ import gsil6 from '../../doc/img/blog/post_gsi6.jpg';
 import gsil7 from '../../doc/img/blog/post_gsi7.jpg';
 import sliderImg1 from '../../doc/img/header/sider-top.jpg';
 import sliderImg2 from '../../doc/img/header/sider-top2.jpg';
-
 import './style.scss';
-
+const CMS_LINK = "http://cms.gesundheitsticket.de";
 const thumbs = [gsil1, gsil2, gsil3, gsil4, gsil5, gsil6, gsil7, gsil4, gsil3];
 const postSlider = [
     {
@@ -129,7 +129,7 @@ class PostGallery extends Component {
     };
 
     render() {
-        const {className, latestArticles} = this.props;
+        const {className, latestArticles, topArticles} = this.props;
         const {nav1, nav2, vModal, videoId} = this.state;
 
         const navSettings = {
@@ -160,6 +160,7 @@ class PostGallery extends Component {
                 },
             ]
         };
+        console.log(topArticles)
         return (
             <div className={`post_gallary_area mb40 ${className}`}>
                 <div className="container">
@@ -167,38 +168,37 @@ class PostGallery extends Component {
                         <div className="col-lg-12">
                             <div className="row">
                                 <div className="col-xl-8">
-                                <TrendingNews latestArticles={latestArticles.slice(0, 9)}/>
-                                    {/* <div className="slider_demo2">
-                                        <Slider
+                                    <div className="slider_demo2">
+                                        {/* <Slider
                                             asNavFor={nav2}
                                             arrows={false}
                                             fade={true}
                                             ref={slider => (this.slider1 = slider)}
-                                        >
-                                            {postSlider.slice(0, 1).map((item, i) => (
+                                        > */}
+                                            {topArticles.slice(0, 1).map((item, i) => (
                                                 <div key={i} className="single_post post_type6 xs-mb30">
                                                     <div className="post_img gradient1">
-                                                        <img src={item.image} alt="thumb"/>
-                                                        <span onClick={() => this.modalHandler(true)}
+                                                        <img src={item.main_image ? `${CMS_LINK + item.main_image.url}` : sliderImg1} alt="thumb"/>
+                                                        {/* <span onClick={() => this.modalHandler(true)}
                                                               className="tranding"><FontAwesome
-                                                            name="play"/></span>
+                                                            name="play"/></span> */}
                                                     </div>
                                                     <div className="single_post_text">
                                                         <div className="meta meta_separator1">
-                                                            <Link to="#">{item.category}</Link>
-                                                            <Link to="#">{item.date}</Link>
+                                                            <Link to="#">{item.categories.length > 0 ? item.categories[0].name : ''}</Link>
+                                                            <Link to="#">{moment(item.createdAt).format("LL")}</Link>
                                                         </div>
                                                         <h4><Link className="play_btn"
-                                                                  to="/video_post1">{item.title}</Link></h4>
+                                                                  to={`/post2/${item._id}`}>{item.title}</Link></h4>
                                                         <div className="space-10"/>
-                                                        <p className="post-p">{item.body}</p>
+                                                        <p className="post-p">{item.description}</p>
                                                     </div>
                                                 </div>
                                             ))}
-                                        </Slider>
+                                        {/* </Slider> */}
                                     </div>
                                     <div className="slider_demo1">
-                                        <Slider
+                                        {/* <Slider
                                             ref={slider => (this.slider2 = slider)}
                                             asNavFor={nav1}
                                             {...navSettings}
@@ -208,8 +208,9 @@ class PostGallery extends Component {
                                                     <img src={item} alt="thumb"/>
                                                 </div>
                                             ))}
-                                        </Slider>
-                                    </div> */}
+                                        </Slider> */}
+                                    </div>
+                                     <TrendingNews latestArticles={latestArticles.slice(0, 9)}/>
                                 </div>
                                 <div className="col-xl-4">
                                     <WidgetTab latestArticles={latestArticles.slice(9, 14)} dark={true}/>

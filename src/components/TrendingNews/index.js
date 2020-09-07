@@ -54,7 +54,6 @@ const TrendingNews = ({dark, latestArticles}) => {
     return (
         <Fragment>
             <Heading title="Trending News"/>
-
             {dark ? <div className="border_white"/> : <div className="border_black"/>}
             <div className="space-30"/>
             <div className="row">
