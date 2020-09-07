@@ -68,10 +68,9 @@ const PostTwoPage = ({articleData, fetchArticle}) => {
                                 <div className="col-lg-6 align-self-center">
                                     <div className="author_social inline text-right">
                                         <ul>
-                                            <li><Link to="/"><FontAwesome name="instagram"/></Link></li>
-                                            <li><Link to="/"><FontAwesome name="facebook-f"/></Link></li>
-                                            <li><Link to="/"><FontAwesome name="youtube-play"/></Link></li>
-                                            <li><Link to="/"><FontAwesome name="instagram"/></Link></li>
+                                            <li><a href={"https://twitter.com/share?url=news.gesundheitsticket.de/post2/" + article._id}  target="_blank"><FontAwesome name="twitter"/></a></li>
+                                            <li><a href={"https://www.facebook.com/sharer/sharer.php?u=news.gesundheitsticket.de/post2/" + article._id}  target="_blank"><FontAwesome name="facebook-f"/></a></li>
+                                            <li><a href={"https://wa.me/?text=news.gesundheitsticket.de/post2/" + article._id}  target="_blank"><FontAwesome name="whatsapp"/></a></li>
                                         </ul>
                                     </div>
                                 </div>

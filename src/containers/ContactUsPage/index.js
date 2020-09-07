@@ -52,7 +52,7 @@ class ContactUsPage extends Component {
         const {name, subject, email, phone, message} = this.state;
         return (
             <Fragment>
-                <div className="inner inner_bg inner_overlay">
+                {/* <div className="inner inner_bg inner_overlay">
                     <div className="container">
                         <div className="inner_wrap">
                             <div className="row">
@@ -70,12 +70,12 @@ class ContactUsPage extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
                 <div className="contacts section-padding">
                     <div className="container">
                         <div className="row">
-                            <div className="col-lg-4">
+                            {/* <div className="col-lg-4">
                                 <div className="box single_contact_box">
                                     <div className="contact_title">
                                         <h3>Headquarters</h3>
@@ -88,32 +88,32 @@ class ContactUsPage extends Component {
                                         <h6>44 Canal Center Plaza #200 Alexandria, VA 22314, USA</h6>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="col-lg-4">
+                            </div> */}
+                            <div className="col-lg-5">
                                 <div className="box single_contact_box">
                                     <div className="contact_title">
                                         <h3>Headquarters</h3>
                                     </div>
                                     <div className="contact_details">
                                         <div className="contact_details_icon">
-                                            <img src={black_phone} alt="black_phone"/>
+                                        <FontAwesome name="map-marker-alt"/>
                                         </div>
                                         <p>LOCATION:</p>
-                                        <h6>44 Canal Center Plaza #200 Alexandria, VA 22314, USA</h6>
+                                        <h6> Kollwitzstraße 77, 10435, Berlin</h6>
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-lg-4">
+                            <div className="col-lg-5">
                                 <div className="box single_contact_box">
                                     <div className="contact_title">
                                         <h3>Headquarters</h3>
                                     </div>
                                     <div className="contact_details">
                                         <div className="contact_details_icon">
-                                            <FontAwesome name="envelope"/>
+                                        <FontAwesome name="map-marker-alt"/>
                                         </div>
                                         <p>LOCATION:</p>
-                                        <h6>44 Canal Center Plaza #200 Alexandria, VA 22314, USA</h6>
+                                        <h6>Logenstraße 8, 15230, Frankfurt (Oder)</h6>
                                     </div>
                                 </div>
                             </div>
@@ -131,13 +131,13 @@ class ContactUsPage extends Component {
                                         frameBorder={0}
                                         height="450px"
                                         width="100%"
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.9147703055!2d-74.11976314309273!3d40.69740344223377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sbd!4v1547528325671"
+                                        src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Kollwitzstra%C3%9Fe%2077+(GesundheitsTicket)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                                         allowFullScreen/>
                                 </div>
                             </div>
                         </div>
                         <div className="space-50"/>
-                        <div className="row">
+                        {/* <div className="row">
                             <div className="col-lg-8">
                                 <div className="cotact_form">
                                     <div className="row">
@@ -194,7 +194,7 @@ class ContactUsPage extends Component {
                                 <FollowUs title="Follow Us"/>
                                 <NewsLetter/>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <BannerSection/>
