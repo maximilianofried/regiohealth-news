@@ -1,11 +1,16 @@
-import React, {Fragment} from "react";
+import React, {Fragment, useEffect} from "react";
 import {toast, ToastContainer} from "react-toastify";
 import {connect} from "react-redux";
 import Routes from "../__Routes";
 import ScrollTopButton from "../../components/ScrollTopButton";
 import ScrollToTop from "../../components/ScrollToTop";
+import {fetchOnInit} from "../../store/actions";
 
 const App = (props) => {
+    useEffect(() => {
+        console.log("USEFFECT")
+        props.fetchOnInit()
+    }, [])
     const {error, success} = props;
     if (error) toast.error(error);
     if (success) toast.success(success);
@@ -20,11 +25,20 @@ const App = (props) => {
     );
 };
 
-const MapStateToProps = state => {
+const mapStateToProps = state => {
     return {
         error: state.meta.error,
-        success: state.meta.success,
+        success: state.meta.success
     }
 };
 
-export default connect(MapStateToProps)(App);
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchOnInit: () => dispatch(fetchOnInit()),
+    }
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App);

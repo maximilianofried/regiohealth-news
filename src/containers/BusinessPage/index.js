@@ -77,7 +77,6 @@ const businessNews = [
 ];
 const BusinessPage = ({businessArticles, fetchArticles}) => {
     const onHandlePageChange = (event) => {
-        console.log(event);
     }
     useEffect(() => {
         fetchArticles()

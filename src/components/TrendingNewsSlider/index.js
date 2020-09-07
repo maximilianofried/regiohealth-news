@@ -35,7 +35,6 @@ const TrendingNewsSlider = ({dark, latestArticles}) => {
     const [swiper, setSwiper] = useState(null);
 
     const goNext = () => {
-        console.log("swiper",swiper)
         if (swiper !== null) {
             swiper.slideNext();
         }

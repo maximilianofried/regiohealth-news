@@ -84,10 +84,11 @@ const businessNews = [
     },
 ];
 
-const HomePage = ({latestArticles, fetchArticles}) => {
+const HomePage = ({latestArticles, localArticles, fetchArticles}) => {
     useEffect(() => {
         fetchArticles()
     }, [])
+    console.log(localArticles)
     return (
         <Fragment>
             {/* <PostCarousel className="fifth_bg"/> */}
@@ -168,11 +169,14 @@ const HomePage = ({latestArticles, fetchArticles}) => {
 };
 
 const mapStateToProps = state => {
+    console.log(state);
     return {
         businessArticles: state.articles.articles
             .filter((article) =>
                 article.categories.some((category) => category.name === "business")),
-        latestArticles: state.articles.articles
+        latestArticles: state.articles.articles,
+        localArticles: state.articles.articles
+            .filter((article) => article.city === state.onInit.onInit.city),
             
     }
 }
