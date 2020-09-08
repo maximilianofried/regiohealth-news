@@ -116,7 +116,7 @@ const TrendingNews = ({dark, latestArticles}) => {
                     ))}
                 </div>
             </div>
-            <Heading title="Local News"/>
+            <Heading title="More News"/>
                         <TrendingNewsSlider latestArticles={latestArticles.slice(6, 14)}/>
         </Fragment>
     );

@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import FontAwesome from "../uiStyle/FontAwesome";
 import {Link} from "react-router-dom";
+import {connect} from 'react-redux';
 import Swiper from 'react-id-swiper';
 import moment from 'moment';
 import {CMS_LINK} from '../../utils/constants';
@@ -32,46 +33,48 @@ const trendingNews = [
     },
 ];
 const TrendingNewsSlider = ({dark, latestArticles}) => {
-    const [swiper, setSwiper] = useState(null);
+    const ref = useRef(null);
 
     const goNext = () => {
-        if (swiper !== null) {
-            swiper.slideNext();
+        if (ref.current !== null && ref.current.swiper !== null) {
+          ref.current.swiper.slideNext();
         }
     };
 
     const goPrev = () => {
-        if (swiper !== null) {
-            swiper.slidePrev();
+        if (ref.current !== null && ref.current.swiper !== null) {
+          ref.current.swiper.slidePrev();
         }
     };
+
     const params = {
         slidesPerView: 2,
         spaceBetween: 20,
         loop: true,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
-        },
         breakpoints: {
             1024: {
                 slidesPerView: 2,
                 spaceBetween: 20
             },
             768: {
-                slidesPerView: 1,
+                slidesPerView: 2,
                 spaceBetween: 20
             },
-            300: {
-                slidesPerView: 1,
+            640: {
+                slidesPerView: 2,
                 spaceBetween: 20
             },
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 20
+            }
         }
     };
+
     return (
         <div className="carousel_post2_type3 nav_style1">
-            <Swiper getSwiper={setSwiper} className="trancarousel" {...params} shouldSwiperUpdate>
-                { latestArticles.map((item, i) => 
+            <Swiper ref={ref} className="trancarousel" {...params} shouldSwiperUpdate>
+                {latestArticles.length > 0 &&  latestArticles.map((item, i) =>
                 (<div key={i} className="single_post post_type3">
                     <div className="single_post_text">
                         <div className="meta3"><Link to="/">{item.categories[0].name}</Link>
@@ -101,4 +104,4 @@ const TrendingNewsSlider = ({dark, latestArticles}) => {
     );
 };
 
-export default TrendingNewsSlider;
+export default connect(null, null, null,{forwardRef: true})(TrendingNewsSlider);

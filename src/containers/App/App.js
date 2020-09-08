@@ -8,7 +8,6 @@ import {fetchOnInit} from "../../store/actions";
 
 const App = (props) => {
     useEffect(() => {
-        console.log("USEFFECT")
         props.fetchOnInit()
     }, [])
     const {error, success} = props;

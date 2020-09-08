@@ -160,7 +160,6 @@ class PostGallery extends Component {
                 },
             ]
         };
-        console.log(topArticles)
         return (
             <div className={`post_gallary_area mb40 ${className}`}>
                 <div className="container">
