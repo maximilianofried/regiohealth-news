@@ -15,6 +15,7 @@ import business1 from '../../doc/img/business/business1.jpg';
 import business2 from '../../doc/img/business/business2.jpg';
 import business3 from '../../doc/img/business/business3.jpg';
 import banner2 from "../../doc/img/bg/sidebar-1.png";
+import akon1 from "../../doc/img/ads/akon-1.jpg"
 import BannerSection from "../../components/BannerSection";
 
 const businessNews = [
@@ -159,7 +160,7 @@ const BusinessPage = ({filteredArticles, fetchArticles, loadNewPage, loadExactPa
                             <FollowUs title="Follow Us"/> */}
                             <div className="banner2 mb30">
                                 <Link to="/">
-                                    <img src={banner2} alt="thumb"/>
+                                    <img src={akon1} alt="thumb"/>
                                 </Link>
                             </div>
                         </div>
