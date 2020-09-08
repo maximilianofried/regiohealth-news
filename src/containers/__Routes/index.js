@@ -94,12 +94,23 @@ const Routes = () => {
                 exact
                 path="/business"
                 parentClass="theme-1"
-                component={BusinessPage}/>
+                component={(props) => (
+                    <BusinessPage {...props} category={"Business"}/>
+                )}/>
             <PrivateRoute
                 exact
                 path="/art"
                 parentClass="theme-1"
-                component={BusinessPage}/>
+                component={(props) => (
+                    <BusinessPage {...props} category={"Art"}/>
+                )}/>
+            <PrivateRoute
+                exact
+                path="/science"
+                parentClass="theme-1"
+                component={(props) => (
+                    <BusinessPage {...props} category={"Science"}/>
+                )}/>
             <PrivateRoute
                 exact
                 path="/entertainment"
