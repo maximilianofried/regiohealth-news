@@ -43,7 +43,6 @@ const data = [
 ];
 
 const WidgetTabPane = ({latestArticles, a_id, id, dark}) => {
-    console.log(latestArticles);
     return (
         <Fade in={id === a_id}>
             <div className="widget tab_widgets">

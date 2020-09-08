@@ -50,7 +50,6 @@ const trendingNews = [
 ];
 
 const TrendingNews = ({dark, latestArticles}) => {
-    console.log("LATEST",latestArticles)
     return (
         <Fragment>
             <Heading title="Trending News"/>
@@ -117,7 +116,7 @@ const TrendingNews = ({dark, latestArticles}) => {
                     ))}
                 </div>
             </div>
-            <Heading title="Local News"/>
+            <Heading title="More News"/>
                         <TrendingNewsSlider latestArticles={latestArticles.slice(6, 14)}/>
         </Fragment>
     );
