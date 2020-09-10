@@ -18,7 +18,7 @@ import gsil7 from '../../doc/img/blog/post_gsi7.jpg';
 import sliderImg1 from '../../doc/img/header/sider-top.jpg';
 import sliderImg2 from '../../doc/img/header/sider-top2.jpg';
 import './style.scss';
-const CMS_LINK = "http://cms.gesundheitsticket.de";
+const CMS_LINK = "https://cms.gesundheitsticket.de";
 const thumbs = [gsil1, gsil2, gsil3, gsil4, gsil5, gsil6, gsil7, gsil4, gsil3];
 const postSlider = [
     {
