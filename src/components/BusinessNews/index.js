@@ -22,7 +22,7 @@ const BusinessNews = ({businessArticles, headerHide}) => {
                                     <div className="post_img">
                                         <div className="img_wrap">
                                             <Link to={`/post2/${item._id}`}>
-                                            { item.main_image ? <img src={"http://cms.gesundheitsticket.de" + item.main_image.url} alt="thumb"/> : ''}
+                                            { item.main_image ? <img src={"https://cms.gesundheitsticket.de" + item.main_image.url} alt="thumb"/> : ''}
                                             </Link>
                                         </div>
                                     </div>

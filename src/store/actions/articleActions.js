@@ -43,7 +43,7 @@ export const fetchArticle = (id) => {
             dispatch(fetchArticleSuccess(article))
         } 
         else {
-            axios.get(`http://cms.gesundheitsticket.de/articles/${id}`)
+            axios.get(`https://cms.gesundheitsticket.de/articles/${id}`)
             .then(response => {
                 //separar en categorias y guardar en objeto los array correspondientes
                 const article = response.data;

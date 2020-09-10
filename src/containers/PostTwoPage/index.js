@@ -18,7 +18,9 @@ import big1 from '../../doc/img/blog/big1.jpg';
 import smail1 from '../../doc/img/blog/smail1.jpg';
 import single_post1 from '../../doc/img/blog/single_post1.jpg';
 import banner1 from '../../doc/img/bg/banner1.png';
-const CMS_LINK = "http://cms.gesundheitsticket.de";
+import Helmet from "react-helmet";
+const CMS_LINK = "https://cms.gesundheitsticket.de";
+
 const transform = (data) => {
     const imageLink = `${CMS_LINK + data}`;
     return imageLink
@@ -37,6 +39,12 @@ const PostTwoPage = ({articleData, fetchArticle}) => {
     return (
         article &&
         <Fragment>
+                        <Helmet>
+                <title>{article.title}</title>
+                <meta name="description" content="Helmet application" />
+                <meta property="og:title" content={article.title} />
+                <meta property="og:image" content={CMS_LINK + article.main_image.url} />
+            </Helmet>
             <div className="archives post post1">
                 <BreadCrumb className="shadow5 padding-top-30" title="Archive / post 1"/>
                 <span className="space-30"/>

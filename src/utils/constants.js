@@ -1,1 +1,1 @@
-export const CMS_LINK = "http://cms.gesundheitsticket.de";
+export const CMS_LINK = "https://cms.gesundheitsticket.de";

@@ -45,7 +45,7 @@ export const loadExactPage = payload => {
 // action creator, return function not object, not pure function ,async api calls
 export const fetchArticles = (category) => {
     return (dispatch) => {
-        let url = category ? 'http://cms.gesundheitsticket.de/articles?_sort=createdAt:DESC' + '&categories.name_contains=' + category : 'http://cms.gesundheitsticket.de/articles?_sort=createdAt:DESC'
+        let url = category ? 'https://cms.gesundheitsticket.de/articles?_sort=createdAt:DESC' + '&categories.name_contains=' + category : 'http://cms.gesundheitsticket.de/articles?_sort=createdAt:DESC'
         dispatch(fetchArticlesRequest);
         axios.get(url)
             .then(response => {

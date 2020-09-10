@@ -30,7 +30,7 @@ const fetchCategoriesFailure = error => {
 export const fetchCategories = () => {
     return (dispatch) => {
         dispatch(fetchCategoriesRequest);
-        axios.get('http://cms.gesundheitsticket.de/categories')
+        axios.get('https://cms.gesundheitsticket.de/categories')
             .then(response => {
                 const categories = response.data;
                 dispatch(fetchCategoriesSuccess(categories))

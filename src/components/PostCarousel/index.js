@@ -9,7 +9,7 @@ import hside1 from '../../doc/img/header/slider/hside1.jpg';
 import hside2 from '../../doc/img/header/slider/hside2.jpg';
 import hside3 from '../../doc/img/header/slider/hside3.jpg';
 import FontAwesome from "../uiStyle/FontAwesome";
-const CMS_LINK = "http://cms.gesundheitsticket.de";
+const CMS_LINK = "https://cms.gesundheitsticket.de";
 const postSlider = [
     {
         title: 'The home decorations document, photograph of an',

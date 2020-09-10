@@ -30,7 +30,7 @@ const fetchMenuFailure = error => {
 export const fetchMenu = () => {
     return (dispatch) => {
         dispatch(fetchMenuRequest);
-        axios.get('http://cms.gesundheitsticket.de/menus')
+        axios.get('https://cms.gesundheitsticket.de/menus')
             .then(response => {
                 //separar en categorias y guardar en objeto los array correspondientes
                 const menu = response.data;

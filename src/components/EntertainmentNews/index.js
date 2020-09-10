@@ -5,7 +5,7 @@ import moment from 'moment';
 import { buyCake, fetchArticles } from '../../store/actions';
 //Image size 700x500
 const EntertainmentNews = ({entertainments}) => {
-    return ( entertainments && 
+    return ( entertainments &&
         <Fragment>
             {entertainments.map((item, i) => (
                 <div key={i} className="col-lg-6">
@@ -13,7 +13,7 @@ const EntertainmentNews = ({entertainments}) => {
                         <div className="post_img">
                             <div className="img_wrap">
                                 <Link to={`/post2/${item._id}`}>
-                                   { item.main_image ? <img src={"http://cms.gesundheitsticket.de" + item.main_image.url} alt="thumb"/> : ''}
+                                   { item.main_image ? <img src={"https://cms.gesundheitsticket.de" + item.main_image.url} alt="thumb"/> : ''}
                                 </Link>
                             </div>
                         </div>
