@@ -49,7 +49,8 @@ const trendingNews = [
     },
 ];
 
-const TrendingNews = ({dark, latestArticles}) => {
+const TrendingNews = ({dark, latestArticles, adsHome}) => {
+    console.log(adsHome)
     return (
         <Fragment>
             <Heading title="Trending News"/>
@@ -117,7 +118,7 @@ const TrendingNews = ({dark, latestArticles}) => {
                 </div>
             </div>
             <Heading title="More News"/>
-                        <TrendingNewsSlider latestArticles={latestArticles.slice(6, 14)}/>
+                        <TrendingNewsSlider adsHome={adsHome} latestArticles={latestArticles.slice(6, 14)}/>
         </Fragment>
     );
 };

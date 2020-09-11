@@ -75,7 +75,8 @@ const WidgetTabPane = ({latestArticles, a_id, id, dark}) => {
     )
 };
 
-const WidgetTab = ({className, dark, latestArticles}) => {
+const WidgetTab = ({className, dark, latestArticles, adsHome}) => {
+    console.log(adsHome);
     const [activeTab, setActiveTab] = useState('1');
 
     const toggle = tab => {
@@ -127,12 +128,11 @@ const WidgetTab = ({className, dark, latestArticles}) => {
                 <div className="col-lg-12">
                     <div className="banner2 mb30">
                         <Link to="/">
-                            <img src={qualitrain} alt="thumb"/>
+                            {adsHome && adsHome.length > 0 && <img src={CMS_LINK + adsHome[0].image[0].url} alt="thumb"/>}
                         </Link>
                     </div>
                 </div>
             </div>
-    
         </div>
     );
 };

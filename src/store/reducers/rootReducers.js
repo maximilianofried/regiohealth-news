@@ -1,19 +1,19 @@
 import {combineReducers} from 'redux'
 import metaReducer from './metaReducer';
-import cakeReducer from './cakeReducer';
 import articlesReducer from './articlesReducer';
 import categoryReducer from './categoryReducer';
 import menuReducer from './menuReducer';
 import articleReducer from './articleReducer';
 import onInitReducer from './onInitReducer';
+import adsReducer from './adsReducer';
 
 const rootReducer = combineReducers({
     meta: metaReducer,
-    cake: cakeReducer,
     articles: articlesReducer,
     article: articleReducer,
     category: categoryReducer,
     menu: menuReducer,
-    onInit: onInitReducer
+    onInit: onInitReducer,
+    ads: adsReducer
 });
 export default rootReducer

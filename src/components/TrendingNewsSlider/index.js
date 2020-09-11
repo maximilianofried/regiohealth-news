@@ -8,7 +8,6 @@ import {CMS_LINK} from '../../utils/constants';
 import trendbig1 from "../../doc/img/trending/trendbig1.jpg";
 import trendbig2 from "../../doc/img/trending/trendbig2.jpg";
 import tp_banner from "../../doc/img/bg/banner1.png"
-
 const trendingNews = [
     {
         category: 'TECHNOLOGY',
@@ -32,7 +31,8 @@ const trendingNews = [
         image: trendbig1,
     },
 ];
-const TrendingNewsSlider = ({dark, latestArticles}) => {
+const TrendingNewsSlider = ({dark, latestArticles, adsHome = []}) => {
+    console.log(adsHome[0])
     const ref = useRef(null);
 
     const goNext = () => {
@@ -96,7 +96,7 @@ const TrendingNewsSlider = ({dark, latestArticles}) => {
             <div className="col-lg-12 align-self-center">
                         <div className="banner1">
                             <Link to="#">
-                                <img src={tp_banner} alt="banner"/>
+                              {adsHome && adsHome.length > 0 && <img src={CMS_LINK + adsHome[0].image[0].url} alt="banner"/>}
                             </Link>
                         </div>
                     </div>
