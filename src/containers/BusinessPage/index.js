@@ -86,11 +86,9 @@ const BusinessPage = ({filteredArticles, fetchArticles, loadNewPage, loadExactPa
         loadExactPage(page)
     }
     const previousPage = () => {
-        console.log("previous")
         loadNewPage({page: -1})
     }
     const nextPage = () => {
-        console.log("next")
         loadNewPage({page: 1})
     }
 

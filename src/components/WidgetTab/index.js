@@ -76,7 +76,6 @@ const WidgetTabPane = ({latestArticles, a_id, id, dark}) => {
 };
 
 const WidgetTab = ({className, dark, latestArticles, adsHome}) => {
-    console.log(adsHome);
     const [activeTab, setActiveTab] = useState('1');
 
     const toggle = tab => {

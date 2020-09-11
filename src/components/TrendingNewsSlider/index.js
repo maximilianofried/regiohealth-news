@@ -32,7 +32,6 @@ const trendingNews = [
     },
 ];
 const TrendingNewsSlider = ({dark, latestArticles, adsHome = []}) => {
-    console.log(adsHome[0])
     const ref = useRef(null);
 
     const goNext = () => {

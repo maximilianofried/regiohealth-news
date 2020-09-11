@@ -131,7 +131,6 @@ class PostGallery extends Component {
     render() {
         const {className, latestArticles, topArticles, adsHome} = this.props;
         const {nav1, nav2, vModal, videoId} = this.state;
-        console.log(adsHome)
         const navSettings = {
             nextArrow: <SampleNextArrow/>,
             prevArrow: <SamplePrevArrow/>,

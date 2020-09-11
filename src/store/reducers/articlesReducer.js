@@ -51,7 +51,6 @@ const articlesReducer = (state = initialState, action) => {
             let perPage = loadNewPageState.counterPerPage; //20 by default
 
             let nextArticles;
-            console.log(loadNewPageState, addPages, perPage, nextArticles)
             if (addPages === 1){
                 //Moving from page 1 to 2 will cause ‘upperCount’ to be 40
                 let upperCount = loadNewPageState.currentCount + perPage;

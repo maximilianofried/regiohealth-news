@@ -50,7 +50,6 @@ const trendingNews = [
 ];
 
 const TrendingNews = ({dark, latestArticles, adsHome}) => {
-    console.log(adsHome)
     return (
         <Fragment>
             <Heading title="Trending News"/>
