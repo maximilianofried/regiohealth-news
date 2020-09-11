@@ -1,6 +1,6 @@
 import React, {Fragment, useEffect} from 'react';
 import {connect} from 'react-redux';
-import {fetchArticles} from "../../store/actions";
+import {fetchArticles, fetchAds} from "../../store/actions";
 import PostCarousel from "../../components/PostCarousel";
 import PostGallery from "../../components/PostGallery";
 import FeatureNewsNoImage from "../../components/FeatureNewsNoImage";
@@ -85,15 +85,16 @@ const businessNews = [
 ];
 
 
-const HomePage = ({latestArticles,topArticles, localArticles, fetchArticles}) => {
+const HomePage = ({latestArticles,topArticles, localArticles, fetchArticles, fetchAds, adsHome}) => {
     useEffect(() => {
         fetchArticles()
+        fetchAds()
     }, [])
     return (
         <Fragment>
             {/* <PostCarousel className="fifth_bg"/> */}
             <PostCarousel localArticles={localArticles} className="fifth_bg"/>
-            <PostGallery latestArticles={latestArticles} topArticles={topArticles} className="fifth_bg"/>
+            <PostGallery latestArticles={latestArticles} topArticles={topArticles} adsHome={adsHome} className="fifth_bg"/>
             {/* <FeatureNewsNoImage/> */}
             <div className="container">
                 <div className="row">
@@ -178,14 +179,17 @@ const mapStateToProps = state => {
         latestArticles: state.articles.articles
             .filter((article) =>
                 (article.categories.some((category) => category.name !== "Top"))),
-        localArticles:state.articles.articles
+        localArticles: state.articles.articles
             .filter((article) => (article.city ? article.city === state.onInit.onInit.city && article.city !== '' : '')),
+        adsHome: state.ads.ads
+            .filter((ad) => ad.position === "home")
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         fetchArticles: () => dispatch(fetchArticles()),
+        fetchAds: () => dispatch(fetchAds())
     }
 }
 export default connect(

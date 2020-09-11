@@ -1,6 +1,6 @@
 import React, {Fragment, useEffect} from 'react';
 import {connect} from 'react-redux';
-import {fetchArticles, loadNewPage, loadExactPage} from "../../store/actions";
+import {fetchArticles, loadNewPage, loadExactPage, fetchAds} from "../../store/actions";
 import BreadCrumb from "../../components/BreadCrumb";
 import BusinessNews from "../../components/BusinessNews";
 import FontAwesome from "../../components/uiStyle/FontAwesome";
@@ -17,7 +17,7 @@ import business3 from '../../doc/img/business/business3.jpg';
 import banner2 from "../../doc/img/bg/sidebar-1.png";
 import akon1 from "../../doc/img/ads/akon-1.jpg"
 import BannerSection from "../../components/BannerSection";
-
+const CMS_LINK = "https://cms.gesundheitsticket.de";
 const businessNews = [
     {
         image: business1,
@@ -76,20 +76,19 @@ const businessNews = [
         body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
     },
 ];
-const BusinessPage = ({filteredArticles, fetchArticles, loadNewPage, loadExactPage, filteredPages, category}) => {
+const BusinessPage = ({filteredArticles, fetchArticles, loadNewPage, loadExactPage, filteredPages, category, fetchAds, adsCategory}) => {
     useEffect(() => {
         fetchArticles(category)
+        fetchAds()
     },[])
-
+    const banner350x292 = adsCategory.filter((ad) => ad.size === "s350x292")[0] || {};
     const goToPage = (page) => {
         loadExactPage(page)
     }
     const previousPage = () => {
-        console.log("previous")
         loadNewPage({page: -1})
     }
     const nextPage = () => {
-        console.log("next")
         loadNewPage({page: 1})
     }
 
@@ -160,7 +159,7 @@ const BusinessPage = ({filteredArticles, fetchArticles, loadNewPage, loadExactPa
                             <FollowUs title="Follow Us"/> */}
                             <div className="banner2 mb30">
                                 <Link to="/">
-                                    <img src={akon1} alt="thumb"/>
+                                {banner350x292.image && banner350x292.image.length > 0 && <img src={CMS_LINK + banner350x292.image[0].url} alt="banner"/>}
                                 </Link>
                             </div>
                         </div>
@@ -176,7 +175,8 @@ const BusinessPage = ({filteredArticles, fetchArticles, loadNewPage, loadExactPa
 const mapStateToProps = state => {
     return {
         filteredArticles: state.articles.filteredArticles,
-        filteredPages: state.articles.filteredPages
+        filteredPages: state.articles.filteredPages,
+        adsCategory: state.ads.ads.filter((ad) => ad.position === "category")
     }
 }
 
@@ -184,7 +184,8 @@ const mapDispatchToProps = dispatch => {
     return {
         fetchArticles: (category) => dispatch(fetchArticles(category)),
         loadNewPage: (page) => dispatch(loadNewPage({page})),
-        loadExactPage: (page) => dispatch(loadExactPage({page}))
+        loadExactPage: (page) => dispatch(loadExactPage({page})),
+        fetchAds: () => dispatch(fetchAds())
     }
 }
 export default connect(

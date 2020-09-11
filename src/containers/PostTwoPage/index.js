@@ -116,14 +116,15 @@ const PostTwoPage = ({articleData, fetchArticle}) => {
                     </div>
                 </div>
             </div>
-            <div className="space-60"/>
+            <div className="space-100"/>
+            <BannerSection/>
+            {/* <div className="space-60"/>
             <OurBlogSection/>
             <div className="space-60"/>
             <BlogComment/>
-            <div className="space-100"/>
-            <BannerSection/>
+
             <ModalVideo channel='youtube' isOpen={vModal} videoId={videoId}
-                        onClose={() => setvModal(false)}/>
+                        onClose={() => setvModal(false)}/> */}
         </Fragment>
     )
 };

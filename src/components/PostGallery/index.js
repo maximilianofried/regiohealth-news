@@ -129,9 +129,8 @@ class PostGallery extends Component {
     };
 
     render() {
-        const {className, latestArticles, topArticles} = this.props;
+        const {className, latestArticles, topArticles, adsHome} = this.props;
         const {nav1, nav2, vModal, videoId} = this.state;
-
         const navSettings = {
             nextArrow: <SampleNextArrow/>,
             prevArrow: <SamplePrevArrow/>,
@@ -209,10 +208,10 @@ class PostGallery extends Component {
                                             ))}
                                         </Slider> */}
                                     </div>
-                                     <TrendingNews latestArticles={latestArticles.slice(0, 9)}/>
+                                     <TrendingNews adsHome={adsHome.filter((ad)=> ad.size === "s729x90")} latestArticles={latestArticles.slice(0, 9)}/>
                                 </div>
                                 <div className="col-xl-4">
-                                    <WidgetTab latestArticles={latestArticles.slice(9, 14)} dark={true}/>
+                                    <WidgetTab adsHome={adsHome.filter((ad)=> ad.size === "s350x292")} latestArticles={latestArticles.slice(9, 14)} dark={true}/>
                                 </div>
                             </div>
                         </div>

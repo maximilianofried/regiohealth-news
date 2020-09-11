@@ -55,7 +55,6 @@ export const fetchArticles = (category) => {
                 let count = articles.length;
                 let counterPerPage = 2;
                 let totalPages = Math.ceil(count / counterPerPage);
-                console.log(totalPages)
 
                 dispatch(fetchArticlesSuccess({
                     articles,
