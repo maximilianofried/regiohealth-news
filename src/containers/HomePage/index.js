@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {fetchArticles, fetchAds} from "../../store/actions";
 import PostCarousel from "../../components/PostCarousel";
 import PostGallery from "../../components/PostGallery";
+import {Helmet} from "react-helmet";
 import FeatureNewsNoImage from "../../components/FeatureNewsNoImage";
 import TrendingNews from "../../components/TrendingNews";
 import FollowUs from "../../components/FollowUs";
@@ -92,6 +93,12 @@ const HomePage = ({latestArticles,topArticles, localArticles, fetchArticles, fet
     }, [])
     return (
         <Fragment>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Gesundheitsticket NEWS</title>
+                <meta name="description" content="Gesundheitsticket NEWS website" />
+                <link rel="canonical" href="http://news.gesundheitsticket.de" />
+            </Helmet>
             {/* <PostCarousel className="fifth_bg"/> */}
             <PostCarousel localArticles={localArticles} className="fifth_bg"/>
             <PostGallery latestArticles={latestArticles} topArticles={topArticles} adsHome={adsHome} className="fifth_bg"/>

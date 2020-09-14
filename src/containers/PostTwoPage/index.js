@@ -18,7 +18,7 @@ import big1 from '../../doc/img/blog/big1.jpg';
 import smail1 from '../../doc/img/blog/smail1.jpg';
 import single_post1 from '../../doc/img/blog/single_post1.jpg';
 import banner1 from '../../doc/img/bg/banner1.png';
-import Helmet from "react-helmet";
+import {Helmet} from "react-helmet";
 const CMS_LINK = "https://cms.gesundheitsticket.de";
 
 const transform = (data) => {
@@ -39,10 +39,11 @@ const PostTwoPage = ({articleData, fetchArticle}) => {
     return (
         article &&
         <Fragment>
-                        <Helmet>
+            <Helmet>
                 <title>{article.title}</title>
                 <meta name="description" content="Helmet application" />
                 <meta property="og:title" content={article.title} />
+                <meta property="og:description" content={article.title} />
                 <meta property="og:image" content={CMS_LINK + article.main_image.url} />
             </Helmet>
             <div className="archives post post1">
