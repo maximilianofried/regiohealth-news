@@ -1,11 +1,15 @@
 import React, {Fragment, useEffect} from 'react';
+import {createBrowserHistory} from 'history';
 import {connect} from 'react-redux';
 import {fetchAds} from "../../store/actions";
 import {Link} from "react-router-dom";
 import logo from '../../doc/img/logo/logo.png';
 import logoDark from '../../doc/img/logo/footer_logo.png';
+import {ReactComponent as GtLogo} from '../../doc/img/gt-logo/logo-gt3.svg';
 import tp_banner from '../../doc/img/bg/banner1.png';
+const history = createBrowserHistory({forceRefresh:true});
 const CMS_LINK = "https://cms.gesundheitsticket.de";
+
 const LogoArea = ({className, dark, fetchAds, adsCategory}) => {
     useEffect(() => {
         fetchAds()
@@ -18,9 +22,7 @@ const LogoArea = ({className, dark, fetchAds, adsCategory}) => {
                 <div className="row">
                     <div className="col-lg-4 align-self-center">
                         <div className="logo">
-                            <Link to="/">
-                                <img src={dark ? logoDark : logo} alt="logo"/>
-                            </Link>
+                                <GtLogo onClick={() => history.push('/')} />
                         </div>
                     </div>
                     <div className="col-lg-8 align-self-center">

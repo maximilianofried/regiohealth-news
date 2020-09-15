@@ -1,12 +1,14 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
+import {createBrowserHistory} from 'history';
 import FooterCopyright from "../FooterCopyright";
 import FooterMoreNews from "../FooterMoreNews";
 import TwitterFeed from "../TwitterFeed";
 import FontAwesome from "../uiStyle/FontAwesome";
-
+import {ReactComponent as GtLogo} from '../../doc/img/gt-logo/logo-gt.svg';
 import flogo from '../../doc/img/logo/footer_logo.png';
 import FooterNewsCategories from "../FooterNewsCategories";
+const history = createBrowserHistory({forceRefresh:true});
 
 const FooterArea = ({className}) => {
     const [email, setEmail] = useState('');
@@ -21,9 +23,7 @@ const FooterArea = ({className}) => {
                     <div className="row">
                         <div className="col-md-6 align-self-center">
                             <div className="footer_logo logo">
-                                <Link to="/">
-                                    <img src={flogo} alt="logo"/>
-                                </Link>
+                                <GtLogo onClick={() => history.push('/')} />
                             </div>
                             <div className="social2">
                                 <ul className="inline">
