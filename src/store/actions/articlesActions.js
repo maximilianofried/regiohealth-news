@@ -3,6 +3,7 @@ import {
     FETCH_ARTICLES_REQUEST,
     FETCH_ARTICLES_SUCCESS,
     FETCH_ARTICLES_FAILURE,
+    CLEAN_FILTERED_ARTICLES,
     LOAD_NEW_PAGE,
     LOAD_EXACT_PAGE
 } from "../constants/articlesTypes";
@@ -13,7 +14,7 @@ const fetchArticlesRequest = () => {
     }
 }
 
-const fetchArticlesSuccess = (payload) => {
+const fetchArticlesSuccess = payload => {
     return {
         type: FETCH_ARTICLES_SUCCESS,
         payload
@@ -25,6 +26,12 @@ const fetchArticlesFailure = error => {
     return {
         type: FETCH_ARTICLES_FAILURE,
         payload: error
+    }
+}
+
+export const cleanFilteredArticles = () => {
+    return {
+        type: CLEAN_FILTERED_ARTICLES
     }
 }
 
@@ -43,9 +50,11 @@ export const loadExactPage = payload => {
 }
 
 // action creator, return function not object, not pure function ,async api calls
-export const fetchArticles = (category) => {
+export const fetchArticles = ({category = undefined, city = undefined} = {}) => {
     return (dispatch) => {
-        let url = category ? 'https://cms.gesundheitsticket.de/articles?_sort=createdAt:DESC' + '&categories.name_contains=' + category : 'https://cms.gesundheitsticket.de/articles?_sort=createdAt:DESC'
+        let url = category ? 'https://cms.gesundheitsticket.de/articles?_sort=createdAt:DESC' + '&categories.name_contains=' + category
+        :  city ? 'https://cms.gesundheitsticket.de/articles?_sort=createdAt:DESC' + '&city=' + city
+        : 'https://cms.gesundheitsticket.de/articles?_sort=createdAt:DESC';
         dispatch(fetchArticlesRequest);
         axios.get(url)
             .then(response => {
