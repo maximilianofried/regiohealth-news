@@ -2,6 +2,7 @@ import {
     FETCH_ARTICLES_REQUEST,
     FETCH_ARTICLES_SUCCESS,
     FETCH_ARTICLES_FAILURE,
+    CLEAN_FILTERED_ARTICLES,
     LOAD_NEW_PAGE,
     LOAD_EXACT_PAGE}
 from "../constants/articlesTypes";
@@ -10,7 +11,8 @@ const initialState = {
     loading: false,
     articles: [],
     error: '',
-    filteredArticles: []
+    filteredArticles: [],
+    filteredPages: []
 }
 
 const articlesReducer = (state = initialState, action) => {
@@ -31,7 +33,6 @@ const articlesReducer = (state = initialState, action) => {
             totalPages: action.payload.totalPages,
             filteredPages: action.payload.filteredPages,
             articles: action.payload.articles,
-            totalPages: action.payload.totalPages,
             error: ''
         }
         case FETCH_ARTICLES_FAILURE:
@@ -39,6 +40,12 @@ const articlesReducer = (state = initialState, action) => {
             loading: false,
             articles: [],
             error: action.payload
+        }
+        case CLEAN_FILTERED_ARTICLES:
+        return {
+            loading: false,
+            filteredArticles: [],
+            error: ''
         }
         case LOAD_NEW_PAGE:
             //Clone the previous state
@@ -62,7 +69,7 @@ const articlesReducer = (state = initialState, action) => {
                 //Also, notice that we use ‘products’ rather than ‘filteredProducts.’ This is by design.
                 //Using the latter would result in an empty array because we only have 20 documents there when
                 //the page first loads.
-                nextArticles = loadNewPageState.articles.slice(lowerCount, upperCount);
+                nextArticles = loadNewPageState.articles && loadNewPageState.articles.slice(lowerCount, upperCount) || [];
             }
 
             if (addPages ===-1){
@@ -71,7 +78,7 @@ const articlesReducer = (state = initialState, action) => {
                 let lowerCount = loadNewPageState.currentCount - perPage; //20
                 //Then it’s reset. This way, the first if statement will always treat it as the ‘upperCount’
                 loadNewPageState.currentCount = lowerCount;
-                nextArticles = loadNewPageState.articles.slice(lowerCount - perPage, upperCount - perPage);
+                nextArticles = loadNewPageState.articles && loadNewPageState.articles.slice(lowerCount - perPage, upperCount - perPage) || [];
             }
 
             loadNewPageState.filteredArticles = nextArticles;
@@ -83,7 +90,7 @@ const articlesReducer = (state = initialState, action) => {
             const exactPage = action.payload.page;
             let upperCountExact = exactPageState.counterPerPage * exactPage;
             let lowerCountExact = upperCountExact - exactPageState.counterPerPage;
-            let exactArticles = exactPageState.articles.slice(lowerCountExact, upperCountExact);
+            let exactArticles = exactPageState.articles && exactPageState.articles.slice(lowerCountExact, upperCountExact) || [];
             exactPageState.filteredArticles = exactArticles;
             exactPageState.currentCount = upperCountExact;
             exactPageState.currentPage = exactPage;

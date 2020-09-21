@@ -177,9 +177,6 @@ const HomePage = ({latestArticles,topArticles, localArticles, fetchArticles, fet
 
 const mapStateToProps = state => {
     return {
-        businessArticles: state.articles.articles
-            .filter((article) =>
-                article.categories.some((category) => category.name === "Business")),
         topArticles: state.articles.articles
             .filter((article) =>
                 article.categories.some((category) => category.name === "Top")),

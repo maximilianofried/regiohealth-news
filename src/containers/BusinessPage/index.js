@@ -76,9 +76,9 @@ const businessNews = [
         body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
     },
 ];
-const BusinessPage = ({filteredArticles, fetchArticles, loadNewPage, loadExactPage, filteredPages, category, fetchAds, adsCategory}) => {
+const BusinessPage = ({filteredArticles, fetchArticles, loadNewPage, loadExactPage, filteredPages, category, fetchAds, adsCategory, currentPage, totalPages}) => {
     useEffect(() => {
-        fetchArticles(category)
+        fetchArticles({category})
         fetchAds()
     },[])
     const banner350x292 = adsCategory.filter((ad) => ad.size === "s350x292")[0] || {};
@@ -118,7 +118,7 @@ const BusinessPage = ({filteredArticles, fetchArticles, loadNewPage, loadExactPa
                                             <nav aria-label="Page navigation example">
                                                 <ul className="pagination">
                                                     <li className="page-item">
-                                                         <a onClick={previousPage} className="page-link" aria-label="Previous">
+                                                         <a onClick={filteredArticles.length > 0 && currentPage != 1 ? previousPage : undefined} className="page-link" aria-label="Previous">
                                                                 <span aria-hidden="true"><FontAwesome
                                                                     name="caret-left"/></span>
                                                         </a>
@@ -140,7 +140,7 @@ const BusinessPage = ({filteredArticles, fetchArticles, loadNewPage, loadExactPa
                                                         <Link className="page-link" to="/">5</Link>
                                                     </li> */}
                                                     <li className="page-item">
-                                                        <a onClick={nextPage} className="page-link" aria-label="Next">
+                                                        <a onClick={filteredArticles.length > 0 && currentPage != totalPages ? nextPage : undefined} className="page-link" aria-label="Next">
                                                                 <span aria-hidden="true"><FontAwesome
                                                                     name="caret-right"/></span>
                                                         </a>
@@ -176,13 +176,15 @@ const mapStateToProps = state => {
     return {
         filteredArticles: state.articles.filteredArticles,
         filteredPages: state.articles.filteredPages,
-        adsCategory: state.ads.ads.filter((ad) => ad.position === "category")
+        adsCategory: state.ads.ads.filter((ad) => ad.position === "category"),
+        currentPage: state.articles.currentPage,
+        totalPages: state.articles.totalPages
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchArticles: (category) => dispatch(fetchArticles(category)),
+        fetchArticles: ({category}) => dispatch(fetchArticles({category})),
         loadNewPage: (page) => dispatch(loadNewPage({page})),
         loadExactPage: (page) => dispatch(loadExactPage({page})),
         fetchAds: () => dispatch(fetchAds())
@@ -192,4 +194,3 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(BusinessPage);
-// export default BusinessPage;

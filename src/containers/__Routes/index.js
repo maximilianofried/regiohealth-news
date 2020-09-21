@@ -79,6 +79,7 @@ import AudioPostOneDarkPage from "../AudioPostOneDarkPage";
 import AudioPostTwoDarkPage from "../AudioPostTwoDarkPage";
 import AudioPostThreeDarkPage from "../AudioPostThreeDarkPage";
 import PostOneLeftSidebarDarkPage from "../PostOneLeftSidebarDarkPage";
+import SearchPage from "../SearchPage";
 // import PublicRoute from '../_PublicRoute';
 
 const Routes = () => {
@@ -103,6 +104,13 @@ const Routes = () => {
                 parentClass="theme-1"
                 component={(props) => (
                     <BusinessPage {...props} category={"Art"}/>
+                )}/>
+            <PrivateRoute
+                exact
+                path="/search"
+                parentClass="theme-1"
+                component={(props) => (
+                    <SearchPage {...props}/>
                 )}/>
             <PrivateRoute
                 exact

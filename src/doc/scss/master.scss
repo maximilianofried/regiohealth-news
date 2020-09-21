@@ -284,6 +284,10 @@ body {
   cursor: pointer;
 }
 
+.pop_over {
+  z-index: 9999 !important;
+}
+
 .banner {
   @extend %black_overlay;
   padding: 20px 30px;
