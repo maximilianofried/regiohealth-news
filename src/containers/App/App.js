@@ -5,7 +5,7 @@ import Routes from "../__Routes";
 import ScrollTopButton from "../../components/ScrollTopButton";
 import ScrollToTop from "../../components/ScrollToTop";
 import {fetchOnInit} from "../../store/actions";
-
+import PushNotificationDemo from "../../components/pushNotificationsDemo";
 const App = (props) => {
     useEffect(() => {
         props.fetchOnInit()
@@ -20,6 +20,7 @@ const App = (props) => {
             <Routes/>
             <ToastContainer position="top-center"/>
             <ScrollTopButton/>
+            <PushNotificationDemo />
         </Fragment>
     );
 };
