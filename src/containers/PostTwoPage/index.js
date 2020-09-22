@@ -48,11 +48,11 @@ const PostTwoPage = ({articleData, fetchArticle}) => {
                 <meta name="description" content={article.categories.length > 0 ? article.categories[0].name: ''}/>
                 <meta property="og:title" content={article.title} />
                 <meta property="og:description" content={article.categories.length > 0 ? article.categories[0].name: ''} />
-                <meta property="og:image" itemprop="image"  content={CMS_LINK + article.main_image} />
+                <meta property="og:image" itemprop="image"  content={CMS_LINK + article.main_image.url} />
                 <meta property="og:image:type" content="image/jpeg" />
                 <meta property="og:image:width" content="200" />
                 <meta property="og:image:height" content="200" />
-                <meta property="og:url" content={"https://news.gesundheitsticket.de/" + id} />
+                <meta property="og:url" content={"https://news.gesundheitsticket.de/post2/" + id} />
                 <meta property="og:type" content="website" />
                 <meta property="og:site_name" content="Gesundheitstickets NEWS"></meta>
             </Helmet>
