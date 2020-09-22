@@ -52,9 +52,9 @@ export const loadExactPage = payload => {
 // action creator, return function not object, not pure function ,async api calls
 export const fetchArticles = ({category = undefined, city = undefined} = {}) => {
     return (dispatch) => {
-        let url = category ? 'https://cms.gesundheitsticket.de/articles?_sort=createdAt:DESC' + '&categories.name_contains=' + category
-        :  city ? 'https://cms.gesundheitsticket.de/articles?_sort=createdAt:DESC' + '&city=' + city
-        : 'https://cms.gesundheitsticket.de/articles?_sort=createdAt:DESC';
+        let url = category ? 'https://cms.gesundheitsticket.de/articles/published?_sort=createdAt:DESC' + '&categories.name_contains=' + category
+        :  city ? 'https://cms.gesundheitsticket.de/articles/published?_sort=createdAt:DESC' + '&city=' + city
+        : 'https://cms.gesundheitsticket.de/articles/published?_sort=createdAt:DESC';
         dispatch(fetchArticlesRequest);
         axios.get(url)
             .then(response => {

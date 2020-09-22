@@ -1198,7 +1198,7 @@ span.tranding {
       color: $white;
     }
 
-    a {
+    a, .tag {
       color: $white;
       font-size: $heading3;
       line-height: 36px;
@@ -1208,7 +1208,7 @@ span.tranding {
     .meta {
       margin-bottom: 0;
 
-      a {
+      a, .tag {
         font-size: 14px;
         text-transform: capitalize;
         position: relative;

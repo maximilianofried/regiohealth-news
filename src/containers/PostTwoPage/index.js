@@ -26,6 +26,10 @@ const transform = (data) => {
     return imageLink
 }
 
+const LinkRenderer = (props) => {
+    return <a href={props.href} target="_blank">{props.children}</a>
+  }
+
 const PostTwoPage = ({articleData, fetchArticle}) => {
     let { id } = useParams();
     useEffect(() => {
@@ -41,13 +45,19 @@ const PostTwoPage = ({articleData, fetchArticle}) => {
         <Fragment>
             <Helmet>
                 <title>{article.title}</title>
-                <meta name="description" content="Helmet application" />
+                <meta name="description" content={article.categories.length > 0 ? article.categories[0].name: ''}/>
                 <meta property="og:title" content={article.title} />
-                <meta property="og:description" content={article.title} />
-                <meta property="og:image" content={CMS_LINK + article.main_image.url} />
+                <meta property="og:description" content={article.categories.length > 0 ? article.categories[0].name: ''} />
+                <meta property="og:image" itemprop="image"  content={CMS_LINK + article.main_image} />
+                <meta property="og:image:type" content="image/jpeg" />
+                <meta property="og:image:width" content="200" />
+                <meta property="og:image:height" content="200" />
+                <meta property="og:url" content={"https://news.gesundheitsticket.de/" + id} />
+                <meta property="og:type" content="website" />
+                <meta property="og:site_name" content="Gesundheitstickets NEWS"></meta>
             </Helmet>
             <div className="archives post post1">
-                <BreadCrumb className="shadow5 padding-top-30" title="Archive / post 1"/>
+                <BreadCrumb className="shadow5 padding-top-30" title="Archive / Articles"/>
                 <span className="space-30"/>
                 <div className="container">
                     <div className="row">
@@ -77,9 +87,9 @@ const PostTwoPage = ({articleData, fetchArticle}) => {
                                 <div className="col-lg-6 align-self-center">
                                     <div className="author_social inline text-right">
                                         <ul>
-                                            <li><a href={"https://twitter.com/share?url=news.gesundheitsticket.de/post2/" + article._id}  target="_blank"><FontAwesome name="twitter"/></a></li>
-                                            <li><a href={"https://www.facebook.com/sharer/sharer.php?u=news.gesundheitsticket.de/post2/" + article._id}  target="_blank"><FontAwesome name="facebook-f"/></a></li>
-                                            <li><a href={"https://wa.me/?text=news.gesundheitsticket.de/post2/" + article._id}  target="_blank"><FontAwesome name="whatsapp"/></a></li>
+                                            <li><a href={"https://twitter.com/share?url=https://news.gesundheitsticket.de/post2/" + article._id}  target="_blank"><FontAwesome name="twitter"/></a></li>
+                                            <li><a href={"https://www.facebook.com/sharer/sharer.php?u=https://news.gesundheitsticket.de/post2/" + article._id}  target="_blank"><FontAwesome name="facebook-f"/></a></li>
+                                            <li><a href={"https://wa.me/?text=https://news.gesundheitsticket.de/post2/" + article._id}  target="_blank"><FontAwesome name="whatsapp"/></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -90,20 +100,24 @@ const PostTwoPage = ({articleData, fetchArticle}) => {
                                     <div className="page_comments">
                                         <ul className="inline">
                                             <li className="page_category">{article.categories.length > 0 ? article.categories[0].name.toUpperCase() : ''}</li>
-                                            <li><FontAwesome name="comment"/>563</li>
-                                            <li><FontAwesome name="fire"/>536</li>
+                                            {/* <li><FontAwesome name="comment"/>563</li>
+                                            <li><FontAwesome name="fire"/>536</li> */}
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div className="space-20"/>
-                            <ReactMarkdown className="markdownContainer" transformImageUri={data => transform(data)} source={article.content}/>
+                            <ReactMarkdown
+                                className="markdownContainer"
+                                transformImageUri={data => transform(data)}
+                                renderers={{link: LinkRenderer}}
+                                source={article.content}/>
                             <div className="space-40"/>
                             <div className="tags">
                                 <ul className="inline">
                                     <li className="tag_list"><FontAwesome name="tag"/> tags</li>
                                     {article.categories.map
-                                        (category => 
+                                        (category =>
                                             <li key={category._id}><Link  to="/">{category.name}</Link></li>
                                         )
                                     }
@@ -111,13 +125,13 @@ const PostTwoPage = ({articleData, fetchArticle}) => {
                             </div>
                             <div className="space-40"/>
                             <div className="border_black"/>
-                            <div className="space-40"/>
-                            <PostOnePagination className="next_prv_single padding20 fourth_bg"/>
+                            {/* <div className="space-40"/>
+                            <PostOnePagination className="next_prv_single padding20 fourth_bg"/> */}
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="space-100"/>
+            {/* <div className="space-100"/> */}
             <BannerSection/>
             {/* <div className="space-60"/>
             <OurBlogSection/>

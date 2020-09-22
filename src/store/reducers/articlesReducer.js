@@ -43,9 +43,11 @@ const articlesReducer = (state = initialState, action) => {
         }
         case CLEAN_FILTERED_ARTICLES:
         return {
+            ...state,
             loading: false,
             filteredArticles: [],
-            error: ''
+            error: '',
+            filteredPages: []
         }
         case LOAD_NEW_PAGE:
             //Clone the previous state

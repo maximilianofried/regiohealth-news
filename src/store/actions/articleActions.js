@@ -41,9 +41,9 @@ export const fetchArticle = (id) => {
         if(articles.length > 0) {
             const article = articles.find(article => article._id === id);
             dispatch(fetchArticleSuccess(article))
-        } 
+        }
         else {
-            axios.get(`https://cms.gesundheitsticket.de/articles/${id}`)
+            axios.get(`https://cms.gesundheitsticket.de/articles/published/${id}`)
             .then(response => {
                 //separar en categorias y guardar en objeto los array correspondientes
                 const article = response.data;

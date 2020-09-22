@@ -86,7 +86,7 @@ const businessNews = [
 ];
 
 
-const HomePage = ({latestArticles,topArticles, localArticles, fetchArticles, fetchAds, adsHome}) => {
+const HomePage = ({latestArticles, topArticles, localArticles, fetchArticles, fetchAds, adsHome}) => {
     useEffect(() => {
         fetchArticles()
         fetchAds()
