@@ -48,6 +48,7 @@ const PostTwoPage = ({articleData, fetchArticle}) => {
                 <meta name="description" content={article.categories.length > 0 ? article.categories[0].name: ''}/>
                 <meta property="og:title" content={article.title} />
                 <meta property="og:description" content={article.categories.length > 0 ? article.categories[0].name: ''} />
+                <meta property="og:image" itemprop="image"  content={CMS_LINK + article.main_image.url} />
                 <meta property="og:image:secure_url" itemprop="image"  content={CMS_LINK + article.main_image.url} />
                 <meta property="og:image:type" content="image/jpeg" />
                 <meta property="og:image:width" content="200" />
