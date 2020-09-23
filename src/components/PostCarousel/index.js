@@ -108,7 +108,7 @@ const PostCarousel = ({className, localArticles}) => {
                                                 </div>
                                             </div>}
                                             <div className="single_post_text">
-                                                <h4><Link to={`/post2/${item._id}`} >{item.title}</Link></h4>
+                                                <h4><Link to={`/post2/${item._id}`} >{item.title.length > 50 ? item.title.substr(0, 50) + "\u2026" : item.title}</Link></h4>
                                                {item.categories && <p>{item.categories[0].name}</p>}
                                             </div>
                                         </div>
