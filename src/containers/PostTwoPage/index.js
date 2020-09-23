@@ -19,7 +19,7 @@ import smail1 from '../../doc/img/blog/smail1.jpg';
 import single_post1 from '../../doc/img/blog/single_post1.jpg';
 import banner1 from '../../doc/img/bg/banner1.png';
 import {Helmet} from "react-helmet";
-const CMS_LINK = "https://cms.gesundheitsticket.de";
+import {CMS_LINK} from '../../utils/constants';
 
 const transform = (data) => {
     const imageLink = `${CMS_LINK + data}`;
@@ -51,10 +51,9 @@ const PostTwoPage = ({articleData, fetchArticle}) => {
                 <meta property="og:image" itemprop="image"  content={CMS_LINK + article.main_image.url} />
                 <meta property="og:image:secure_url" itemprop="image"  content={CMS_LINK + article.main_image.url} />
                 <meta property="og:image:type" content="image/jpeg" />
-                <meta property="og:image:width" content="200" />
-                <meta property="og:image:height" content="200" />
-                <meta property="og:url" content={"https://news.gesundheitsticket.de/post2/" + id} />
-                <meta property="og:type" content="website" />
+                <meta property="og:image:type" content="image/png" />
+                <meta property="og:url" content={CMS_LINK + "/post2/" + id} />
+                <meta property="og:type" content="article" />
                 <meta property="og:site_name" content="Gesundheitstickets NEWS"></meta>
             </Helmet>
             <div className="archives post post1">
