@@ -52,7 +52,7 @@ const PostTwoPage = ({articleData, fetchArticle}) => {
                 <meta property="og:image:secure_url" itemprop="image"  content={CMS_LINK + article.main_image.url} />
                 <meta property="og:image:type" content="image/jpeg" />
                 <meta property="og:image:type" content="image/png" />
-                <meta property="og:url" content={CMS_LINK + "/post2/" + id} />
+                <meta property="og:url" content={"https://news.gesundheitsticket.de/post2/" + id} />
                 <meta property="og:type" content="article" />
                 <meta property="og:site_name" content="Gesundheitstickets NEWS"></meta>
             </Helmet>
