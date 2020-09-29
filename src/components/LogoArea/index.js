@@ -27,9 +27,9 @@ const LogoArea = ({className, dark, fetchAds, adsCategory}) => {
                     </div>
                     <div className="col-lg-8 align-self-center">
                         <div className="banner1">
-                            <Link to="#">
+                            <a href={banner729x90.link} target="_blank">
                                 {banner729x90.image && banner729x90.image.length > 0 && <img src={CMS_LINK + banner729x90.image[0].url} alt="banner"/>}
-                            </Link>
+                            </a>
                         </div>
                     </div>
                 </div>

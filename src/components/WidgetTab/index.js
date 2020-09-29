@@ -125,11 +125,11 @@ const WidgetTab = ({className, dark, latestArticles, adsHome}) => {
             </TabContent>
             <div className="row">
                 <div className="col-lg-12">
-                    <div className="banner2 mb30">
-                        <Link to="/">
-                            {adsHome && adsHome.length > 0 && <img src={CMS_LINK + adsHome[0].image[0].url} alt="thumb"/>}
-                        </Link>
-                    </div>
+           { adsHome && adsHome.length > 0 && <div className="banner2 mb30">
+                        <a href={adsHome[0].link}>
+                            <img src={CMS_LINK + adsHome[0].image[0].url} alt="thumb"/>
+                        </a>
+                    </div>}
                 </div>
             </div>
         </div>

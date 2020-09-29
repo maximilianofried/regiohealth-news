@@ -58,8 +58,36 @@ export const fetchArticles = ({category = undefined, city = undefined} = {}) => 
         dispatch(fetchArticlesRequest);
         axios.get(url)
             .then(response => {
-                //separar en categorias y guardar en objeto los array correspondientes
-               // let count = articles.length;
+                const articles = response.data;
+                let count = articles.length;
+                let counterPerPage = 2;
+                let totalPages = Math.ceil(count / counterPerPage);
+
+                dispatch(fetchArticlesSuccess({
+                    articles,
+                    filteredArticles: articles.slice(0, counterPerPage),
+                    currentCount: counterPerPage,
+                    counterPerPage,
+                    totalCount: count,
+                    currentPage: 1,
+                    totalPages,
+                    filteredPages: totalPages
+                    }
+                ))
+            })
+            .catch(error => {
+                const errorMsg = error.message;
+                dispatch(fetchArticlesFailure(errorMsg));
+            })
+    }
+}
+
+export const fetchArticlesGeo = ({lat = undefined, lng = undefined} = {}) => {
+    return (dispatch) => {
+        let url = `https://cms.gesundheitsticket.de/articles/geo/${lat}/${lng}?_sort=createdAt:DESC&`;
+        dispatch(fetchArticlesRequest);
+        axios.get(url)
+            .then(response => {
                 const articles = response.data;
                 let count = articles.length;
                 let counterPerPage = 2;

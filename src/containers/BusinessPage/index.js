@@ -112,7 +112,7 @@ const BusinessPage = ({filteredArticles, fetchArticles, loadNewPage, loadExactPa
                                         <BusinessNews businessArticles={filteredArticles} headerHide={true}/>
                                     </div>
                                 </div>
-                                <div className="row">
+                             {filteredArticles.length > 0 && <div className="row">
                                     <div className="col-12">
                                         <div className="cpagination">
                                             <nav aria-label="Page navigation example">
@@ -130,15 +130,6 @@ const BusinessPage = ({filteredArticles, fetchArticles, loadNewPage, loadExactPa
                                                             </li>
                                                         ))
                                                     }
-                                                    {/* <li className="page-item" onClick={onHandlePageChange}>
-                                                        <Link className="page-link" to="/" >1</Link>
-                                                    </li>
-                                                    <li className="page-item">
-                                                        <Link className="page-link" to="/">..</Link>
-                                                    </li>
-                                                    <li className="page-item">
-                                                        <Link className="page-link" to="/">5</Link>
-                                                    </li> */}
                                                     <li className="page-item">
                                                         <a onClick={filteredArticles.length > 0 && currentPage != totalPages ? nextPage : undefined} className="page-link" aria-label="Next">
                                                                 <span aria-hidden="true"><FontAwesome
@@ -149,7 +140,7 @@ const BusinessPage = ({filteredArticles, fetchArticles, loadNewPage, loadExactPa
                                             </nav>
                                         </div>
                                     </div>
-                                </div>
+                                </div>}
                             </div>
                         </div>
                         <div className="col-md-6 col-lg-4">
@@ -158,9 +149,9 @@ const BusinessPage = ({filteredArticles, fetchArticles, loadNewPage, loadExactPa
                             {/* <NewsLetter/>
                             <FollowUs title="Follow Us"/> */}
                             <div className="banner2 mb30">
-                                <Link to="/">
+                                <a href={banner350x292.link} target="_blank">
                                 {banner350x292.image && banner350x292.image.length > 0 && <img src={CMS_LINK + banner350x292.image[0].url} alt="banner"/>}
-                                </Link>
+                                </a>
                             </div>
                         </div>
                     </div>

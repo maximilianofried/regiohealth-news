@@ -1,6 +1,6 @@
 import React, {Fragment, useEffect} from 'react';
 import {connect} from 'react-redux';
-import {fetchArticles, cleanFilteredArticles, loadNewPage, loadExactPage, fetchAds} from "../../store/actions";
+import {fetchArticles,fetchArticlesGeo, cleanFilteredArticles, loadNewPage, loadExactPage, fetchAds} from "../../store/actions";
 import BreadCrumb from "../../components/BreadCrumb";
 import BusinessNews from "../../components/BusinessNews";
 import FontAwesome from "../../components/uiStyle/FontAwesome";
@@ -21,6 +21,7 @@ import {
     ComboboxOption,
 } from "@reach/combobox";
 import "@reach/combobox/styles.css"
+
 // images
 import business1 from '../../doc/img/business/business1.jpg';
 import business2 from '../../doc/img/business/business2.jpg';
@@ -87,7 +88,7 @@ const businessNews = [
         body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
     },
 ];
-const SearchPage = ({filteredArticles, fetchArticles, cleanFilteredArticles, loadNewPage, loadExactPage, filteredPages, category, fetchAds, adsCategory, currentPage, totalPages}) => {
+const SearchPage = ({filteredArticles, fetchArticles, fetchArticlesGeo, cleanFilteredArticles, loadNewPage, loadExactPage, filteredPages, category, fetchAds, adsCategory, currentPage, totalPages}) => {
     useEffect(() => {
         fetchAds()
         cleanFilteredArticles()
@@ -117,7 +118,7 @@ const SearchPage = ({filteredArticles, fetchArticles, cleanFilteredArticles, loa
                                     <div className="col-12 align-self-center">
                                         <div className="categories_title">
                                             <h5>Search by Location:</h5>
-                                            <Search fetchArticles={fetchArticles} />
+                                            <Search fetchArticlesGeo={fetchArticlesGeo} />
                                             <div className="space-70"/>
                                         </div>
                                     </div>
@@ -127,44 +128,35 @@ const SearchPage = ({filteredArticles, fetchArticles, cleanFilteredArticles, loa
                                         <BusinessNews businessArticles={filteredArticles} headerHide={true}/>
                                     </div>
                                 </div>
-                                <div className="row">
-                                    <div className="col-12">
-                                        <div className="cpagination">
-                                            <nav aria-label="Page navigation example">
-                                                <ul className="pagination">
-                                                    <li className="page-item">
-                                                         <a onClick={filteredArticles.length > 0 && currentPage != 1 ? previousPage : undefined} className="page-link" aria-label="Previous">
-                                                                <span aria-hidden="true"><FontAwesome
-                                                                    name="caret-left"/></span>
-                                                        </a>
-                                                    </li>
-                                                    {
-                                                        [...Array(filteredPages)].map((value,index) => (
-                                                            <li key={index} className="page-item" >
-                                                                <a  onClick={() => goToPage(index + 1)} className="page-link">{index +1}</a>
-                                                            </li>
-                                                        ))
-                                                    }
-                                                    {/* <li className="page-item" onClick={onHandlePageChange}>
-                                                        <Link className="page-link" to="/" >1</Link>
-                                                    </li>
-                                                    <li className="page-item">
-                                                        <Link className="page-link" to="/">..</Link>
-                                                    </li>
-                                                    <li className="page-item">
-                                                        <Link className="page-link" to="/">5</Link>
-                                                    </li> */}
-                                                    <li className="page-item">
-                                                        <a onClick={filteredArticles.length > 0 && currentPage != totalPages ? nextPage : undefined} className="page-link" aria-label="Next">
-                                                                <span aria-hidden="true"><FontAwesome
-                                                                    name="caret-right"/></span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </nav>
-                                        </div>
+                 { filteredArticles.length > 0 && <div className="row">
+                                <div className="col-12">
+                                    <div className="cpagination">
+                                        <nav aria-label="Page navigation example">
+                                            <ul className="pagination">
+                                                <li className="page-item">
+                                                        <a onClick={filteredArticles.length > 0 && currentPage != 1 ? previousPage : undefined} className="page-link" aria-label="Previous">
+                                                            <span aria-hidden="true"><FontAwesome
+                                                                name="caret-left"/></span>
+                                                    </a>
+                                                </li>
+                                                {
+                                                    [...Array(filteredPages)].map((value,index) => (
+                                                        <li key={index} className="page-item" >
+                                                            <a  onClick={() => goToPage(index + 1)} className="page-link">{index +1}</a>
+                                                        </li>
+                                                    ))
+                                                }
+                                                <li className="page-item">
+                                                    <a onClick={filteredArticles.length > 0 && currentPage != totalPages ? nextPage : undefined} className="page-link" aria-label="Next">
+                                                            <span aria-hidden="true"><FontAwesome
+                                                                name="caret-right"/></span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </nav>
                                     </div>
                                 </div>
+                            </div>}
                             </div>
                         </div>
                         <div className="col-md-6 col-lg-4">
@@ -173,9 +165,9 @@ const SearchPage = ({filteredArticles, fetchArticles, cleanFilteredArticles, loa
                             {/* <NewsLetter/>
                             <FollowUs title="Follow Us"/> */}
                             <div className="banner2 mb30">
-                                <Link to="/">
+                                <a href={banner350x292.link} target="_blank">
                                 {banner350x292.image && banner350x292.image.length > 0 && <img src={CMS_LINK + banner350x292.image[0].url} alt="banner"/>}
-                                </Link>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -187,7 +179,7 @@ const SearchPage = ({filteredArticles, fetchArticles, cleanFilteredArticles, loa
     );
 };
 
-const Search = ({fetchArticles}) => {
+const Search = ({fetchArticlesGeo}) => {
     const options = {
         types: ['(cities)'],
         componentRestrictions: { country: ["de", 'pl'] }
@@ -204,7 +196,15 @@ const Search = ({fetchArticles}) => {
     const onComboSelect = (address) => {
         setValue(address, false);
         clearSuggestions();
-        fetchArticles({ city: address.split(',')[0]})
+        getGeocode({ address })
+        .then((results) => getLatLng(results[0]))
+        .then(({ lat, lng }) => {
+            fetchArticlesGeo({ lat, lng });
+            console.log("📍 Coordinates: ", { lat, lng });
+        })
+        .catch((error) => {
+            console.log("😱 Error: ", error);
+        });
     }
     return (
     <Combobox onSelect={(address) => onComboSelect(address)}>
@@ -237,6 +237,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchArticles: ({city}) => dispatch(fetchArticles({city})),
+        fetchArticlesGeo: ({lat, lng}) => dispatch(fetchArticlesGeo({lat, lng})),
         loadNewPage: (page) => dispatch(loadNewPage({page})),
         loadExactPage: (page) => dispatch(loadExactPage({page})),
         fetchAds: () => dispatch(fetchAds()),

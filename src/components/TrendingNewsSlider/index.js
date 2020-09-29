@@ -93,12 +93,12 @@ const TrendingNewsSlider = ({dark, latestArticles, adsHome = []}) => {
                 <div onClick={goNext} className="navBtn nextBtn"><FontAwesome name="angle-right"/></div>
             </div>
             <div className="col-lg-12 align-self-center">
-                        <div className="banner1">
-                            <Link to="#">
-                              {adsHome && adsHome.length > 0 && <img src={CMS_LINK + adsHome[0].image[0].url} alt="banner"/>}
-                            </Link>
-                        </div>
-                    </div>
+                      {adsHome && adsHome.length > 0 && <div className="banner1">
+                            <a href={adsHome[0].link} target="_blank">
+                              <img src={CMS_LINK + adsHome[0].image[0].url} alt="banner"/>
+                            </a>
+                        </div>}
+            </div>
         </div>
     );
 };
