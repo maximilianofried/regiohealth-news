@@ -19,6 +19,7 @@ input.readmore {
   padding: 10px 18px;
   border: 1px solid $readmore_border_color;
   line-height: 20px !important;
+  margin-bottom: 20px;
 
   &:hover {
     background: $secondary_bg;

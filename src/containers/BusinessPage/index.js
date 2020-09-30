@@ -118,10 +118,9 @@ const BusinessPage = ({filteredArticles, fetchArticles, allArticles,showMoreArti
                                         <BusinessNews businessArticles={allArticles} headerHide={true}/>
                                     </div>
                                 </div>
-                             {filteredArticles.length > 0 && <div className="row">
+                              <div className="row">
                                     <div className="col-12">
                                         <div className="cpagination">
-                                            <nav aria-label="Page navigation example">
                                             <a onClick={showMore} className="readmore cursor_pointer">SHOW MORE</a>
                                                 {/* <ul className="pagination">
 
@@ -145,12 +144,12 @@ const BusinessPage = ({filteredArticles, fetchArticles, allArticles,showMoreArti
                                                         </a>
                                                     </li>
                                                 </ul> */}
-                                            </nav>
                                         </div>
                                     </div>
-                                </div>}
+                                </div>
                             </div>
                         </div>
+                        <div className="space-70"/>
                         <div className="col-md-6 col-lg-4">
                             {/* <WidgetTab/> */}
                             {/* <WidgetTrendingNews/> */}
