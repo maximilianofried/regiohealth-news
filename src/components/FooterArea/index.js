@@ -34,7 +34,7 @@ const FooterArea = ({className}) => {
                                 </ul>
                             </div>
                         </div>
-                        <div className="col-md-6 col-lg-4 offset-lg-2 align-self-center">
+                        {/* <div className="col-md-6 col-lg-4 offset-lg-2 align-self-center">
                             <div className="signup_form">
                                 <form onSubmit={submitHandler}>
                                     <input onChange={e => setEmail(e.target.value)} value={email} className="signup"
@@ -43,7 +43,7 @@ const FooterArea = ({className}) => {
                                 </form>
                                 <p>We hate spam as much as you do</p>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className="border_white"/>

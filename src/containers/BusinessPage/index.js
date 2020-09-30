@@ -1,6 +1,6 @@
 import React, {Fragment, useEffect} from 'react';
 import {connect} from 'react-redux';
-import {fetchArticles, loadNewPage, loadExactPage, fetchAds} from "../../store/actions";
+import {fetchArticles, loadNewPage, loadExactPage, fetchAds, showMoreArticles} from "../../store/actions";
 import BreadCrumb from "../../components/BreadCrumb";
 import BusinessNews from "../../components/BusinessNews";
 import FontAwesome from "../../components/uiStyle/FontAwesome";
@@ -76,11 +76,13 @@ const businessNews = [
         body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
     },
 ];
-const BusinessPage = ({filteredArticles, fetchArticles, loadNewPage, loadExactPage, filteredPages, category, fetchAds, adsCategory, currentPage, totalPages}) => {
+const BusinessPage = ({filteredArticles, fetchArticles, allArticles,showMoreArticles, loadNewPage, loadExactPage, filteredPages, category, fetchAds, adsCategory, currentPage, totalPages, limit}) => {
     useEffect(() => {
-        fetchArticles({category})
+        window.scrollTo(0, 0)
+        fetchArticles({category, start: 0, limit: 2})
         fetchAds()
     },[])
+
     const banner350x292 = adsCategory.filter((ad) => ad.size === "s350x292")[0] || {};
     const goToPage = (page) => {
         loadExactPage(page)
@@ -90,6 +92,10 @@ const BusinessPage = ({filteredArticles, fetchArticles, loadNewPage, loadExactPa
     }
     const nextPage = () => {
         loadNewPage({page: 1})
+    }
+
+    const showMore = () => {
+        fetchArticles({category, start: 0, limit: limit + 2})
     }
 
     return (
@@ -109,16 +115,18 @@ const BusinessPage = ({filteredArticles, fetchArticles, loadNewPage, loadExactPa
                                 </div>
                                 <div className="row">
                                     <div className="col-12">
-                                        <BusinessNews businessArticles={filteredArticles} headerHide={true}/>
+                                        <BusinessNews businessArticles={allArticles} headerHide={true}/>
                                     </div>
                                 </div>
                              {filteredArticles.length > 0 && <div className="row">
                                     <div className="col-12">
                                         <div className="cpagination">
                                             <nav aria-label="Page navigation example">
-                                                <ul className="pagination">
+                                            <a onClick={showMore} className="readmore cursor_pointer">SHOW MORE</a>
+                                                {/* <ul className="pagination">
+
                                                     <li className="page-item">
-                                                         <a onClick={filteredArticles.length > 0 && currentPage != 1 ? previousPage : undefined} className="page-link" aria-label="Previous">
+                                                         <a onClick={showMore}  className="page-link" aria-label="Previous">
                                                                 <span aria-hidden="true"><FontAwesome
                                                                     name="caret-left"/></span>
                                                         </a>
@@ -136,7 +144,7 @@ const BusinessPage = ({filteredArticles, fetchArticles, loadNewPage, loadExactPa
                                                                     name="caret-right"/></span>
                                                         </a>
                                                     </li>
-                                                </ul>
+                                                </ul> */}
                                             </nav>
                                         </div>
                                     </div>
@@ -169,16 +177,20 @@ const mapStateToProps = state => {
         filteredPages: state.articles.filteredPages,
         adsCategory: state.ads.ads.filter((ad) => ad.position === "category"),
         currentPage: state.articles.currentPage,
-        totalPages: state.articles.totalPages
+        totalPages: state.articles.totalPages,
+        allArticles: state.articles.articles,
+        limit: state.articles.limit
+
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchArticles: ({category}) => dispatch(fetchArticles({category})),
+        fetchArticles: ({category, start, limit}) => dispatch(fetchArticles({category, start, limit})),
         loadNewPage: (page) => dispatch(loadNewPage({page})),
         loadExactPage: (page) => dispatch(loadExactPage({page})),
-        fetchAds: () => dispatch(fetchAds())
+        fetchAds: () => dispatch(fetchAds()),
+        showMoreArticles: () => dispatch(showMoreArticles())
     }
 }
 export default connect(

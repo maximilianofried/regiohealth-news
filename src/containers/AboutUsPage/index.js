@@ -121,34 +121,57 @@ const AboutUsPage = () => {
                     <div className="row">
                         <div className="col-12">
                             <div className="author_about">
-                                <div className="author_img">
+                                {/* <div className="author_img">
                                     <div className="author_wrap">
                                         <img src={author1} alt="author1"/>
                                     </div>
+                                </div> */}
+                                <div className="author_content"><Link to="/">Wir über uns</Link>
                                 </div>
-                                <div className="author_content"><Link to="/">QuomodoSoft</Link>
-                                    <ul className="inline">
-                                        <li>News Writer</li>
-                                        <li>Since: April 25, 2020</li>
-                                    </ul>
-                                </div>
-                                <p>QuomodoSoft is an investigative reporter for Newspark, based in Bangladesh. He
-                                    started at
-                                    The Times in 1999 covering Mayor Rudolph W. Giuliani and then the Sept. 11,
-                                    2001,
-                                    attacks.</p>
+                                <p>Die GesundheitsTicket GmbH organisiert seit 2011 die externe betriebliche Gesundheitsvorsorge
+                                     für viele kleine, mittelständische und große Unternehmen in ganz Deutschland.</p>
                                 <br/>
-                                <p>He is a three-time winner of the Pulitzer Prize for explanatory reporting,
-                                    investigative reporting and as part of team for foreign reporting. He
-                                    previously
-                                    worked at The Bangladesh Post and The Hartford Courant.</p>
+                                <p>Dabei erhalten die Beschäftigten von ihrem Arbeitgeber ein GesundheitsTicket oder GesundheitsTicket Plus,
+                                    das mit einem lohnsteuer- und sozialabgabenfreien Budget aufgeladen ist.
+                                    Aus diesem Budget heraus können Gesundheitsangebote vor Ort bei unseren Gesundheitspartnern genutzt und bezahlt werden.</p>
+                                <p>
+                                <br/>
+                                Die Plattform www.new.gesundheitsticket.de wurde entwickelt, um unseren Gesundheitspartnern die Möglichkeit zu geben,
+                                ihre aktuellen und regionalen Angebote zu veröffentlichen. Sei es ein neuer Kurssstart, ein Monatsangebot oder eine Rabattaktion.
+                                </p>
+                                <br/>
+                                <p>Die GesundheitsTicket-Inhaber haben neben dem Suchportal für GesundheitsPartner über unsere  <a href="https://www.gesundheitsticket.de" target="_blank">Homepage</a> nun auch die Möglichkeit,
+                                     unter Eingabe ihrer Postleitzahl diese Angebote zu finden.</p>
+                                <br/>
+                                <p>
+                                Im Laufe der Zeit werden wir diese Plattform immer weiter entwickeln und um sinnvolle Funktionen erweitern.
+                                </p>
+                                <br/>
+                                <p>
+                                News.GesundheitsTicket.de ist außerdem eine Informationsplattform zu den vielen Aspekten der Gesundheitsprävention, auch über Deutschland hinaus und öffnet so einen weiteren Blick über die verschiedenen Tellerränder hinaus in die Welt.
+                                </p>
+                                <br/>
+                                <p>
+                                Auch laden wir alle gesundheitsinteressierten Nutzer unserer Plattform herzlich ein, ihre Wünsche und Meinungen einzubringen, damit wir diese Plattform mit Leben füllen und weiterentwickeln können.
+                                </p>
+                                <br/>
+                                <ul className="inline">
+                                    <li>Berlin, 16.09.2020</li>
+                                    <br/>
+                                    <br/>
+                                    <li>Chris Lombardt</li>
+                                    <br/>
+                                    <li> Geschäftsführer und Gründer</li>
+                                    <br/>
+                                    <li> GesundheitsTicket GmbH</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                     <div className="space-50"/>
                 </Fragment>
             </BreadCrumb>
-            <div className="archives padding-top-30">
+            {/* <div className="archives padding-top-30">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6 col-lg-8">
@@ -248,7 +271,7 @@ const AboutUsPage = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <div className="space-70"/>
             <BannerSection/>
         </Fragment>

@@ -4,19 +4,19 @@ import {Link} from "react-router-dom";
 const quick_links = [
     {
         name: 'About',
-        link: '/'
+        link: '/about'
     },
     {
         name: 'Advertise',
-        link: '/'
+        link: '/advertise'
     },
     {
         name: 'Privacy & Policy',
-        link: '/'
+        link: '/privacypolicy'
     },
     {
         name: 'Contact Us',
-        link: '/'
+        link: '/contact'
     },
 ];
 

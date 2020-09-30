@@ -88,7 +88,7 @@ const businessNews = [
 
 const HomePage = ({latestArticles, topArticles, localArticles, fetchArticles, fetchAds, adsHome}) => {
     useEffect(() => {
-        fetchArticles()
+        fetchArticles({limit: 30})
         fetchAds()
     }, [])
     return (
@@ -192,7 +192,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchArticles: () => dispatch(fetchArticles()),
+        fetchArticles: ({limit}) => dispatch(fetchArticles({limit})),
         fetchAds: () => dispatch(fetchAds())
     }
 }

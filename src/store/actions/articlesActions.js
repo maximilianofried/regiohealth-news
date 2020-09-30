@@ -5,7 +5,8 @@ import {
     FETCH_ARTICLES_FAILURE,
     CLEAN_FILTERED_ARTICLES,
     LOAD_NEW_PAGE,
-    LOAD_EXACT_PAGE
+    LOAD_EXACT_PAGE,
+    SHOW_MORE_ARTICLES
 } from "../constants/articlesTypes";
 
 const fetchArticlesRequest = () => {
@@ -49,12 +50,23 @@ export const loadExactPage = payload => {
     }
 }
 
+export const showMoreArticles = () => {
+    return {
+        type: SHOW_MORE_ARTICLES
+    }
+}
+
 // action creator, return function not object, not pure function ,async api calls
-export const fetchArticles = ({category = undefined, city = undefined} = {}) => {
+export const fetchArticles = ({category = undefined, city = undefined, start = undefined, limit = undefined} = {}) => {
     return (dispatch) => {
-        let url = category ? 'https://cms.gesundheitsticket.de/articles/published?_sort=createdAt:DESC' + '&categories.name_contains=' + category
-        :  city ? 'https://cms.gesundheitsticket.de/articles/published?_sort=createdAt:DESC' + '&city=' + city
-        : 'https://cms.gesundheitsticket.de/articles/published?_sort=createdAt:DESC';
+        let url = 'https://cms.gesundheitsticket.de/articles/published?_sort=createdAt:DESC'
+                    + (category ? '&categories.name_contains=' + category : '')
+                    + (city ? '&city=' + city : '')
+                    + (start ? '&_start=' + start : '')
+                    + (limit ? '&_limit=' + limit : '');
+        // let url = category ? 'https://cms.gesundheitsticket.de/articles/published?_sort=createdAt:DESC' + '&categories.name_contains=' + category
+        // :  city ? 'https://cms.gesundheitsticket.de/articles/published?_sort=createdAt:DESC' + '&city=' + city
+        // : 'https://cms.gesundheitsticket.de/articles/published?_sort=createdAt:DESC';
         dispatch(fetchArticlesRequest);
         axios.get(url)
             .then(response => {
@@ -71,7 +83,8 @@ export const fetchArticles = ({category = undefined, city = undefined} = {}) => 
                     totalCount: count,
                     currentPage: 1,
                     totalPages,
-                    filteredPages: totalPages
+                    filteredPages: totalPages,
+                    limit
                     }
                 ))
             })
