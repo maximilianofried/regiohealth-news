@@ -4,7 +4,8 @@ import {
     FETCH_ARTICLES_FAILURE,
     CLEAN_FILTERED_ARTICLES,
     LOAD_NEW_PAGE,
-    LOAD_EXACT_PAGE}
+    LOAD_EXACT_PAGE,
+    SHOW_MORE_ARTICLES}
 from "../constants/articlesTypes";
 
 const initialState = {
@@ -12,7 +13,8 @@ const initialState = {
     articles: [],
     error: '',
     filteredArticles: [],
-    filteredPages: []
+    filteredPages: [],
+    limit: 2
 }
 
 const articlesReducer = (state = initialState, action) => {
@@ -24,7 +26,7 @@ const articlesReducer = (state = initialState, action) => {
         }
         case FETCH_ARTICLES_SUCCESS:
         return {
-            loading: false,
+            ...state,
             filteredArticles: action.payload.filteredArticles,
             currentCount: action.payload.currentCount,
             counterPerPage: action.payload.counterPerPage,
@@ -33,7 +35,8 @@ const articlesReducer = (state = initialState, action) => {
             totalPages: action.payload.totalPages,
             filteredPages: action.payload.filteredPages,
             articles: action.payload.articles,
-            error: ''
+            limit: action.payload.limit,
+            error: '',
         }
         case FETCH_ARTICLES_FAILURE:
         return {
