@@ -6,6 +6,7 @@ import menuReducer from './menuReducer';
 import articleReducer from './articleReducer';
 import onInitReducer from './onInitReducer';
 import adsReducer from './adsReducer';
+import pagesReducer from './pagesReducer';
 
 const rootReducer = combineReducers({
     meta: metaReducer,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
     category: categoryReducer,
     menu: menuReducer,
     onInit: onInitReducer,
-    ads: adsReducer
+    ads: adsReducer,
+    pages: pagesReducer
 });
 export default rootReducer

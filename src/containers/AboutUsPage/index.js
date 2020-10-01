@@ -1,281 +1,55 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useEffect} from 'react';
+import {connect} from 'react-redux';
+import ReactMarkdown from 'react-markdown';
 import BreadCrumb from "../../components/BreadCrumb";
-import FontAwesome from "../../components/uiStyle/FontAwesome";
-import {Link} from "react-router-dom";
-import WidgetTab from "../../components/WidgetTab";
-import WidgetTrendingNews from "../../components/WidgetTrendingNews";
-import NewsLetter from "../../components/NewsLetter";
-import EntertainmentNews from "../../components/EntertainmentNews";
-import {Fade, Nav, NavItem, TabContent, TabPane} from "reactstrap";
-import MostShareWidget from "../../components/MostShareWidget";
 import BannerSection from "../../components/BannerSection";
-import classnames from 'classnames';
+import { fetchPages } from '../../store/actions';
 
-// images
-import banner2 from "../../doc/img/bg/sidebar-1.png";
-import enter1 from '../../doc/img/entertrainment/enter1.jpg';
-import enter2 from '../../doc/img/entertrainment/enter2.jpg';
-import enter3 from '../../doc/img/entertrainment/enter3.jpg';
-import enter4 from '../../doc/img/entertrainment/enter4.jpg';
-import author1 from '../../doc/img/author/author1.png';
-import calendar from '../../doc/img/icon/calendar.png';
 
-const entertainments = [
-    {
-        image: enter1,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter2,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter3,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter4,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter1,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter2,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter3,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter2,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter3,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter4,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter3,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter4,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-];
+const AboutUsPage = ({fetchPages, pages, name}) => {
+    useEffect(() => {
+        fetchPages(name)
 
-const AboutUsPage = () => {
-    const [activeTab, setActiveTab] = useState('1');
+    },[])
 
-    const toggle = tab => {
-        if (activeTab !== tab) setActiveTab(tab);
-    };
+    const LinkRenderer = (props) => {
+        return <a href={props.href} target="_blank">{props.children}</a>
+      }
     return (
         <Fragment>
-            <BreadCrumb className="shadow5" title="Archive">
+            <BreadCrumb className="shadow5" title={name === "Privacy and Policy" ? name.replace("and", "&") : name}>
                 <Fragment>
                     <div className="space-50"/>
                     <div className="row">
                         <div className="col-12">
                             <div className="author_about">
-                                {/* <div className="author_img">
-                                    <div className="author_wrap">
-                                        <img src={author1} alt="author1"/>
-                                    </div>
-                                </div> */}
-                                <div className="author_content"><Link to="/">Wir über uns</Link>
-                                </div>
-                                <p>Die GesundheitsTicket GmbH organisiert seit 2011 die externe betriebliche Gesundheitsvorsorge
-                                     für viele kleine, mittelständische und große Unternehmen in ganz Deutschland.</p>
-                                <br/>
-                                <p>Dabei erhalten die Beschäftigten von ihrem Arbeitgeber ein GesundheitsTicket oder GesundheitsTicket Plus,
-                                    das mit einem lohnsteuer- und sozialabgabenfreien Budget aufgeladen ist.
-                                    Aus diesem Budget heraus können Gesundheitsangebote vor Ort bei unseren Gesundheitspartnern genutzt und bezahlt werden.</p>
-                                <p>
-                                <br/>
-                                Die Plattform www.new.gesundheitsticket.de wurde entwickelt, um unseren Gesundheitspartnern die Möglichkeit zu geben,
-                                ihre aktuellen und regionalen Angebote zu veröffentlichen. Sei es ein neuer Kurssstart, ein Monatsangebot oder eine Rabattaktion.
-                                </p>
-                                <br/>
-                                <p>Die GesundheitsTicket-Inhaber haben neben dem Suchportal für GesundheitsPartner über unsere  <a href="https://www.gesundheitsticket.de" target="_blank">Homepage</a> nun auch die Möglichkeit,
-                                     unter Eingabe ihrer Postleitzahl diese Angebote zu finden.</p>
-                                <br/>
-                                <p>
-                                Im Laufe der Zeit werden wir diese Plattform immer weiter entwickeln und um sinnvolle Funktionen erweitern.
-                                </p>
-                                <br/>
-                                <p>
-                                News.GesundheitsTicket.de ist außerdem eine Informationsplattform zu den vielen Aspekten der Gesundheitsprävention, auch über Deutschland hinaus und öffnet so einen weiteren Blick über die verschiedenen Tellerränder hinaus in die Welt.
-                                </p>
-                                <br/>
-                                <p>
-                                Auch laden wir alle gesundheitsinteressierten Nutzer unserer Plattform herzlich ein, ihre Wünsche und Meinungen einzubringen, damit wir diese Plattform mit Leben füllen und weiterentwickeln können.
-                                </p>
-                                <br/>
-                                <ul className="inline">
-                                    <li>Berlin, 16.09.2020</li>
-                                    <br/>
-                                    <br/>
-                                    <li>Chris Lombardt</li>
-                                    <br/>
-                                    <li> Geschäftsführer und Gründer</li>
-                                    <br/>
-                                    <li> GesundheitsTicket GmbH</li>
-                                </ul>
+                          {pages && pages.content &&   <ReactMarkdown
+                                className="markdownContainer"
+                                renderers={{link: LinkRenderer}}
+                                source={pages.content}/>}
                             </div>
                         </div>
                     </div>
                     <div className="space-50"/>
                 </Fragment>
             </BreadCrumb>
-            {/* <div className="archives padding-top-30">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-6 col-lg-8">
-                            <div className="row">
-                                <div className="col-10 align-self-center">
-                                    <div className="about_post_list">
-                                        <Nav tabs>
-                                            <NavItem>
-                                                <div
-                                                    className={classnames({active: activeTab === '1'})}
-                                                    onClick={() => {
-                                                        toggle('1');
-                                                    }}
-                                                >
-                                                    Latest news
-                                                </div>
-                                            </NavItem>
-                                            <NavItem>
-                                                <div
-                                                    className={classnames({active: activeTab === '2'})}
-                                                    onClick={() => {
-                                                        toggle('2');
-                                                    }}
-                                                >
-                                                    Popular news
-                                                </div>
-                                            </NavItem>
-                                        </Nav>
-                                    </div>
-                                </div>
-                                <div className="col-2 text-right align-self-center">
-                                    <div className="calender mb20">
-                                        <img src={calendar} alt="calendar"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="about_posts_tab">
-                                <TabContent activeTab={activeTab}>
-                                    <TabPane tabId="1">
-                                        <Fade in={activeTab === '1'}>
-                                            <div className="row justify-content-center">
-                                                <EntertainmentNews headerHide={true} entertainments={entertainments}/>
-                                            </div>
-                                        </Fade>
-                                    </TabPane>
-                                    <TabPane tabId="2">
-                                        <Fade in={activeTab === '2'}>
-                                            <div className="row justify-content-center">
-                                                <EntertainmentNews headerHide={true} entertainments={entertainments}/>
-                                            </div>
-                                        </Fade>
-                                    </TabPane>
-                                </TabContent>
-                            </div>
-                            <div className="row">
-                                <div className="col-12">
-                                    <div className="cpagination">
-                                        <nav aria-label="Page navigation example">
-                                            <ul className="pagination">
-                                                <li className="page-item">
-                                                    <Link className="page-link" to="/" aria-label="Previous">
-                                                                <span aria-hidden="true"><FontAwesome
-                                                                    name="caret-left"/></span>
-                                                    </Link>
-                                                </li>
-                                                <li className="page-item">
-                                                    <Link className="page-link" to="/">1</Link>
-                                                </li>
-                                                <li className="page-item">
-                                                    <Link className="page-link" to="/">..</Link>
-                                                </li>
-                                                <li className="page-item">
-                                                    <Link className="page-link" to="/">5</Link>
-                                                </li>
-                                                <li className="page-item">
-                                                    <Link className="page-link" to="/" aria-label="Next">
-                                                                <span aria-hidden="true"><FontAwesome
-                                                                    name="caret-right"/></span>
-                                                    </Link>
-                                                </li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-6 col-lg-4">
-                            <WidgetTab/>
-                            <WidgetTrendingNews/>
-                            <div className="banner2 mb30">
-                                <Link to="/">
-                                    <img src={banner2} alt="thumb"/>
-                                </Link>
-                            </div>
-                            <MostShareWidget title="Most Share"/>
-                            <NewsLetter/>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
             <div className="space-70"/>
             <BannerSection/>
         </Fragment>
     )
 };
+const mapStateToProps = state => {
+    return {
+        pages: state.pages && state.pages.pages  && state.pages.pages[0] || []
+    }
+}
 
-export default AboutUsPage;
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchPages: (name) => dispatch(fetchPages({name}))
+    }
+}
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(AboutUsPage);

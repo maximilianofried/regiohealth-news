@@ -80,8 +80,6 @@ import AudioPostTwoDarkPage from "../AudioPostTwoDarkPage";
 import AudioPostThreeDarkPage from "../AudioPostThreeDarkPage";
 import PostOneLeftSidebarDarkPage from "../PostOneLeftSidebarDarkPage";
 import SearchPage from "../SearchPage";
-import AdvertisePage from "../AdvertisePage";
-import PrivacyPolicyPage from "../PrivacyPolicyPage";
 // import PublicRoute from '../_PublicRoute';
 
 const Routes = () => {
@@ -145,17 +143,24 @@ const Routes = () => {
                 exact
                 path="/about"
                 parentClass="theme-1"
-                component={AboutUsPage}/>
+                component={(props) => (
+                    <AboutUsPage {...props} name={"About"}/>
+                )}
+                />
             <PrivateRoute
                 exact
                 path="/advertise"
                 parentClass="theme-1"
-                component={AdvertisePage}/>
+                component={(props) => (
+                    <AboutUsPage {...props} name={"Advertise"}/>
+                )}/>
             <PrivateRoute
                 exact
                 path="/privacypolicy"
                 parentClass="theme-1"
-                component={PrivacyPolicyPage}/>
+                component={(props) => (
+                    <AboutUsPage {...props} name={"Privacy and Policy"}/>
+                )}/>
             <PrivateRoute
                 exact
                 path="/archive"
