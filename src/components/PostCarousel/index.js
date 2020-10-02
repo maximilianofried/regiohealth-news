@@ -2,46 +2,12 @@ import React, {useState, useRef} from 'react';
 import {Link} from "react-router-dom";
 import {connect} from 'react-redux';
 import Swiper from 'react-id-swiper';
-import hside4 from '../../doc/img/header/slider/hside4.jpg';
-import hside5 from '../../doc/img/header/slider/hside5.jpg';
-import hside6 from '../../doc/img/header/slider/hside6.jpg';
 import hside1 from '../../doc/img/header/slider/hside1.jpg';
-import hside2 from '../../doc/img/header/slider/hside2.jpg';
-import hside3 from '../../doc/img/header/slider/hside3.jpg';
+import {formatDate} from "../../utils/commonFunctions";
 import FontAwesome from "../uiStyle/FontAwesome";
 const CMS_LINK = "https://cms.gesundheitsticket.de";
-const postSlider = [
-    {
-        title: 'The home decorations document, photograph of an',
-        body: 'People have been infected',
-        image: hside4
-    },
-    {
-        title: 'U.S. Response subash says he will label regions by risk of…',
-        body: 'People have been infected'
-    },
-    {
-        title: 'Stimul package will transform the government fundamentally.',
-        body: 'People have been infected',
-    },
-    {
-        title: 'U.S. Response subash says he will label regions by risk of…',
-        body: 'People have been infected',
-        image: hside1
-    },
-    {
-        title: 'U.S. Response subash says he will label regions by risk of…',
-        body: 'People have been infected',
-        image: hside2
-    },
-    {
-        title: 'U.S. Response subash says he will label regions by risk of…',
-        body: 'People have been infected',
-        image: hside3
-    },
-];
 
-const PostCarousel = ({className, localArticles}) => {
+const PostCarousel = ({className, latestArticles}) => {
     const ref = useRef(null);
 
     const goNext = () => {
@@ -98,7 +64,7 @@ const PostCarousel = ({className, localArticles}) => {
                             {/*CAROUSEL START*/}
                             <div className="px-4 position-relative">
                                 <Swiper ref={ref} {...params}>
-                                    {localArticles.length > 0 && localArticles.map((item, i) => (
+                                    {latestArticles.length > 0 && latestArticles.map((item, i) => (
                                         <div key={i} className={"single_post widgets_small post_type5 "  + (item.main_image ? '' : 'no_padding_left')}>
                                           {item.main_image && <div className="post_img">
                                                 <div className="img_wrap">
@@ -108,8 +74,14 @@ const PostCarousel = ({className, localArticles}) => {
                                                 </div>
                                             </div>}
                                             <div className="single_post_text">
-                                                <h4><Link to={`/article/${item._id}`} >{item.title.length > 50 ? item.title.substr(0, 50) + "\u2026" : item.title}</Link></h4>
-                                               {item.categories && <p>{item.categories[0].name}</p>}
+                                                {/* {item.categories && <p>{item.categories[0].name}</p>}
+                                                <p className="date_carousel">{formatDate(item.createdAt)}</p> */}
+                                                <h4><Link to={`/article/${item._id}`} >{item.title.length > 35 ? item.title.substr(0, 35) + "\u2026" : item.title}</Link></h4>
+                                                {
+                                                    item.description ? (item.description.length > 28 ? item.description.substr(0, 28) + "\u2026" : item.title) :
+                                                    item.categories.length > 0 ? item.categories[0].name :
+                                                    ''
+                                                }
                                             </div>
                                         </div>
                                     ))}

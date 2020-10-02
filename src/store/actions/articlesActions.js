@@ -3,10 +3,8 @@ import {
     FETCH_ARTICLES_REQUEST,
     FETCH_ARTICLES_SUCCESS,
     FETCH_ARTICLES_FAILURE,
-    CLEAN_FILTERED_ARTICLES,
-    LOAD_NEW_PAGE,
-    LOAD_EXACT_PAGE,
-    SHOW_MORE_ARTICLES
+    SHOW_MORE_ARTICLES,
+    FETCH_ARTICLES_CITY_SUCCESS
 } from "../constants/articlesTypes";
 
 const fetchArticlesRequest = () => {
@@ -30,22 +28,9 @@ const fetchArticlesFailure = error => {
     }
 }
 
-export const cleanFilteredArticles = () => {
+const fetchArticlesByCitySuccess = payload => {
     return {
-        type: CLEAN_FILTERED_ARTICLES
-    }
-}
-
-export const loadNewPage = payload => {
-    return {
-        type: LOAD_NEW_PAGE,
-        payload
-    }
-}
-
-export const loadExactPage = payload => {
-    return {
-        type: LOAD_EXACT_PAGE,
+        type: FETCH_ARTICLES_CITY_SUCCESS,
         payload
     }
 }
@@ -64,26 +49,12 @@ export const fetchArticles = ({category = undefined, city = undefined, start = u
                     + (city ? '&city=' + city : '')
                     + (start ? '&_start=' + start : '')
                     + (limit ? '&_limit=' + limit : '');
-        // let url = category ? 'https://cms.gesundheitsticket.de/articles/published?_sort=createdAt:DESC' + '&categories.name_contains=' + category
-        // :  city ? 'https://cms.gesundheitsticket.de/articles/published?_sort=createdAt:DESC' + '&city=' + city
-        // : 'https://cms.gesundheitsticket.de/articles/published?_sort=createdAt:DESC';
         dispatch(fetchArticlesRequest);
         axios.get(url)
             .then(response => {
                 const articles = response.data;
-                let count = articles.length;
-                let counterPerPage = 2;
-                let totalPages = Math.ceil(count / counterPerPage);
-
                 dispatch(fetchArticlesSuccess({
                     articles,
-                    filteredArticles: articles.slice(0, counterPerPage),
-                    currentCount: counterPerPage,
-                    counterPerPage,
-                    totalCount: count,
-                    currentPage: 1,
-                    totalPages,
-                    filteredPages: totalPages,
                     limit
                     }
                 ))
@@ -102,19 +73,27 @@ export const fetchArticlesGeo = ({lat = undefined, lng = undefined} = {}) => {
         axios.get(url)
             .then(response => {
                 const articles = response.data;
-                let count = articles.length;
-                let counterPerPage = 2;
-                let totalPages = Math.ceil(count / counterPerPage);
-
                 dispatch(fetchArticlesSuccess({
                     articles,
-                    filteredArticles: articles.slice(0, counterPerPage),
-                    currentCount: counterPerPage,
-                    counterPerPage,
-                    totalCount: count,
-                    currentPage: 1,
-                    totalPages,
-                    filteredPages: totalPages
+                    }
+                ))
+            })
+            .catch(error => {
+                const errorMsg = error.message;
+                dispatch(fetchArticlesFailure(errorMsg));
+            })
+    }
+}
+
+export const fetchArticlesCity = ({city = undefined} = {}) => {
+    return (dispatch) => {
+        let url = "https://cms.gesundheitsticket.de/articles/published?_sort=createdAt:DESC&city=" + city ;
+        dispatch(fetchArticlesRequest);
+        axios.get(url)
+            .then(response => {
+                const articles = response.data;
+                dispatch(fetchArticlesByCitySuccess({
+                    articles,
                     }
                 ))
             })

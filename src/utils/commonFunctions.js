@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 function mostViewSort(data) {
     let initial = 0;
     let secondFirst = Math.floor(data.length / 2) - 1;
@@ -14,6 +16,10 @@ function mostViewSort(data) {
     return results;
 }
 
+function formatDate(date){
+    return moment(date).format("LL")
+}
 export {
-    mostViewSort
+    mostViewSort,
+    formatDate
 };

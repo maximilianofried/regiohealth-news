@@ -1,6 +1,6 @@
 import React, {Fragment, useEffect} from 'react';
 import {connect} from 'react-redux';
-import {fetchArticles, loadNewPage, loadExactPage, fetchAds, showMoreArticles} from "../../store/actions";
+import {fetchArticles, fetchAds, showMoreArticles} from "../../store/actions";
 import BreadCrumb from "../../components/BreadCrumb";
 import BusinessNews from "../../components/BusinessNews";
 import FontAwesome from "../../components/uiStyle/FontAwesome";
@@ -18,64 +18,7 @@ import banner2 from "../../doc/img/bg/sidebar-1.png";
 import akon1 from "../../doc/img/ads/akon-1.jpg"
 import BannerSection from "../../components/BannerSection";
 const CMS_LINK = "https://cms.gesundheitsticket.de";
-const businessNews = [
-    {
-        image: business1,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-        image: business2,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-        image: business3,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-        image: business1,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-        image: business2,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-        image: business3,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-        image: business2,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-        image: business3,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-];
+
 const BusinessPage = ({filteredArticles, fetchArticles, allArticles,showMoreArticles, loadNewPage, loadExactPage, filteredPages, category, fetchAds, adsCategory, currentPage, totalPages, limit}) => {
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -84,15 +27,6 @@ const BusinessPage = ({filteredArticles, fetchArticles, allArticles,showMoreArti
     },[])
 
     const banner350x292 = adsCategory.filter((ad) => ad.size === "s350x292")[0] || {};
-    const goToPage = (page) => {
-        loadExactPage(page)
-    }
-    const previousPage = () => {
-        loadNewPage({page: -1})
-    }
-    const nextPage = () => {
-        loadNewPage({page: 1})
-    }
 
     const showMore = () => {
         fetchArticles({category, start: 0, limit: limit + 2})
@@ -122,28 +56,6 @@ const BusinessPage = ({filteredArticles, fetchArticles, allArticles,showMoreArti
                                     <div className="col-12">
                                         <div className="cpagination">
                                             <a onClick={showMore} className="readmore cursor_pointer">SHOW MORE</a>
-                                                {/* <ul className="pagination">
-
-                                                    <li className="page-item">
-                                                         <a onClick={showMore}  className="page-link" aria-label="Previous">
-                                                                <span aria-hidden="true"><FontAwesome
-                                                                    name="caret-left"/></span>
-                                                        </a>
-                                                    </li>
-                                                    {
-                                                        [...Array(filteredPages)].map((value,index) => (
-                                                            <li key={index} className="page-item" >
-                                                                <a  onClick={() => goToPage(index + 1)} className="page-link">{index +1}</a>
-                                                            </li>
-                                                        ))
-                                                    }
-                                                    <li className="page-item">
-                                                        <a onClick={filteredArticles.length > 0 && currentPage != totalPages ? nextPage : undefined} className="page-link" aria-label="Next">
-                                                                <span aria-hidden="true"><FontAwesome
-                                                                    name="caret-right"/></span>
-                                                        </a>
-                                                    </li>
-                                                </ul> */}
                                         </div>
                                     </div>
                                 </div>
@@ -151,10 +63,6 @@ const BusinessPage = ({filteredArticles, fetchArticles, allArticles,showMoreArti
                         </div>
                         <div className="space-70"/>
                         <div className="col-md-6 col-lg-4">
-                            {/* <WidgetTab/> */}
-                            {/* <WidgetTrendingNews/> */}
-                            {/* <NewsLetter/>
-                            <FollowUs title="Follow Us"/> */}
                             <div className="banner2 mb30">
                                 <a href={banner350x292.link} target="_blank">
                                 {banner350x292.image && banner350x292.image.length > 0 && <img src={CMS_LINK + banner350x292.image[0].url} alt="banner"/>}
@@ -172,11 +80,7 @@ const BusinessPage = ({filteredArticles, fetchArticles, allArticles,showMoreArti
 
 const mapStateToProps = state => {
     return {
-        filteredArticles: state.articles.filteredArticles,
-        filteredPages: state.articles.filteredPages,
         adsCategory: state.ads.ads.filter((ad) => ad.position === "category"),
-        currentPage: state.articles.currentPage,
-        totalPages: state.articles.totalPages,
         allArticles: state.articles.articles,
         limit: state.articles.limit
 
@@ -186,8 +90,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchArticles: ({category, start, limit}) => dispatch(fetchArticles({category, start, limit})),
-        loadNewPage: (page) => dispatch(loadNewPage({page})),
-        loadExactPage: (page) => dispatch(loadExactPage({page})),
         fetchAds: () => dispatch(fetchAds()),
         showMoreArticles: () => dispatch(showMoreArticles())
     }

@@ -1,6 +1,6 @@
 import React, {Fragment, useEffect} from 'react';
 import {connect} from 'react-redux';
-import {fetchArticles,fetchArticlesGeo, cleanFilteredArticles, loadNewPage, loadExactPage, fetchAds} from "../../store/actions";
+import {fetchArticles,fetchArticlesGeo, fetchAds} from "../../store/actions";
 import BreadCrumb from "../../components/BreadCrumb";
 import BusinessNews from "../../components/BusinessNews";
 import FontAwesome from "../../components/uiStyle/FontAwesome";
@@ -30,81 +30,13 @@ import banner2 from "../../doc/img/bg/sidebar-1.png";
 import akon1 from "../../doc/img/ads/akon-1.jpg"
 import BannerSection from "../../components/BannerSection";
 const CMS_LINK = "https://cms.gesundheitsticket.de";
-const businessNews = [
-    {
-        image: business1,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-        image: business2,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-        image: business3,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-        image: business1,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-        image: business2,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-        image: business3,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-        image: business2,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-        image: business3,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-];
-const SearchPage = ({filteredArticles, fetchArticles, fetchArticlesGeo, cleanFilteredArticles, loadNewPage, loadExactPage, filteredPages, category, fetchAds, adsCategory, currentPage, totalPages}) => {
+
+const SearchPage = ({filteredArticles, fetchArticles, fetchArticlesGeo, category, fetchAds, adsCategory}) => {
     useEffect(() => {
         fetchAds()
-        cleanFilteredArticles()
     },[])
 
     const banner350x292 = adsCategory.filter((ad) => ad.size === "s350x292")[0] || {};
-
-    const goToPage = (page) => {
-        loadExactPage(page)
-    }
-    const previousPage = () => {
-        loadNewPage({page: -1})
-    }
-    const nextPage = () => {
-        loadNewPage({page: 1})
-    }
 
     return (
         <Fragment>
@@ -132,27 +64,6 @@ const SearchPage = ({filteredArticles, fetchArticles, fetchArticlesGeo, cleanFil
                                 <div className="col-12">
                                     <div className="cpagination">
                                         <nav aria-label="Page navigation example">
-                                            <ul className="pagination">
-                                                <li className="page-item">
-                                                        <a onClick={filteredArticles.length > 0 && currentPage != 1 ? previousPage : undefined} className="page-link" aria-label="Previous">
-                                                            <span aria-hidden="true"><FontAwesome
-                                                                name="caret-left"/></span>
-                                                    </a>
-                                                </li>
-                                                {
-                                                    [...Array(filteredPages)].map((value,index) => (
-                                                        <li key={index} className="page-item" >
-                                                            <a  onClick={() => goToPage(index + 1)} className="page-link">{index +1}</a>
-                                                        </li>
-                                                    ))
-                                                }
-                                                <li className="page-item">
-                                                    <a onClick={filteredArticles.length > 0 && currentPage != totalPages ? nextPage : undefined} className="page-link" aria-label="Next">
-                                                            <span aria-hidden="true"><FontAwesome
-                                                                name="caret-right"/></span>
-                                                    </a>
-                                                </li>
-                                            </ul>
                                         </nav>
                                     </div>
                                 </div>
@@ -226,11 +137,7 @@ const Search = ({fetchArticlesGeo}) => {
 
 const mapStateToProps = state => {
     return {
-        filteredArticles: state.articles.filteredArticles,
-        filteredPages: state.articles.filteredPages,
         adsCategory: state.ads.ads.filter((ad) => ad.position === "category"),
-        currentPage: state.articles.currentPage,
-        totalPages: state.articles.totalPages
     }
 }
 
@@ -238,10 +145,7 @@ const mapDispatchToProps = dispatch => {
     return {
         fetchArticles: ({city}) => dispatch(fetchArticles({city})),
         fetchArticlesGeo: ({lat, lng}) => dispatch(fetchArticlesGeo({lat, lng})),
-        loadNewPage: (page) => dispatch(loadNewPage({page})),
-        loadExactPage: (page) => dispatch(loadExactPage({page})),
         fetchAds: () => dispatch(fetchAds()),
-        cleanFilteredArticles: () => dispatch(cleanFilteredArticles())
     }
 }
 export default connect(
