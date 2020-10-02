@@ -1101,11 +1101,15 @@ span.tranding {
 
   .single_post_text {
     p {
-      font-size: 15px;
+      font-size: 12px;
       font-weight: $wightLight;
       opacity: .85;
-      line-height: 21px;
+      line-height: 16px;
       margin-top: 5px;
+    }
+
+    .date_carousel {
+      font-size: 12px;
     }
   }
 

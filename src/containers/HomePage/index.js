@@ -4,87 +4,6 @@ import {fetchArticles, fetchAds} from "../../store/actions";
 import PostCarousel from "../../components/PostCarousel";
 import PostGallery from "../../components/PostGallery";
 import {Helmet} from "react-helmet";
-import FeatureNewsNoImage from "../../components/FeatureNewsNoImage";
-import TrendingNews from "../../components/TrendingNews";
-import FollowUs from "../../components/FollowUs";
-import MostView from "../../components/MostView";
-import MixCarousel from "../../components/MixCarousel";
-import VideoPost from "../../components/VideoPost";
-import EntertainmentNews from "../../components/EntertainmentNews";
-import {Link} from "react-router-dom";
-import SportsNews from "../../components/SportsNews";
-import BusinessNews from "../../components/BusinessNews";
-import MostShareWidget from "../../components/MostShareWidget";
-import UpcomingMatches from "../../components/UpcomingMatches";
-import NewsLetter from "../../components/NewsLetter";
-import CategoriesWidget from "../../components/CategoriesWidget";
-
-// images
-import banner1 from '../../doc/img/bg/banner1.png';
-import banner2 from '../../doc/img/bg/sidebar-1.png';
-import business1 from '../../doc/img/business/business1.jpg';
-import business2 from '../../doc/img/business/business2.jpg';
-import business3 from '../../doc/img/business/business3.jpg';
-import enter1 from '../../doc/img/entertrainment/enter1.jpg';
-import enter2 from '../../doc/img/entertrainment/enter2.jpg';
-import enter3 from '../../doc/img/entertrainment/enter3.jpg';
-import enter4 from '../../doc/img/entertrainment/enter4.jpg';
-
-const entertainments = [
-    {
-        image: enter1,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter2,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter3,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-    {
-        image: enter4,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'There may be no consoles in the future ea exec says',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with sandy shower…'
-    },
-];
-
-const businessNews = [
-    {
-        image: business1,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-        image: business2,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-    {
-        image: business3,
-        category: 'uiux.subash',
-        date: 'March 26, 2020',
-        title: 'Copa America: Luis Suarez from devastated US',
-        body: 'The property, complete with 30-seat screening from room, a 100-seat amphitheater and a swimming pond with…'
-    },
-];
-
 
 const HomePage = ({latestArticles, topArticles, localArticles, fetchArticles, fetchAds, adsHome}) => {
     useEffect(() => {
@@ -100,7 +19,6 @@ const HomePage = ({latestArticles, topArticles, localArticles, fetchArticles, fe
                 <link rel="canonical" href="http://news.gesundheitsticket.de" />
             </Helmet>
             {/* <PostCarousel className="fifth_bg"/> */}
-            <PostCarousel localArticles={localArticles} className="fifth_bg"/>
             <PostGallery latestArticles={latestArticles} topArticles={topArticles} adsHome={adsHome} className="fifth_bg"/>
             {/* <FeatureNewsNoImage/> */}
             <div className="container">

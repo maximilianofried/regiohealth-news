@@ -57,7 +57,7 @@ export const fetchOnInit = () => {
                 })
             }, function(error){
                 console.log(error)
-            }, {maximumAge:60000, timeout:5000, enableHighAccuracy:true})
+            }, {timeout:5000, enableHighAccuracy:true})
         }
         // axios.get('http://cms.gesundheitsticket.de/categories')
         //     .then(response => {
