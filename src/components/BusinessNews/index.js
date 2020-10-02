@@ -21,7 +21,7 @@ const BusinessNews = ({businessArticles, headerHide}) => {
                                 <div key={i} className="single_post post_type3 post_type12 mb30">
                                     <div className="post_img">
                                         <div className="img_wrap">
-                                            <Link to={`/post2/${item._id}`}>
+                                            <Link to={`/article/${item._id}`}>
                                             { item.main_image ? <img src={"https://cms.gesundheitsticket.de" + item.main_image.url} alt="thumb"/> : ''}
                                             </Link>
                                         </div>
@@ -30,11 +30,11 @@ const BusinessNews = ({businessArticles, headerHide}) => {
                                         <div className="meta3"><Link to="/">{item.author}</Link>
                                             <Link to="#">{moment(item.createdAt).format("LL")}</Link>
                                         </div>
-                                        <h4><Link to={`/post2/${item._id}`}>{item.title}</Link></h4>
+                                        <h4><Link to={`/article/${item._id}`}>{item.title}</Link></h4>
                                         <div className="space-10"/>
                                         <p className="post-p">{item.description}</p>
                                         {/* <div className="space-20"/>
-                                        <Link to={`/post2/${item._id}`} className="readmore">Read more</Link> */}
+                                        <Link to={`/article/${item._id}`} className="readmore">Read more</Link> */}
                                     </div>
                                 </div>
                             ))}

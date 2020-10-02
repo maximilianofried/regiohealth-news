@@ -52,7 +52,7 @@ const WidgetTabPane = ({latestArticles, a_id, id, dark}) => {
                             {item.main_image && item.main_image.formats &&
                              <div className="post_img">
                                 <div className="img_wrap">
-                                    <Link to={`/post2/${item._id}`}>
+                                    <Link to={`/article/${item._id}`}>
                                         <img src={CMS_LINK + item.main_image.formats.thumbnail.url} alt="thumb"/>
                                     </Link>
                                 </div>
@@ -61,7 +61,7 @@ const WidgetTabPane = ({latestArticles, a_id, id, dark}) => {
                                 <div className="meta2 meta_separator1"><Link to="#">{item.categories[0].name}</Link>
                                     <Link to="#">{moment(item.createdAt).format("LL")}</Link>
                                 </div>
-                                <h4><Link to={`/post2/${item._id}`}>{item.title}</Link></h4>
+                                <h4><Link to={`/article/${item._id}`}>{item.title}</Link></h4>
                             </div>
                         </div>
                         <div className="space-15"/>

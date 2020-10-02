@@ -102,13 +102,13 @@ const PostCarousel = ({className, localArticles}) => {
                                         <div key={i} className={"single_post widgets_small post_type5 "  + (item.main_image ? '' : 'no_padding_left')}>
                                           {item.main_image && <div className="post_img">
                                                 <div className="img_wrap">
-                                                    <Link to={`/post2/${item._id}`} >
+                                                    <Link to={`/article/${item._id}`} >
                                                         <img src={item.main_image ? `${CMS_LINK + item.main_image.url}` : hside1} alt="slider5"/>
                                                     </Link>
                                                 </div>
                                             </div>}
                                             <div className="single_post_text">
-                                                <h4><Link to={`/post2/${item._id}`} >{item.title.length > 50 ? item.title.substr(0, 50) + "\u2026" : item.title}</Link></h4>
+                                                <h4><Link to={`/article/${item._id}`} >{item.title.length > 50 ? item.title.substr(0, 50) + "\u2026" : item.title}</Link></h4>
                                                {item.categories && <p>{item.categories[0].name}</p>}
                                             </div>
                                         </div>

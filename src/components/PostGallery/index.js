@@ -187,7 +187,7 @@ class PostGallery extends Component {
                                                             <Link to="#">{moment(item.createdAt).format("LL")}</Link>
                                                         </div>
                                                         <h4><Link className="play_btn"
-                                                                  to={`/post2/${item._id}`}>{item.title}</Link></h4>
+                                                                  to={`/article/${item._id}`}>{item.title}</Link></h4>
                                                         <div className="space-10"/>
                                                         <p className="post-p">{item.description}</p>
                                                     </div>

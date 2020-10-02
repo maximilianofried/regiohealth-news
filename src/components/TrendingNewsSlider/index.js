@@ -79,7 +79,7 @@ const TrendingNewsSlider = ({dark, latestArticles, adsHome = []}) => {
                         <div className="meta3"><Link to="/">{item.categories[0].name}</Link>
                             <Link to="/">{moment(item.createdAt).format("LL")}</Link>
                         </div>
-                        <h4><Link to={`/post2/${item._id}`}>{item.title}</Link></h4>
+                        <h4><Link to={`/article/${item._id}`}>{item.title}</Link></h4>
                         <div className="space-10"/>
                         {/* <p className="post-p">{item.description}</p> */}
                     </div>

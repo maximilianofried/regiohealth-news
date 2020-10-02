@@ -89,7 +89,7 @@ class ContactUsPage extends Component {
                                     </div>
                                 </div>
                             </div> */}
-                            <div className="col-lg-5">
+                            <div className="col-lg-5 mx-auto">
                                 <div className="box single_contact_box">
                                     <div className="contact_title">
                                         <h3>Headquarters</h3>
@@ -103,7 +103,7 @@ class ContactUsPage extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-lg-5">
+                            <div className="col-lg-5 mx-auto">
                                 <div className="box single_contact_box">
                                     <div className="contact_title">
                                         <h3>Headquarters</h3>

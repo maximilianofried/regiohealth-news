@@ -52,7 +52,7 @@ const PostTwoPage = ({articleData, fetchArticle}) => {
                 <meta property="og:image:secure_url" itemprop="image"  content={CMS_LINK + article.main_image.url} />
                 <meta property="og:image:type" content="image/jpeg" />
                 <meta property="og:image:type" content="image/png" />
-                <meta property="og:url" content={"https://news.gesundheitsticket.de/post2/" + id} />
+                <meta property="og:url" content={"https://news.gesundheitsticket.de/article/" + id} />
                 <meta property="og:type" content="article" />
                 <meta property="og:site_name" content="Gesundheitstickets NEWS"></meta>
             </Helmet>
@@ -87,9 +87,9 @@ const PostTwoPage = ({articleData, fetchArticle}) => {
                                 <div className="col-lg-6 align-self-center">
                                     <div className="author_social inline text-right">
                                         <ul>
-                                            <li><a href={"https://twitter.com/share?url=https://news.gesundheitsticket.de/post2/" + article._id}  target="_blank"><FontAwesome name="twitter"/></a></li>
-                                            <li><a href={"https://www.facebook.com/sharer/sharer.php?u=https://news.gesundheitsticket.de/post2/" + article._id}  target="_blank"><FontAwesome name="facebook-f"/></a></li>
-                                            <li><a href={"https://wa.me/?text=https://news.gesundheitsticket.de/post2/" + article._id}  target="_blank"><FontAwesome name="whatsapp"/></a></li>
+                                            <li><a href={"https://twitter.com/share?url=https://news.gesundheitsticket.de/article/" + article._id}  target="_blank"><FontAwesome name="twitter"/></a></li>
+                                            <li><a href={"https://www.facebook.com/sharer/sharer.php?u=https://news.gesundheitsticket.de/article/" + article._id}  target="_blank"><FontAwesome name="facebook-f"/></a></li>
+                                            <li><a href={"https://wa.me/?text=https://news.gesundheitsticket.de/article/" + article._id}  target="_blank"><FontAwesome name="whatsapp"/></a></li>
                                         </ul>
                                     </div>
                                 </div>
