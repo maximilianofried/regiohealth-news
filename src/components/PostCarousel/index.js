@@ -57,7 +57,7 @@ const PostCarousel = ({className, latestArticles}) => {
 
     return (
         <div className={className ? className : ''}>
-            <div className="container">
+            <div className="container carousel_padding">
                 <div className="row">
                     <div className="col-12">
                         <div className="carousel_posts1 owl-carousel nav_style2 mb40 mt30">
