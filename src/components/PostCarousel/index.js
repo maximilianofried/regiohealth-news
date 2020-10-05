@@ -77,11 +77,13 @@ const PostCarousel = ({className, latestArticles}) => {
                                                 {/* {item.categories && <p>{item.categories[0].name}</p>}
                                                 <p className="date_carousel">{formatDate(item.createdAt)}</p> */}
                                                 <h4><Link to={`/article/${item._id}`} >{item.title.length > 35 ? item.title.substr(0, 35) + "\u2026" : item.title}</Link></h4>
-                                                {
+                                                <p>
+                                                    {
                                                     item.description ? (item.description.length > 28 ? item.description.substr(0, 28) + "\u2026" : item.title) :
                                                     item.categories.length > 0 ? item.categories[0].name :
                                                     ''
-                                                }
+                                                    }
+                                                </p>
                                             </div>
                                         </div>
                                     ))}

@@ -25,13 +25,13 @@ const LogoArea = ({className, dark, fetchAds, adsCategory}) => {
                                 <GtLogo onClick={() => history.push('/')} />
                         </div>
                     </div>
-                    <div className="col-lg-8 align-self-center">
+                    {/* <div className="col-lg-8 align-self-center">
                         <div className="banner1">
                             <a href={banner729x90.link} target="_blank">
                                 {banner729x90.image && banner729x90.image.length > 0 && <img src={CMS_LINK + banner729x90.image[0].url} alt="banner"/>}
                             </a>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

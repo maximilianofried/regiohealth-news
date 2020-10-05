@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import Swiper from 'react-id-swiper';
 import FontAwesome from "../uiStyle/FontAwesome";
 import moment from 'moment';
+import {isMobile} from 'react-device-detect';
 const TopBar = ({className, dark, localArticles, city, fetchArticlesCity}) => {
     useEffect(() => {
         fetchArticlesCity({city: "Berlin"})
@@ -23,13 +24,17 @@ const TopBar = ({className, dark, localArticles, city, fetchArticlesCity}) => {
         }
     };
     const params = {
-        loop: true
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false
+          },
     };
     return (
         <div className={`topbar ${className ? className : ''}`} id="top">
             <div className="container">
                 <div className="row">
-                    <div className="col-md-8 align-self-center">
+                   {localArticles && localArticles.length > 0 && <div className="col-md-8 align-self-center">
                         {localArticles && localArticles.length > 0 && <div className={`trancarousel_area ${dark ? 'white' : ''}`}>
                             <p className="trand">Local News</p>
                             <div className="nav_style1">
@@ -47,17 +52,17 @@ const TopBar = ({className, dark, localArticles, city, fetchArticlesCity}) => {
                                         </div>
                                     ))}
                                 </Swiper>
-                                <div className="navBtns">
+                               {!isMobile && <div className="navBtns">
                                     <button className="navBtn prevBtn" onClick={goPrev}><FontAwesome name="angle-left"/>
                                     </button>
                                     <button className="navBtn nextBtn" onClick={goNext}><FontAwesome
                                         name="angle-right"/>
                                     </button>
-                                </div>
+                                </div>}
                             </div>
                         </div>}
-                    </div>
-                    <div className="col-md-4 align-self-center">
+                    </div>}
+                   {!isMobile && <div className="col-md-4 align-self-center">
                         <div className="top_date_social text-right">
                             <div className={`paper_date ${dark ? 'white' : ''}`}>
                                 <p>{currentDate}</p>
@@ -66,12 +71,11 @@ const TopBar = ({className, dark, localArticles, city, fetchArticlesCity}) => {
                                 <ul className="inline">
                                     <li><a href="https://twitter.com/gesundticket" target="_blank"><FontAwesome name="twitter"/></a></li>
                                     <li><a href="https://www.facebook.com/GesundheitsTicket" target="_blank"><FontAwesome name="facebook-f"/></a></li>
-                                    {/* <li><Link to="#"><FontAwesome name="youtube-play"/></Link></li> */}
                                     <li><a href="https://www.instagram.com/gesundheitsticket/" target="_blank"><FontAwesome name="instagram"/></a></li>
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div>}
                 </div>
             </div>
         </div>

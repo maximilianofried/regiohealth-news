@@ -6,6 +6,7 @@ import FooterMoreNews from "../FooterMoreNews";
 import TwitterFeed from "../TwitterFeed";
 import FontAwesome from "../uiStyle/FontAwesome";
 import {ReactComponent as GtLogo} from '../../doc/img/gt-logo/logo-gt.svg';
+import {ReactComponent as GtLogo2} from '../../doc/img/gt-logo/GT-PLUS.svg';
 import flogo from '../../doc/img/logo/footer_logo.png';
 import FooterNewsCategories from "../FooterNewsCategories";
 const history = createBrowserHistory({forceRefresh:true});
@@ -21,15 +22,31 @@ const FooterArea = ({className}) => {
             <div className="container">
                 <div className="cta">
                     <div className="row">
-                        <div className="col-md-6 align-self-center">
-                            <div className="footer_logo logo">
-                                <GtLogo onClick={() => history.push('/')} />
-                            </div>
+                        <div className="col-7 col-md-6 align-self-center">
                             <div className="social2">
+                            <ul className="inline">
+                                <li> <GtLogo className="gt_logo" onClick={() => history.push('/')} /></li>
+                                <li><GtLogo2 className="gt_logo" onClick={() => history.push('/')} /></li>
+                            </ul>
+                            </div>
+                            {/* <div className="row">
+                                <div className="col-md-6">
+                                    <div className="footer_logo logo">
+                                        <GtLogo className="gt_logo" onClick={() => history.push('/')} />
+                                    </div>
+                                </div>
+                                <div className="col-md-6">
+                                    <div className="footer_logo logo">
+                                        <GtLogo2 className="gt_logo" onClick={() => history.push('/')} />
+                                    </div>
+                                </div>
+                            </div> */}
+                        </div>
+                        <div className="col-5 col-md-6 align-end">
+                        <div className="social2">
                                 <ul className="inline">
                                     <li><a href="https://twitter.com/gesundticket" target="_blank"><FontAwesome name="twitter"/></a></li>
                                     <li><a href="https://www.facebook.com/GesundheitsTicket" target="_blank"><FontAwesome name="facebook-f"/></a></li>
-                                    {/* <li><Link to="#"><FontAwesome name="youtube-play"/></Link></li> */}
                                     <li><a href="https://www.instagram.com/gesundheitsticket/" target="_blank"><FontAwesome name="instagram"/></a></li>
                                 </ul>
                             </div>
@@ -46,8 +63,8 @@ const FooterArea = ({className}) => {
                         </div> */}
                     </div>
                 </div>
-                <div className="border_white"/>
-                <div className="space-40"/>
+                {/* <div className="border_white"/>
+                <div className="space-40"/> */}
                 {/* <div className="row justify-content-center">
                     <div className="col-lg-8">
                         <div className="row">

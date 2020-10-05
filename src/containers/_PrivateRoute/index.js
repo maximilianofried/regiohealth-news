@@ -40,10 +40,14 @@ const PrivateRoute = (props) => {
                         :
                         <Fragment>
                             {/*=== home one/default ===*/}
-                            <TopBar className="white_bg"/>
-                            <div className="border_black"/>
                             <LogoArea className="white_bg"/>
+                            <div className="border_black"/>
                             <MainMenu/>
+                            <div className="border_black"/>
+                            <div className="space-15"></div>
+                            <TopBar className="white_bg"/>
+                            <div className="space-15"></div>
+                            <div className="border_black"/>
                         </Fragment>
             }
 

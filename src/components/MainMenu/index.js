@@ -6,7 +6,8 @@ import SearchModal from "../SearchModal";
 import SidebarMenu from "../SidebarMenu";
 import { fetchMenu } from '../../store/actions/menuActions';
 import { connect } from 'react-redux';
-
+import moment from 'moment';
+import {isMobile} from 'react-device-detect';
 const menus = [
     {
         id: 1,
@@ -420,7 +421,7 @@ const MainMenu = ({className, dark, fetchMenu, menuData}) => {
     }, [])
     const [searchShow, setSearchShow] = useState(false);
     const [sideShow, setSideShow] = useState(false);
-
+    const currentDate = moment().format("LLL");
     const arr = dark ? menusDark : menuData.menu;
     return (
         <Fragment>
@@ -431,7 +432,7 @@ const MainMenu = ({className, dark, fetchMenu, menuData}) => {
                 <div className="main-nav clearfix is-ts-sticky">
                     <div className="container">
                         <div className="row justify-content-between">
-                            <nav className="navbar navbar-expand-lg col-lg-8 align-self-center">
+                            <nav className="navbar navbar-expand-lg col-lg-12 align-self-center">
                                 <div className="site-nav-inner">
                                     <button className="navbar-toggler" onClick={() => setSideShow(true)}>
                                         <FontAwesome name="bars"/>
@@ -481,9 +482,24 @@ const MainMenu = ({className, dark, fetchMenu, menuData}) => {
                                             )) : null}
                                         </ul>
                                     </div>
+                                  
                                     <SidebarMenu sideShow={sideShow} setSideShow={setSideShow} menus={arr}/>
                                 </div>
                             </nav>
+                           {isMobile && <div className="col-lg-4 align-self-center topbar">
+                            <div className="top_date_social text-right">
+                            <div className={`paper_date ${dark ? 'white' : ''}`}>
+                                <p>{currentDate}</p>
+                            </div>
+                            {/* <div className={`social1 ${dark ? 'white' : ''}`}>
+                                <ul className="inline">
+                                    <li><a href="https://twitter.com/gesundticket" target="_blank"><FontAwesome name="twitter"/></a></li>
+                                    <li><a href="https://www.facebook.com/GesundheitsTicket" target="_blank"><FontAwesome name="facebook-f"/></a></li>
+                                    <li><a href="https://www.instagram.com/gesundheitsticket/" target="_blank"><FontAwesome name="instagram"/></a></li>
+                                </ul>
+                            </div> */}
+                        </div>
+                            </div>}
                             {/* <div className="col-lg-4 align-self-center">
                                 <div className="menu_right">
                                     <div className="users_area">

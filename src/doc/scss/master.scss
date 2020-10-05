@@ -284,6 +284,10 @@ body {
   cursor: pointer;
 }
 
+.row {
+  justify-content: center;
+}
+
 .cursor_pointer {
   cursor: pointer;
 }
@@ -1700,11 +1704,22 @@ span.tranding {
 */
 
 .footer {
+  .gt_logo {
+    width: 100px;
+    height: 48px;
+  }
+
+  .align-end {
+    text-align: end;
+  }
+
   .cta {
-    padding: 70px 0 40px;
+    // padding: 70px 0 40px;
 
     .social2 {
-      margin-top: 35px;
+      &:last-child {
+        margin-top: 35px;
+      }
 
       ul {
         margin: 0;
@@ -1880,7 +1895,8 @@ span.tranding {
 
     p {
       color: $footer_dark_color;
-
+     // text-align: center;
+      font-size: 13px;
     }
 
     ul {
@@ -2417,6 +2433,23 @@ a.cbtn3 {
 */
 
 @media screen and (max-width: $Medium) {
+
+  .copyright {
+    p {
+     text-align: center;
+
+    }
+  }
+
+  .logo_area {
+    text-align: -webkit-center;
+    margin-bottom: 5px;
+    .logo {
+      width: 125px;
+      height: 48px;
+    }
+  }
+
   .copyright_menus.text-right {
     text-align: left !important;
     margin-top: 10px;
@@ -2427,7 +2460,7 @@ a.cbtn3 {
 
   .top_date_social.text-right {
     text-align: left !important;
-    padding: 10px 0;
+    padding: 6px 0;
   }
 
   .right_btn.text-right {
@@ -2506,8 +2539,16 @@ a.cbtn3 {
   .topbar {
     text-align: center;
     margin-top: 20px;
+
+    .paper_date {
+      padding-right: 0 !important;
+      margin-right: 0 !important;
+    }
   }
 
+  .topbar .top_date_social > div:first-child:after {
+    display: none;
+  }
 
   .v3datentemp {
     text-align: center !important;
@@ -2519,7 +2560,8 @@ a.cbtn3 {
   }
 
   .top_date_social.text-right {
-    text-align: center !important;
+    //text-align: center !important;
+    text-align-last: right;
   }
 
   .v3datentemp > div {
@@ -2529,7 +2571,8 @@ a.cbtn3 {
     text-align: center !important;
   }
   .topbar {
-    display: none;
+    margin-top: 0;
+   // display: none;
   }
 
   .single_post_text {
@@ -2682,10 +2725,9 @@ a.cbtn3 {
     line-height: 47px;
   }
 
-  .carousel_posts1 .post_type5 .single_post_text p {
-    display: none;
-  }
-
+  // .carousel_posts1 .post_type5 .single_post_text p {
+  //   display: none;
+  // }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1300px) {
