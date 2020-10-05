@@ -22,7 +22,7 @@ const FooterArea = ({className}) => {
             <div className="container">
                 <div className="cta">
                     <div className="row">
-                        <div className="col-7 col-md-6 align-self-center">
+                        <div className="col-7 col-md-6">
                             <div className="social2">
                             <ul className="inline">
                                 <li> <GtLogo className="gt_logo" onClick={() => history.push('/')} /></li>
