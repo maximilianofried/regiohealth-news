@@ -50,6 +50,14 @@ const TrendingNewsSlider = ({dark, latestArticles, adsHome = []}) => {
         slidesPerView: 2,
         spaceBetween: 20,
         loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false
+        },
+          navigation: {
+            nextEl: '.owl-next',
+            prevEl: '.owl-prev'
+        },
         breakpoints: {
             1024: {
                 slidesPerView: 2,

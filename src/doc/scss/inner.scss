@@ -87,7 +87,7 @@
       content: "";
       height: 8px;
       width: 8px;
-      background: $secondary_bg;
+      background: $green_regiohealth;
       left: -20px;
       top: 50%;
       margin-top: -4px;
@@ -358,9 +358,25 @@
 }
 
 .markdownContainer{
+  h3 {
+    margin-bottom: 20px;
+  }
+  h5 {
+    margin-top: 13px;
+  }
   img {
     margin: 0 auto;
     display: block;
+  }
+
+  a {
+    color: $green_regiohealth;
+  }
+}
+
+.markdown_margin {
+  p {
+    margin-bottom: 13px;
   }
 }
 
@@ -386,7 +402,7 @@ span.img_desc {
 .page_category h4,
 li.page_category {
   font-size: $body_font_size;
-  color: $secondary_color;
+  color: $orange_regiohealth;
 }
 
 
@@ -581,6 +597,14 @@ li.page_category {
 
 .bridcrumb {
   padding: 20px 0;
+
+  a {
+    color: black;
+  }
+
+  a:hover {
+    color: $green_regiohealth;
+  }
 }
 
 .author_content {

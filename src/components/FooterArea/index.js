@@ -22,11 +22,15 @@ const FooterArea = ({className}) => {
             <div className="container">
                 <div className="cta">
                     <div className="row">
-                        <div className="col-7 col-md-6">
-                            <div className="social2">
+                        <div className="col-7 col-md-7">
+                            <div className="social2 partner_logos">
                             <ul className="inline">
-                                <li> <GtLogo className="gt_logo" onClick={() => history.push('/')} /></li>
-                                <li><GtLogo2 className="gt_logo" onClick={() => history.push('/')} /></li>
+                                <li> <GtLogo className="gt_logo"/></li>
+                                <li><GtLogo2 className="gt_logo"/></li>
+                                <li><img className="gt_logo" src="https://www.regio-health.de/cms/wp-content/uploads/2020/10/regiohealth-b.svg"/></li>
+                                <li><img className="gt_logo" src="https://www.regio-health.de/cms/wp-content/uploads/2020/10/regiohealth-k.svg"/></li>
+                                <li><img className="gt_logo" src="https://www.regio-health.de/cms/wp-content/uploads/2020/09/LOGO-WF.svg"/></li>
+                                <li><img className="gt_logo" src="https://www.gesundheitsticket.de/woak-logo.svg"/></li>
                             </ul>
                             </div>
                             {/* <div className="row">
@@ -42,7 +46,7 @@ const FooterArea = ({className}) => {
                                 </div>
                             </div> */}
                         </div>
-                        <div className="col-5 col-md-6 align-end">
+                        <div className="col-5 col-md-5 align-end">
                         <div className="social2">
                                 <ul className="inline">
                                     <li><a href="https://twitter.com/gesundticket" target="_blank"><FontAwesome name="twitter"/></a></li>
