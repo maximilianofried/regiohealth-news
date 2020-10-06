@@ -100,6 +100,62 @@ const Routes = () => {
                 )}/>
             <PrivateRoute
                 exact
+                path="/politics"
+                parentClass="theme-1"
+                component={(props) => (
+                    <BusinessPage {...props} category={"Politics"}/>
+                )}/>
+            <PrivateRoute
+                exact
+                path="/food"
+                parentClass="theme-1"
+                component={(props) => (
+                    <BusinessPage {...props} category={"Food"}/>
+                )}/>
+            <PrivateRoute
+                exact
+                path="/society"
+                parentClass="theme-1"
+                component={(props) => (
+                    <BusinessPage {...props} category={"Society"}/>
+                )}/>
+            <PrivateRoute
+                exact
+                path="/blue-zones"
+                parentClass="theme-1"
+                component={(props) => (
+                    <BusinessPage {...props} category={"Blue Zones"}/>
+                )}/>
+            <PrivateRoute
+                exact
+                path="/ngos"
+                parentClass="theme-1"
+                component={(props) => (
+                    <BusinessPage {...props} category={"NGOs"}/>
+                )}/>
+            <PrivateRoute
+                exact
+                path="/film"
+                parentClass="theme-1"
+                component={(props) => (
+                    <BusinessPage {...props} category={"Film"}/>
+                )}/>
+            <PrivateRoute
+                exact
+                path="/sustainability"
+                parentClass="theme-1"
+                component={(props) => (
+                    <BusinessPage {...props} category={"Sustainability"}/>
+                )}/>
+            <PrivateRoute
+                exact
+                path="/agriculture"
+                parentClass="theme-1"
+                component={(props) => (
+                    <BusinessPage {...props} category={"Agriculture"}/>
+                )}/>
+            <PrivateRoute
+                exact
                 path="/art"
                 parentClass="theme-1"
                 component={(props) => (
@@ -170,7 +226,8 @@ const Routes = () => {
                 exact
                 path="/contact"
                 parentClass="theme-1"
-                component={ContactUsPage}/>
+                component={ContactUsPage}
+                name={"contact"}/>
             <PrivateRoute
                 exact
                 path="/404"

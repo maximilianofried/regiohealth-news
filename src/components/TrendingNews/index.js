@@ -67,9 +67,6 @@ const TrendingNews = ({dark, latestArticles, adsHome}) => {
                                             <img src={CMS_LINK + item.main_image.formats.thumbnail.url} alt="thumb"/>
                                         </Link>
                                     </div>
-                                    <span className="tranding">
-									<FontAwesome name="bolt"/>
-								</span>
                                 </div>}
                                 <div className="single_post_text">
                                     <div className="meta2">
@@ -96,9 +93,6 @@ const TrendingNews = ({dark, latestArticles, adsHome}) => {
                                             <img src={CMS_LINK + item.main_image.formats.thumbnail.url} alt="thumb"/>
                                         </Link>
                                     </div>
-                                    <span className="tranding">
-									<FontAwesome name="bolt"/>
-								</span>
                                 </div>
                             }
                                 <div className="single_post_text">

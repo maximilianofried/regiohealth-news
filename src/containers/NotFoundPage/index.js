@@ -114,7 +114,7 @@ const NotFoundPage = () => {
                         <div className="col-12">
                             <div className="space-50"/>
                             <div className="area404 text-center">
-                                <img src={erroImg} alt="404"/>
+                                <img src="https://www.regio-health.de/cms/wp-content/uploads/2020/10/regiohealth-news.svg"  />
                             </div>
                             <div className="space-30"/>
                             <div className="back4040 text-center col-lg-6 m-auto">
@@ -132,7 +132,7 @@ const NotFoundPage = () => {
                 </div>
                 <div className="space-50"/>
             </div>
-
+{/* 
             <div className="archives padding-top-30">
                 <div className="container">
                     <div className="row">
@@ -200,9 +200,9 @@ const NotFoundPage = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <div className="space-70"/>
-            <BannerSection/>
+            {/* <BannerSection/> */}
         </Fragment>
     )
 };

@@ -67,7 +67,7 @@
 
   ul.navbar-nav > li > a {
     line-height: 50px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 400;
     text-transform: capitalize;
     margin: 0;
@@ -88,7 +88,7 @@
   }
 
   ul.navbar-nav > li:hover a::before, ul.navbar-nav > li.active a::before {
-    border-color: #1091FF;
+    border-color: $orange_regiohealth;
     opacity: 1;
     -webkit-transform: scale(1) translateZ(0);
     transform: scale(1) translateZ(0);
@@ -584,7 +584,7 @@
     content: "";
     height: 0;
     width: 100%;
-    background: #1091FF;
+    background: $green_regiohealth;
     bottom: 0;
     left: 0;
     z-index: 2;
@@ -646,7 +646,7 @@
 
 
     .main-nav ul.navbar-nav > li:hover > a {
-      color: #1091FF;
+      color: $green_regiohealth;
       transition: all .3s;
 
     }

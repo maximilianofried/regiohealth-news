@@ -24,7 +24,7 @@ const AboutUsPage = ({fetchPages, pages, name}) => {
                         <div className="col-12">
                             <div className="author_about">
                           {pages && pages.content &&   <ReactMarkdown
-                                className="markdownContainer"
+                                className={"markdownContainer" + (name !== "Privacy and Policy" ? " markdown_margin" : "")}
                                 renderers={{link: LinkRenderer}}
                                 source={pages.content}/>}
                             </div>

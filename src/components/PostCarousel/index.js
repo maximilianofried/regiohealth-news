@@ -63,7 +63,7 @@ const PostCarousel = ({className, latestArticles}) => {
                         <div className="carousel_posts1 owl-carousel nav_style2 mb40 mt30">
                             {/*CAROUSEL START*/}
                             <div className="px-4 position-relative">
-                                <Swiper ref={ref} {...params}>
+                                <Swiper ref={ref} {...params} shouldSwiperUpdate>
                                     {latestArticles.length > 0 && latestArticles.map((item, i) => (
                                         <div key={i} className={"single_post widgets_small post_type5 "  + (item.main_image ? '' : 'no_padding_left')}>
                                           {item.main_image && <div className="post_img">

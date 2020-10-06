@@ -14,9 +14,9 @@ const HomePage = ({latestArticles, topArticles, localArticles, fetchArticles, fe
         <Fragment>
             <Helmet>
                 <meta charSet="utf-8" />
-                <title>Gesundheitsticket NEWS</title>
-                <meta name="description" content="Gesundheitsticket NEWS website" />
-                <link rel="canonical" href="http://news.gesundheitsticket.de" />
+                <title>Regio Health</title>
+                <meta name="description" content="Regio Health News Website" />
+                <link rel="canonical" href="http://regiohealth.news" />
             </Helmet>
             {/* <PostCarousel className="fifth_bg"/> */}
             <PostGallery latestArticles={latestArticles} topArticles={topArticles} adsHome={adsHome} className="fifth_bg"/>

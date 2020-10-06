@@ -22,7 +22,7 @@ const LogoArea = ({className, dark, fetchAds, adsCategory}) => {
                 <div className="row">
                     <div className="col-lg-4 align-self-center">
                         <div className="logo">
-                                <GtLogo onClick={() => history.push('/')} />
+                                <img src="https://www.regio-health.de/cms/wp-content/uploads/2020/10/regiohealth-news.svg"  onClick={() => history.push('/')} />
                         </div>
                     </div>
                     {/* <div className="col-lg-8 align-self-center">
