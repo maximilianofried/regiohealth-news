@@ -69,7 +69,7 @@ const PostTwoPage = ({articleData, fetchArticle}) => {
                             {/*ok*/}
                             <div className="space-20"/>
                             <div className="row">
-                                <div className="col-lg-6 align-self-center">
+                                <div className="col-7 col-lg-6 align-self-center">
                                     <div className="author">
                                         {/* <div className="author_img">
                                             <div className="author_img_wrap">
@@ -83,7 +83,7 @@ const PostTwoPage = ({articleData, fetchArticle}) => {
                                         </ul>
                                     </div>
                                 </div>
-                                <div className="col-lg-6 align-self-center">
+                                <div className="col-5 col-lg-6 align-self-center">
                                     <div className="author_social inline text-right">
                                         <ul>
                                             <li><a href={"https://twitter.com/share?url=https://regiohealth.news/article/" + article._id}  target="_blank"><FontAwesome name="twitter"/></a></li>

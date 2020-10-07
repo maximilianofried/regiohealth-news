@@ -410,6 +410,10 @@ li.page_category {
 
 
 .tags {
+
+  ul {
+    padding-left: 0;
+  }
   li.tag_list {
     font-size: 15px;
     text-align: center;
