@@ -105,21 +105,22 @@ class PostGallery extends Component {
                                         > */}
                                             {topArticles.slice(0, 1).map((item, i) => (
                                                 <div key={i} className="single_post post_type6 xs-mb30">
+                                                     <div className="single_post_text">
+                                                        <h4>
+                                                            <Link className="play_btn" to={`/article/${item._id}`}>{item.title}</Link>
+                                                        </h4>
+                                                        <div className="meta meta_separator1">
+                                                            <Link to="#">{item.categories.length > 0 ? item.categories[0].name : ''}</Link>
+                                                            <Link to="#">{moment(item.createdAt).format("LL")}</Link>
+                                                        </div>
+                                                        <div className="space-10"/>
+                                                        <p className="post-p">{item.description}</p>
+                                                    </div>
                                                     <div className="post_img gradient1">
                                                         <img src={item.main_image ? `${CMS_LINK + item.main_image.url}` : sliderImg1} alt="thumb"/>
                                                         {/* <span onClick={() => this.modalHandler(true)}
                                                               className="tranding"><FontAwesome
                                                             name="play"/></span> */}
-                                                    </div>
-                                                    <div className="single_post_text">
-                                                        <div className="meta meta_separator1">
-                                                            <Link to="#">{item.categories.length > 0 ? item.categories[0].name : ''}</Link>
-                                                            <Link to="#">{moment(item.createdAt).format("LL")}</Link>
-                                                        </div>
-                                                        <h4><Link className="play_btn"
-                                                                  to={`/article/${item._id}`}>{item.title}</Link></h4>
-                                                        <div className="space-10"/>
-                                                        <p className="post-p">{item.description}</p>
                                                     </div>
                                                 </div>
                                             ))}

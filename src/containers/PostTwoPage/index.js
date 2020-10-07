@@ -34,9 +34,8 @@ const PostTwoPage = ({articleData, fetchArticle}) => {
     let { id } = useParams();
     useEffect(() => {
         fetchArticle(id)
-
         return () => fetchArticleCleanUp();
-    }, [])
+    }, [id])
     const article = articleData.article || null;
     const [vModal, setvModal] = useState(false);
     const [videoId] = useState('0r6C3z3TEKw');

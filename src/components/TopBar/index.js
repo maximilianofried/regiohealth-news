@@ -10,7 +10,7 @@ const TopBar = ({className, dark, localArticles, city, fetchArticlesCity}) => {
     useEffect(() => {
         fetchArticlesCity({city: "Berlin"})
     }, [])
-    const currentDate = moment().format("LLL");
+    const currentDate = moment().format("dddd, MMMM D, YYYY");
     const ref = useRef(null);
     const goNext = () => {
         if (ref.current !== null && ref.current.swiper !== null) {

@@ -600,7 +600,7 @@ a.social_medium {
   .single_post_text {
     a {
       &:hover {
-        color: $secondary_color;
+        color: $orange_regiohealth;
         @include transition(all .3s)
       }
     }
@@ -1186,10 +1186,10 @@ span.tranding {
   }
 
   .single_post_text {
-    position: absolute;
+    //position: absolute;
     bottom: 0;
     z-index: 9;
-    padding: 40px;
+   // padding: 40px;
 
     p.post-p {
       font-size: 15px;
@@ -1211,10 +1211,9 @@ span.tranding {
     }
 
     a, .tag {
-      color: $white;
+      color: black;
       font-size: $heading3;
       line-height: 36px;
-      font-weight: $wightBold;
     }
 
     .meta {
@@ -2156,7 +2155,7 @@ textarea {
         color: $body_color;
 
         &:hover {
-          background: $secondary_bg;
+          background: $green_regiohealth;
           color: $white;
         }
       }

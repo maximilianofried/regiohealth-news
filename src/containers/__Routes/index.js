@@ -226,8 +226,9 @@ const Routes = () => {
                 exact
                 path="/contact"
                 parentClass="theme-1"
-                component={ContactUsPage}
-                name={"contact"}/>
+                component={(props) => (
+                    <AboutUsPage {...props} name={"Contact"}/>
+                )}/>
             <PrivateRoute
                 exact
                 path="/404"

@@ -22,7 +22,7 @@ const FooterArea = ({className}) => {
             <div className="container">
                 <div className="cta">
                     <div className="row">
-                        <div className="col-7 col-md-7">
+                        <div className="col-9 col-md-7">
                             <div className="social2 partner_logos">
                             <ul className="inline">
                                 <li> <GtLogo className="gt_logo"/></li>
@@ -46,7 +46,7 @@ const FooterArea = ({className}) => {
                                 </div>
                             </div> */}
                         </div>
-                        <div className="col-5 col-md-5 align-end">
+                        <div className="col-3 col-md-5 align-end">
                         <div className="social2">
                                 <ul className="inline">
                                     <li><a href="https://twitter.com/gesundticket" target="_blank"><FontAwesome name="twitter"/></a></li>
