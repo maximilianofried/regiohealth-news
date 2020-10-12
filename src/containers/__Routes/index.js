@@ -143,12 +143,6 @@ const Routes = () => {
             />
             <PrivateRoute
                 exact
-                path="/404"
-                parentClass="theme-1"
-                component={NotFoundPage}
-            />
-            <PrivateRoute
-                exact
                 path="/article/:id"
                 parentClass="theme-1"
                 component={PostTwoPage}
