@@ -35,7 +35,7 @@ const PostTwoPage = ({ articleData, fetchArticle }) => {
         article && (
             <>
                 <Helmet>
-                    <title>{article.title}</title>
+                    <title>{`Regio Health News - ${article.title}`}</title>
                     <meta
                         name="description"
                         content={
@@ -70,10 +70,7 @@ const PostTwoPage = ({ articleData, fetchArticle }) => {
                         content={`https://regiohealth.news/article/${id}`}
                     />
                     <meta property="og:type" content="article" />
-                    <meta
-                        property="og:site_name"
-                        content="Gesundheitstickets NEWS"
-                    />
+                    <meta property="og:site_name" content="Regio Health News" />
                 </Helmet>
                 <div className="archives post post1">
                     <BreadCrumb
