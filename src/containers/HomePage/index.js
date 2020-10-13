@@ -19,9 +19,9 @@ const HomePage = ({
         <>
             <Helmet>
                 <meta charSet="utf-8" />
-                <title>Regio Health</title>
+                <title>Regio Health News</title>
                 <meta name="description" content="Regio Health News Website" />
-                <link rel="canonical" href="http://regiohealth.news" />
+                <link rel="canonical" href="https://www.regiohealth.news" />
             </Helmet>
             <PostGallery
                 latestArticles={latestArticles}

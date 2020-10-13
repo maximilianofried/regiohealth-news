@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Helmet } from 'react-helmet';
 import { fetchArticles, fetchAds, showMoreArticles } from '../../store/actions';
 import BreadCrumb from '../../components/BreadCrumb';
 import BusinessNews from '../../components/BusinessNews';
@@ -31,6 +32,39 @@ const BusinessPage = ({
 
     return (
         <>
+            <Helmet>
+                <title>{`Regio Health News - ${category}`}</title>
+                <meta
+                    name="description"
+                    content={`Regio Health News - ${category}`}
+                />
+                <meta
+                    property="og:title"
+                    content={`Regio Health News - ${category}`}
+                />
+                <meta
+                    property="og:description"
+                    content={`Regio Health News - ${category}`}
+                />
+                <meta
+                    property="og:image"
+                    itemProp="image"
+                    content="https://www.regio-health.de/cms/wp-content/uploads/2020/10/regiohealth-news.svg"
+                />
+                <meta
+                    property="og:image:secure_url"
+                    itemProp="image"
+                    content="https://www.regio-health.de/cms/wp-content/uploads/2020/10/regiohealth-news.svg"
+                />
+                <meta property="og:image:type" content="image/jpeg" />
+                <meta property="og:image:type" content="image/png" />
+                <meta
+                    property="og:url"
+                    content={`https://regiohealth.news/${category}`}
+                />
+                <meta property="og:type" content="article" />
+                <meta property="og:site_name" content="Regio Health News" />
+            </Helmet>
             <BreadCrumb title={category} />
             <div className="archives padding-top-30">
                 <div className="container">
