@@ -1,0 +1,17 @@
+image: docker:latest
+services: -docker:dind
+
+stages: -deploy
+
+step-develop:
+    stage: deploy
+    only:
+        - dev
+    tags:
+        - dev
+    script:
+        - sudo apt-get install -y python-pip
+        - sudo pip install docker-compose
+        - sudo docker image prune -f
+        - sudo docker-compose -f docker-compose-prod.yml build --no-cache
+        - sudo docker-compose -f docker-compose-prod.yml up -d

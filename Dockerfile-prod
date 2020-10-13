@@ -1,5 +1,5 @@
 # set the base image
-# n/b: for production, node is only used for building 
+# n/b: for production, node is only used for building
 # the static Html and javascript files
 # as react creates static html and js files after build
 # these are what will be served by nginx
