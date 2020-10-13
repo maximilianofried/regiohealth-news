@@ -1,8 +1,9 @@
 image: docker:latest
 services:
-    -docker:dind
+    - docker:dind
 
-stages: -deploy
+stages: 
+    - deploy
 
 step-develop:
     stage: deploy
