@@ -1,7 +1,9 @@
 image: docker:latest
-services: -docker:dind
+services:
+    - docker:dind
 
-stages: -deploy
+stages:
+    - deploy
 
 step-develop:
     stage: deploy
@@ -9,6 +11,16 @@ step-develop:
         - dev
     tags:
         - dev
+    script:
+        - sudo docker image prune -f
+        - sudo docker-compose -f docker-compose-prod.yml build --no-cache
+        - sudo docker-compose -f docker-compose-prod.yml up -d
+step-production:
+    stage: deploy
+    only:
+        - prod
+    tags:
+        - prod
     script:
         - sudo docker image prune -f
         - sudo docker-compose -f docker-compose-prod.yml build --no-cache
