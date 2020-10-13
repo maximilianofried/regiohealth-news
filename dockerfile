@@ -10,8 +10,8 @@ FROM node:alpine
 # from which the app will be running from
 WORKDIR /gt-strapi-react
 # copy package.json and yarn.lock
-# package.json to install the packages from 
-# and yarn.lock for a package called chokidar 
+# package.json to install the packages from
+# and yarn.lock for a package called chokidar
 # which is used for hot reloading
 COPY package.json /gt-strapi-react/package.json
 COPY yarn.lock /gt-strapi-react/yarn.lock
