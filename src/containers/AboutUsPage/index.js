@@ -5,6 +5,7 @@ import BreadCrumb from '../../components/BreadCrumb';
 import BannerSection from '../../components/BannerSection';
 import { fetchPages } from '../../store/actions';
 import FontAwesome from '../../components/uiStyle/FontAwesome';
+import Metadata from '../../components/Metadata';
 
 const AboutUsPage = ({ fetchPages, pages, name }) => {
     useEffect(() => {
@@ -21,6 +22,11 @@ const AboutUsPage = ({ fetchPages, pages, name }) => {
 
     return (
         <>
+            <Metadata
+                title={name}
+                description={name}
+                url={`${process.env.REACT_APP_BASE_PAGE_URL}/${name}`}
+            />
             <BreadCrumb
                 className="shadow5"
                 title={

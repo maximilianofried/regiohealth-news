@@ -1,8 +1,9 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Helmet } from 'react-helmet';
 import { fetchArticles, fetchAds } from '../../store/actions';
 import PostGallery from '../../components/PostGallery';
+import Metadata from '../../components/Metadata';
+import { RG_DESCRIPTION } from '../../utils/constants';
 
 const HomePage = ({
     latestArticles,
@@ -17,12 +18,10 @@ const HomePage = ({
     }, []);
     return (
         <>
-            <Helmet>
-                <meta charSet="utf-8" />
-                <title>Regio Health News</title>
-                <meta name="description" content="Regio Health News Website" />
-                <link rel="canonical" href="https://www.regiohealth.news" />
-            </Helmet>
+            <Metadata
+                title="Regionale Gesundheit"
+                description={RG_DESCRIPTION}
+            />
             <PostGallery
                 latestArticles={latestArticles}
                 topArticles={topArticles}

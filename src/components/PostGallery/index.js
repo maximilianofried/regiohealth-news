@@ -7,9 +7,8 @@ import '../../../node_modules/slick-carousel/slick/slick.css';
 import PostCarousel from '../PostCarousel';
 import TrendingNews from '../TrendingNews';
 import sliderImg1 from '../../doc/img/header/sider-top.jpg';
+import { CMS_LINK } from '../../utils/constants';
 import './style.scss';
-
-const CMS_LINK = 'https://cms.gesundheitsticket.de';
 
 const PostGallery = ({ className, latestArticles, topArticles, adsHome }) => {
     return (
