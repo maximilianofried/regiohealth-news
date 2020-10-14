@@ -64,7 +64,7 @@ const FooterArea = ({ className }) => {
                                     </li>
                                     <li>
                                         <a
-                                            href="https://www.facebook.com/gesundheitsticket"
+                                            href="https://www.facebook.com/RegioHealthNews"
                                             target="_blank"
                                         >
                                             <FontAwesome name="facebook-f" />
@@ -72,7 +72,7 @@ const FooterArea = ({ className }) => {
                                     </li>
                                     <li>
                                         <a
-                                            href="https://www.instagram.com/gesundheitsticket/"
+                                            href="https://www.instagram.com/regiohealth.news"
                                             target="_blank"
                                         >
                                             <FontAwesome name="instagram" />
