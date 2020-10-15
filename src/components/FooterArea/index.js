@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import FooterCopyright from '../FooterCopyright';
 import FontAwesome from '../uiStyle/FontAwesome';
 import { ReactComponent as GtLogo } from '../../doc/img/gt-logo/logo-gt.svg';
-import { ReactComponent as GtLogo2 } from '../../doc/img/gt-logo/GT-PLUS.svg';
 
 const FooterArea = ({ className }) => {
     return (
@@ -16,9 +15,6 @@ const FooterArea = ({ className }) => {
                                 <ul className="inline">
                                     <li>
                                         <GtLogo className="gt_logo" />
-                                    </li>
-                                    <li>
-                                        <GtLogo2 className="gt_logo" />
                                     </li>
                                     <li>
                                         <img
@@ -56,15 +52,7 @@ const FooterArea = ({ className }) => {
                                 <ul className="inline">
                                     <li>
                                         <a
-                                            href="https://twitter.com/gesundticket"
-                                            target="_blank"
-                                        >
-                                            <FontAwesome name="twitter" />
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="https://www.facebook.com/gesundheitsticket"
+                                            href="https://www.facebook.com/RegioHealthNews"
                                             target="_blank"
                                         >
                                             <FontAwesome name="facebook-f" />
@@ -72,7 +60,7 @@ const FooterArea = ({ className }) => {
                                     </li>
                                     <li>
                                         <a
-                                            href="https://www.instagram.com/gesundheitsticket/"
+                                            href="https://www.instagram.com/regiohealth.news"
                                             target="_blank"
                                         >
                                             <FontAwesome name="instagram" />

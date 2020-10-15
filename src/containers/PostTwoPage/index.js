@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import moment from 'moment';
 import ReactMarkdown from 'react-markdown';
 import { fetchArticle, fetchArticleCleanUp } from '../../store/actions';
@@ -10,6 +9,7 @@ import FontAwesome from '../../components/uiStyle/FontAwesome';
 import BannerSection from '../../components/BannerSection';
 import singlePost1 from '../../doc/img/blog/single_post1.jpg';
 import { CMS_LINK } from '../../utils/constants';
+import Metadata from '../../components/Metadata';
 
 const transform = (data) => {
     const imageLink = `${CMS_LINK + data}`;
@@ -24,54 +24,37 @@ const LinkRenderer = ({ href, children }) => {
     );
 };
 
+const getMetaDescription = (description, categories) => {
+    let metaDescription = '';
+    if (description) {
+        metaDescription = description;
+    } else if (categories && categories.length > 0) {
+        metaDescription = categories[0].name;
+    }
+    return metaDescription;
+};
+
 const PostTwoPage = ({ articleData, fetchArticle }) => {
     const { id } = useParams();
+    const article = articleData.article || null;
+
     useEffect(() => {
         fetchArticle(id);
         return () => fetchArticleCleanUp();
     }, [id]);
-    const article = articleData.article || null;
+
     return (
         article && (
             <>
-                <Helmet>
-                    <title>{`Regio Health News - ${article.title}`}</title>
-                    <meta
-                        name="description"
-                        content={
-                            article.categories.length > 0
-                                ? article.categories[0].name
-                                : ''
-                        }
-                    />
-                    <meta property="og:title" content={article.title} />
-                    <meta
-                        property="og:description"
-                        content={
-                            article.categories.length > 0
-                                ? article.categories[0].name
-                                : ''
-                        }
-                    />
-                    <meta
-                        property="og:image"
-                        itemProp="image"
-                        content={CMS_LINK + article.main_image.url}
-                    />
-                    <meta
-                        property="og:image:secure_url"
-                        itemProp="image"
-                        content={CMS_LINK + article.main_image.url}
-                    />
-                    <meta property="og:image:type" content="image/jpeg" />
-                    <meta property="og:image:type" content="image/png" />
-                    <meta
-                        property="og:url"
-                        content={`https://regiohealth.news/article/${id}`}
-                    />
-                    <meta property="og:type" content="article" />
-                    <meta property="og:site_name" content="Regio Health News" />
-                </Helmet>
+                <Metadata
+                    title={article.title}
+                    description={getMetaDescription(
+                        article.description,
+                        article.categories
+                    )}
+                    image={CMS_LINK + article.main_image.url}
+                    url={`${process.env.REACT_APP_BASE_PAGE_URL}/article/${id}`}
+                />
                 <div className="archives post post1">
                     <BreadCrumb
                         className="shadow5 padding-top-30"
@@ -115,7 +98,7 @@ const PostTwoPage = ({ articleData, fetchArticle }) => {
                                             <ul>
                                                 <li>
                                                     <a
-                                                        href={`https://twitter.com/share?url=https://regiohealth.news/article/${article.id}`}
+                                                        href={`https://twitter.com/share?url=${process.env.REACT_APP_BASE_PAGE_URL}/article/${article.id}`}
                                                         target="_blank"
                                                     >
                                                         <FontAwesome name="twitter" />
@@ -123,7 +106,7 @@ const PostTwoPage = ({ articleData, fetchArticle }) => {
                                                 </li>
                                                 <li>
                                                     <a
-                                                        href={`https://www.facebook.com/sharer/sharer.php?u=https://regiohealth.news/article/${article.id}`}
+                                                        href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.REACT_APP_BASE_PAGE_URL}/article/${article.id}`}
                                                         target="_blank"
                                                     >
                                                         <FontAwesome name="facebook-f" />
@@ -131,7 +114,7 @@ const PostTwoPage = ({ articleData, fetchArticle }) => {
                                                 </li>
                                                 <li>
                                                     <a
-                                                        href={`https://wa.me/?text=https://regiohealth.news/article/${article.id}`}
+                                                        href={`https://wa.me/?text=${process.env.REACT_APP_BASE_PAGE_URL}/article/${article.id}`}
                                                         target="_blank"
                                                     >
                                                         <FontAwesome name="whatsapp" />

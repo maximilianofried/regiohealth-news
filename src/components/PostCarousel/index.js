@@ -5,8 +5,7 @@ import { connect } from 'react-redux';
 import Swiper from 'react-id-swiper';
 import hside1 from '../../doc/img/header/slider/hside1.jpg';
 import FontAwesome from '../uiStyle/FontAwesome';
-
-const CMS_LINK = 'https://cms.gesundheitsticket.de';
+import { CMS_LINK } from '../../utils/constants';
 
 const PostCarousel = ({ className, latestArticles }) => {
     const ref = useRef(null);
