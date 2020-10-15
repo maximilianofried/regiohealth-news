@@ -19,9 +19,9 @@ services:
         ports:
             - '3000:80'
         # the mounted volumes (folders which are outside docker but being used by docker)
-        volumes:
-            - '.:/gt-strapi-react'
-            - '/gt-strapi-react/node_modules'
+        # volumes:
+        #     - '.:/gt-strapi-react'
+        #     - '/gt-strapi-react/node_modules'
         # set the environment to development
         environment:
             - NODE_ENV=development
