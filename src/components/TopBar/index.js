@@ -118,14 +118,6 @@ const TopBar = ({ className, dark, localArticles, fetchArticlesCity }) => {
                                     <ul className="inline">
                                         <li>
                                             <a
-                                                href="https://twitter.com/gesundticket"
-                                                target="_blank"
-                                            >
-                                                <FontAwesome name="twitter" />
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a
                                                 href="https://www.facebook.com/RegioHealthNews"
                                                 target="_blank"
                                             >
