@@ -1,63 +1,149 @@
-import React, {useState} from 'react';
-import {NavLink} from "react-router-dom";
-import FontAwesome from "../uiStyle/FontAwesome";
-import {Collapse} from "reactstrap";
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { Collapse } from 'reactstrap';
+import FontAwesome from '../uiStyle/FontAwesome';
 
 import './style.scss';
 
-const SidebarMenu = ({menus, sideShow, setSideShow, className}) => {
+const SidebarMenu = ({ menus, sideShow, setSideShow, className }) => {
     const [sMenu, setSMenu] = useState(null);
     const [stMenu, setSTMenu] = useState(null);
     return (
-        <div className={`sidebarMenu ${sideShow ? '' : 'hideSideMenu'} ${className ? className : ''}`}>
-            <span className="clox" onClick={() => setSideShow(false)}>Close</span>
+        <div
+            className={`sidebarMenu ${sideShow ? '' : 'hideSideMenu'} ${
+                className || ''
+            }`}
+        >
+            <span className="clox" onClick={() => setSideShow(false)}>
+                Close
+            </span>
             <ul className="navBar">
-                {menus.length > 0 ? menus.map((item, i) => (
-                    <li key={i}
-                        className={`${item.child ? 'has_sub' : ''}`}>
-                        {item.child ?
-                            <p
-                                onClick={() => setSMenu(item.id === sMenu ? null : item.id)}
-                                className={sMenu === item.id ? 'active' : ''}
-                            >{item.linkText}
-                                <FontAwesome
-                                    name={sMenu === item.id ? 'angle-down active' : 'angle-down'}/></p>
-                            : <NavLink exact className={sMenu === item.id ? 'active' : ''}
-                                       to={item.link}>{item.linkText}</NavLink>}
-                        {item.child ?
-                            <Collapse isOpen={sMenu === item.id}>
-                                <ul className="subMenu">
-                                    {item.submenu.map((sub_item, i) => (
-                                        <li key={i}
-                                            className={`${sub_item.child ? 'has_sub' : ''}`}>
-                                            {sub_item.child ?
-                                                <p
-                                                    onClick={() => setSTMenu(sub_item.id === stMenu ? null : sub_item.id)}
-                                                    className={stMenu === sub_item.id ? 'active' : ''}
-                                                >{sub_item.linkText}
-                                                    <FontAwesome
-                                                        name={stMenu === sub_item.id ? 'angle-down active' : 'angle-down'}/>
-                                                </p>
-                                                : <NavLink exact
-                                                           to={sub_item.link}>{sub_item.linkText}</NavLink>}
-                                            {sub_item.third_menu ?
-                                                <Collapse isOpen={stMenu === sub_item.id}>
-                                                    <ul className="thirdMenu">
-                                                        {sub_item.third_menu.map((third_item, i) => (
-                                                            <li key={i}><NavLink
-                                                                to={third_item.link}>{third_item.linkText}</NavLink>
-                                                            </li>
-                                                        ))}
-                                                    </ul>
-                                                </Collapse> : null}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </Collapse>
-                            : null
-                        }
-                    </li>
-                )) : null}
+                {menus.length > 0
+                    ? menus.map((item) => (
+                          <li
+                              key={item.id}
+                              className={`${item.child ? 'has_sub' : ''}`}
+                          >
+                              {item.child ? (
+                                  // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
+                                  <p
+                                      onClick={() =>
+                                          setSMenu(
+                                              item.id === sMenu ? null : item.id
+                                          )
+                                      }
+                                      className={
+                                          sMenu === item.id ? 'active' : ''
+                                      }
+                                  >
+                                      {item.linkText}
+                                      <FontAwesome
+                                          name={
+                                              sMenu === item.id
+                                                  ? 'angle-down active'
+                                                  : 'angle-down'
+                                          }
+                                      />
+                                  </p>
+                              ) : (
+                                  <NavLink
+                                      exact
+                                      className={
+                                          sMenu === item.id ? 'active' : ''
+                                      }
+                                      to={item.link}
+                                  >
+                                      {item.linkText}
+                                  </NavLink>
+                              )}
+                              {item.child ? (
+                                  <Collapse isOpen={sMenu === item.id}>
+                                      <ul className="subMenu">
+                                          {item.submenu.map((subItem) => (
+                                              <li
+                                                  key={subItem.id}
+                                                  className={`${
+                                                      subItem.child
+                                                          ? 'has_sub'
+                                                          : ''
+                                                  }`}
+                                              >
+                                                  {subItem.child ? (
+                                                      // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
+                                                      <p
+                                                          onClick={() =>
+                                                              setSTMenu(
+                                                                  subItem.id ===
+                                                                      stMenu
+                                                                      ? null
+                                                                      : subItem.id
+                                                              )
+                                                          }
+                                                          className={
+                                                              stMenu ===
+                                                              subItem.id
+                                                                  ? 'active'
+                                                                  : ''
+                                                          }
+                                                      >
+                                                          {subItem.linkText}
+                                                          <FontAwesome
+                                                              name={
+                                                                  stMenu ===
+                                                                  subItem.id
+                                                                      ? 'angle-down active'
+                                                                      : 'angle-down'
+                                                              }
+                                                          />
+                                                      </p>
+                                                  ) : (
+                                                      <NavLink
+                                                          exact
+                                                          to={subItem.link}
+                                                      >
+                                                          {subItem.linkText}
+                                                      </NavLink>
+                                                  )}
+                                                  {subItem.third_menu ? (
+                                                      <Collapse
+                                                          isOpen={
+                                                              stMenu ===
+                                                              subItem.id
+                                                          }
+                                                      >
+                                                          <ul className="thirdMenu">
+                                                              {subItem.third_menu.map(
+                                                                  (
+                                                                      thirdItem
+                                                                  ) => (
+                                                                      <li
+                                                                          key={
+                                                                              thirdItem.id
+                                                                          }
+                                                                      >
+                                                                          <NavLink
+                                                                              to={
+                                                                                  thirdItem.link
+                                                                              }
+                                                                          >
+                                                                              {
+                                                                                  thirdItem.linkText
+                                                                              }
+                                                                          </NavLink>
+                                                                      </li>
+                                                                  )
+                                                              )}
+                                                          </ul>
+                                                      </Collapse>
+                                                  ) : null}
+                                              </li>
+                                          ))}
+                                      </ul>
+                                  </Collapse>
+                              ) : null}
+                          </li>
+                      ))
+                    : null}
             </ul>
         </div>
     );
