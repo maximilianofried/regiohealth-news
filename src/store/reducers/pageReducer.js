@@ -1,8 +1,8 @@
 import {
-    FETCH_PAGES_REQUEST,
-    FETCH_PAGES_SUCCESS,
-    FETCH_PAGES_FAILURE,
-} from '../constants/pagesTypes';
+    FETCH_PAGE_REQUEST,
+    FETCH_PAGE_SUCCESS,
+    FETCH_PAGE_FAILURE,
+} from '../constants/pageTypes';
 
 const initialState = {
     loading: false,
@@ -10,20 +10,20 @@ const initialState = {
     error: '',
 };
 
-const pagesReducer = (state = initialState, action) => {
+const pageReducer = (state = initialState, action) => {
     switch (action.type) {
-        case FETCH_PAGES_REQUEST:
+        case FETCH_PAGE_REQUEST:
             return {
                 ...state,
                 loading: true,
             };
-        case FETCH_PAGES_SUCCESS:
+        case FETCH_PAGE_SUCCESS:
             return {
                 loading: false,
-                pages: action.payload,
+                page: action.payload,
                 error: '',
             };
-        case FETCH_PAGES_FAILURE:
+        case FETCH_PAGE_FAILURE:
             return {
                 loading: false,
                 ads: [],
@@ -34,4 +34,4 @@ const pagesReducer = (state = initialState, action) => {
     }
 };
 
-export default pagesReducer;
+export default pageReducer;

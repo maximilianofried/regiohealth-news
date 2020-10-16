@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import FontAwesome from '../uiStyle/FontAwesome';
 import SidebarMenu from '../SidebarMenu';
 import Dropdown from '../Dropdown';
-import { fetchMenu } from '../../store/actions/menuActions';
+import { fetchMenu } from '../../store/actions';
 
 const MainMenu = ({ className, dark, fetchMenu, menuData }) => {
     useEffect(() => {
