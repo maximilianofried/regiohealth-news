@@ -26,9 +26,17 @@ const TopBar = ({ className, dark, localArticles, fetchArticlesCity }) => {
     };
     const params = {
         loop: true,
+        allowTouchMove: false,
         autoplay: {
             delay: 3000,
             disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.trancarousel',
+        },
+        navigation: {
+            nextEl: '.nextBtn',
+            prevEl: '.prevBtn',
         },
     };
     return (

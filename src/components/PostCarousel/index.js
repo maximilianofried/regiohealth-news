@@ -34,6 +34,7 @@ const PostCarousel = ({ className, latestArticles }) => {
     const params = {
         slidesPerView: 3,
         spaceBetween: 20,
+        allowTouchMove: false,
         loop: true,
         pagination: {
             el: '.swiper-pagination',
