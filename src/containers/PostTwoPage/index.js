@@ -34,15 +34,13 @@ const getMetaDescription = (description, categories) => {
     return metaDescription;
 };
 
-const PostTwoPage = ({ articleData, fetchArticle }) => {
+const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
     const { id } = useParams();
-    const article = articleData.article || null;
-
     useEffect(() => {
         fetchArticle(id);
         return () => fetchArticleCleanUp();
     }, [id]);
-
+    const article = articleData.article || null;
     return (
         article && (
             <>
@@ -196,6 +194,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchArticle: (id) => dispatch(fetchArticle(id)),
+        fetchArticleCleanUp: () => dispatch(fetchArticleCleanUp()),
     };
 };
 
