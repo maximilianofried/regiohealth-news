@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { isMobile } from 'react-device-detect';
 import moment from 'moment';
 import { connect } from 'react-redux';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import FontAwesome from '../uiStyle/FontAwesome';
 import SidebarMenu from '../SidebarMenu';
 import Dropdown from '../Dropdown';
