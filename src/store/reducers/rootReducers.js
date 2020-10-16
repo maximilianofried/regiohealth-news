@@ -1,4 +1,4 @@
-import {combineReducers} from 'redux'
+import { combineReducers } from 'redux';
 import metaReducer from './metaReducer';
 import articlesReducer from './articlesReducer';
 import categoryReducer from './categoryReducer';
@@ -6,6 +6,7 @@ import menuReducer from './menuReducer';
 import articleReducer from './articleReducer';
 import onInitReducer from './onInitReducer';
 import adsReducer from './adsReducer';
+import pageReducer from './pageReducer';
 import pagesReducer from './pagesReducer';
 
 const rootReducer = combineReducers({
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
     menu: menuReducer,
     onInit: onInitReducer,
     ads: adsReducer,
-    pages: pagesReducer
+    page: pageReducer,
+    pages: pagesReducer,
 });
-export default rootReducer
+export default rootReducer;
