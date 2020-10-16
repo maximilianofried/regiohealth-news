@@ -1,22 +1,26 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-const quick_links = [
+const quickLinks = [
     {
         name: 'About',
-        link: '/about'
+        link: '/about',
+        id: 1,
     },
     {
         name: 'Advertise',
-        link: '/advertise'
+        link: '/advertise',
+        id: 2,
     },
     {
         name: 'Privacy & Policy',
-        link: '/privacypolicy'
+        link: '/privacypolicy',
+        id: 3,
     },
     {
         name: 'Contact Us',
-        link: '/contact'
+        link: '/contact',
+        id: 4,
     },
 ];
 
@@ -30,11 +34,15 @@ const FooterCopyright = () => {
                     </div>
                     <div className="col-lg-6 align-self-center">
                         <div className="copyright_menus text-right">
-                            <div className="language"/>
+                            <div className="language" />
                             <div className="copyright_menu inline">
                                 <ul>
-                                    {quick_links.map((item, i) => (
-                                        <li key={i}><Link to={item.link}>{item.name}</Link></li>
+                                    {quickLinks.map((item) => (
+                                        <li key={item.id}>
+                                            <Link to={item.link}>
+                                                {item.name}
+                                            </Link>
+                                        </li>
                                     ))}
                                 </ul>
                             </div>
