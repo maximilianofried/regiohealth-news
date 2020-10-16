@@ -25,6 +25,7 @@ const TrendingNewsSlider = ({ latestArticles, adsHome = [] }) => {
         slidesPerView: 2,
         spaceBetween: 20,
         loop: true,
+        allowTouchMove: false,
         autoplay: {
             delay: 3000,
             disableOnInteraction: false,
