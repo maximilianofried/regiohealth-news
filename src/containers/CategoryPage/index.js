@@ -8,7 +8,7 @@ import BannerSection from '../../components/BannerSection';
 import Metadata from '../../components/Metadata';
 import { CMS_LINK } from '../../utils/constants';
 
-const BusinessPage = ({
+const CategoryPage = ({
     fetchArticles,
     allArticles,
     category,
@@ -115,7 +115,7 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-BusinessPage.propTypes = {
+CategoryPage.propTypes = {
     fetchArticles: PropTypes.func,
     allArticles: PropTypes.arrayOf(PropTypes.object),
     category: PropTypes.string,
@@ -124,7 +124,7 @@ BusinessPage.propTypes = {
     limit: PropTypes.number,
 };
 
-BusinessPage.defaultProps = {
+CategoryPage.defaultProps = {
     fetchArticles: () => {},
     allArticles: [],
     category: '',
@@ -133,4 +133,4 @@ BusinessPage.defaultProps = {
     limit: 2,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(BusinessPage);
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryPage);
