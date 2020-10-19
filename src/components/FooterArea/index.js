@@ -53,7 +53,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                 </ul>
                             </div>
                         </div>
-                        <div className="col-5 col-md-5 align-end">
+                        <div className="col-4 col-md-5 align-end">
                             <div className="social2">
                                 <ul className="inline">
                                     <li>

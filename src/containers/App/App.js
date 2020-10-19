@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import { connect } from 'react-redux';
 import Routes from '../__Routes';
@@ -14,21 +14,35 @@ const App = ({
     menuData,
     error,
     success,
-    loading,
 }) => {
+    const [isLoading, setLoading] = useState(true);
+
+    function fakeRequest() {
+        return new Promise((resolve) => setTimeout(() => resolve(), 700));
+    }
     useEffect(() => {
         fetchOnInit();
         fetchMenu();
         fetchPages();
+        fakeRequest().then(() => {
+            const el = document.querySelector('.loader-container');
+            if (el) {
+                el.remove();
+                setLoading(!isLoading);
+            }
+        });
     }, []);
 
     if (error) toast.error(error);
     if (success) toast.success(success);
+
+    if (isLoading) {
+        return null;
+    }
     return (
         <>
-            {loading && <h1>loading...</h1>}
             <ScrollToTop />
-            {menuData && pages && <Routes menuData={menuData} pages={pages} />}
+            <Routes menuData={menuData} pages={pages} />
             <ToastContainer position="top-center" />
             <ScrollTopButton />
         </>

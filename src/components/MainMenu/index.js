@@ -13,7 +13,7 @@ const MainMenu = ({ className, dark, fetchMenu, menuData }) => {
         fetchMenu();
     }, []);
     const [sideShow, setSideShow] = useState(false);
-    const currentDate = moment().format('LLL');
+    const currentDate = moment().format('dddd, MMMM D, YYYY');
     const arr = menuData.menu;
     return (
         <>
