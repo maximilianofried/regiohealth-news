@@ -80,7 +80,6 @@ const TrendingNewsSlider = ({ latestArticles, adsHome = [] }) => {
                                     </Link>
                                 </h4>
                                 <div className="space-10" />
-                                {/* <p className="post-p">{item.description}</p> */}
                             </div>
                         </div>
                     ))}

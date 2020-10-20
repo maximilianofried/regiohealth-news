@@ -57,9 +57,9 @@ const BusinessNews = ({ businessArticles, headerHide }) => {
                                             </Link>
                                         </h4>
                                         <div className="space-10" />
-                                        <p className="post-p">
+                                        <div className="post-p">
                                             {item.description}
-                                        </p>
+                                        </div>
                                         {/* <div className="space-20"/>
                                         <Link to={`/article/${item._id}`} className="readmore">Read more</Link> */}
                                     </div>

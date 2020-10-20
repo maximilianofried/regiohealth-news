@@ -7,7 +7,9 @@ const FooterCopyright = ({ pagesMenu }) => {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-6 align-self-center">
-                        <p>&copy; Copyright 2020, All Rights Reserved</p>
+                        <div className="copy_text">
+                            &copy; Copyright 2020, All Rights Reserved
+                        </div>
                     </div>
                     <div className="col-lg-6 align-self-center">
                         <div className="copyright_menus text-right">

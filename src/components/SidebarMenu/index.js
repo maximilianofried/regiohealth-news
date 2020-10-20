@@ -26,7 +26,7 @@ const SidebarMenu = ({ menus, sideShow, setSideShow, className }) => {
                           >
                               {item.child ? (
                                   // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-                                  <p
+                                  <div
                                       onClick={() =>
                                           setSMenu(
                                               item.id === sMenu ? null : item.id
@@ -44,7 +44,7 @@ const SidebarMenu = ({ menus, sideShow, setSideShow, className }) => {
                                                   : 'angle-down'
                                           }
                                       />
-                                  </p>
+                                  </div>
                               ) : (
                                   <NavLink
                                       exact
@@ -70,7 +70,7 @@ const SidebarMenu = ({ menus, sideShow, setSideShow, className }) => {
                                               >
                                                   {subItem.child ? (
                                                       // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-                                                      <p
+                                                      <div
                                                           onClick={() =>
                                                               setSTMenu(
                                                                   subItem.id ===
@@ -95,7 +95,7 @@ const SidebarMenu = ({ menus, sideShow, setSideShow, className }) => {
                                                                       : 'angle-down'
                                                               }
                                                           />
-                                                      </p>
+                                                      </div>
                                                   ) : (
                                                       <NavLink
                                                           exact

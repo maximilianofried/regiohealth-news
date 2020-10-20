@@ -19,11 +19,11 @@ const NotFoundPage = () => {
                             <div className="back4040 text-center col-lg-6 m-auto">
                                 <h3>Page not faund</h3>
                                 <div className="space-10" />
-                                <p>
+                                <div>
                                     Sorry the page you were looking for cannot
                                     be found. Try searching for the best match
                                     or browse the links below:
-                                </p>
+                                </div>
                                 <div className="space-20" />
                                 <div className="button_group">
                                     <Link to="/" className="cbtn2">

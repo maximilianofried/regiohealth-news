@@ -111,8 +111,6 @@ const PostCarousel = ({ className, latestArticles }) => {
                                                     </div>
                                                 )}
                                                 <div className="single_post_text">
-                                                    {/* {item.categories && <p>{item.categories[0].name}</p>}
-                                                <p className="date_carousel">{formatDate(item.createdAt)}</p> */}
                                                     <h4>
                                                         <Link
                                                             to={`/article/${item.id}`}
@@ -126,12 +124,12 @@ const PostCarousel = ({ className, latestArticles }) => {
                                                                 : item.title}
                                                         </Link>
                                                     </h4>
-                                                    <p>
+                                                    <div className="post-p">
                                                         {renderText(
                                                             item.description,
                                                             item.categories
                                                         )}
-                                                    </p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         ))}

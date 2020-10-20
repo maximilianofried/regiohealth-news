@@ -17,38 +17,63 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                 <div className="cta">
                     <div className="row">
                         <div className="col-8 col-md-7 ">
-                            <div className="social2 partner_logos">
+                            <div className=" partner_logos">
                                 <ul className="inline">
                                     <li>
-                                        <GtLogo className="gt_logo" />
+                                        <a
+                                            href="https://www.gesundheitsticket.de/"
+                                            target="_blank"
+                                        >
+                                            <GtLogo className="gt_logo" />
+                                        </a>
                                     </li>
                                     <li>
-                                        <img
-                                            alt="logo"
-                                            className="gt_logo"
-                                            src="https://www.regio-health.de/cms/wp-content/uploads/2020/10/regiohealth-b.svg"
-                                        />
+                                        <a
+                                            href="http://diewohlfuehler-akademie.de/regio-health-betriebliches-gesundheitsmanagement-in-regionalen-mikrozellen/"
+                                            target="_blank"
+                                        >
+                                            <img
+                                                alt="logo"
+                                                className="gt_logo"
+                                                src="https://www.regio-health.de/cms/wp-content/uploads/2020/10/regiohealth-b.svg"
+                                            />
+                                        </a>
                                     </li>
                                     <li>
-                                        <img
-                                            alt="logo"
-                                            className="gt_logo"
-                                            src="https://www.regio-health.de/cms/wp-content/uploads/2020/10/regiohealth-k.svg"
-                                        />
+                                        <a
+                                            href="http://diewohlfuehler-akademie.de/gesundheit-in-der-kommune/"
+                                            target="_blank"
+                                        >
+                                            <img
+                                                alt="logo"
+                                                className="gt_logo"
+                                                src="https://www.regio-health.de/cms/wp-content/uploads/2020/10/regiohealth-k.svg"
+                                            />
+                                        </a>
                                     </li>
                                     <li>
-                                        <img
-                                            alt="logo"
-                                            className="gt_logo"
-                                            src="https://www.regio-health.de/cms/wp-content/uploads/2020/09/LOGO-WF.svg"
-                                        />
+                                        <a
+                                            href="https://www.diewohlfuehler.de/"
+                                            target="_blank"
+                                        >
+                                            <img
+                                                alt="logo"
+                                                className="gt_logo"
+                                                src="https://www.regio-health.de/cms/wp-content/uploads/2020/09/LOGO-WF.svg"
+                                            />
+                                        </a>
                                     </li>
                                     <li>
-                                        <img
-                                            alt="logo"
-                                            className="gt_logo"
-                                            src="https://www.gesundheitsticket.de/woak-logo.svg"
-                                        />
+                                        <a
+                                            href="http://diewohlfuehler-akademie.de/"
+                                            target="_blank"
+                                        >
+                                            <img
+                                                alt="logo"
+                                                className="gt_logo"
+                                                src="https://www.gesundheitsticket.de/woak-logo.svg"
+                                            />
+                                        </a>
                                     </li>
                                 </ul>
                             </div>

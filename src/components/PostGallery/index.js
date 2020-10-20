@@ -37,22 +37,22 @@ const PostGallery = ({ className, latestArticles, topArticles, adsHome }) => {
                                                         {item.title}
                                                     </Link>
                                                 </h4>
-                                                <p className="post-p">
+                                                <div className="post-p">
                                                     {item.description}
-                                                </p>
+                                                </div>
                                                 <div className="meta meta_separator1 d-flex">
-                                                    <p>
+                                                    <div className="cat_date">
                                                         {item.categories
                                                             .length > 0
                                                             ? item.categories[0]
                                                                   .name
                                                             : ''}
-                                                    </p>
-                                                    <p>
+                                                    </div>
+                                                    <div className="cat_date">
                                                         {moment(
                                                             item.createdAt
                                                         ).format('LL')}
-                                                    </p>
+                                                    </div>
                                                 </div>
                                                 <div className="space-10" />
                                             </div>

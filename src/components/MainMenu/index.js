@@ -61,7 +61,9 @@ const MainMenu = ({ className, dark, fetchMenu, menuData }) => {
                                                 dark ? 'white' : ''
                                             }`}
                                         >
-                                            <p>{currentDate}</p>
+                                            <div className="full_date">
+                                                {currentDate}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

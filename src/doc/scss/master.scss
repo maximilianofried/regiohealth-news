@@ -121,7 +121,7 @@ body {
     }
 
     .paper_date {
-        p {
+        .full_date {
             font-size: $small_font_size;
             font-weight: $wightRegular;
             opacity: 0.85;
@@ -171,7 +171,7 @@ body {
         }
     }
 
-    p.trand {
+    div.trand {
         float: left;
         margin-right: 10px;
         padding: 12px 20px;
@@ -195,7 +195,7 @@ body {
             white-space: nowrap;
         }
 
-        p {
+        .tran_p {
             color: $body_color;
             // opacity: .85;
             word-break: break-word;
@@ -1058,7 +1058,7 @@ span.tranding {
     padding-left: 95px;
 
     .single_post_text {
-        p {
+        .post-p {
             font-size: 12px;
             font-weight: $wightLight;
             opacity: 0.85;
@@ -1147,7 +1147,7 @@ span.tranding {
         z-index: 9;
         // padding: 40px;
 
-        p.post-p {
+        div.post-p {
             font-size: 15px;
             line-height: 21px;
             font-weight: 400;
@@ -1162,7 +1162,7 @@ span.tranding {
             }
         }
 
-        p {
+        .cat_date {
             color: black;
             font-size: $heading3;
             line-height: 36px;
@@ -1179,7 +1179,7 @@ span.tranding {
             margin-bottom: 0;
 
             a,
-            p,
+            .cat_date,
             .tag {
                 font-size: 14px;
                 text-transform: capitalize;
@@ -1655,6 +1655,25 @@ span.tranding {
         text-align: end;
     }
 
+    .partner_logos {
+        &:last-child {
+            margin-top: 35px;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+
+            li {
+                list-style: none;
+
+                .gt_logo {
+                    margin-right: 4px;
+                }
+            }
+        }
+    }
+
     .cta {
         // padding: 70px 0 40px;
 
@@ -1677,10 +1696,6 @@ span.tranding {
                             background: $green_regiohealth;
                             color: $white;
                         }
-                    }
-
-                    .gt_logo {
-                        margin-right: 4px;
                     }
                 }
             }
@@ -1833,7 +1848,7 @@ span.tranding {
         margin-top: 30px;
         padding: 15px 0;
         font-size: 13px;
-        p {
+        .copy_text {
             color: $footer_dark_color;
             // text-align: center;
         }
@@ -2351,7 +2366,7 @@ a.cbtn3 {
     }
 
     .copyright {
-        p {
+        .copy_text {
             text-align: center;
         }
     }
