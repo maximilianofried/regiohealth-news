@@ -18,7 +18,6 @@ const InfoPage = ({ fetchPage, page, name }) => {
             </a>
         );
     };
-
     return (
         <>
             <Metadata
@@ -34,7 +33,9 @@ const InfoPage = ({ fetchPage, page, name }) => {
                             <div className="author_about">
                                 {page && page.content && (
                                     <ReactMarkdown
-                                        className="markdownContainer"
+                                        className={`markdownContainer ${
+                                            name === 'Über Uns' ? 'margin' : ''
+                                        }`}
                                         renderers={{ link: LinkRenderer }}
                                         source={page.content}
                                     />

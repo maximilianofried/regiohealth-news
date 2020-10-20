@@ -51,7 +51,7 @@ const TopBar = ({ className, dark, localArticles, fetchArticlesCity }) => {
                                         dark ? 'white' : ''
                                     }`}
                                 >
-                                    <p className="trand">Local News</p>
+                                    <div className="trand">Local News</div>
                                     <div className="nav_style1">
                                         <Swiper
                                             ref={ref}
@@ -64,7 +64,7 @@ const TopBar = ({ className, dark, localArticles, fetchArticlesCity }) => {
                                                         key={item.id}
                                                         className="trancarousel_item"
                                                     >
-                                                        <p>
+                                                        <div className="tran_p">
                                                             <Link
                                                                 to={`/article/${item.id}`}
                                                             >
@@ -83,7 +83,7 @@ const TopBar = ({ className, dark, localArticles, fetchArticlesCity }) => {
                                                                       }\u2026`
                                                                     : item.title}
                                                             </Link>
-                                                        </p>
+                                                        </div>
                                                     </div>
                                                 ))}
                                         </Swiper>
@@ -118,7 +118,9 @@ const TopBar = ({ className, dark, localArticles, fetchArticlesCity }) => {
                                         dark ? 'white' : ''
                                     }`}
                                 >
-                                    <p>{currentDate}</p>
+                                    <div className="full_date">
+                                        {currentDate}
+                                    </div>
                                 </div>
                                 <div
                                     className={`social1 ${dark ? 'white' : ''}`}

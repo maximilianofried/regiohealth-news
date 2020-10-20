@@ -1,5 +1,3 @@
-
-
 /*Define main font on google font*/
 
 .alignleft {
@@ -11,7 +9,6 @@
     float: right;
     margin-left: 20px;
 }
-
 
 .aligncenter {
     display: block;
@@ -39,51 +36,50 @@ img {
     max-height: 100%;
 }
 
-
 body,
 html {
     height: 100%;
 }
 
-
 h1,
 h2,
 h3,
 h4,
-h5, 
-h6{
+h5,
+h6 {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     margin: 0;
 }
 
-p{
-    margin: 0;
-}
+// p{
+//     margin: 0;
+// }
 
-.tuc{
+.tuc {
     text-transform: uppercase;
 }
-.tct{
+.tct {
     text-transform: capitalize;
 }
 
-a, a:hover{
+a,
+a:hover {
     text-decoration: none;
 }
-.font_light{
+.font_light {
     font-weight: 300;
 }
-.font_bold{
-    font-weight: 700
+.font_bold {
+    font-weight: 700;
 }
-.font_regular{
+.font_regular {
     font-weight: 400;
 }
-.font_thin{
+.font_thin {
     font-weight: 100;
 }
-.b{
+.b {
     font-weight: 700;
 }
 /*
@@ -136,10 +132,10 @@ input:-webkit-autofill:hover {
     text-align: center;
 }
 
-.dinline li, 
-.dinline, 
-.dinline a, 
-.dinline > div{
+.dinline li,
+.dinline,
+.dinline a,
+.dinline > div {
     display: inline-block;
 }
 
@@ -830,7 +826,6 @@ input:-webkit-autofill:hover {
     vertical-align: middle;
 }
 
-
 .last-p-mb0 p:last-of-type {
     margin-bottom: 0;
 }
@@ -1070,7 +1065,6 @@ input:-webkit-autofill:hover {
     margin-bottom: 10px;
 }
 
-
 .mb15 {
     margin-bottom: 15px;
 }
@@ -1080,7 +1074,6 @@ input:-webkit-autofill:hover {
 }
 
 @media only screen and (min-width: 1200px) {
-
     /*----------------------------------
         MEDIUM LAYOUT: 1280px
     -----------------------------------*/
@@ -1166,7 +1159,6 @@ input:-webkit-autofill:hover {
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
-
     /*----------------------------------
         MEDIUM LAYOUT: 1280px
     -----------------------------------*/
@@ -1211,7 +1203,7 @@ input:-webkit-autofill:hover {
     }
 
     .md-mt0 {
-        margin-top: 0!important;
+        margin-top: 0 !important;
     }
 
     .md-mt10 {
@@ -1252,7 +1244,6 @@ input:-webkit-autofill:hover {
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-
     /*----------------------------------
         TABLET LAYOUT: 768px
     -----------------------------------*/
@@ -1297,7 +1288,7 @@ input:-webkit-autofill:hover {
     }
 
     .sm-mt0 {
-        margin-top: 0!important;
+        margin-top: 0 !important;
     }
 
     .sm-mt10 {
@@ -1338,7 +1329,6 @@ input:-webkit-autofill:hover {
 }
 
 @media only screen and (max-width: 767px) {
-
     /*----------------------------------
         MOBILE LAYOUT: 320px
     -----------------------------------*/
@@ -1434,10 +1424,9 @@ input:-webkit-autofill:hover {
     padding: 0 0 20px 0;
 }
 
-.section-padding2{
+.section-padding2 {
     padding: 100px 0;
 }
-
 
 .padding-top {
     padding-top: 100px;
@@ -1447,18 +1436,18 @@ input:-webkit-autofill:hover {
     padding-bottom: 100px;
 }
 
-.padding5050{
+.padding5050 {
     padding: 50px 0;
 }
 
-.padding2020{
+.padding2020 {
     padding: 20px 0;
 }
-.padding6030{
+.padding6030 {
     padding: 60px 0 30px;
 }
 
-.padding15{
+.padding15 {
     padding: 15px;
 }
 
@@ -2161,13 +2150,13 @@ input:-webkit-autofill:hover {
     BACKGROUND CSS
 ------------------------------- */
 
-.theme__bg1{
+.theme__bg1 {
     position: relative;
     z-index: 2;
 }
-.theme__bg1:after{
+.theme__bg1:after {
     position: absolute;
-    content: "";
+    content: '';
     height: 100%;
     width: 100%;
     top: 0;
@@ -2176,27 +2165,26 @@ input:-webkit-autofill:hover {
     z-index: -1;
 }
 
-
-.theme__bg2{
+.theme__bg2 {
     position: relative;
     z-index: 2;
 }
-.theme__bg2:after{
+.theme__bg2:after {
     position: absolute;
-    content: "";
+    content: '';
     height: 100%;
     width: 100%;
     top: 0;
     left: 0;
-    background: #EBF5F6;
+    background: #ebf5f6;
     z-index: -1;
 }
 
-.white__bg{
+.white__bg {
     background: #fff;
 }
 
-.bgf{
+.bgf {
     background-attachment: fixed;
 }
 
@@ -2229,13 +2217,14 @@ input:-webkit-autofill:hover {
     border-bottom: 1px solid #dddddd;
 }
 
-.border_black_1px{
-    border: 1px solid #222; 
+.border_black_1px {
+    border: 1px solid #222;
 }
-.border_black_2px{
-    border: 2px solid #222; 
-}.border_black_3px{
-    border: 3px solid #222; 
+.border_black_2px {
+    border: 2px solid #222;
+}
+.border_black_3px {
+    border: 3px solid #222;
 }
 
 @media only screen and (max-width: 767px) {
@@ -2243,8 +2232,6 @@ input:-webkit-autofill:hover {
         border: 1px solid #dddddd;
     }
 }
-
-
 
 .border-radious3 {
     border-radius: 3px;
@@ -2270,9 +2257,6 @@ input:-webkit-autofill:hover {
     overflow: hidden;
 }
 
-
-
-
 .border-radious10 {
     border-radius: 10px;
 }
@@ -2285,8 +2269,8 @@ input:-webkit-autofill:hover {
     border-radius: 50px;
 }
 
-.border-_5px_white{
-    border: .5px solid #fff;
+.border-_5px_white {
+    border: 0.5px solid #fff;
 }
 
 /*-----------------------
@@ -2320,58 +2304,58 @@ input:-webkit-autofill:hover {
 ------------------------------ */
 
 button:hover,
-input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover {
+input[type='button']:hover,
+input[type='reset']:hover,
+input[type='submit']:hover {
     outline: 0;
 }
 
 button:active,
 button:focus,
-input[type="button"]:active,
-input[type="button"]:focus,
-input[type="reset"]:active,
-input[type="reset"]:focus,
-input[type="submit"]:active,
-input[type="submit"]:focus {
+input[type='button']:active,
+input[type='button']:focus,
+input[type='reset']:active,
+input[type='reset']:focus,
+input[type='submit']:active,
+input[type='submit']:focus {
     outline: 0;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-input[type="search"],
-input[type="number"],
-input[type="tel"],
-input[type="range"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="color"],
+input[type='text'],
+input[type='email'],
+input[type='url'],
+input[type='password'],
+input[type='search'],
+input[type='number'],
+input[type='tel'],
+input[type='range'],
+input[type='date'],
+input[type='month'],
+input[type='week'],
+input[type='time'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='color'],
 textarea {
     outline: 0;
     width: 100%;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="password"]:focus,
-input[type="search"]:focus,
-input[type="number"]:focus,
-input[type="tel"]:focus,
-input[type="range"]:focus,
-input[type="date"]:focus,
-input[type="month"]:focus,
-input[type="week"]:focus,
-input[type="time"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-input[type="color"]:focus,
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='url']:focus,
+input[type='password']:focus,
+input[type='search']:focus,
+input[type='number']:focus,
+input[type='tel']:focus,
+input[type='range']:focus,
+input[type='date']:focus,
+input[type='month']:focus,
+input[type='week']:focus,
+input[type='time']:focus,
+input[type='datetime']:focus,
+input[type='datetime-local']:focus,
+input[type='color']:focus,
 textarea:focus,
 select:focus {
     outline: 0;
@@ -2391,13 +2375,11 @@ object {
     width: 100%;
 }
 
-
-
 /*==============
 COMMON CSS
 =================*/
 
-.bg{
+.bg {
     background-position: center !important;
     -webkit-background-size: cover !important;
     background-size: cover !important;
@@ -2446,6 +2428,6 @@ SPACE CSS
     height: 10px;
 }
 
-.space-5{
+.space-5 {
     height: 5px;
 }
