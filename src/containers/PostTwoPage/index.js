@@ -141,7 +141,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                 </div>
                                 <div className="space-20" />
                                 <ReactMarkdown
-                                    className="markdownContainer"
+                                    className="markdownContainer margin"
                                     transformImageUri={(data) =>
                                         transform(data)
                                     }
