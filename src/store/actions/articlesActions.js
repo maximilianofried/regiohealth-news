@@ -1,105 +1,124 @@
 import axios from 'axios';
+import qs from 'qs';
 import {
     FETCH_ARTICLES_REQUEST,
     FETCH_ARTICLES_SUCCESS,
     FETCH_ARTICLES_FAILURE,
-    SHOW_MORE_ARTICLES,
-    FETCH_ARTICLES_CITY_SUCCESS
-} from "../constants/articlesTypes";
+    FETCH_ARTICLES_CITY_SUCCESS,
+    FETCH_ARTICLES_CLEAN_UP,
+} from '../constants/articlesTypes';
 
 const fetchArticlesRequest = () => {
     return {
-        type: FETCH_ARTICLES_REQUEST
-    }
-}
+        type: FETCH_ARTICLES_REQUEST,
+    };
+};
 
-const fetchArticlesSuccess = payload => {
+const fetchArticlesSuccess = (payload) => {
     return {
         type: FETCH_ARTICLES_SUCCESS,
-        payload
-    }
-}
+        payload,
+    };
+};
 
-
-const fetchArticlesFailure = error => {
+const fetchArticlesFailure = (error) => {
     return {
         type: FETCH_ARTICLES_FAILURE,
-        payload: error
-    }
-}
+        payload: error,
+    };
+};
 
-const fetchArticlesByCitySuccess = payload => {
+const fetchArticlesByCitySuccess = (payload) => {
     return {
         type: FETCH_ARTICLES_CITY_SUCCESS,
-        payload
-    }
-}
+        payload,
+    };
+};
 
-export const showMoreArticles = () => {
+export const fetchArticlesCleanUp = () => {
     return {
-        type: SHOW_MORE_ARTICLES
-    }
-}
+        type: FETCH_ARTICLES_CLEAN_UP,
+    };
+};
 
 // action creator, return function not object, not pure function ,async api calls
-export const fetchArticles = ({category = undefined, city = undefined, start = undefined, limit = undefined} = {}) => {
+export const fetchArticles = ({
+    categories = [],
+    city = undefined,
+    start = undefined,
+    limit = undefined,
+} = {}) => {
     return (dispatch) => {
-        let url = 'https://cms.gesundheitsticket.de/articles/published?_sort=createdAt:DESC'
-                    + (category ? '&categories.name_contains=' + category : '')
-                    + (city ? '&city=' + city : '')
-                    + (start ? '&_start=' + start : '')
-                    + (limit ? '&_limit=' + limit : '');
+        let categoriesList = [];
+        categoriesList = categories.map((item) => item.id);
+        const query = qs.stringify(
+            {
+                _where: { 'categories.id': categoriesList },
+            },
+            { encode: false, arrayFormat: 'repeat' }
+        );
+        const url = `https://cms.gesundheitsticket.de/articles/published?_sort=createdAt:DESC${
+            categories ? `&${query}` : ''
+        }${city ? `&city=${city}` : ''}${start ? `&_start=${start}` : ''}${
+            limit ? `&_limit=${limit}` : ''
+        }`;
         dispatch(fetchArticlesRequest);
-        axios.get(url)
-            .then(response => {
+        axios
+            .get(url)
+            .then((response) => {
                 const articles = response.data;
-                dispatch(fetchArticlesSuccess({
-                    articles,
-                    limit
-                    }
-                ))
+                dispatch(
+                    fetchArticlesSuccess({
+                        articles,
+                        limit,
+                    })
+                );
             })
-            .catch(error => {
+            .catch((error) => {
                 const errorMsg = error.message;
                 dispatch(fetchArticlesFailure(errorMsg));
-            })
-    }
-}
+            });
+    };
+};
 
-export const fetchArticlesGeo = ({lat = undefined, lng = undefined} = {}) => {
+export const fetchArticlesGeo = ({ lat = undefined, lng = undefined } = {}) => {
     return (dispatch) => {
-        let url = `https://cms.gesundheitsticket.de/articles/geo/${lat}/${lng}?_sort=createdAt:DESC&`;
+        const url = `https://cms.gesundheitsticket.de/articles/geo/${lat}/${lng}?_sort=createdAt:DESC&`;
         dispatch(fetchArticlesRequest);
-        axios.get(url)
-            .then(response => {
+        axios
+            .get(url)
+            .then((response) => {
                 const articles = response.data;
-                dispatch(fetchArticlesSuccess({
-                    articles,
-                    }
-                ))
+                dispatch(
+                    fetchArticlesSuccess({
+                        articles,
+                    })
+                );
             })
-            .catch(error => {
+            .catch((error) => {
                 const errorMsg = error.message;
                 dispatch(fetchArticlesFailure(errorMsg));
-            })
-    }
-}
+            });
+    };
+};
 
-export const fetchArticlesCity = ({city = undefined} = {}) => {
+export const fetchArticlesCity = ({ city = undefined } = {}) => {
     return (dispatch) => {
-        let url = "https://cms.gesundheitsticket.de/articles/published?_sort=createdAt:DESC&city=" + city ;
+        const url = `https://cms.gesundheitsticket.de/articles/published?_sort=createdAt:DESC&city=${city}`;
         dispatch(fetchArticlesRequest);
-        axios.get(url)
-            .then(response => {
+        axios
+            .get(url)
+            .then((response) => {
                 const articles = response.data;
-                dispatch(fetchArticlesByCitySuccess({
-                    articles,
-                    }
-                ))
+                dispatch(
+                    fetchArticlesByCitySuccess({
+                        articles,
+                    })
+                );
             })
-            .catch(error => {
+            .catch((error) => {
                 const errorMsg = error.message;
                 dispatch(fetchArticlesFailure(errorMsg));
-            })
-    }
-}
+            });
+    };
+};
