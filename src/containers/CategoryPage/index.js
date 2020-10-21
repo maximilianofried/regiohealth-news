@@ -1,7 +1,10 @@
 import React, { Fragment, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchArticles, fetchAds, showMoreArticles } from '../../store/actions';
+import {
+    fetchArticles,
+    fetchAds,
+    fetchArticlesCleanUp,
+} from '../../store/actions';
 import BreadCrumb from '../../components/BreadCrumb';
 import BusinessNews from '../../components/BusinessNews';
 import BannerSection from '../../components/BannerSection';
@@ -10,15 +13,19 @@ import { CMS_LINK } from '../../utils/constants';
 
 const CategoryPage = ({
     fetchArticles,
+    fetchArticlesCleanUp,
     allArticles,
-    category,
+    name,
     fetchAds,
     adsCategory,
     limit,
+    categories,
 }) => {
     useEffect(() => {
         window.scrollTo(0, 0);
-        fetchArticles({ category, start: 0, limit: 2 });
+        fetchArticlesCleanUp();
+        if (categories.length > 0)
+            fetchArticles({ categories, start: 0, limit: 2 });
         fetchAds();
     }, []);
 
@@ -26,17 +33,18 @@ const CategoryPage = ({
         adsCategory.filter((ad) => ad.size === 's350x292')[0] || {};
 
     const showMore = () => {
-        fetchArticles({ category, start: 0, limit: limit + 2 });
+        if (categories.length > 0)
+            fetchArticles({ categories, start: 0, limit: limit + 2 });
     };
 
     return (
         <>
             <Metadata
-                title={category}
-                description={category}
-                url={`${process.env.REACT_APP_BASE_PAGE_URL}/${category}`}
+                title={name}
+                description={name}
+                url={`${process.env.REACT_APP_BASE_PAGE_URL}/${name}`}
             />
-            <BreadCrumb title={category} />
+            <BreadCrumb title={name} />
             <div className="archives padding-top-30">
                 <div className="container">
                     <div className="row">
@@ -45,7 +53,7 @@ const CategoryPage = ({
                                 <div className="row">
                                     <div className="col-12 align-self-center">
                                         <div className="categories_title">
-                                            <h5>Category: {category}</h5>
+                                            <h5>{name}</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -108,29 +116,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchArticles: ({ category, start, limit }) =>
-            dispatch(fetchArticles({ category, start, limit })),
+        fetchArticles: ({ categories, start, limit }) =>
+            dispatch(fetchArticles({ categories, start, limit })),
         fetchAds: () => dispatch(fetchAds()),
-        showMoreArticles: () => dispatch(showMoreArticles()),
+        fetchArticlesCleanUp: () => dispatch(fetchArticlesCleanUp()),
     };
-};
-
-CategoryPage.propTypes = {
-    fetchArticles: PropTypes.func,
-    allArticles: PropTypes.arrayOf(PropTypes.object),
-    category: PropTypes.string,
-    fetchAds: PropTypes.func,
-    adsCategory: PropTypes.arrayOf(PropTypes.object),
-    limit: PropTypes.number,
-};
-
-CategoryPage.defaultProps = {
-    fetchArticles: () => {},
-    allArticles: [],
-    category: '',
-    fetchAds: () => {},
-    adsCategory: [],
-    limit: 2,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CategoryPage);

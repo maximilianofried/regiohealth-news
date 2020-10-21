@@ -9,11 +9,11 @@ import PostTwoPage from '../PostTwoPage';
 import SearchPage from '../SearchPage';
 // import PublicRoute from '../_PublicRoute';
 
-const selectPage = (pageName, props) => {
+const selectPage = (pageName, categories, props) => {
     if (pageName === 'Über Uns' || pageName === 'Kontakt') {
         return <InfoPage {...props} name={pageName} />;
     }
-    return <CategoryPage {...props} category={pageName} />;
+    return <CategoryPage {...props} name={pageName} categories={categories} />;
 };
 
 const Routes = ({ menuData, pages }) => {
@@ -33,7 +33,9 @@ const Routes = ({ menuData, pages }) => {
                     exact
                     path={item.link}
                     parentClass="theme-1"
-                    component={(props) => selectPage(item.linkText, props)}
+                    component={(props) =>
+                        selectPage(item.linkText, item.categories, props)
+                    }
                 />
             ))}
             {pagesMenu.map((item) => (
