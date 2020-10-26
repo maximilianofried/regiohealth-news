@@ -5,6 +5,7 @@ import FooterCopyright from '../FooterCopyright';
 import FontAwesome from '../uiStyle/FontAwesome';
 import { ReactComponent as GtLogo } from '../../doc/img/gt-logo/logo-gt.svg';
 import { fetchPages } from '../../store/actions';
+import { CMS_LINK } from '../../utils/constants';
 
 const FooterArea = ({ className, fetchPages, pages }) => {
     useEffect(() => {
@@ -24,7 +25,11 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             href="https://www.gesundheitsticket.de/"
                                             target="_blank"
                                         >
-                                            <GtLogo className="gt_logo" />
+                                            <img
+                                                alt="logo"
+                                                className="gt_logo"
+                                                src={`${CMS_LINK}/uploads/logo_gt_1c7fd3b58d.svg`}
+                                            />
                                         </a>
                                     </li>
                                     <li>
@@ -35,7 +40,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             <img
                                                 alt="logo"
                                                 className="gt_logo"
-                                                src="https://www.regio-health.de/cms/wp-content/uploads/2020/10/regiohealth-b.svg"
+                                                src={`${CMS_LINK}/uploads/regiohealth_b_2504b34553.svg`}
                                             />
                                         </a>
                                     </li>
@@ -47,7 +52,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             <img
                                                 alt="logo"
                                                 className="gt_logo"
-                                                src="https://www.regio-health.de/cms/wp-content/uploads/2020/10/regiohealth-k.svg"
+                                                src={`${CMS_LINK}/uploads/regiohealth_k_7e8e5e4a52.svg`}
                                             />
                                         </a>
                                     </li>
@@ -59,7 +64,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             <img
                                                 alt="logo"
                                                 className="gt_logo"
-                                                src="https://www.regio-health.de/cms/wp-content/uploads/2020/09/LOGO-WF.svg"
+                                                src={`${CMS_LINK}/uploads/LOGO_WF_657d71e353.svg`}
                                             />
                                         </a>
                                     </li>
