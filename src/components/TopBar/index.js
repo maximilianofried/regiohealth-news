@@ -58,34 +58,32 @@ const TopBar = ({ className, dark, localArticles, fetchArticlesCity }) => {
                                             className="trancarousel"
                                             {...params}
                                         >
-                                            {localArticles.length > 0 &&
-                                                localArticles.map((item) => (
-                                                    <div
-                                                        key={item.id}
-                                                        className="trancarousel_item"
-                                                    >
-                                                        <div className="tran_p">
-                                                            <Link
-                                                                to={`/article/${item.id}`}
-                                                            >
-                                                                {item.title
-                                                                    .length <=
-                                                                30
-                                                                    ? `${
-                                                                          item.title
-                                                                      } - ${
-                                                                          item.description
-                                                                              ? item.description.substr(
-                                                                                    0,
-                                                                                    35
-                                                                                )
-                                                                              : ''
-                                                                      }\u2026`
-                                                                    : item.title}
-                                                            </Link>
-                                                        </div>
+                                            {localArticles.map((item) => (
+                                                <div
+                                                    key={item.id}
+                                                    className="trancarousel_item"
+                                                >
+                                                    <div className="tran_p">
+                                                        <Link
+                                                            to={`/article/${item.id}`}
+                                                        >
+                                                            {item.title
+                                                                .length <= 30
+                                                                ? `${
+                                                                      item.title
+                                                                  } - ${
+                                                                      item.description
+                                                                          ? item.description.substr(
+                                                                                0,
+                                                                                35
+                                                                            )
+                                                                          : ''
+                                                                  }\u2026`
+                                                                : item.title}
+                                                        </Link>
                                                     </div>
-                                                ))}
+                                                </div>
+                                            ))}
                                         </Swiper>
                                         {!isMobile && (
                                             <div className="navBtns">
