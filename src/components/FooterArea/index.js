@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import FooterCopyright from '../FooterCopyright';
 import FontAwesome from '../uiStyle/FontAwesome';
-import { ReactComponent as GtLogo } from '../../doc/img/gt-logo/logo-gt.svg';
 import { fetchPages } from '../../store/actions';
 import { CMS_LINK } from '../../utils/constants';
 

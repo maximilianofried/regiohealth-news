@@ -84,6 +84,26 @@ const WidgetTab = ({ className, dark, latestArticles, adsHome }) => {
                             </a>
                         </div>
                     )}
+                    <iframe
+                        title="advertisement"
+                        frameBorder="0"
+                        marginHeight="0"
+                        marginWidth="0"
+                        src="https://www.betterplace-widget.org/projects/25999?l=de"
+                        width="100%"
+                        height="320"
+                        style={{ border: 0, padding: 0, margin: 0 }}
+                    >
+                        Informieren und spenden:{' '}
+                        <a
+                            href="https://www.betterplace.org/de/projects/25999-nothilfe-fuer-fluechtlinge-international-moas-migrant-offshore-aid-station"
+                            target="_blank"
+                        >
+                            „Nothilfe für Flüchtlinge international - MOAS
+                            Migrant Offshore Aid Station“
+                        </a>{' '}
+                        auf betterplace.org öffnen.
+                    </iframe>
                 </div>
             </div>
         </div>

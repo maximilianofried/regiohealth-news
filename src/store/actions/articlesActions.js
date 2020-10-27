@@ -104,12 +104,12 @@ export const fetchArticlesGeo = ({ lat = undefined, lng = undefined } = {}) => {
 
 export const fetchArticlesCity = ({ city = undefined } = {}) => {
     return (dispatch) => {
-        const url = `https://cms.gesundheitsticket.de/articles/published?_sort=createdAt:DESC&city=${city}`;
+        const url = `https://cms.gesundheitsticket.de/geodata?lat=52.56&lng=13.14&radius=50000&type=article`;
         dispatch(fetchArticlesRequest);
         axios
             .get(url)
             .then((response) => {
-                const articles = response.data;
+                const { articles } = response.data;
                 dispatch(
                     fetchArticlesByCitySuccess({
                         articles,
