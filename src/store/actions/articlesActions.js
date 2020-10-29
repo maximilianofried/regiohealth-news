@@ -81,17 +81,24 @@ export const fetchArticles = ({
     };
 };
 
-export const fetchArticlesGeo = ({ lat = undefined, lng = undefined } = {}) => {
+export const fetchArticlesCity = ({
+    limit = undefined,
+    start = undefined,
+    place = { lat: 52.56, lng: 13.14 },
+    radius = 200001,
+}) => {
+    const { lat, lng } = place;
     return (dispatch) => {
-        const url = `https://cms.gesundheitsticket.de/articles/geo/${lat}/${lng}?_sort=createdAt:DESC&`;
+        const url = `https://cms.gesundheitsticket.de/geodata?lat=${lat}&lng=${lng}&radius=${radius}&type=article&start=${start}&limit=${limit}`;
         dispatch(fetchArticlesRequest);
         axios
             .get(url)
             .then((response) => {
-                const articles = response.data;
+                const { articles } = response.data;
                 dispatch(
-                    fetchArticlesSuccess({
+                    fetchArticlesByCitySuccess({
                         articles,
+                        limit,
                     })
                 );
             })
@@ -102,16 +109,16 @@ export const fetchArticlesGeo = ({ lat = undefined, lng = undefined } = {}) => {
     };
 };
 
-export const fetchArticlesCity = ({ city = undefined } = {}) => {
+export const fetchArticlesGeo = ({ lat = undefined, lng = undefined } = {}) => {
     return (dispatch) => {
-        const url = `https://cms.gesundheitsticket.de/geodata?lat=52.56&lng=13.14&radius=50000&type=article`;
+        const url = `https://cms.gesundheitsticket.de/articles/geo/${lat}/${lng}?_sort=createdAt:DESC&`;
         dispatch(fetchArticlesRequest);
         axios
             .get(url)
             .then((response) => {
-                const { articles } = response.data;
+                const articles = response.data;
                 dispatch(
-                    fetchArticlesByCitySuccess({
+                    fetchArticlesSuccess({
                         articles,
                     })
                 );

@@ -9,7 +9,7 @@ import { fetchArticlesCity } from '../../store/actions';
 
 const TopBar = ({ className, dark, localArticles, fetchArticlesCity }) => {
     useEffect(() => {
-        fetchArticlesCity({ city: 'Berlin' });
+        // fetchArticlesCity({ lat: 52.52, lng: 13.14 });
     }, []);
     const currentDate = moment().format('dddd, MMMM D, YYYY');
     const ref = useRef(null);

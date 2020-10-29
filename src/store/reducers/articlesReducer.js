@@ -39,7 +39,8 @@ const articlesReducer = (state = initialState, action) => {
                 ...state,
                 loading: false,
                 articlesByCity: action.payload.articles,
-                error: action.payload,
+                limit: action.payload.limit,
+                error: '',
             };
         case FETCH_ARTICLES_CLEAN_UP:
             return {

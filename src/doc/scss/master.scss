@@ -2774,3 +2774,23 @@ a.cbtn3 {
     margin: 0;
     padding: 0;
 }
+
+[data-reach-combobox] {
+    height: 32px;
+}
+
+[data-reach-combobox-input] {
+    margin-bottom: 0;
+    height: 32px;
+}
+[data-reach-listbox-button] {
+    margin-right: 25px;
+}
+[data-reach-listbox-popover] {
+    z-index: 999;
+}
+.my-flex-container {
+    //border: 2px solid green;
+    height: 45px;
+    margin-bottom: 20px;
+}

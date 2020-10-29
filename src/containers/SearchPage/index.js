@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import usePlacesAutocomplete, {
     getGeocode,
@@ -10,19 +10,44 @@ import {
     ComboboxPopover,
     ComboboxOption,
 } from '@reach/combobox';
-import { fetchArticles, fetchArticlesGeo, fetchAds } from '../../store/actions';
+import {
+    Listbox,
+    ListboxInput,
+    ListboxButton,
+    ListboxPopover,
+    ListboxList,
+    ListboxOption,
+} from '@reach/listbox';
+import {
+    fetchArticles,
+    fetchArticlesCity,
+    fetchAds,
+} from '../../store/actions';
+import BusinessNews from '../../components/BusinessNews';
 import BreadCrumb from '../../components/BreadCrumb';
 // import BusinessNews from '../../components/BusinessNews';
 import '@reach/combobox/styles.css';
+import '@reach/listbox/styles.css';
 import BannerSection from '../../components/BannerSection';
 
 const CMS_LINK = 'https://cms.gesundheitsticket.de';
 
-const SearchPage = ({ fetchArticlesGeo, category, fetchAds, adsCategory }) => {
+const SearchPage = ({
+    fetchArticlesCity,
+    filteredArticles,
+    category,
+    fetchAds,
+    adsCategory,
+    limit,
+}) => {
     useEffect(() => {
         fetchAds();
     }, []);
-
+    const [place, setPlace] = useState({ lat: 52.56, lng: 13.14 });
+    const [radius, setRadius] = useState(20000);
+    const showMore = () => {
+        fetchArticlesCity({ limit: limit + 2, start: 0, place, radius });
+    };
     const banner350x292 =
         adsCategory.filter((ad) => ad.size === 's350x292')[0] || {};
 
@@ -39,17 +64,42 @@ const SearchPage = ({ fetchArticlesGeo, category, fetchAds, adsCategory }) => {
                                         <div className="categories_title">
                                             <h5>Search by Location:</h5>
                                             <Search
-                                                fetchArticlesGeo={
-                                                    fetchArticlesGeo
+                                                fetchArticlesCity={
+                                                    fetchArticlesCity
                                                 }
+                                                limit={limit}
+                                                place={place}
+                                                radius={radius}
+                                                setPlace={setPlace}
+                                                setRadius={setRadius}
                                             />
                                             <div className="space-70" />
                                         </div>
                                     </div>
                                 </div>
+                                {filteredArticles && (
+                                    <div className="row">
+                                        <div className="col-12">
+                                            <BusinessNews
+                                                businessArticles={
+                                                    filteredArticles
+                                                }
+                                                headerHide
+                                            />
+                                        </div>
+                                    </div>
+                                )}
                                 <div className="row">
                                     <div className="col-12">
-                                        {/* <BusinessNews headerHide /> */}
+                                        <div className="cpagination">
+                                            <button
+                                                type="button"
+                                                onClick={showMore}
+                                                className="readmore cursor_pointer"
+                                            >
+                                                SHOW MORE
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -83,9 +133,17 @@ const SearchPage = ({ fetchArticlesGeo, category, fetchAds, adsCategory }) => {
     );
 };
 
-const Search = ({ fetchArticlesGeo }) => {
+const Search = ({
+    fetchArticlesCity,
+    limit,
+    place,
+    radius,
+    setPlace,
+    setRadius,
+}) => {
+    // const [place, setPlace] = useState({ lat: 52.56, lng: 13.14 });
+    // const [radius, setRadius] = useState(20000);
     const options = {
-        types: ['(cities)'],
         componentRestrictions: { country: ['de', 'pl'] },
     };
 
@@ -103,51 +161,73 @@ const Search = ({ fetchArticlesGeo }) => {
         getGeocode({ address })
             .then((results) => getLatLng(results[0]))
             .then(({ lat, lng }) => {
-                fetchArticlesGeo({ lat, lng });
-                // eslint-disable-next-line no-console
-                console.log('📍 Coordinates: ', { lat, lng });
+                setPlace({ lat, lng });
             })
             .catch((error) => {
                 // eslint-disable-next-line no-console
                 console.log('😱 Error: ', error);
             });
     };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        fetchArticlesCity({ limit: 2, start: 0, place, radius });
+    };
     return (
-        <Combobox onSelect={(address) => onComboSelect(address)}>
-            <ComboboxInput
-                value={value}
-                onChange={(e) => {
-                    setValue(e.target.value);
-                }}
-                disabled={!ready}
-                placeholder="City"
-            />
-            <ComboboxPopover className="pop_over">
-                {status === 'OK' &&
-                    data.map((result) => {
-                        return (
-                            <ComboboxOption
-                                key={result.place_id}
-                                value={result.description}
-                            />
-                        );
-                    })}
-            </ComboboxPopover>
-        </Combobox>
+        <form onSubmit={handleSubmit}>
+            <Combobox
+                onSelect={(address) => onComboSelect(address)}
+                className="d-flex align-items-center my-flex-container"
+            >
+                <ComboboxInput
+                    value={value}
+                    onChange={(e) => {
+                        setValue(e.target.value);
+                    }}
+                    disabled={!ready}
+                    placeholder="PLZ oder Ort"
+                />
+                <ComboboxPopover className="pop_over">
+                    {status === 'OK' &&
+                        data.map((result) => {
+                            return (
+                                <ComboboxOption
+                                    key={result.place_id}
+                                    value={result.description}
+                                />
+                            );
+                        })}
+                </ComboboxPopover>
+                <Listbox radius={radius} onChange={setRadius}>
+                    <ListboxOption value="5000">+5 km</ListboxOption>
+                    <ListboxOption value="10000">+10 km</ListboxOption>
+                    <ListboxOption value="20000">+20 km</ListboxOption>
+                    <ListboxOption value="30000">+30 km</ListboxOption>
+                    <ListboxOption value="50000">+50 km</ListboxOption>
+                    <ListboxOption value="100000">+100 km</ListboxOption>
+                    <ListboxOption value="150000">+150 km</ListboxOption>
+                    <ListboxOption value="200000">+200 km</ListboxOption>
+                </Listbox>
+                <button type="submit" className="btn-sm btn-primary">
+                    <i className="fa fa-search" /> Finden
+                </button>
+            </Combobox>
+        </form>
     );
 };
 
 const mapStateToProps = (state) => {
     return {
         adsCategory: state.ads.ads.filter((ad) => ad.position === 'category'),
+        filteredArticles: state.articles.articlesByCity,
+        limit: state.articles.limit,
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchArticles: ({ city }) => dispatch(fetchArticles({ city })),
-        fetchArticlesGeo: ({ lat, lng }) =>
-            dispatch(fetchArticlesGeo({ lat, lng })),
+        // fetchArticles: ({ city }) => dispatch(fetchArticles({ city })),
+        fetchArticlesCity: (filters) => dispatch(fetchArticlesCity(filters)),
         fetchAds: () => dispatch(fetchAds()),
     };
 };
