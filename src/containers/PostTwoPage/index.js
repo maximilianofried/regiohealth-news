@@ -8,11 +8,10 @@ import BreadCrumb from '../../components/BreadCrumb';
 import FontAwesome from '../../components/uiStyle/FontAwesome';
 import BannerSection from '../../components/BannerSection';
 import singlePost1 from '../../doc/img/blog/single_post1.jpg';
-import { CMS_LINK } from '../../utils/constants';
 import Metadata from '../../components/Metadata';
 
 const transform = (data) => {
-    const imageLink = `${CMS_LINK + data}`;
+    const imageLink = `${process.env.REACT_APP_CMS_URL + data}`;
     return imageLink;
 };
 
@@ -50,7 +49,9 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                         article.description,
                         article.categories
                     )}
-                    image={CMS_LINK + article.main_image.url}
+                    image={
+                        process.env.REACT_APP_CMS_URL + article.main_image.url
+                    }
                     url={`${process.env.REACT_APP_BASE_PAGE_URL}/article/${id}`}
                 />
                 <div className="archives post post1">
@@ -66,7 +67,8 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                     src={
                                         article.main_image
                                             ? `${
-                                                  CMS_LINK +
+                                                  process.env
+                                                      .REACT_APP_CMS_URL +
                                                   article.main_image.url
                                               }`
                                             : singlePost1

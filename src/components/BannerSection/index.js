@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchAds } from '../../store/actions';
-import { CMS_LINK } from '../../utils/constants';
 
 const BannerSection = ({ className, fetchAds, adsCategory }) => {
     useEffect(() => {
@@ -20,7 +19,7 @@ const BannerSection = ({ className, fetchAds, adsCategory }) => {
                                     banner729x90.image.length > 0 && (
                                         <img
                                             src={
-                                                CMS_LINK +
+                                                process.env.REACT_APP_URL +
                                                 banner729x90.image[0].url
                                             }
                                             alt="banner"

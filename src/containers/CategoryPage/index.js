@@ -9,7 +9,6 @@ import BreadCrumb from '../../components/BreadCrumb';
 import BusinessNews from '../../components/BusinessNews';
 import BannerSection from '../../components/BannerSection';
 import Metadata from '../../components/Metadata';
-import { CMS_LINK } from '../../utils/constants';
 
 const CategoryPage = ({
     fetchArticles,
@@ -88,7 +87,8 @@ const CategoryPage = ({
                                         banner350x292.image.length > 0 && (
                                             <img
                                                 src={
-                                                    CMS_LINK +
+                                                    process.env
+                                                        .REACT_APP_CMS_URL +
                                                     banner350x292.image[0].url
                                                 }
                                                 alt="banner"

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import Heading from '../uiStyle/Heading';
 import TrendingNewsSlider from '../TrendingNewsSlider';
-import { CMS_LINK } from '../../utils/constants';
 
 const TrendingNews = ({ dark, latestArticles, adsHome }) => {
     return (
@@ -32,7 +31,8 @@ const TrendingNews = ({ dark, latestArticles, adsHome }) => {
                                             <Link to={`/article/${item.id}`}>
                                                 <img
                                                     src={
-                                                        CMS_LINK +
+                                                        process.env
+                                                            .REACT_APP_CMS_URL +
                                                         item.main_image.formats
                                                             .thumbnail.url
                                                     }
@@ -90,7 +90,8 @@ const TrendingNews = ({ dark, latestArticles, adsHome }) => {
                                             <Link to={`/article/${item.id}`}>
                                                 <img
                                                     src={
-                                                        CMS_LINK +
+                                                        process.env
+                                                            .REACT_APP_CMS_URL +
                                                         item.main_image.formats
                                                             .thumbnail.url
                                                     }

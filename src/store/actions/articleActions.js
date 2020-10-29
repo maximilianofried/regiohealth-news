@@ -37,7 +37,7 @@ export const fetchArticle = (id) => {
     return (dispatch) => {
         dispatch(fetchArticleRequest);
         axios
-            .get(`https://cms.gesundheitsticket.de/articles/published/${id}`)
+            .get(`${process.env.REACT_APP_CMS_URL}/articles/published/${id}`)
             .then((response) => {
                 const article = response.data;
                 dispatch(fetchArticleSuccess(article));
