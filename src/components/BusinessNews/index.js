@@ -33,7 +33,7 @@ const BusinessNews = ({ businessArticles, headerHide }) => {
                                             <Link to={`/article/${item.id}`}>
                                                 {item.main_image ? (
                                                     <img
-                                                        src={`https://cms.gesundheitsticket.de${item.main_image.url}`}
+                                                        src={`${process.env.REACT_APP_CMS_URL}${item.main_image.url}`}
                                                         alt="thumb"
                                                     />
                                                 ) : (

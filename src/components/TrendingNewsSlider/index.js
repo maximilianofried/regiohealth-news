@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import Swiper from 'react-id-swiper';
 import moment from 'moment';
 import FontAwesome from '../uiStyle/FontAwesome';
-import { CMS_LINK } from '../../utils/constants';
 
 const TrendingNewsSlider = ({ latestArticles, adsHome = [] }) => {
     const ref = useRef(null);
@@ -99,7 +98,10 @@ const TrendingNewsSlider = ({ latestArticles, adsHome = [] }) => {
                     <div className="banner1">
                         <a href={adsHome[0].link} target="_blank">
                             <img
-                                src={CMS_LINK + adsHome[0].image[0].url}
+                                src={
+                                    process.env.REACT_APP_CMS_URL +
+                                    adsHome[0].image[0].url
+                                }
                                 alt="banner"
                             />
                         </a>

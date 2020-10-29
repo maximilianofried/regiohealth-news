@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import FooterCopyright from '../FooterCopyright';
 import FontAwesome from '../uiStyle/FontAwesome';
 import { fetchPages } from '../../store/actions';
-import { CMS_LINK } from '../../utils/constants';
 
 const FooterArea = ({ className, fetchPages, pages }) => {
     useEffect(() => {
@@ -27,7 +26,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             <img
                                                 alt="logo"
                                                 className="gt_logo"
-                                                src={`${CMS_LINK}/uploads/logo_gt_1c7fd3b58d.svg`}
+                                                src={`${process.env.REACT_APP_CMS_URL}/uploads/logo_gt_1c7fd3b58d.svg`}
                                             />
                                         </a>
                                     </li>
@@ -39,7 +38,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             <img
                                                 alt="logo"
                                                 className="gt_logo"
-                                                src={`${CMS_LINK}/uploads/regiohealth_b_2504b34553.svg`}
+                                                src={`${process.env.REACT_APP_CMS_URL}/uploads/regiohealth_b_2504b34553.svg`}
                                             />
                                         </a>
                                     </li>
@@ -51,7 +50,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             <img
                                                 alt="logo"
                                                 className="gt_logo"
-                                                src={`${CMS_LINK}/uploads/regiohealth_k_7e8e5e4a52.svg`}
+                                                src={`${process.env.REACT_APP_CMS_URL}/uploads/regiohealth_k_7e8e5e4a52.svg`}
                                             />
                                         </a>
                                     </li>
@@ -63,7 +62,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             <img
                                                 alt="logo"
                                                 className="gt_logo"
-                                                src={`${CMS_LINK}/uploads/LOGO_WF_657d71e353.svg`}
+                                                src={`${process.env.REACT_APP_CMS_URL}/uploads/LOGO_WF_657d71e353.svg`}
                                             />
                                         </a>
                                     </li>

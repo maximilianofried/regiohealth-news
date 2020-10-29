@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import Swiper from 'react-id-swiper';
 import hside1 from '../../doc/img/header/slider/hside1.jpg';
 import FontAwesome from '../uiStyle/FontAwesome';
-import { CMS_LINK } from '../../utils/constants';
 
 const PostCarousel = ({ className, latestArticles }) => {
     const ref = useRef(null);
@@ -97,7 +96,9 @@ const PostCarousel = ({ className, latestArticles }) => {
                                                                     src={
                                                                         item.main_image
                                                                             ? `${
-                                                                                  CMS_LINK +
+                                                                                  process
+                                                                                      .env
+                                                                                      .REACT_APP_CMS_URL +
                                                                                   item
                                                                                       .main_image
                                                                                       .url
