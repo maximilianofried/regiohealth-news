@@ -19,7 +19,7 @@ const BannerSection = ({ className, fetchAds, adsCategory }) => {
                                     banner729x90.image.length > 0 && (
                                         <img
                                             src={
-                                                process.env.REACT_APP_URL +
+                                                process.env.REACT_APP_CMS_URL +
                                                 banner729x90.image[0].url
                                             }
                                             alt="banner"

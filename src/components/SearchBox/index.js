@@ -46,7 +46,7 @@ const SearchBox = ({
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        fetchArticlesCity({ limit: 2, start: 0, place, radius });
+        fetchArticlesCity({ limit: 4, start: 0, place, radius });
     };
     return (
         <form onSubmit={handleSubmit}>

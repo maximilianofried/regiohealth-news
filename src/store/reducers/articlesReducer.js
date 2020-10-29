@@ -11,7 +11,7 @@ const initialState = {
     articles: [],
     articlesByCity: [],
     error: '',
-    limit: 2,
+    limit: 4,
 };
 
 const articlesReducer = (state = initialState, action) => {

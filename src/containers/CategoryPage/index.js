@@ -24,7 +24,7 @@ const CategoryPage = ({
         window.scrollTo(0, 0);
         fetchArticlesCleanUp();
         if (categories.length > 0)
-            fetchArticles({ categories, start: 0, limit: 2 });
+            fetchArticles({ categories, start: 0, limit: 4 });
         fetchAds();
     }, []);
 
