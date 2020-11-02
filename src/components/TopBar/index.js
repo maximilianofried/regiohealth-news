@@ -5,11 +5,11 @@ import Swiper from 'react-id-swiper';
 import moment from 'moment';
 import { isMobile } from 'react-device-detect';
 import FontAwesome from '../uiStyle/FontAwesome';
-import { fetchArticlesCity } from '../../store/actions';
+import { fetchArticlesCity, fetchOffers } from '../../store/actions';
 
-const TopBar = ({ className, dark, localArticles, fetchArticlesCity }) => {
+const TopBar = ({ className, dark, offers, fetchOffers }) => {
     useEffect(() => {
-        // fetchArticlesCity({ lat: 52.52, lng: 13.14 });
+        fetchOffers();
     }, []);
     const currentDate = moment().format('dddd, MMMM D, YYYY');
     const ref = useRef(null);
@@ -43,29 +43,29 @@ const TopBar = ({ className, dark, localArticles, fetchArticlesCity }) => {
         <div className={`topbar ${className || ''}`} id="top">
             <div className="container">
                 <div className="row">
-                    {localArticles && localArticles.length > 0 && (
+                    {offers && offers.length > 0 && (
                         <div className="col-md-8 align-self-center">
-                            {localArticles && localArticles.length > 0 && (
+                            {offers && offers.length > 0 && (
                                 <div
                                     className={`trancarousel_area ${
                                         dark ? 'white' : ''
                                     }`}
                                 >
-                                    <div className="trand">Local News</div>
+                                    <div className="trand">Offers</div>
                                     <div className="nav_style1">
                                         <Swiper
                                             ref={ref}
                                             className="trancarousel"
                                             {...params}
                                         >
-                                            {localArticles.map((item) => (
+                                            {offers.map((item) => (
                                                 <div
                                                     key={item.id}
                                                     className="trancarousel_item"
                                                 >
                                                     <div className="tran_p">
                                                         <Link
-                                                            to={`/article/${item.id}`}
+                                                            to={`/offer/${item.id}`}
                                                         >
                                                             {item.title
                                                                 .length <= 30
@@ -152,13 +152,14 @@ const TopBar = ({ className, dark, localArticles, fetchArticlesCity }) => {
 };
 const mapStateToProps = (state) => {
     return {
-        localArticles: state.articles.articlesByCity,
+        offers: state.offers.offers,
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchArticlesCity: (city) => dispatch(fetchArticlesCity(city)),
+        fetchOffers: () => dispatch(fetchOffers()),
     };
 };
 

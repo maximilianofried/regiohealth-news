@@ -8,7 +8,6 @@ import {
 const initialState = {
     loading: false,
     article: null,
-    articles: [],
     error: '',
 };
 

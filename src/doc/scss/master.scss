@@ -2793,4 +2793,17 @@ a.cbtn3 {
     //border: 2px solid green;
     height: 45px;
     margin-bottom: 20px;
+
+    button {
+        background-color: $green_regiohealth;
+        border-color: $green_regiohealth;
+        color: white;
+        border-top-width: 0;
+        border-left-width: 0;
+        &.active,
+        &:hover {
+            background-color: #406314;
+            border-color: #406314;
+        }
+    }
 }

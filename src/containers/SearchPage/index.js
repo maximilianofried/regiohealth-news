@@ -65,19 +65,22 @@ const SearchPage = ({
                                         </div>
                                     </div>
                                 )}
-                                <div className="row">
-                                    <div className="col-12">
-                                        <div className="cpagination">
-                                            <button
-                                                type="button"
-                                                onClick={showMore}
-                                                className="readmore cursor_pointer"
-                                            >
-                                                SHOW MORE
-                                            </button>
+                                {filteredArticles &&
+                                    filteredArticles.length > 0 && (
+                                        <div className="row">
+                                            <div className="col-12">
+                                                <div className="cpagination">
+                                                    <button
+                                                        type="button"
+                                                        onClick={showMore}
+                                                        className="readmore cursor_pointer"
+                                                    >
+                                                        SHOW MORE
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    )}
                             </div>
                         </div>
                         <div className="col-md-6 col-lg-4">

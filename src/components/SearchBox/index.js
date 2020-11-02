@@ -54,6 +54,11 @@ const SearchBox = ({
                 onSelect={(address) => onComboSelect(address)}
                 className="d-flex align-items-center my-flex-container"
             >
+                <Listbox>
+                    <ListboxOption value="alle">Alle</ListboxOption>
+                    <ListboxOption value="articles">Articles</ListboxOption>
+                    <ListboxOption value="offers">Offers</ListboxOption>
+                </Listbox>
                 <ComboboxInput
                     value={value}
                     onChange={(e) => {
@@ -83,7 +88,7 @@ const SearchBox = ({
                     <ListboxOption value="150000">+150 km</ListboxOption>
                     <ListboxOption value="200000">+200 km</ListboxOption>
                 </Listbox>
-                <button type="submit" className="btn-sm btn-primary">
+                <button type="submit" className="btn-sm">
                     <i className="fa fa-search" /> Finden
                 </button>
             </Combobox>
