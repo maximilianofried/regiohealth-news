@@ -12,7 +12,6 @@ import SearchBox from '../../components/SearchBox';
 const SearchPage = ({
     fetchGeoData,
     geoData,
-    category,
     fetchAds,
     adsCategory,
     limit,
@@ -31,7 +30,7 @@ const SearchPage = ({
 
     return (
         <>
-            <BreadCrumb title={category} />
+            <BreadCrumb title="Suchportal GesundheitsTicket" />
             <div className="archives padding-top-30">
                 <div className="container">
                     <div className="row">

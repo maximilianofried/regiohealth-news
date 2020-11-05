@@ -82,7 +82,9 @@ const GeoDataNews = ({ geoData, headerHide }) => {
                                         </div>
                                         <div className="space-10" />
                                         <div className="meta3">
-                                            <p>{item.location}</p>
+                                            <p className="location">
+                                                {item.location}
+                                            </p>
                                         </div>
                                         {/* <div className="space-20"/>
                                         <Link to={`/article/${item._id}`} className="readmore">Read more</Link> */}

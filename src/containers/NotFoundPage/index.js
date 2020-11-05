@@ -11,8 +11,8 @@ const NotFoundPage = () => {
                             <div className="space-50" />
                             <div className="area404 text-center">
                                 <img
-                                    alt="rg-logo"
-                                    src="https://www.regio-health.de/cms/wp-content/uploads/2020/10/regiohealth-news.svg"
+                                    alt="regio health logo"
+                                    src={`${process.env.REACT_APP_CMS_URL}/uploads/regiohealth_news_d00278de38.svg`}
                                 />
                             </div>
                             <div className="space-30" />
