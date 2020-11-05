@@ -14,7 +14,7 @@ const selectPage = (pageName, categories, props) => {
     if (pageName === 'Über Uns' || pageName === 'Kontakt') {
         return <InfoPage {...props} name={pageName} />;
     }
-    if (pageName === 'Search') {
+    if (pageName === 'Suchportal GesundheitsTicket') {
         return <SearchPage {...props} />;
     }
     return <CategoryPage {...props} name={pageName} categories={categories} />;

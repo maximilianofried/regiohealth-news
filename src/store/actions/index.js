@@ -8,3 +8,4 @@ export * from './pagesActions';
 export * from './menuActions';
 export * from './offersActions';
 export * from './offerActions';
+export * from './geoDataActions';

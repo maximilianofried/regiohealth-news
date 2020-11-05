@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { fetchArticlesCity, fetchAds } from '../../store/actions';
-import BusinessNews from '../../components/BusinessNews';
+import { fetchGeoData, fetchAds } from '../../store/actions';
+import GeoDataNews from '../../components/geoDataNews';
 import BreadCrumb from '../../components/BreadCrumb';
 // import BusinessNews from '../../components/BusinessNews';
 import '@reach/combobox/styles.css';
@@ -10,8 +10,8 @@ import BannerSection from '../../components/BannerSection';
 import SearchBox from '../../components/SearchBox';
 
 const SearchPage = ({
-    fetchArticlesCity,
-    filteredArticles,
+    fetchGeoData,
+    geoData,
     category,
     fetchAds,
     adsCategory,
@@ -22,8 +22,9 @@ const SearchPage = ({
     }, []);
     const [place, setPlace] = useState({ lat: 52.56, lng: 13.14 });
     const [radius, setRadius] = useState(20000);
+    const [type, setType] = useState('alle');
     const showMore = () => {
-        fetchArticlesCity({ limit: limit + 2, start: 0, place, radius });
+        fetchGeoData({ limit: limit + 2, start: 0, place, radius });
     };
     const banner350x292 =
         adsCategory.filter((ad) => ad.size === 's350x292')[0] || {};
@@ -41,46 +42,43 @@ const SearchPage = ({
                                         <div className="categories_title">
                                             <h5>Search by Location:</h5>
                                             <SearchBox
-                                                fetchArticlesCity={
-                                                    fetchArticlesCity
-                                                }
+                                                fetchGeoData={fetchGeoData}
                                                 place={place}
                                                 radius={radius}
+                                                type={type}
                                                 setPlace={setPlace}
                                                 setRadius={setRadius}
+                                                setType={setType}
                                             />
                                             <div className="space-70" />
                                         </div>
                                     </div>
                                 </div>
-                                {filteredArticles && (
+                                {geoData && (
                                     <div className="row">
                                         <div className="col-12">
-                                            <BusinessNews
-                                                businessArticles={
-                                                    filteredArticles
-                                                }
+                                            <GeoDataNews
+                                                geoData={geoData}
                                                 headerHide
                                             />
                                         </div>
                                     </div>
                                 )}
-                                {filteredArticles &&
-                                    filteredArticles.length > 0 && (
-                                        <div className="row">
-                                            <div className="col-12">
-                                                <div className="cpagination">
-                                                    <button
-                                                        type="button"
-                                                        onClick={showMore}
-                                                        className="readmore cursor_pointer"
-                                                    >
-                                                        SHOW MORE
-                                                    </button>
-                                                </div>
+                                {geoData && geoData.length > 0 && (
+                                    <div className="row">
+                                        <div className="col-12">
+                                            <div className="cpagination">
+                                                <button
+                                                    type="button"
+                                                    onClick={showMore}
+                                                    className="readmore cursor_pointer"
+                                                >
+                                                    SHOW MORE
+                                                </button>
                                             </div>
                                         </div>
-                                    )}
+                                    </div>
+                                )}
                             </div>
                         </div>
                         <div className="col-md-6 col-lg-4">
@@ -116,7 +114,7 @@ const SearchPage = ({
 const mapStateToProps = (state) => {
     return {
         adsCategory: state.ads.ads.filter((ad) => ad.position === 'category'),
-        filteredArticles: state.articles.articlesByCity,
+        geoData: state.geoData.geoData,
         limit: state.articles.limit,
     };
 };
@@ -124,7 +122,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         // fetchArticles: ({ city }) => dispatch(fetchArticles({ city })),
-        fetchArticlesCity: (filters) => dispatch(fetchArticlesCity(filters)),
+        fetchGeoData: (filters) => dispatch(fetchGeoData(filters)),
         fetchAds: () => dispatch(fetchAds()),
     };
 };

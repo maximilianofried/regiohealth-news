@@ -12,11 +12,13 @@ import {
 import { Listbox, ListboxOption } from '@reach/listbox';
 
 const SearchBox = ({
-    fetchArticlesCity,
+    fetchGeoData,
     place,
     radius,
+    type,
     setPlace,
     setRadius,
+    setType,
 }) => {
     const options = {
         componentRestrictions: { country: ['de', 'pl'] },
@@ -46,7 +48,14 @@ const SearchBox = ({
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        fetchArticlesCity({ limit: 4, start: 0, place, radius });
+        fetchGeoData({
+            limit: 4,
+            start: 0,
+            place,
+            radius,
+            type,
+            responseType: 'mixed',
+        });
     };
     return (
         <form onSubmit={handleSubmit}>
@@ -54,10 +63,10 @@ const SearchBox = ({
                 onSelect={(address) => onComboSelect(address)}
                 className="d-flex align-items-center my-flex-container"
             >
-                <Listbox>
+                <Listbox type={type} onChange={setType}>
                     <ListboxOption value="alle">Alle</ListboxOption>
-                    <ListboxOption value="articles">Articles</ListboxOption>
-                    <ListboxOption value="offers">Offers</ListboxOption>
+                    <ListboxOption value="article">Articles</ListboxOption>
+                    <ListboxOption value="offer">Offers</ListboxOption>
                 </Listbox>
                 <ComboboxInput
                     value={value}

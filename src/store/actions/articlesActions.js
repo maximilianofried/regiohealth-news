@@ -110,24 +110,3 @@ export const fetchArticlesCity = ({
             });
     };
 };
-
-export const fetchArticlesGeo = ({ lat = undefined, lng = undefined } = {}) => {
-    return (dispatch) => {
-        const url = `${process.env.REACT_APP_CMS_URL}/articles/geo/${lat}/${lng}?_sort=createdAt:DESC&`;
-        dispatch(fetchArticlesRequest);
-        axios
-            .get(url)
-            .then((response) => {
-                const articles = response.data;
-                dispatch(
-                    fetchArticlesSuccess({
-                        articles,
-                    })
-                );
-            })
-            .catch((error) => {
-                const errorMsg = error.message;
-                dispatch(fetchArticlesFailure(errorMsg));
-            });
-    };
-};
