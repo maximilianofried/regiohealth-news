@@ -150,7 +150,7 @@ body {
 .trancarousel_area {
     .nav_style1 {
         position: relative;
-
+        text-align: start;
         .navBtns {
             position: absolute;
             right: -9%;
@@ -2360,6 +2360,17 @@ a.cbtn3 {
 */
 
 @media screen and (max-width: $Medium) {
+    [data-reach-listbox-input] {
+        min-width: fit-content;
+        margin-right: 0;
+    }
+
+    .my-flex-container {
+        button {
+            min-width: fit-content;
+        }
+    }
+
     .social2 {
         text-align: center;
     }
@@ -2784,30 +2795,35 @@ a.cbtn3 {
 }
 
 [data-reach-combobox-input] {
-    margin-bottom: 0;
+    margin-bottom: 5px;
     height: 32px;
 }
-[data-reach-listbox-button] {
-    margin-right: 25px;
+[data-reach-listbox-input] {
+    margin-bottom: 5px;
 }
 [data-reach-listbox-popover] {
     z-index: 999;
 }
+
+[data-reach-listbox-button] {
+    width: 100px;
+}
+
+.search-button {
+    background-color: $green_regiohealth;
+    color: white;
+    margin-bottom: 5px;
+    border: 0;
+    &.active,
+    &:hover {
+        background-color: #406314;
+        border-color: #406314;
+    }
+}
+
 .my-flex-container {
     //border: 2px solid green;
     height: 45px;
     margin-bottom: 20px;
-
-    button {
-        background-color: $green_regiohealth;
-        border-color: $green_regiohealth;
-        color: white;
-        border-top-width: 0;
-        border-left-width: 0;
-        &.active,
-        &:hover {
-            background-color: #406314;
-            border-color: #406314;
-        }
-    }
+    // flex-wrap: wrap;
 }
