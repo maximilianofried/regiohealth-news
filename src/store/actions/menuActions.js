@@ -30,7 +30,7 @@ export const fetchMenu = () => {
     return (dispatch) => {
         dispatch(fetchMenuRequest);
         axios
-            .get(`${process.env.REACT_APP_CMS_URL}/menus`)
+            .get(`${process.env.REACT_APP_CMS_URL}/menus?_sort=position:asc`)
             .then((response) => {
                 const menu = response.data;
                 dispatch(fetchMenuSuccess(menu));

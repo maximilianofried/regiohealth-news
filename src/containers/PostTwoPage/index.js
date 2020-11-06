@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import moment from 'moment';
+import ReactTooltip from 'react-tooltip';
 import ReactMarkdown from 'react-markdown';
 import { fetchArticle, fetchArticleCleanUp } from '../../store/actions';
 import BreadCrumb from '../../components/BreadCrumb';
@@ -95,9 +96,15 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                     </div>
                                     <div className="col-5 col-lg-6 align-self-center">
                                         <div className="author_social inline text-right">
+                                            <ReactTooltip
+                                                place="top"
+                                                type="dark"
+                                                effect="solid"
+                                            />
                                             <ul>
                                                 <li>
                                                     <a
+                                                        data-tip="Twitter"
                                                         href={`https://twitter.com/share?url=${process.env.REACT_APP_BASE_PAGE_URL}/article/${article.id}`}
                                                         target="_blank"
                                                     >
@@ -106,6 +113,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                                 </li>
                                                 <li>
                                                     <a
+                                                        data-tip="Facebook"
                                                         href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.REACT_APP_BASE_PAGE_URL}/article/${article.id}`}
                                                         target="_blank"
                                                     >
@@ -114,6 +122,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                                 </li>
                                                 <li>
                                                     <a
+                                                        data-tip="Whatsapp"
                                                         href={`https://wa.me/?text=${process.env.REACT_APP_BASE_PAGE_URL}/article/${article.id}`}
                                                         target="_blank"
                                                     >

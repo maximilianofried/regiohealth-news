@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import moment from 'moment';
 import ReactMarkdown from 'react-markdown';
+import ReactTooltip from 'react-tooltip';
 import { fetchOffer, fetchOfferCleanUp } from '../../store/actions';
 import BreadCrumb from '../../components/BreadCrumb';
 import FontAwesome from '../../components/uiStyle/FontAwesome';
@@ -98,9 +99,15 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                     </div>
                                     <div className="col-5 col-lg-6 align-self-center">
                                         <div className="author_social inline text-right">
+                                            <ReactTooltip
+                                                place="top"
+                                                type="dark"
+                                                effect="solid"
+                                            />
                                             <ul>
                                                 <li>
                                                     <a
+                                                        data-tip="Twitter"
                                                         href={`https://twitter.com/share?url=${process.env.REACT_APP_BASE_PAGE_URL}/offer/${offer.id}`}
                                                         target="_blank"
                                                     >
@@ -109,6 +116,7 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                                 </li>
                                                 <li>
                                                     <a
+                                                        data-tip="Facebook"
                                                         href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.REACT_APP_BASE_PAGE_URL}/offer/${offer.id}`}
                                                         target="_blank"
                                                     >
@@ -117,6 +125,7 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                                 </li>
                                                 <li>
                                                     <a
+                                                        data-tip="Whatsapp"
                                                         href={`https://wa.me/?text=${process.env.REACT_APP_BASE_PAGE_URL}/offer/${offer.id}`}
                                                         target="_blank"
                                                     >
@@ -145,13 +154,16 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                 </div>
                                 <div className="space-20" />
                                 <ul>
-                                    <li>Price: {offer.price}</li>
+                                    <li>
+                                        Preis: {'€'}
+                                        {offer.price}
+                                    </li>
                                     <li>
                                         Start:{' '}
                                         {moment(offer.start).format('LL')}
                                     </li>
                                     <li>
-                                        End: {moment(offer.end).format('LL')}
+                                        Ende: {moment(offer.end).format('LL')}
                                     </li>
                                 </ul>
 

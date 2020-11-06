@@ -5,6 +5,7 @@ import Routes from '../__Routes';
 import ScrollTopButton from '../../components/ScrollTopButton';
 import ScrollToTop from '../../components/ScrollToTop';
 import { fetchMenu, fetchPages } from '../../store/actions';
+import 'moment/locale/de';
 
 const App = ({ fetchMenu, fetchPages, pages, menuData, error, success }) => {
     const [isLoading, setLoading] = useState(true);
