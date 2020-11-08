@@ -23,7 +23,14 @@ const SearchPage = ({
     const [radius, setRadius] = useState(20000);
     const [type, setType] = useState('alle');
     const showMore = () => {
-        fetchGeoData({ limit: limit + 2, start: 0, place, radius });
+        fetchGeoData({
+            limit: limit + 2,
+            start: 0,
+            place,
+            radius,
+            type,
+            responseType: 'mixed',
+        });
     };
     const banner350x292 =
         adsCategory.filter((ad) => ad.size === 's350x292')[0] || {};
