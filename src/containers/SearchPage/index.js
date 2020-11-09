@@ -20,7 +20,7 @@ const SearchPage = ({
         fetchAds();
     }, []);
     const [place, setPlace] = useState({ lat: 52.56, lng: 13.14 });
-    const [radius, setRadius] = useState(20000);
+    const [radius, setRadius] = useState('5000');
     const [type, setType] = useState('alle');
     const showMore = () => {
         fetchGeoData({
@@ -121,13 +121,12 @@ const mapStateToProps = (state) => {
     return {
         adsCategory: state.ads.ads.filter((ad) => ad.position === 'category'),
         geoData: state.geoData.geoData,
-        limit: state.articles.limit,
+        limit: state.geoData.limit,
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        // fetchArticles: ({ city }) => dispatch(fetchArticles({ city })),
         fetchGeoData: (filters) => dispatch(fetchGeoData(filters)),
         fetchAds: () => dispatch(fetchAds()),
     };
