@@ -56,7 +56,7 @@ const SearchPage = ({
                                                 setRadius={setRadius}
                                                 setType={setType}
                                             />
-                                            <div className="space-70" />
+                                            <div className="space-30" />
                                         </div>
                                     </div>
                                 </div>
@@ -64,6 +64,7 @@ const SearchPage = ({
                                     <div className="row">
                                         <div className="col-12">
                                             <GeoDataNews
+                                                fetchGeoData={fetchGeoData}
                                                 geoData={geoData}
                                                 headerHide
                                             />

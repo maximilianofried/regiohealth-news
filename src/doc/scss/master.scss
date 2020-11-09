@@ -1384,6 +1384,22 @@ span.tranding {
     }
 }
 
+/*POST TYPE-12-B*/
+
+.post_type12_b {
+    display: inline-block;
+
+    .single_post_text {
+        float: left;
+        width: 760px;
+        padding: 0;
+
+        .meta3 {
+            margin-bottom: 0;
+        }
+    }
+}
+
 /*POST TYPE-13*/
 
 .post_type13 {
@@ -2441,6 +2457,19 @@ a.cbtn3 {
             float: unset;
         }
     }
+    .post_type12_b {
+        .single_post_text {
+            width: 100%;
+            float: unset;
+            padding: 0;
+            padding-left: 0;
+        }
+
+        .post_img {
+            width: 100%;
+            float: unset;
+        }
+    }
     .single_post_heading {
         h1 {
             font-size: 20px;
@@ -2767,6 +2796,20 @@ a.cbtn3 {
         width: 30.3%;
     }
     .post_type12 {
+        .single_post_text {
+            width: 100%;
+            float: unset;
+            padding: 0;
+            padding-left: 0;
+            padding: 20px;
+        }
+
+        .post_img {
+            width: 100%;
+            float: unset;
+        }
+    }
+    .post_type12_b {
         .single_post_text {
             width: 100%;
             float: unset;

@@ -26,10 +26,10 @@ const fetchGeoDataFailure = (error) => {
 };
 
 export const fetchGeoData = ({
-    limit = undefined,
-    start = undefined,
+    limit = 4,
+    start = 0,
     place = { lat: 52.56, lng: 13.14 },
-    radius = 200001,
+    radius = '5000',
     type = 'alle',
     responseType = 'mixed',
 }) => {
