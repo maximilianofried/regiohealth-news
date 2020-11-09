@@ -57,7 +57,9 @@ export const fetchArticles = ({
             },
             { encode: false, arrayFormat: 'repeat' }
         );
-        const url = `https://cms.gesundheitsticket.de/articles/published?_sort=createdAt:DESC${
+        const url = `${
+            process.env.REACT_APP_CMS_URL
+        }/articles/published?_sort=createdAt:DESC${
             categories ? `&${query}` : ''
         }${city ? `&city=${city}` : ''}${start ? `&_start=${start}` : ''}${
             limit ? `&_limit=${limit}` : ''
@@ -81,30 +83,15 @@ export const fetchArticles = ({
     };
 };
 
-export const fetchArticlesGeo = ({ lat = undefined, lng = undefined } = {}) => {
+export const fetchArticlesCity = ({
+    limit = undefined,
+    start = undefined,
+    place = { lat: 52.56, lng: 13.14 },
+    radius = 200001,
+}) => {
+    const { lat, lng } = place;
     return (dispatch) => {
-        const url = `https://cms.gesundheitsticket.de/articles/geo/${lat}/${lng}?_sort=createdAt:DESC&`;
-        dispatch(fetchArticlesRequest);
-        axios
-            .get(url)
-            .then((response) => {
-                const articles = response.data;
-                dispatch(
-                    fetchArticlesSuccess({
-                        articles,
-                    })
-                );
-            })
-            .catch((error) => {
-                const errorMsg = error.message;
-                dispatch(fetchArticlesFailure(errorMsg));
-            });
-    };
-};
-
-export const fetchArticlesCity = ({ city = undefined } = {}) => {
-    return (dispatch) => {
-        const url = `https://cms.gesundheitsticket.de/geodata?lat=52.56&lng=13.14&radius=50000&type=article`;
+        const url = `${process.env.REACT_APP_CMS_URL}/geodata?lat=${lat}&lng=${lng}&radius=${radius}&type=article&start=${start}&limit=${limit}`;
         dispatch(fetchArticlesRequest);
         axios
             .get(url)
@@ -113,6 +100,7 @@ export const fetchArticlesCity = ({ city = undefined } = {}) => {
                 dispatch(
                     fetchArticlesByCitySuccess({
                         articles,
+                        limit,
                     })
                 );
             })

@@ -28,7 +28,7 @@ const fetchPagesFailure = (error) => {
 export const fetchPages = () => {
     return (dispatch) => {
         dispatch(fetchPagesRequest);
-        const url = 'https://cms.gesundheitsticket.de/pages';
+        const url = `${process.env.REACT_APP_CMS_URL}/pages`;
         axios
             .get(url)
             .then((response) => {

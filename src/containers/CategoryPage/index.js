@@ -9,7 +9,6 @@ import BreadCrumb from '../../components/BreadCrumb';
 import BusinessNews from '../../components/BusinessNews';
 import BannerSection from '../../components/BannerSection';
 import Metadata from '../../components/Metadata';
-import { CMS_LINK } from '../../utils/constants';
 
 const CategoryPage = ({
     fetchArticles,
@@ -25,7 +24,7 @@ const CategoryPage = ({
         window.scrollTo(0, 0);
         fetchArticlesCleanUp();
         if (categories.length > 0)
-            fetchArticles({ categories, start: 0, limit: 2 });
+            fetchArticles({ categories, start: 0, limit: 4 });
         fetchAds();
     }, []);
 
@@ -88,7 +87,8 @@ const CategoryPage = ({
                                         banner350x292.image.length > 0 && (
                                             <img
                                                 src={
-                                                    CMS_LINK +
+                                                    process.env
+                                                        .REACT_APP_CMS_URL +
                                                     banner350x292.image[0].url
                                                 }
                                                 alt="banner"

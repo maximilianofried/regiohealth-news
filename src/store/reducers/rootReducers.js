@@ -8,6 +8,9 @@ import onInitReducer from './onInitReducer';
 import adsReducer from './adsReducer';
 import pageReducer from './pageReducer';
 import pagesReducer from './pagesReducer';
+import offersReducer from './offersReducer';
+import offerReducer from './offerReducer';
+import geoDataReducer from './geoDataReducer';
 
 const rootReducer = combineReducers({
     meta: metaReducer,
@@ -19,5 +22,8 @@ const rootReducer = combineReducers({
     ads: adsReducer,
     page: pageReducer,
     pages: pagesReducer,
+    offers: offersReducer,
+    offer: offerReducer,
+    geoData: geoDataReducer,
 });
 export default rootReducer;

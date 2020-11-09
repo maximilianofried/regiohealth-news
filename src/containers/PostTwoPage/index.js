@@ -2,17 +2,17 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import moment from 'moment';
+import ReactTooltip from 'react-tooltip';
 import ReactMarkdown from 'react-markdown';
 import { fetchArticle, fetchArticleCleanUp } from '../../store/actions';
 import BreadCrumb from '../../components/BreadCrumb';
 import FontAwesome from '../../components/uiStyle/FontAwesome';
 import BannerSection from '../../components/BannerSection';
 import singlePost1 from '../../doc/img/blog/single_post1.jpg';
-import { CMS_LINK } from '../../utils/constants';
 import Metadata from '../../components/Metadata';
 
 const transform = (data) => {
-    const imageLink = `${CMS_LINK + data}`;
+    const imageLink = `${process.env.REACT_APP_CMS_URL + data}`;
     return imageLink;
 };
 
@@ -50,7 +50,9 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                         article.description,
                         article.categories
                     )}
-                    image={CMS_LINK + article.main_image.url}
+                    image={
+                        process.env.REACT_APP_CMS_URL + article.main_image.url
+                    }
                     url={`${process.env.REACT_APP_BASE_PAGE_URL}/article/${id}`}
                 />
                 <div className="archives post post1">
@@ -66,7 +68,8 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                     src={
                                         article.main_image
                                             ? `${
-                                                  CMS_LINK +
+                                                  process.env
+                                                      .REACT_APP_CMS_URL +
                                                   article.main_image.url
                                               }`
                                             : singlePost1
@@ -93,9 +96,15 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                     </div>
                                     <div className="col-5 col-lg-6 align-self-center">
                                         <div className="author_social inline text-right">
+                                            <ReactTooltip
+                                                place="top"
+                                                type="dark"
+                                                effect="solid"
+                                            />
                                             <ul>
                                                 <li>
                                                     <a
+                                                        data-tip="Twitter"
                                                         href={`https://twitter.com/share?url=${process.env.REACT_APP_BASE_PAGE_URL}/article/${article.id}`}
                                                         target="_blank"
                                                     >
@@ -104,6 +113,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                                 </li>
                                                 <li>
                                                     <a
+                                                        data-tip="Facebook"
                                                         href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.REACT_APP_BASE_PAGE_URL}/article/${article.id}`}
                                                         target="_blank"
                                                     >
@@ -112,6 +122,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                                 </li>
                                                 <li>
                                                     <a
+                                                        data-tip="Whatsapp"
                                                         href={`https://wa.me/?text=${process.env.REACT_APP_BASE_PAGE_URL}/article/${article.id}`}
                                                         target="_blank"
                                                     >

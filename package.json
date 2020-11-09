@@ -4,6 +4,7 @@
     "private": true,
     "dependencies": {
         "@reach/combobox": "^0.11.2",
+        "@reach/listbox": "^0.11.2",
         "@react-google-maps/api": "^1.10.1",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.5.0",
@@ -34,6 +35,7 @@
         "react-scripts": "3.4.1",
         "react-slick": "^0.26.1",
         "react-toastify": "^6.0.5",
+        "react-tooltip": "^4.2.10",
         "reactstrap": "^8.4.1",
         "redux": "^4.0.5",
         "redux-thunk": "^2.3.0",
@@ -43,7 +45,8 @@
         "use-places-autocomplete": "^1.5.0"
     },
     "scripts": {
-        "start": "HTTPS=true SSL_CRT_FILE=./.cert/cert.pem SSL_KEY_FILE=./.cert/key.pem env-cmd -e development react-scripts start",
+        "start": "HTTPS=true SSL_CRT_FILE=./.cert/cert.pem SSL_KEY_FILE=./.cert/key.pem env-cmd -e local react-scripts start",
+        "start-dev": "HTTPS=true SSL_CRT_FILE=./.cert/cert.pem SSL_KEY_FILE=./.cert/key.pem env-cmd -e development react-scripts start",
         "start-prod": "HTTPS=true SSL_CRT_FILE=./.cert/cert.pem SSL_KEY_FILE=./.cert/key.pem env-cmd -e production react-scripts start",
         "build": "env-cmd -r .env-cmdrc.json -e development react-scripts build",
         "build-prod": "env-cmd -e production react-scripts build",

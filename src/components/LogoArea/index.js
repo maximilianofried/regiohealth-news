@@ -1,7 +1,6 @@
 import React from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { createBrowserHistory } from 'history';
-import { CMS_LINK } from '../../utils/constants';
 
 const history = createBrowserHistory({ forceRefresh: true });
 
@@ -14,7 +13,7 @@ const LogoArea = ({ className }) => {
                         <div className="logo" onClick={() => history.push('/')}>
                             <img
                                 alt="regio health logo"
-                                src={`${CMS_LINK}/uploads/regiohealth_news_d00278de38.svg`}
+                                src={`${process.env.REACT_APP_CMS_URL}/uploads/regiohealth_news_d00278de38.svg`}
                             />
                         </div>
                     </div>

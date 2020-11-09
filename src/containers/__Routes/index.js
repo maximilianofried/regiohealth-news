@@ -7,11 +7,15 @@ import InfoPage from '../InfoPage';
 import NotFoundPage from '../NotFoundPage';
 import PostTwoPage from '../PostTwoPage';
 import SearchPage from '../SearchPage';
+import OfferPage from '../OfferPage';
 // import PublicRoute from '../_PublicRoute';
 
 const selectPage = (pageName, categories, props) => {
     if (pageName === 'Über Uns' || pageName === 'Kontakt') {
         return <InfoPage {...props} name={pageName} />;
+    }
+    if (pageName === 'Suchportal GesundheitsTicket') {
+        return <SearchPage {...props} />;
     }
     return <CategoryPage {...props} name={pageName} categories={categories} />;
 };
@@ -54,6 +58,12 @@ const Routes = ({ menuData, pages }) => {
                 path="/article/:id"
                 parentClass="theme-1"
                 component={PostTwoPage}
+            />
+            <PrivateRoute
+                exact
+                path="/offer/:id"
+                parentClass="theme-1"
+                component={OfferPage}
             />
             <PrivateRoute
                 exact

@@ -1,34 +1,43 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import usePlacesAutocomplete, {
-    getGeocode,
-    getLatLng,
-} from 'use-places-autocomplete';
-import {
-    Combobox,
-    ComboboxInput,
-    ComboboxPopover,
-    ComboboxOption,
-} from '@reach/combobox';
-import { fetchArticles, fetchArticlesGeo, fetchAds } from '../../store/actions';
+import { fetchGeoData, fetchAds } from '../../store/actions';
+import GeoDataNews from '../../components/geoDataNews';
 import BreadCrumb from '../../components/BreadCrumb';
 // import BusinessNews from '../../components/BusinessNews';
 import '@reach/combobox/styles.css';
+import '@reach/listbox/styles.css';
 import BannerSection from '../../components/BannerSection';
+import SearchBox from '../../components/SearchBox';
 
-const CMS_LINK = 'https://cms.gesundheitsticket.de';
-
-const SearchPage = ({ fetchArticlesGeo, category, fetchAds, adsCategory }) => {
+const SearchPage = ({
+    fetchGeoData,
+    geoData,
+    fetchAds,
+    adsCategory,
+    limit,
+}) => {
     useEffect(() => {
         fetchAds();
     }, []);
-
+    const [place, setPlace] = useState({ lat: 52.56, lng: 13.14 });
+    const [radius, setRadius] = useState('5000');
+    const [type, setType] = useState('alle');
+    const showMore = () => {
+        fetchGeoData({
+            limit: limit + 2,
+            start: 0,
+            place,
+            radius,
+            type,
+            responseType: 'mixed',
+        });
+    };
     const banner350x292 =
         adsCategory.filter((ad) => ad.size === 's350x292')[0] || {};
 
     return (
         <>
-            <BreadCrumb title={category} />
+            <BreadCrumb title="Suchportal GesundheitsTicket" />
             <div className="archives padding-top-30">
                 <div className="container">
                     <div className="row">
@@ -38,20 +47,44 @@ const SearchPage = ({ fetchArticlesGeo, category, fetchAds, adsCategory }) => {
                                     <div className="col-12 align-self-center">
                                         <div className="categories_title">
                                             <h5>Search by Location:</h5>
-                                            <Search
-                                                fetchArticlesGeo={
-                                                    fetchArticlesGeo
-                                                }
+                                            <SearchBox
+                                                fetchGeoData={fetchGeoData}
+                                                place={place}
+                                                radius={radius}
+                                                type={type}
+                                                setPlace={setPlace}
+                                                setRadius={setRadius}
+                                                setType={setType}
                                             />
                                             <div className="space-70" />
                                         </div>
                                     </div>
                                 </div>
-                                <div className="row">
-                                    <div className="col-12">
-                                        {/* <BusinessNews headerHide /> */}
+                                {geoData && (
+                                    <div className="row">
+                                        <div className="col-12">
+                                            <GeoDataNews
+                                                geoData={geoData}
+                                                headerHide
+                                            />
+                                        </div>
                                     </div>
-                                </div>
+                                )}
+                                {geoData && geoData.length > 0 && (
+                                    <div className="row">
+                                        <div className="col-12">
+                                            <div className="cpagination">
+                                                <button
+                                                    type="button"
+                                                    onClick={showMore}
+                                                    className="readmore cursor_pointer"
+                                                >
+                                                    SHOW MORE
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                         </div>
                         <div className="col-md-6 col-lg-4">
@@ -65,7 +98,8 @@ const SearchPage = ({ fetchArticlesGeo, category, fetchAds, adsCategory }) => {
                                         banner350x292.image.length > 0 && (
                                             <img
                                                 src={
-                                                    CMS_LINK +
+                                                    process.env
+                                                        .REACT_APP_CMS_URL +
                                                     banner350x292.image[0].url
                                                 }
                                                 alt="banner"
@@ -83,71 +117,17 @@ const SearchPage = ({ fetchArticlesGeo, category, fetchAds, adsCategory }) => {
     );
 };
 
-const Search = ({ fetchArticlesGeo }) => {
-    const options = {
-        types: ['(cities)'],
-        componentRestrictions: { country: ['de', 'pl'] },
-    };
-
-    const {
-        ready,
-        value,
-        suggestions: { status, data },
-        setValue,
-        clearSuggestions,
-    } = usePlacesAutocomplete({ requestOptions: options });
-
-    const onComboSelect = (address) => {
-        setValue(address, false);
-        clearSuggestions();
-        getGeocode({ address })
-            .then((results) => getLatLng(results[0]))
-            .then(({ lat, lng }) => {
-                fetchArticlesGeo({ lat, lng });
-                // eslint-disable-next-line no-console
-                console.log('📍 Coordinates: ', { lat, lng });
-            })
-            .catch((error) => {
-                // eslint-disable-next-line no-console
-                console.log('😱 Error: ', error);
-            });
-    };
-    return (
-        <Combobox onSelect={(address) => onComboSelect(address)}>
-            <ComboboxInput
-                value={value}
-                onChange={(e) => {
-                    setValue(e.target.value);
-                }}
-                disabled={!ready}
-                placeholder="City"
-            />
-            <ComboboxPopover className="pop_over">
-                {status === 'OK' &&
-                    data.map((result) => {
-                        return (
-                            <ComboboxOption
-                                key={result.place_id}
-                                value={result.description}
-                            />
-                        );
-                    })}
-            </ComboboxPopover>
-        </Combobox>
-    );
-};
-
 const mapStateToProps = (state) => {
     return {
         adsCategory: state.ads.ads.filter((ad) => ad.position === 'category'),
+        geoData: state.geoData.geoData,
+        limit: state.geoData.limit,
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchArticles: ({ city }) => dispatch(fetchArticles({ city })),
-        fetchArticlesGeo: ({ lat, lng }) =>
-            dispatch(fetchArticlesGeo({ lat, lng })),
+        fetchGeoData: (filters) => dispatch(fetchGeoData(filters)),
         fetchAds: () => dispatch(fetchAds()),
     };
 };

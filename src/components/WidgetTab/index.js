@@ -2,7 +2,6 @@ import React, { Fragment, useState } from 'react';
 import { TabContent, TabPane, Fade } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import { CMS_LINK } from '../../utils/constants';
 
 const WidgetTabPane = ({ latestArticles, aId, id }) => {
     return (
@@ -21,7 +20,8 @@ const WidgetTabPane = ({ latestArticles, aId, id }) => {
                                         <Link to={`/article/${item.id}`}>
                                             <img
                                                 src={
-                                                    CMS_LINK +
+                                                    process.env
+                                                        .REACT_APP_CMS_URL +
                                                     item.main_image.formats
                                                         .thumbnail.url
                                                 }
@@ -78,7 +78,10 @@ const WidgetTab = ({ className, dark, latestArticles, adsHome }) => {
                         <div className="banner2 mb30">
                             <a href={adsHome[0].link}>
                                 <img
-                                    src={CMS_LINK + adsHome[0].image[0].url}
+                                    src={
+                                        process.env.REACT_APP_CMS_URL +
+                                        adsHome[0].image[0].url
+                                    }
                                     alt="thumb"
                                 />
                             </a>
