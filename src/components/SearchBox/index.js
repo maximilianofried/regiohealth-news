@@ -49,7 +49,7 @@ const SearchBox = ({
     const handleSubmit = (event) => {
         event.preventDefault();
         fetchGeoData({
-            limit: 4,
+            limit: 10,
             start: 0,
             place,
             radius,
