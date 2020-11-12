@@ -10,7 +10,6 @@ import {
 import GeoDataNews from '../../components/geoDataNews';
 import BreadCrumb from '../../components/BreadCrumb';
 import WidgetSuchPortal from '../../components/WidgetSuchPortal';
-// import BusinessNews from '../../components/BusinessNews';
 import '@reach/combobox/styles.css';
 import '@reach/listbox/styles.css';
 import BannerSection from '../../components/BannerSection';
@@ -39,6 +38,7 @@ const SearchPage = ({
     const [place, setPlace] = useState({ lat: 52.56, lng: 13.14 });
     const [radius, setRadius] = useState('5000');
     const [type, setType] = useState('alle');
+    const [keyWord, setKeyWord] = useState('');
     const showMore = () => {
         fetchGeoData({
             limit: limit + 2,
@@ -46,6 +46,7 @@ const SearchPage = ({
             place,
             radius,
             type,
+            keyWord,
             responseType: 'mixed',
         });
     };
@@ -59,7 +60,7 @@ const SearchPage = ({
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6 col-lg-8">
-                            <div className="businerss_news">
+                            <div className="search_page">
                                 <div className="row">
                                     <div className="col-12 align-self-center">
                                         <div className="categories_title">
@@ -69,16 +70,18 @@ const SearchPage = ({
                                                 place={place}
                                                 radius={radius}
                                                 type={type}
+                                                keyWord={keyWord}
                                                 setPlace={setPlace}
                                                 setRadius={setRadius}
                                                 setType={setType}
+                                                setKeyWord={setKeyWord}
                                             />
                                             <div className="space-30" />
                                         </div>
                                     </div>
                                 </div>
                                 {geoData && (
-                                    <div className="row">
+                                    <div className="row search_results">
                                         <div className="col-12">
                                             <GeoDataNews
                                                 fetchGeoData={fetchGeoData}
