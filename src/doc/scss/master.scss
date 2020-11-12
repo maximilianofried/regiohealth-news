@@ -2853,21 +2853,31 @@ a.cbtn3 {
     width: 100px;
 }
 
-.search-button {
-    background-color: $green_regiohealth;
-    color: white;
-    margin-bottom: 5px;
-    border: 0;
-    &.active,
-    &:hover {
-        background-color: #406314;
-        border-color: #406314;
+.search_page {
+    .search_results,
+    .search_box {
+        margin-bottom: 50px;
     }
-}
+    input {
+        margin-bottom: 5px;
+        height: 32px;
+    }
+    .search-button {
+        background-color: $green_regiohealth;
+        color: white;
+        margin-bottom: 5px;
+        border: 0;
+        &.active,
+        &:hover {
+            background-color: #406314;
+            border-color: #406314;
+        }
+    }
 
-.my-flex-container {
-    //border: 2px solid green;
-    height: 45px;
-    margin-bottom: 20px;
-    // flex-wrap: wrap;
+    .my-flex-container {
+        //border: 2px solid green;
+        height: 45px;
+        margin-bottom: 20px;
+        // flex-wrap: wrap;
+    }
 }

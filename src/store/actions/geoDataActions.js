@@ -32,6 +32,7 @@ export const fetchGeoData = ({
     radius = '5000',
     type = 'alle',
     responseType = 'mixed',
+    keyWord = '',
 }) => {
     const { lat, lng } = place;
     return (dispatch) => {
@@ -39,7 +40,9 @@ export const fetchGeoData = ({
             process.env.REACT_APP_CMS_URL
         }/geodata?lat=${lat}&lng=${lng}&radius=${radius}${
             type === 'alle' ? '&type=article&type=offer' : `&type=${type}`
-        }&start=${start}&limit=${limit}&responseType=${responseType}`;
+        }&start=${start}&limit=${limit}&responseType=${responseType}${
+            keyWord ? `&_q=${keyWord}` : ''
+        }`;
         dispatch(fetchGeoDataRequest);
         axios
             .get(url)
