@@ -6,10 +6,12 @@ const Metadata = ({
     title = '',
     description = 'Regio Health News',
     image = RG_LOGO,
+    imageSize = { width: 0, height: 0 },
     url = process.env.REACT_APP_BASE_PAGE_URL,
 } = {}) => {
     const urlLowerCase = url.toLowerCase();
-
+    const imageExtension =
+        image.substring(image.lastIndexOf('.') + 1, image.length) || image;
     return (
         <Helmet>
             <meta charSet="utf-8" />
@@ -33,8 +35,12 @@ const Metadata = ({
                 itemProp="image"
                 content={image}
             />
-            <meta property="og:image:type" content="image/jpeg" />
-            <meta property="og:image:type" content="image/png" />
+            <meta
+                property="og:image:type"
+                content={`image/${imageExtension}`}
+            />
+            <meta property="og:image:width" content={imageSize.width} />
+            <meta property="og:image:height" content={imageSize.height} />
             <meta property="og:url" content={urlLowerCase} />
             <meta property="og:type" content="article" />
             <meta property="og:site_name" content="Regio Health News" />

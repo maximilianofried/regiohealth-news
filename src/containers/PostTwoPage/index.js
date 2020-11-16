@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import moment from 'moment';
@@ -34,12 +34,24 @@ const getMetaDescription = (description, categories) => {
     return metaDescription;
 };
 
+const getMeta = (url, width, setWidth, height, setHeight) => {
+    const img = new Image();
+    img.addEventListener('load', function () {
+        setWidth(this.naturalWidth);
+        setHeight(this.naturalHeight);
+    });
+    img.src = url;
+    return { width, height };
+};
+
 const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
     const { id } = useParams();
     useEffect(() => {
         fetchArticle(id);
         return () => fetchArticleCleanUp();
     }, [id]);
+    const [width, setWidth] = useState(0);
+    const [height, setHeight] = useState(0);
     const article = articleData.article || null;
     return (
         article && (
@@ -53,6 +65,13 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                     image={
                         process.env.REACT_APP_CMS_URL + article.main_image.url
                     }
+                    imageSize={getMeta(
+                        process.env.REACT_APP_CMS_URL + article.main_image.url,
+                        width,
+                        setWidth,
+                        height,
+                        setHeight
+                    )}
                     url={`${process.env.REACT_APP_BASE_PAGE_URL}/article/${id}`}
                 />
                 <div className="archives post post1">
