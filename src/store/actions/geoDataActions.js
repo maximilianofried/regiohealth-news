@@ -26,12 +26,13 @@ const fetchGeoDataFailure = (error) => {
 };
 
 export const fetchGeoData = ({
-    limit = undefined,
-    start = undefined,
+    limit = 4,
+    start = 0,
     place = { lat: 52.56, lng: 13.14 },
-    radius = 200001,
+    radius = '5000',
     type = 'alle',
     responseType = 'mixed',
+    keyWord = '',
 }) => {
     const { lat, lng } = place;
     return (dispatch) => {
@@ -39,7 +40,9 @@ export const fetchGeoData = ({
             process.env.REACT_APP_CMS_URL
         }/geodata?lat=${lat}&lng=${lng}&radius=${radius}${
             type === 'alle' ? '&type=article&type=offer' : `&type=${type}`
-        }&start=${start}&limit=${limit}&responseType=${responseType}`;
+        }&start=${start}&limit=${limit}&responseType=${responseType}${
+            keyWord ? `&_q=${keyWord}` : ''
+        }`;
         dispatch(fetchGeoDataRequest);
         axios
             .get(url)

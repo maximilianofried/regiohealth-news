@@ -36,9 +36,9 @@ const GeoDataNews = ({ geoData, headerHide }) => {
                             {geoData.map((item) => (
                                 <div
                                     key={item.id}
-                                    className="single_post post_type3 post_type12 mb30"
+                                    className="single_post post_type3 post_type12_b"
                                 >
-                                    <div className="post_img">
+                                    {/* <div className="post_img">
                                         <div className="img_wrap">
                                             <Link
                                                 to={generateLink(
@@ -56,7 +56,7 @@ const GeoDataNews = ({ geoData, headerHide }) => {
                                                 )}
                                             </Link>
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className="single_post_text">
                                         <div className="meta3">
                                             <Link to="/">{item.author}</Link>
@@ -76,11 +76,9 @@ const GeoDataNews = ({ geoData, headerHide }) => {
                                                 {item.title}
                                             </Link>
                                         </h4>
-                                        <div className="space-10" />
                                         <div className="post-p">
                                             {item.description}
                                         </div>
-                                        <div className="space-10" />
                                         <div className="meta3">
                                             <p className="location">
                                                 {item.location}

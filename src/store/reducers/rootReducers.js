@@ -11,6 +11,7 @@ import pagesReducer from './pagesReducer';
 import offersReducer from './offersReducer';
 import offerReducer from './offerReducer';
 import geoDataReducer from './geoDataReducer';
+import nationalDataReducer from './nationalDataReducer';
 
 const rootReducer = combineReducers({
     meta: metaReducer,
@@ -25,5 +26,6 @@ const rootReducer = combineReducers({
     offers: offersReducer,
     offer: offerReducer,
     geoData: geoDataReducer,
+    nationalData: nationalDataReducer,
 });
 export default rootReducer;

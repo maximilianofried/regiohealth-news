@@ -16,9 +16,11 @@ const SearchBox = ({
     place,
     radius,
     type,
+    keyWord,
     setPlace,
     setRadius,
     setType,
+    setKeyWord,
 }) => {
     const options = {
         componentRestrictions: { country: ['de', 'pl'] },
@@ -49,20 +51,30 @@ const SearchBox = ({
     const handleSubmit = (event) => {
         event.preventDefault();
         fetchGeoData({
-            limit: 4,
+            limit: 10,
             start: 0,
             place,
             radius,
             type,
             responseType: 'mixed',
+            keyWord,
         });
     };
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="search_box">
             <Combobox
                 onSelect={(address) => onComboSelect(address)}
                 className="form-row align-items-center"
             >
+                <div className="col-auto">
+                    <input
+                        value={keyWord}
+                        onChange={(e) => {
+                            setKeyWord(e.target.value);
+                        }}
+                        placeholder="Was suchst du?"
+                    />
+                </div>
                 <div className="col-auto">
                     <Listbox type={type} onChange={setType}>
                         <ListboxOption value="alle">Alle</ListboxOption>
