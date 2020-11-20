@@ -1,7 +1,7 @@
 import React from 'react';
 import usePlacesAutocomplete, {
     getGeocode,
-    getLatLng,
+    // getLatLng,
 } from 'use-places-autocomplete';
 import {
     Combobox,
@@ -14,11 +14,9 @@ import { Listbox, ListboxOption } from '@reach/listbox';
 const SearchBox = ({
     fetchGeoData,
     place,
-    radius,
     type,
     keyWord,
     setPlace,
-    setRadius,
     setType,
     setKeyWord,
 }) => {
@@ -38,9 +36,40 @@ const SearchBox = ({
         setValue(address, false);
         clearSuggestions();
         getGeocode({ address })
-            .then((results) => getLatLng(results[0]))
-            .then(({ lat, lng }) => {
-                setPlace({ lat, lng });
+            .then((results) => {
+                const addressComponents = results[0].address_components;
+                const postalCode = addressComponents.filter((res) => {
+                    return res.types.includes('postal_code');
+                });
+                const locality = addressComponents.filter((res) => {
+                    return res.types.includes('locality');
+                });
+                const administrativeAreaLevel1 = addressComponents.filter(
+                    (res) => {
+                        return res.types.includes(
+                            'administrative_area_level_1'
+                        );
+                    }
+                );
+                const country = addressComponents.filter((res) => {
+                    return res.types.includes('country');
+                });
+                if (postalCode.length) {
+                    return postalCode[0].long_name;
+                }
+                if (locality.length) {
+                    return locality[0].long_name;
+                }
+                if (administrativeAreaLevel1.length) {
+                    return administrativeAreaLevel1[0].long_name;
+                }
+                if (country.length) {
+                    return country[0].long_name;
+                }
+                return '';
+            })
+            .then((place) => {
+                setPlace(place);
             })
             .catch((error) => {
                 // eslint-disable-next-line no-console
@@ -49,19 +78,19 @@ const SearchBox = ({
     };
 
     const handleSubmit = (event) => {
+        event.stopPropagation();
         event.preventDefault();
         fetchGeoData({
-            limit: 10,
+            limit: 4,
             start: 0,
             place,
-            radius,
             type,
             responseType: 'mixed',
             keyWord,
         });
     };
     return (
-        <form onSubmit={handleSubmit} className="search_box">
+        <form onSubmit={(event) => handleSubmit(event)} className="search_box">
             <Combobox
                 onSelect={(address) => onComboSelect(address)}
                 className="form-row align-items-center"
@@ -87,6 +116,9 @@ const SearchBox = ({
                         value={value}
                         onChange={(e) => {
                             setValue(e.target.value);
+                            if (e.target.value === '') {
+                                setPlace('');
+                            }
                         }}
                         disabled={!ready}
                         placeholder="PLZ oder Ort"
@@ -103,7 +135,7 @@ const SearchBox = ({
                             })}
                     </ComboboxPopover>
                 </div>
-                <div className="col-auto">
+                {/* <div className="col-auto">
                     <Listbox radius={radius} onChange={setRadius}>
                         <ListboxOption value="5000">+5 km</ListboxOption>
                         <ListboxOption value="10000">+10 km</ListboxOption>
@@ -114,7 +146,7 @@ const SearchBox = ({
                         <ListboxOption value="150000">+150 km</ListboxOption>
                         <ListboxOption value="200000">+200 km</ListboxOption>
                     </Listbox>
-                </div>
+                </div> */}
                 <div className="col-auto">
                     <button type="submit" className="btn-sm search-button">
                         <i className="fa fa-search" /> Finden

@@ -16,7 +16,7 @@ const WidgetTabPane = ({ nationalData, aId, id, type }) => {
                                 item.main_image ? '' : 'widgets_small_no_image'
                             }`}
                         >
-                            {item.main_image && item.main_image.formats && (
+                            {item.main_image && (
                                 <div className="post_img">
                                     <div className="img_wrap">
                                         <Link to={`/${type}/${item.id}`}>
@@ -24,8 +24,11 @@ const WidgetTabPane = ({ nationalData, aId, id, type }) => {
                                                 src={
                                                     process.env
                                                         .REACT_APP_CMS_URL +
-                                                    item.main_image.formats
-                                                        .thumbnail.url
+                                                    (item.main_image.formats
+                                                        ? item.main_image
+                                                              .formats.thumbnail
+                                                              .url
+                                                        : item.main_image.url)
                                                 }
                                                 alt="thumb"
                                             />
