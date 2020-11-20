@@ -7,7 +7,7 @@ import { isMobile } from 'react-device-detect';
 import FontAwesome from '../uiStyle/FontAwesome';
 import { fetchArticlesCity, fetchOffers } from '../../store/actions';
 
-const TopBar = ({ className, dark, offers, fetchOffers }) => {
+const TopBar = ({ className, dark, offers = [], fetchOffers }) => {
     useEffect(() => {
         fetchOffers();
     }, []);
@@ -43,7 +43,7 @@ const TopBar = ({ className, dark, offers, fetchOffers }) => {
         <div className={`topbar ${className || ''}`} id="top">
             <div className="container">
                 <div className="row">
-                    {offers && offers.length > 0 && (
+                    {offers && (
                         <div className="col-md-8 align-self-center">
                             {offers && offers.length > 0 && (
                                 <div

@@ -35,8 +35,8 @@ const SearchPage = ({
             includeCountry: 'Germany',
         });
     }, []);
-    const [place, setPlace] = useState({ lat: 52.56, lng: 13.14 });
-    const [radius, setRadius] = useState('5000');
+    const [place, setPlace] = useState('');
+    // const [radius, setRadius] = useState('5000');
     const [type, setType] = useState('alle');
     const [keyWord, setKeyWord] = useState('');
     const showMore = () => {
@@ -44,7 +44,6 @@ const SearchPage = ({
             limit: limit + 2,
             start: 0,
             place,
-            radius,
             type,
             keyWord,
             responseType: 'mixed',
@@ -68,11 +67,9 @@ const SearchPage = ({
                                             <SearchBox
                                                 fetchGeoData={fetchGeoData}
                                                 place={place}
-                                                radius={radius}
                                                 type={type}
                                                 keyWord={keyWord}
                                                 setPlace={setPlace}
-                                                setRadius={setRadius}
                                                 setType={setType}
                                                 setKeyWord={setKeyWord}
                                             />

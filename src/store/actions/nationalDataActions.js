@@ -40,16 +40,12 @@ export const fetchNationalData = ({
     responseType = 'mixed',
 }) => {
     return (dispatch) => {
-        const url = `${
-            process.env.REACT_APP_CMS_URL
-        }/geodata?includeCountry=${includeCountry}${
-            type === 'alle' ? '&type=article&type=offer' : `&type=${type}`
-        }&start=${start}&limit=${limit}&responseType=${responseType}`;
+        const url = `${process.env.REACT_APP_CMS_URL}/geoinfos/national?type=${type}&start=${start}&limit=${limit}`;
         dispatch(fetchNationalDataRequest);
         axios
             .get(url)
             .then((response) => {
-                const { geoData } = response.data;
+                const geoData = response.data;
                 dispatch(
                     fetchNationalDataSuccess({
                         geoData,
