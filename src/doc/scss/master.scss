@@ -1595,6 +1595,46 @@ span.tranding {
             }
         }
     }
+    .meta3_suchportal {
+        margin-bottom: 10px;
+
+        .location {
+            font-size: 13px;
+        }
+
+        a {
+            font-size: 14px !important;
+            position: relative;
+            z-index: 2;
+            line-height: 17px;
+            font-weight: 500;
+            margin-bottom: 5px;
+
+            &:first-child {
+                color: black;
+            }
+
+            &:last-child {
+                margin-left: 20px;
+                color: $body_color;
+                opacity: 0.75;
+
+                &:before {
+                    position: absolute;
+                    content: '/';
+                    height: 20px;
+                    width: 10px;
+                    left: -18px;
+                    top: 50%;
+                    margin-top: -10px;
+                    line-height: 20px;
+                    color: $body_color;
+                    opacity: 0.3;
+                    text-align: center;
+                }
+            }
+        }
+    }
 }
 
 .single_post_text {
