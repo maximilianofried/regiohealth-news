@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import moment from 'moment';
+import createDOMPurify from 'dompurify';
+import { JSDOM } from 'jsdom';
 import ReactTooltip from 'react-tooltip';
 import ReactMarkdown from 'react-markdown';
 import { fetchArticle, fetchArticleCleanUp } from '../../store/actions';
@@ -10,6 +12,10 @@ import FontAwesome from '../../components/uiStyle/FontAwesome';
 import BannerSection from '../../components/BannerSection';
 import singlePost1 from '../../doc/img/blog/single_post1.jpg';
 import Metadata from '../../components/Metadata';
+
+// eslint-disable-next-line prefer-destructuring
+const window = new JSDOM('').window;
+const DOMPurify = createDOMPurify(window);
 
 const transform = (data) => {
     const imageLink = `${process.env.REACT_APP_CMS_URL + data}`;
@@ -63,15 +69,23 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                         article.categories
                     )}
                     image={
-                        process.env.REACT_APP_CMS_URL + article.main_image.url
+                        article.main_image
+                            ? process.env.REACT_APP_CMS_URL +
+                              article.main_image.url
+                            : ''
                     }
-                    imageSize={getMeta(
-                        process.env.REACT_APP_CMS_URL + article.main_image.url,
-                        width,
-                        setWidth,
-                        height,
-                        setHeight
-                    )}
+                    imageSize={
+                        article.main_image
+                            ? getMeta(
+                                  process.env.REACT_APP_CMS_URL +
+                                      article.main_image.url,
+                                  width,
+                                  setWidth,
+                                  height,
+                                  setHeight
+                              )
+                            : ''
+                    }
                     url={`${process.env.REACT_APP_BASE_PAGE_URL}/article/${id}`}
                 />
                 <div className="archives post post1">
@@ -170,14 +184,26 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                     </div>
                                 </div>
                                 <div className="space-20" />
-                                <ReactMarkdown
-                                    className="markdownContainer margin"
-                                    transformImageUri={(data) =>
-                                        transform(data)
-                                    }
-                                    renderers={{ link: LinkRenderer }}
-                                    source={article.content}
-                                />
+                                {!article.bodyIsHtml && (
+                                    <ReactMarkdown
+                                        className="markdownContainer margin"
+                                        transformImageUri={(data) =>
+                                            transform(data)
+                                        }
+                                        renderers={{ link: LinkRenderer }}
+                                        source={article.content}
+                                    />
+                                )}
+                                {article.bodyIsHtml && (
+                                    <div
+                                        // eslint-disable-next-line react/no-danger
+                                        dangerouslySetInnerHTML={{
+                                            __html: DOMPurify.sanitize(
+                                                article.content
+                                            ),
+                                        }}
+                                    />
+                                )}
                                 <div className="space-40" />
                                 <div className="tags">
                                     <ul className="inline">
