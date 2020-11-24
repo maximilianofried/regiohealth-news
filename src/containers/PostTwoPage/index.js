@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import moment from 'moment';
-import createDOMPurify from 'dompurify';
-import { JSDOM } from 'jsdom';
 import ReactTooltip from 'react-tooltip';
 import ReactMarkdown from 'react-markdown';
 import { fetchArticle, fetchArticleCleanUp } from '../../store/actions';
@@ -12,9 +10,6 @@ import FontAwesome from '../../components/uiStyle/FontAwesome';
 import BannerSection from '../../components/BannerSection';
 import singlePost1 from '../../doc/img/blog/single_post1.jpg';
 import Metadata from '../../components/Metadata';
-
-const { window } = new JSDOM('');
-const DOMPurify = createDOMPurify(window);
 
 const transform = (data) => {
     const imageLink = `${process.env.REACT_APP_CMS_URL + data}`;
@@ -201,9 +196,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                     <div
                                         // eslint-disable-next-line react/no-danger
                                         dangerouslySetInnerHTML={{
-                                            __html: DOMPurify.sanitize(
-                                                article.content
-                                            ),
+                                            __html: article.content,
                                         }}
                                     />
                                 )}
