@@ -13,8 +13,7 @@ import BannerSection from '../../components/BannerSection';
 import singlePost1 from '../../doc/img/blog/single_post1.jpg';
 import Metadata from '../../components/Metadata';
 
-// eslint-disable-next-line prefer-destructuring
-const window = new JSDOM('').window;
+const { window } = new JSDOM('');
 const DOMPurify = createDOMPurify(window);
 
 const transform = (data) => {
