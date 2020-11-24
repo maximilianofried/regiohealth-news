@@ -117,7 +117,11 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                 <div className="row">
                                     <div className="col-7 col-lg-6 align-self-center">
                                         <div className="author">
-                                            <Link to="/">{article.author}</Link>
+                                            <Link to="/">
+                                                {article.author}
+                                                {' / '}
+                                                {article.company}
+                                            </Link>
                                             <ul>
                                                 <li>
                                                     {moment(
