@@ -29,21 +29,16 @@ const Metadata = ({
                 property="og:description"
                 content={`Regio Health News - ${description}`}
             />
+            <meta property="og:url" content={urlLowerCase} />
+            <meta property="og:type" content="article" />
+            <meta property="og:site_name" content="Regio Health News" />
             <meta property="og:image" itemProp="image" content={image} />
-            <meta
-                property="og:image:secure_url"
-                itemProp="image"
-                content={image}
-            />
             <meta
                 property="og:image:type"
                 content={`image/${imageExtension}`}
             />
             <meta property="og:image:width" content={imageSize.width} />
             <meta property="og:image:height" content={imageSize.height} />
-            <meta property="og:url" content={urlLowerCase} />
-            <meta property="og:type" content="article" />
-            <meta property="og:site_name" content="Regio Health News" />
         </Helmet>
     );
 };

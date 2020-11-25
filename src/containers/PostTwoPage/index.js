@@ -63,15 +63,23 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                         article.categories
                     )}
                     image={
-                        process.env.REACT_APP_CMS_URL + article.main_image.url
+                        article.main_image
+                            ? process.env.REACT_APP_CMS_URL +
+                              article.main_image.url
+                            : ''
                     }
-                    imageSize={getMeta(
-                        process.env.REACT_APP_CMS_URL + article.main_image.url,
-                        width,
-                        setWidth,
-                        height,
-                        setHeight
-                    )}
+                    imageSize={
+                        article.main_image
+                            ? getMeta(
+                                  process.env.REACT_APP_CMS_URL +
+                                      article.main_image.url,
+                                  width,
+                                  setWidth,
+                                  height,
+                                  setHeight
+                              )
+                            : ''
+                    }
                     url={`${process.env.REACT_APP_BASE_PAGE_URL}/article/${id}`}
                 />
                 <div className="archives post post1">
@@ -174,14 +182,24 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                     </div>
                                 </div>
                                 <div className="space-20" />
-                                <ReactMarkdown
-                                    className="markdownContainer margin"
-                                    transformImageUri={(data) =>
-                                        transform(data)
-                                    }
-                                    renderers={{ link: LinkRenderer }}
-                                    source={article.content}
-                                />
+                                {!article.bodyIsHtml && (
+                                    <ReactMarkdown
+                                        className="markdownContainer margin"
+                                        transformImageUri={(data) =>
+                                            transform(data)
+                                        }
+                                        renderers={{ link: LinkRenderer }}
+                                        source={article.content}
+                                    />
+                                )}
+                                {article.bodyIsHtml && (
+                                    <div
+                                        // eslint-disable-next-line react/no-danger
+                                        dangerouslySetInnerHTML={{
+                                            __html: article.content,
+                                        }}
+                                    />
+                                )}
                                 <div className="space-40" />
                                 <div className="tags">
                                     <ul className="inline">
