@@ -39,6 +39,7 @@ const Metadata = ({
             />
             <meta property="og:image:width" content={imageSize.width} />
             <meta property="og:image:height" content={imageSize.height} />
+            <meta property="og:image:alt" content={title} />
         </Helmet>
     );
 };
