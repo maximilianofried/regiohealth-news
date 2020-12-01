@@ -82,30 +82,6 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                     }
                     url={`${process.env.REACT_APP_BASE_PAGE_URL}/article/${id}`}
                 />
-                {article.main_image && (
-                    <span>
-                        <link
-                            itemProp="thumbnailUrl"
-                            href={
-                                process.env.REACT_APP_CMS_URL +
-                                article.main_image.url
-                            }
-                        />
-                        <span
-                            itemProp="thumbnail"
-                            itemScope
-                            itemType="http://schema.org/ImageObject"
-                        >
-                            <link
-                                itemProp="url"
-                                href={
-                                    process.env.REACT_APP_CMS_URL +
-                                    article.main_image.url
-                                }
-                            />
-                        </span>
-                    </span>
-                )}
                 <div className="archives post post1">
                     <BreadCrumb
                         className="shadow5 padding-top-30"
@@ -220,7 +196,10 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                     <div
                                         // eslint-disable-next-line react/no-danger
                                         dangerouslySetInnerHTML={{
-                                            __html: article.content,
+                                            __html: article.content.replace(
+                                                /href/g,
+                                                "target='_blank' href"
+                                            ),
                                         }}
                                     />
                                 )}
