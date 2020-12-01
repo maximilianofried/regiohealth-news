@@ -111,11 +111,40 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                 <div className="row">
                                     <div className="col-7 col-lg-6 align-self-center">
                                         <div className="author">
-                                            <Link to="/">
+                                            {article.profile &&
+                                                article.profile.logo && (
+                                                    <div className="author_img">
+                                                        <div className="author_img_wrap">
+                                                            <img
+                                                                src={
+                                                                    process.env
+                                                                        .REACT_APP_CMS_URL +
+                                                                    article
+                                                                        .profile
+                                                                        .logo
+                                                                        .url
+                                                                }
+                                                                alt="author2"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            <a
+                                                target="_blank"
+                                                href={
+                                                    article.profile &&
+                                                    article.profile.website
+                                                        ? article.profile
+                                                              .website
+                                                        : '#'
+                                                }
+                                            >
                                                 {article.author}
-                                                {' / '}
-                                                {article.company}
-                                            </Link>
+                                                {article.profile &&
+                                                article.profile.company
+                                                    ? ` / ${article.profile.company}`
+                                                    : ''}
+                                            </a>
                                             <ul>
                                                 <li>
                                                     {moment(
