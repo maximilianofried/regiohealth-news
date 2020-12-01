@@ -196,7 +196,10 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                     <div
                                         // eslint-disable-next-line react/no-danger
                                         dangerouslySetInnerHTML={{
-                                            __html: article.content,
+                                            __html: article.content.replace(
+                                                /href/g,
+                                                "target='_blank' href"
+                                            ),
                                         }}
                                     />
                                 )}
