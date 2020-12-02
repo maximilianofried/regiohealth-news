@@ -35,11 +35,11 @@ const HomePage = ({
 
 const mapStateToProps = (state) => {
     return {
-        topArticles: state.articles.articles.filter((article) =>
-            article.categories.some((category) => category.name === 'Top')
+        topArticles: state.articles.articles.filter(
+            (article) => article.isTopArticle
         ),
-        latestArticles: state.articles.articles.filter((article) =>
-            article.categories.some((category) => category.name !== 'Top')
+        latestArticles: state.articles.articles.filter(
+            (article) => !article.isTopArticle
         ),
         localArticles: state.articles.articles.filter((article) =>
             article.city

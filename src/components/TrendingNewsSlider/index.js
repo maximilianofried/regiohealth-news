@@ -66,9 +66,11 @@ const TrendingNewsSlider = ({ latestArticles, adsHome = [] }) => {
                         <div key={item.id} className="single_post post_type3">
                             <div className="single_post_text">
                                 <div className="meta3">
-                                    <Link to="/">
-                                        {item.categories[0].name}
-                                    </Link>
+                                    {item.categories.length && (
+                                        <Link to="/">
+                                            {item.categories[0].name}
+                                        </Link>
+                                    )}
                                     <Link to="/">
                                         {moment(item.createdAt).format('LL')}
                                     </Link>
