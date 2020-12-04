@@ -81,7 +81,7 @@ const SearchBox = ({
         event.stopPropagation();
         event.preventDefault();
         fetchGeoData({
-            limit: 4,
+            limit: 6,
             start: 0,
             place,
             type,

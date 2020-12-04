@@ -83,11 +83,14 @@ const GeoDataNews = ({ geoData, headerHide }) => {
                                         <div className="post-p">
                                             {item.description}
                                         </div>
-                                        <div className="meta3">
-                                            <p className="location">
-                                                {item.location}
-                                            </p>
-                                        </div>
+                                        <div className="space-20" />
+                                        {/* {item.location && (
+                                            <div className="meta3">
+                                                <p className="location">
+                                                    {item.location}
+                                                </p>
+                                            </div>
+                                        )} */}
                                         {/* <div className="space-20"/>
                                         <Link to={`/article/${item._id}`} className="readmore">Read more</Link> */}
                                     </div>
