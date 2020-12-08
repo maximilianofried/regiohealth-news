@@ -1,10 +1,7 @@
 import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { createBrowserHistory } from 'history';
+import { withRouter } from 'react-router-dom';
 
-const history = createBrowserHistory({ forceRefresh: true });
-
-const LogoArea = ({ className }) => {
+const LogoArea = ({ className, history }) => {
     return (
         <div className={`logo_area ${className || ''}`}>
             <div className="container">
@@ -23,4 +20,4 @@ const LogoArea = ({ className }) => {
     );
 };
 
-export default LogoArea;
+export default withRouter(LogoArea);
