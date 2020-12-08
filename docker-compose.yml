@@ -7,6 +7,7 @@ services:
     react-dev:
         # service 1 container name
         container_name: react-dev
+        env_file: - .env
         build:
             # the context (working directory) is the current directory
             # change this to the directory containing the dockerfile if in a different place
