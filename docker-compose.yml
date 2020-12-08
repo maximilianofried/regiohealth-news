@@ -7,7 +7,6 @@ services:
     react-dev:
         # service 1 container name
         container_name: react-dev
-        env_file: .env
         build:
             # the context (working directory) is the current directory
             # change this to the directory containing the dockerfile if in a different place
@@ -19,6 +18,8 @@ services:
         # to be used to access the container from the outside
         ports:
             - '3000:80'
+        env_file:
+            - ./.env
         # the mounted volumes (folders which are outside docker but being used by docker)
         # volumes:
         #     - '.:/gt-strapi-react'
