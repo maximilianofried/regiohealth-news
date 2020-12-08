@@ -19,7 +19,7 @@ services:
         ports:
             - '3000:80'
         env_file:
-            - ./.env
+            - .env
         # the mounted volumes (folders which are outside docker but being used by docker)
         # volumes:
         #     - '.:/gt-strapi-react'
