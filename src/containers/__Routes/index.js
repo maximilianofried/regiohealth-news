@@ -8,6 +8,7 @@ import NotFoundPage from '../NotFoundPage';
 import PostTwoPage from '../PostTwoPage';
 import SearchPage from '../SearchPage';
 import OfferPage from '../OfferPage';
+import useTracking from '../../utils/useTracking';
 // import PublicRoute from '../_PublicRoute';
 
 const selectPage = (pageName, categories, props) => {
@@ -23,6 +24,7 @@ const selectPage = (pageName, categories, props) => {
 const Routes = ({ menuData, pages }) => {
     const { menu } = menuData;
     const pagesMenu = pages.pages;
+    useTracking(process.env.REACT_APP_UA_TRACK);
     return (
         <Switch>
             <PrivateRoute
