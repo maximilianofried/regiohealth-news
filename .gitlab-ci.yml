@@ -12,6 +12,7 @@ step-develop:
     tags:
         - dev
     script:
+        - echo "REACT_APP_BASE_PAGE_URL=$REACT_APP_BASE_PAGE_URL" >> .env
         - sudo docker image prune -f
         - sudo docker-compose -f docker-compose.yml build --no-cache
         - sudo docker-compose -f docker-compose.yml up -d
