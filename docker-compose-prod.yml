@@ -12,10 +12,6 @@ services:
             # change this to the directory containing the dockerfile if in a different place
             context: .
             # the dockerfile to be run
-            args:
-                - REACT_APP_BASE_PAGE_URL=https://regiohealth.news
-                - REACT_APP_CMS_URL=https://cms.gesundheitsticket.de
-                - REACT_APP_UA_TRACK=UA-184915048-1
             dockerfile:
                 Dockerfile-prod
                 # map the exposed port from the underlying service to a port exposed to the outside
