@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
-import ReactMarkdown from 'react-markdown';
 import BreadCrumb from '../../components/BreadCrumb';
 import BannerSection from '../../components/BannerSection';
 import { fetchPage } from '../../store/actions';
@@ -10,14 +9,6 @@ const InfoPage = ({ fetchPage, page, name }) => {
     useEffect(() => {
         fetchPage(name);
     }, []);
-
-    const LinkRenderer = ({ href, children }) => {
-        return (
-            <a href={href} target="_blank">
-                {children}
-            </a>
-        );
-    };
     return (
         <>
             <Metadata
@@ -32,12 +23,14 @@ const InfoPage = ({ fetchPage, page, name }) => {
                         <div className="col-12">
                             <div className="author_about">
                                 {page && page.content && (
-                                    <ReactMarkdown
-                                        className={`markdownContainer ${
-                                            name === 'Über Uns' ? 'margin' : ''
-                                        }`}
-                                        renderers={{ link: LinkRenderer }}
-                                        source={page.content}
+                                    <div
+                                        // eslint-disable-next-line react/no-danger
+                                        dangerouslySetInnerHTML={{
+                                            __html: page.content.replace(
+                                                /href/g,
+                                                "target='_blank' href"
+                                            ),
+                                        }}
                                     />
                                 )}
                             </div>
