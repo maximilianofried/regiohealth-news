@@ -12,7 +12,7 @@ import useTracking from '../../utils/useTracking';
 // import PublicRoute from '../_PublicRoute';
 
 const selectPage = (pageName, categories, props) => {
-    if (pageName === 'Über Uns' || pageName === 'Kontakt') {
+    if (pageName === 'Über uns' || pageName === 'Kontakt') {
         return <InfoPage {...props} name={pageName} />;
     }
     if (pageName === 'Suchportal') {
