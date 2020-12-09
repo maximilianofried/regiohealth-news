@@ -11,6 +11,8 @@ step-develop:
         - dev
     tags:
         - dev
+    before_script:
+        - source .env
     script:
         - export REACT_APP_BASE_PAGE_URL=${REACT_APP_BASE_PAGE_URL}
         - export REACT_APP_CMS_URL=${REACT_APP_CMS_URL}
