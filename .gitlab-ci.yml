@@ -15,7 +15,7 @@ step-develop:
         - echo $REACT_APP_BASE_PAGE_URL
         - echo $REACT_APP_CMS_URL
         - sudo docker image prune -f
-        - sudo REACT_APP_CMS_URL=${REACT_APP_CMS_URL} docker-compose -f docker-compose.yml build --no-cache
+        - sudo -e REACT_APP_CMS_URL=$REACT_APP_CMS_URL docker-compose -f docker-compose.yml build --no-cache
         - sudo docker-compose -f docker-compose.yml up -d
 step-production:
     stage: deploy
