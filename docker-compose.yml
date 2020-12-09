@@ -25,5 +25,5 @@ services:
         # set the environment to development
         environment:
             - NODE_ENV=development
-            - REACT_APP_BASE_PAGE_URL="${REACT_APP_BASE_PAGE_URL}"
-            - REACT_APP_CMS_URL="${REACT_APP_CMS_URL}"
+            - REACT_APP_BASE_PAGE_URL
+            - REACT_APP_CMS_URL
