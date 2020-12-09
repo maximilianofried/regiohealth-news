@@ -18,7 +18,6 @@ services:
         # to be used to access the container from the outside
         ports:
             - '3000:80'
-        env_file: .env
         # the mounted volumes (folders which are outside docker but being used by docker)
         # volumes:
         #     - '.:/gt-strapi-react'
@@ -26,3 +25,5 @@ services:
         # set the environment to development
         environment:
             - NODE_ENV=development
+            - REACT_APP_BASE_PAGE_URL="${REACT_APP_BASE_PAGE_URL}"
+            - REACT_APP_CMS_URL="${REACT_APP_CMS_URL}"
