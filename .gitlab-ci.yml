@@ -13,8 +13,8 @@ step-develop:
         - dev
     script:
         - sudo docker image prune -f
-        - env REACT_APP_BASE_PAGE_URL=$REACT_APP_BASE_PAGE_URL
-        - env REACT_APP_CMS_URL=$REACT_APP_CMS_URL
+        - REACT_APP_BASE_PAGE_URL=$REACT_APP_BASE_PAGE_URL
+        - REACT_APP_CMS_URL=$REACT_APP_CMS_URL
         - sudo docker-compose -f docker-compose.yml build --no-cache
         - sudo docker-compose -f docker-compose.yml up -d
 step-production:
