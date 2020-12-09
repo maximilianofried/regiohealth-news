@@ -12,7 +12,8 @@ step-develop:
     tags:
         - dev
     script:
-        - echo $CI_RUNNER_TAGS
+        - echo $REACT_APP_BASE_PAGE_URL
+        - echo $REACT_APP_CMS_URL
         - sudo docker image prune -f
         - sudo docker-compose -f docker-compose.yml build --no-cache
         - sudo docker-compose -f docker-compose.yml up -d
