@@ -12,8 +12,9 @@ step-develop:
     tags:
         - dev
     script:
+        - export
         - sudo docker image prune -f
-        - sudo docker-compose -f docker-compose.yml build --no-cache
+        - sudo docker-compose -f docker-compose.yml build --build-arg REACT_APP_BASE_PAGE_URL=${REACT_APP_BASE_PAGE_URL} --build-arg REACT_APP_CMS_URL=${REACT_APP_CMS_URL} --no-cache
         - sudo docker-compose -f docker-compose.yml up -d
 step-production:
     stage: deploy
