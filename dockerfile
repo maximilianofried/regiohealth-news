@@ -10,9 +10,9 @@ FROM node:alpine as build
 # this is the working folder in the container
 # from which the app will be running from
 ARG REACT_APP_BASE_PAGE_URL
-ENV REACT_APP_BASE_PAGE_URL=$REACT_APP_BASE_PAGE_URL
+ENV REACT_APP_BASE_PAGE_URL $REACT_APP_BASE_PAGE_URL
 ARG REACT_APP_CMS_URL
-ENV REACT_APP_CMS_URL=$REACT_APP_CMS_URL
+ENV REACT_APP_CMS_URL $REACT_APP_CMS_URL
 WORKDIR /gt-strapi-react
 # copy everything to /app directory
 # as opposed to on dev, in prod everything is copied to docker
