@@ -9,8 +9,8 @@ FROM node:alpine as build
 # set working directory
 # this is the working folder in the container
 # from which the app will be running from
-ARG REACT_APP_BASE_PAGE_URL
-ENV REACT_APP_BASE_PAGE_URL $REACT_APP_BASE_PAGE_URL
+ARG REACT_APP_BASE_PAGE_URL_DEV
+ENV REACT_APP_BASE_PAGE_URL_DEV $REACT_APP_BASE_PAGE_URL_DEV
 ARG REACT_APP_CMS_URL
 ENV REACT_APP_CMS_URL $REACT_APP_CMS_URL
 WORKDIR /gt-strapi-react
