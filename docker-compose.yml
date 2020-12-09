@@ -24,7 +24,7 @@ services:
         #     - '/gt-strapi-react/node_modules'
         # set the environment to development
         env_file:
-            - ./.env
+            - .env
         environment:
             - NODE_ENV=development
             - REACT_APP_BASE_PAGE_URL=${REACT_APP_BASE_PAGE_URL}
