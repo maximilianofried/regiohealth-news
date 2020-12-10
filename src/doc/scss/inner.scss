@@ -426,6 +426,15 @@ li.page_category {
     }
 }
 
+.documents {
+    ul {
+        list-style-type: none;
+    }
+    span {
+        margin-left: 4px;
+    }
+}
+
 /*NEXT PREV POST CSS*/
 
 .next_prv_single {

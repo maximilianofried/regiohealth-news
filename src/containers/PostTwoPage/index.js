@@ -232,7 +232,28 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                         }}
                                     />
                                 )}
-                                <div className="space-40" />
+                                {article.documents && (
+                                    <div className="documents">
+                                        <ul className="none">
+                                            {article.documents.map((doc) => (
+                                                <li key={doc.id}>
+                                                    <a
+                                                        target="_blank"
+                                                        href={
+                                                            process.env
+                                                                .REACT_APP_CMS_URL +
+                                                            doc.url
+                                                        }
+                                                    >
+                                                        <FontAwesome name="file-text" />
+                                                        <span>{doc.name}</span>
+                                                    </a>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
+                                <div className="space-30" />
                                 <div className="tags">
                                     <ul className="inline">
                                         <li className="tag_list">

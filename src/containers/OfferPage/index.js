@@ -10,6 +10,7 @@ import FontAwesome from '../../components/uiStyle/FontAwesome';
 import BannerSection from '../../components/BannerSection';
 import singlePost1 from '../../doc/img/blog/single_post1.jpg';
 import Metadata from '../../components/Metadata';
+import { RG_LOGO } from '../../utils/constants';
 
 const transform = (data) => {
     const imageLink = `${process.env.REACT_APP_CMS_URL + data}`;
@@ -54,7 +55,7 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                         offer.main_image
                             ? process.env.REACT_APP_CMS_URL +
                               offer.main_image.url
-                            : null
+                            : RG_LOGO
                     }
                     url={`${process.env.REACT_APP_BASE_PAGE_URL}/offer/${id}`}
                 />
@@ -167,15 +168,39 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                     </li>
                                 </ul>
 
-                                <ReactMarkdown
-                                    className="markdownContainer margin"
-                                    transformImageUri={(data) =>
-                                        transform(data)
-                                    }
-                                    renderers={{ link: LinkRenderer }}
-                                    source={offer.content}
-                                />
-                                <div className="space-40" />
+                                {offer && offer.content && (
+                                    <div
+                                        // eslint-disable-next-line react/no-danger
+                                        dangerouslySetInnerHTML={{
+                                            __html: offer.content.replace(
+                                                /href/g,
+                                                "target='_blank' href"
+                                            ),
+                                        }}
+                                    />
+                                )}
+                                {offer.documents && (
+                                    <div className="documents">
+                                        <ul className="none">
+                                            {offer.documents.map((doc) => (
+                                                <li key={doc.id}>
+                                                    <a
+                                                        target="_blank"
+                                                        href={
+                                                            process.env
+                                                                .REACT_APP_CMS_URL +
+                                                            doc.url
+                                                        }
+                                                    >
+                                                        <FontAwesome name="file-text" />
+                                                        <span>{doc.name}</span>
+                                                    </a>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
+                                <div className="space-30" />
                                 <div className="tags">
                                     <ul className="inline">
                                         <li className="tag_list">
