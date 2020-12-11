@@ -9,7 +9,13 @@ import TrendingNews from '../TrendingNews';
 import sliderImg1 from '../../doc/img/header/sider-top.jpg';
 import './style.scss';
 
-const PostGallery = ({ className, latestArticles, topArticles, adsHome }) => {
+const PostGallery = ({
+    className,
+    latestArticles,
+    latestOffers,
+    topArticles,
+    adsHome,
+}) => {
     return (
         <div className={`post_gallary_area mb40 ${className}`}>
             <div className="container">
@@ -93,6 +99,7 @@ const PostGallery = ({ className, latestArticles, topArticles, adsHome }) => {
                                         18,
                                         23
                                     )}
+                                    latestOffers={latestOffers}
                                     dark
                                 />
                             </div>
