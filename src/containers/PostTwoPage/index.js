@@ -11,6 +11,15 @@ import BannerSection from '../../components/BannerSection';
 import singlePost1 from '../../doc/img/blog/single_post1.jpg';
 import Metadata from '../../components/Metadata';
 
+const replaceContent = (data) => {
+    let content = data.replace(/href/g, "target='_blank' href");
+    content = content.replace(
+        /src="/g,
+        `src="${process.env.REACT_APP_CMS_URL}`
+    );
+    return content;
+};
+
 const transform = (data) => {
     const imageLink = `${process.env.REACT_APP_CMS_URL + data}`;
     return imageLink;
@@ -225,9 +234,8 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                     <div
                                         // eslint-disable-next-line react/no-danger
                                         dangerouslySetInnerHTML={{
-                                            __html: article.content.replace(
-                                                /href/g,
-                                                "target='_blank' href"
+                                            __html: replaceContent(
+                                                article.content
                                             ),
                                         }}
                                     />
