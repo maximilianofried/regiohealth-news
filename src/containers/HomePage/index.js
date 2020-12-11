@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchArticles, fetchAds } from '../../store/actions';
+import { fetchArticles, fetchAds, fetchOffers } from '../../store/actions';
 import PostGallery from '../../components/PostGallery';
 import Metadata from '../../components/Metadata';
 import { RG_DESCRIPTION } from '../../utils/constants';
 
 const HomePage = ({
     latestArticles,
+    latestOffers,
     topArticles,
     fetchArticles,
     fetchAds,
@@ -14,6 +15,7 @@ const HomePage = ({
 }) => {
     useEffect(() => {
         fetchArticles({ limit: 30 });
+        fetchOffers({ start: 0, limit: 4 });
         fetchAds();
     }, []);
     return (
@@ -24,6 +26,7 @@ const HomePage = ({
             />
             <PostGallery
                 latestArticles={latestArticles}
+                latestOffers={latestOffers}
                 topArticles={topArticles}
                 adsHome={adsHome}
                 className="fifth_bg"
@@ -47,6 +50,7 @@ const mapStateToProps = (state) => {
                   article.city !== ''
                 : ''
         ),
+        latestOffers: state.offers.offers,
         adsHome: state.ads.ads.filter((ad) => ad.position === 'home'),
     };
 };
@@ -55,6 +59,8 @@ const mapDispatchToProps = (dispatch) => {
     return {
         fetchArticles: ({ limit }) => dispatch(fetchArticles({ limit })),
         fetchAds: () => dispatch(fetchAds()),
+        fetchOffers: ({ start, limit }) =>
+            dispatch(fetchOffers({ start, limit })),
     };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

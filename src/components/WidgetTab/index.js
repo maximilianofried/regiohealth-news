@@ -2,12 +2,13 @@ import React, { Fragment, useState } from 'react';
 import { TabContent, TabPane, Fade } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import Heading from '../uiStyle/Heading';
 
-const WidgetTabPane = ({ latestArticles, aId, id }) => {
+const WidgetTabPane = ({ latestData, type, aId, id }) => {
     return (
         <Fade in={id === aId}>
             <div className="widget tab_widgets">
-                {latestArticles.map((item) => (
+                {latestData.map((item) => (
                     <Fragment key={item.id}>
                         <div
                             className={`single_post widgets_small ${
@@ -17,7 +18,13 @@ const WidgetTabPane = ({ latestArticles, aId, id }) => {
                             {item.main_image && item.main_image.formats && (
                                 <div className="post_img">
                                     <div className="img_wrap">
-                                        <Link to={`/article/${item.id}`}>
+                                        <Link
+                                            to={`/${
+                                                type === 'article'
+                                                    ? 'article'
+                                                    : 'offer'
+                                            }/${item.id}`}
+                                        >
                                             <img
                                                 src={
                                                     process.env
@@ -41,7 +48,13 @@ const WidgetTabPane = ({ latestArticles, aId, id }) => {
                                     </Link>
                                 </div>
                                 <h4>
-                                    <Link to={`/article/${item.id}`}>
+                                    <Link
+                                        to={`/${
+                                            type === 'article'
+                                                ? 'article'
+                                                : 'offer'
+                                        }/${item.id}`}
+                                    >
                                         {item.title}
                                     </Link>
                                 </h4>
@@ -57,7 +70,13 @@ const WidgetTabPane = ({ latestArticles, aId, id }) => {
     );
 };
 
-const WidgetTab = ({ className, dark, latestArticles, adsHome }) => {
+const WidgetTab = ({
+    className,
+    dark,
+    latestArticles,
+    latestOffers,
+    adsHome,
+}) => {
     const [activeTab] = useState('1');
 
     return (
@@ -65,7 +84,20 @@ const WidgetTab = ({ className, dark, latestArticles, adsHome }) => {
             <TabContent activeTab={activeTab}>
                 <TabPane tabId="1">
                     <WidgetTabPane
-                        latestArticles={latestArticles}
+                        latestData={latestArticles}
+                        type="article"
+                        dark={dark}
+                        aId={activeTab}
+                        id="1"
+                    />
+                </TabPane>
+                <Heading title="New Offers" />
+            </TabContent>
+            <TabContent activeTab={activeTab}>
+                <TabPane tabId="1">
+                    <WidgetTabPane
+                        latestData={latestOffers}
+                        type="offer"
                         dark={dark}
                         aId={activeTab}
                         id="1"
