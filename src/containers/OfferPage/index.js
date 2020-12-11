@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import moment from 'moment';
-import ReactMarkdown from 'react-markdown';
 import ReactTooltip from 'react-tooltip';
 import { fetchOffer, fetchOfferCleanUp } from '../../store/actions';
 import BreadCrumb from '../../components/BreadCrumb';
@@ -12,17 +11,10 @@ import singlePost1 from '../../doc/img/blog/single_post1.jpg';
 import Metadata from '../../components/Metadata';
 import { RG_LOGO } from '../../utils/constants';
 
-const transform = (data) => {
-    const imageLink = `${process.env.REACT_APP_CMS_URL + data}`;
-    return imageLink;
-};
-
-const LinkRenderer = ({ href, children }) => {
-    return (
-        <a href={href} target="_blank">
-            {children}
-        </a>
-    );
+const replaceContent = (data) => {
+    let content = data.replace(/href/g, "target='_blank' href");
+    content = content.replace(/src/g, `src=${process.env.REACT_APP_CMS_URL}`);
+    return content;
 };
 
 const getMetaDescription = (description, categories) => {
@@ -172,9 +164,8 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                     <div
                                         // eslint-disable-next-line react/no-danger
                                         dangerouslySetInnerHTML={{
-                                            __html: offer.content.replace(
-                                                /href/g,
-                                                "target='_blank' href"
+                                            __html: replaceContent(
+                                                offer.content
                                             ),
                                         }}
                                     />
