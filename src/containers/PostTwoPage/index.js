@@ -157,7 +157,9 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                             <ul>
                                                 <li>
                                                     {moment(
-                                                        article.createdAt
+                                                        article.publishAt
+                                                            ? article.publishAt
+                                                            : article.createdAt
                                                     ).format('LL')}
                                                 </li>
                                             </ul>

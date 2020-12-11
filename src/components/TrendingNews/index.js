@@ -52,9 +52,11 @@ const TrendingNews = ({ dark, latestArticles, adsHome }) => {
                                             ''
                                         )}
                                         <Link to="/">
-                                            {moment(item.createdAt).format(
-                                                'LL'
-                                            )}
+                                            {moment(
+                                                item.publishAt
+                                                    ? item.publishAt
+                                                    : item.createdAt
+                                            ).format('LL')}
                                         </Link>
                                     </div>
                                     <h4>
@@ -111,9 +113,11 @@ const TrendingNews = ({ dark, latestArticles, adsHome }) => {
                                             ''
                                         )}
                                         <Link to="/">
-                                            {moment(item.createdAt).format(
-                                                'LL'
-                                            )}
+                                            {moment(
+                                                item.publishAt
+                                                    ? item.publishAt
+                                                    : item.createdAt
+                                            ).format('LL')}
                                         </Link>
                                     </div>
                                     <h4>
