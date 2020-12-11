@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import moment from 'moment';
@@ -27,12 +27,24 @@ const getMetaDescription = (description, categories) => {
     return metaDescription;
 };
 
+const getMeta = (url, width, setWidth, height, setHeight) => {
+    const img = new Image();
+    img.addEventListener('load', function () {
+        setWidth(this.naturalWidth);
+        setHeight(this.naturalHeight);
+    });
+    img.src = url;
+    return { width, height };
+};
+
 const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
     const { id } = useParams();
     useEffect(() => {
         fetchOffer(id);
         return () => fetchOfferCleanUp();
     }, [id]);
+    const [width, setWidth] = useState(0);
+    const [height, setHeight] = useState(0);
     const offer = offerData.offer || null;
     return (
         offer && (
@@ -48,6 +60,18 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                             ? process.env.REACT_APP_CMS_URL +
                               offer.main_image.url
                             : RG_LOGO
+                    }
+                    imageSize={
+                        offer.main_image
+                            ? getMeta(
+                                  process.env.REACT_APP_CMS_URL +
+                                      offer.main_image.url,
+                                  width,
+                                  setWidth,
+                                  height,
+                                  setHeight
+                              )
+                            : ''
                     }
                     url={`${process.env.REACT_APP_BASE_PAGE_URL}/offer/${id}`}
                 />
