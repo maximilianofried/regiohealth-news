@@ -177,13 +177,6 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                         Preis: {'€'}
                                         {offer.price}
                                     </li>
-                                    <li>
-                                        Start:{' '}
-                                        {moment(offer.start).format('LL')}
-                                    </li>
-                                    <li>
-                                        Ende: {moment(offer.end).format('LL')}
-                                    </li>
                                 </ul>
 
                                 {offer && offer.content && (

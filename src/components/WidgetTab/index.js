@@ -40,9 +40,11 @@ const WidgetTabPane = ({ latestData, type, aId, id }) => {
                             )}
                             <div className="single_post_text">
                                 <div className="meta2 meta_separator1">
-                                    <Link to="/">
-                                        {item.categories[0].name}
-                                    </Link>
+                                    {item.categories.length && (
+                                        <Link to="/">
+                                            {item.categories[0].name}
+                                        </Link>
+                                    )}
                                     <Link to="/">
                                         {moment(
                                             item.publishAt
