@@ -4,12 +4,13 @@ import { connect } from 'react-redux';
 import FooterCopyright from '../FooterCopyright';
 import FontAwesome from '../uiStyle/FontAwesome';
 import { fetchPages } from '../../store/actions';
+import mockPages from '../../mockdata/pages.json';
 
 const FooterArea = ({ className, fetchPages, pages }) => {
     useEffect(() => {
         fetchPages();
     }, []);
-    const pagesMenu = pages.pages;
+    const pagesMenu = pages && pages.pages ? pages.pages : mockPages;
     return (
         <div className={`footer footer_area1 ${className || ''}`}>
             <div className="container">
