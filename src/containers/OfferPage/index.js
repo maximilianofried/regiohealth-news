@@ -108,7 +108,9 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                             <ul>
                                                 <li>
                                                     {moment(
-                                                        offer.createdAt
+                                                        offer.publishAt
+                                                            ? offer.publishAt
+                                                            : offer.createdAt
                                                     ).format('LL')}
                                                 </li>
                                             </ul>
@@ -174,13 +176,6 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                     <li>
                                         Preis: {'€'}
                                         {offer.price}
-                                    </li>
-                                    <li>
-                                        Start:{' '}
-                                        {moment(offer.start).format('LL')}
-                                    </li>
-                                    <li>
-                                        Ende: {moment(offer.end).format('LL')}
                                     </li>
                                 </ul>
 
