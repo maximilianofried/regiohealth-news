@@ -9,6 +9,8 @@ import PostTwoPage from '../PostTwoPage';
 import SearchPage from '../SearchPage';
 import OfferPage from '../OfferPage';
 import useTracking from '../../utils/useTracking';
+import mockMenu from '../../mockdata/menu.json';
+import mockPages from '../../mockdata/pages.json';
 // import PublicRoute from '../_PublicRoute';
 
 const selectPage = (pageName, categories, props) => {
@@ -22,8 +24,9 @@ const selectPage = (pageName, categories, props) => {
 };
 
 const Routes = ({ menuData, pages }) => {
-    const { menu } = menuData;
-    const pagesMenu = pages.pages;
+    const menu =
+        menuData && menuData.menu.length > 0 ? menuData.menu : mockMenu;
+    const pagesMenu = pages && pages.pages ? pages.pages : mockPages;
     useTracking(process.env.REACT_APP_UA_TRACK);
     return (
         <Switch>

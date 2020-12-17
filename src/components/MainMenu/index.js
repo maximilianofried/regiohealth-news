@@ -7,6 +7,7 @@ import FontAwesome from '../uiStyle/FontAwesome';
 import SidebarMenu from '../SidebarMenu';
 import Dropdown from '../Dropdown';
 import { fetchMenu } from '../../store/actions';
+import mockMenu from '../../mockdata/menu.json';
 
 const MainMenu = ({ className, dark, fetchMenu, menuData }) => {
     useEffect(() => {
@@ -14,7 +15,8 @@ const MainMenu = ({ className, dark, fetchMenu, menuData }) => {
     }, []);
     const [sideShow, setSideShow] = useState(false);
     const currentDate = moment().format('dddd, MMMM D, YYYY');
-    const arr = menuData.menu;
+    const arr =
+        menuData.menu && menuData.menu.length > 0 ? menuData.menu : mockMenu;
     return (
         <>
             <div className={`main-menu ${className || ''}`} id="header">

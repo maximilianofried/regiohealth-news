@@ -16,21 +16,21 @@ const App = ({ fetchMenu, fetchPages, pages, menuData, error, success }) => {
     useEffect(() => {
         fetchMenu();
         fetchPages();
-        fakeRequest().then(() => {
-            const el = document.querySelector('.loader-container');
-            if (el) {
-                el.remove();
-                setLoading(!isLoading);
-            }
-        });
+        // fakeRequest().then(() => {
+        //     const el = document.querySelector('.loader-container');
+        //     if (el) {
+        //         el.remove();
+        //         setLoading(!isLoading);
+        //     }
+        // });
     }, []);
 
     if (error) toast.error(error);
     if (success) toast.success(success);
 
-    if (isLoading) {
-        return null;
-    }
+    // if (isLoading) {
+    //     return null;
+    // }
     return (
         <>
             <ScrollToTop />
