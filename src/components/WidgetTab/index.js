@@ -114,7 +114,7 @@ const WidgetTab = ({
                 <div className="col-lg-12">
                     {adsHome && adsHome.length > 0 && (
                         <div className="banner2 mb30">
-                            <a href={adsHome[0].link}>
+                            <a target="_blank" href={adsHome[0].link}>
                                 <img
                                     src={
                                         process.env.REACT_APP_CMS_URL +
