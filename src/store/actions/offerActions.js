@@ -32,11 +32,11 @@ export const fetchOfferCleanUp = () => {
     };
 };
 
-export const fetchOffer = (id) => {
+export const fetchOffer = (slug) => {
     return (dispatch) => {
         dispatch(fetchOfferRequest);
         axios
-            .get(`${process.env.REACT_APP_CMS_URL}/offers/published/${id}`)
+            .get(`${process.env.REACT_APP_CMS_URL}/offers/published/${slug}`)
             .then((response) => {
                 const offer = response.data;
                 dispatch(fetchOfferSuccess(offer));

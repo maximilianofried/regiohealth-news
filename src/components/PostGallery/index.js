@@ -37,7 +37,7 @@ const PostGallery = ({
                                                 <h4>
                                                     <Link
                                                         className="play_btn"
-                                                        to={`/article/${item.id}`}
+                                                        to={`/article/${item.slug}`}
                                                     >
                                                         {item.title}
                                                     </Link>
@@ -63,7 +63,7 @@ const PostGallery = ({
                                                 </div>
                                                 <div className="space-10" />
                                             </div>
-                                            <Link to={`/article/${item.id}`}>
+                                            <Link to={`/article/${item.slug}`}>
                                                 <div className="post_img gradient1">
                                                     <img
                                                         src={

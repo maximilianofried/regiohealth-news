@@ -38,11 +38,11 @@ const getMeta = (url, width, setWidth, height, setHeight) => {
 };
 
 const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
-    const { id } = useParams();
+    const { slug } = useParams();
     useEffect(() => {
-        fetchOffer(id);
+        fetchOffer(slug);
         return () => fetchOfferCleanUp();
-    }, [id]);
+    }, [slug]);
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const offer = offerData.offer || null;
@@ -73,7 +73,7 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                               )
                             : ''
                     }
-                    url={`${process.env.REACT_APP_BASE_PAGE_URL}/offer/${id}`}
+                    url={`${process.env.REACT_APP_BASE_PAGE_URL}/offer/${slug}`}
                 />
                 <div className="archives post post1">
                     <BreadCrumb
@@ -127,7 +127,7 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                                 <li>
                                                     <a
                                                         data-tip="Twitter"
-                                                        href={`https://twitter.com/share?url=${process.env.REACT_APP_BASE_PAGE_URL}/offer/${offer.id}`}
+                                                        href={`https://twitter.com/share?url=${process.env.REACT_APP_BASE_PAGE_URL}/offer/${offer.slug}`}
                                                         target="_blank"
                                                     >
                                                         <FontAwesome name="twitter" />
@@ -136,7 +136,7 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                                 <li>
                                                     <a
                                                         data-tip="Facebook"
-                                                        href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.REACT_APP_BASE_PAGE_URL}/offer/${offer.id}`}
+                                                        href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.REACT_APP_BASE_PAGE_URL}/offer/${offer.slug}`}
                                                         target="_blank"
                                                     >
                                                         <FontAwesome name="facebook-f" />
@@ -145,7 +145,7 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                                 <li>
                                                     <a
                                                         data-tip="Whatsapp"
-                                                        href={`https://wa.me/?text=${process.env.REACT_APP_BASE_PAGE_URL}/offer/${offer.id}`}
+                                                        href={`https://wa.me/?text=${process.env.REACT_APP_BASE_PAGE_URL}/offer/${offer.slug}`}
                                                         target="_blank"
                                                     >
                                                         <FontAwesome name="whatsapp" />
@@ -269,7 +269,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchOffer: (id) => dispatch(fetchOffer(id)),
+        fetchOffer: (slug) => dispatch(fetchOffer(slug)),
         fetchOfferCleanUp: () => dispatch(fetchOfferCleanUp()),
     };
 };

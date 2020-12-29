@@ -90,7 +90,7 @@ const PostCarousel = ({ className, latestArticles }) => {
                                                     <div className="post_img">
                                                         <div className="img_wrap">
                                                             <Link
-                                                                to={`/article/${item.id}`}
+                                                                to={`/article/${item.slug}`}
                                                             >
                                                                 <img
                                                                     src={
@@ -114,7 +114,7 @@ const PostCarousel = ({ className, latestArticles }) => {
                                                 <div className="single_post_text">
                                                     <h4>
                                                         <Link
-                                                            to={`/article/${item.id}`}
+                                                            to={`/article/${item.slug}`}
                                                         >
                                                             {item.title.length >
                                                             35

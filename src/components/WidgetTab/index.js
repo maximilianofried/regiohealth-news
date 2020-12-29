@@ -23,7 +23,7 @@ const WidgetTabPane = ({ latestData, type, aId, id }) => {
                                                 type === 'article'
                                                     ? 'article'
                                                     : 'offer'
-                                            }/${item.id}`}
+                                            }/${item.slug}`}
                                         >
                                             <img
                                                 src={
@@ -59,7 +59,7 @@ const WidgetTabPane = ({ latestData, type, aId, id }) => {
                                             type === 'article'
                                                 ? 'article'
                                                 : 'offer'
-                                        }/${item.id}`}
+                                        }/${item.slug}`}
                                     >
                                         {item.title}
                                     </Link>

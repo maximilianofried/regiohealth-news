@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 
 const GeoDataNews = ({ geoData, headerHide }) => {
-    const generateLink = (objectType, id) => {
+    const generateLink = (objectType, slug) => {
         let link = '/';
         if (objectType === 'article') {
-            link = `/article/${id}`;
+            link = `/article/${slug}`;
         }
         if (objectType === 'offer') {
-            link = `/offer/${id}`;
+            link = `/offer/${slug}`;
         }
         return link;
     };
@@ -76,7 +76,7 @@ const GeoDataNews = ({ geoData, headerHide }) => {
                                             <Link
                                                 to={generateLink(
                                                     item.objectType,
-                                                    item.id
+                                                    item.slug
                                                 )}
                                             >
                                                 {item.title}
