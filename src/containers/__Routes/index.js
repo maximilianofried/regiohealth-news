@@ -60,13 +60,13 @@ const Routes = ({ menuData, pages }) => {
             ))}
             <PrivateRoute
                 exact
-                path="/article/:id"
+                path="/article/:slug"
                 parentClass="theme-1"
                 component={PostTwoPage}
             />
             <PrivateRoute
                 exact
-                path="/offer/:id"
+                path="/offer/:slug"
                 parentClass="theme-1"
                 component={OfferPage}
             />

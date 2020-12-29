@@ -54,11 +54,11 @@ const getMeta = (url, width, setWidth, height, setHeight) => {
 };
 
 const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
-    const { id } = useParams();
+    const { slug } = useParams();
     useEffect(() => {
-        fetchArticle(id);
+        fetchArticle(slug);
         return () => fetchArticleCleanUp();
-    }, [id]);
+    }, [slug]);
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const article = articleData.article || null;
@@ -89,7 +89,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                               )
                             : ''
                     }
-                    url={`${process.env.REACT_APP_BASE_PAGE_URL}/article/${id}`}
+                    url={`${process.env.REACT_APP_BASE_PAGE_URL}/article/${slug}`}
                 />
                 <div className="archives post post1">
                     <BreadCrumb
@@ -176,7 +176,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                                 <li>
                                                     <a
                                                         data-tip="Twitter"
-                                                        href={`https://twitter.com/share?url=${process.env.REACT_APP_BASE_PAGE_URL}/article/${article.id}`}
+                                                        href={`https://twitter.com/share?url=${process.env.REACT_APP_BASE_PAGE_URL}/article/${article.slug}`}
                                                         target="_blank"
                                                     >
                                                         <FontAwesome name="twitter" />
@@ -185,7 +185,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                                 <li>
                                                     <a
                                                         data-tip="Facebook"
-                                                        href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.REACT_APP_BASE_PAGE_URL}/article/${article.id}`}
+                                                        href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.REACT_APP_BASE_PAGE_URL}/article/${article.slug}`}
                                                         target="_blank"
                                                     >
                                                         <FontAwesome name="facebook-f" />
@@ -194,7 +194,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                                 <li>
                                                     <a
                                                         data-tip="Whatsapp"
-                                                        href={`https://wa.me/?text=${process.env.REACT_APP_BASE_PAGE_URL}/article/${article.id}`}
+                                                        href={`https://wa.me/?text=${process.env.REACT_APP_BASE_PAGE_URL}/article/${article.slug}`}
                                                         target="_blank"
                                                     >
                                                         <FontAwesome name="whatsapp" />
@@ -308,7 +308,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchArticle: (id) => dispatch(fetchArticle(id)),
+        fetchArticle: (slug) => dispatch(fetchArticle(slug)),
         fetchArticleCleanUp: () => dispatch(fetchArticleCleanUp()),
     };
 };

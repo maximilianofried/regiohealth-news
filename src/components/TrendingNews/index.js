@@ -28,7 +28,7 @@ const TrendingNews = ({ dark, latestArticles, adsHome }) => {
                                 {item.main_image && item.main_image.formats && (
                                     <div className="post_img">
                                         <div className="img_wrap">
-                                            <Link to={`/article/${item.id}`}>
+                                            <Link to={`/article/${item.slug}`}>
                                                 <img
                                                     src={
                                                         process.env
@@ -60,7 +60,7 @@ const TrendingNews = ({ dark, latestArticles, adsHome }) => {
                                         </Link>
                                     </div>
                                     <h4>
-                                        <Link to={`/article/${item.id}`}>
+                                        <Link to={`/article/${item.slug}`}>
                                             {item.title}
                                         </Link>
                                     </h4>
@@ -89,7 +89,7 @@ const TrendingNews = ({ dark, latestArticles, adsHome }) => {
                                 {item.main_image && item.main_image.formats && (
                                     <div className="post_img">
                                         <div className="img_wrap">
-                                            <Link to={`/article/${item.id}`}>
+                                            <Link to={`/article/${item.slug}`}>
                                                 <img
                                                     src={
                                                         process.env
@@ -121,7 +121,7 @@ const TrendingNews = ({ dark, latestArticles, adsHome }) => {
                                         </Link>
                                     </div>
                                     <h4>
-                                        <Link to={`/article/${item.id}`}>
+                                        <Link to={`/article/${item.slug}`}>
                                             {item.title}
                                         </Link>
                                     </h4>

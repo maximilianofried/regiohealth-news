@@ -65,7 +65,7 @@ const TopBar = ({ className, dark, offers = [], fetchOffers }) => {
                                                 >
                                                     <div className="tran_p">
                                                         <Link
-                                                            to={`/offer/${item.id}`}
+                                                            to={`/offer/${item.slug}`}
                                                         >
                                                             {item.title
                                                                 .length <= 30
