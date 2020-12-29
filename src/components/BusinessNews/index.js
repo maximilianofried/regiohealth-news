@@ -30,7 +30,7 @@ const BusinessNews = ({ businessArticles, headerHide }) => {
                                 >
                                     <div className="post_img">
                                         <div className="img_wrap">
-                                            <Link to={`/article/${item.id}`}>
+                                            <Link to={`/article/${item.slug}`}>
                                                 {item.main_image ? (
                                                     <img
                                                         src={`${process.env.REACT_APP_CMS_URL}${item.main_image.url}`}
@@ -54,7 +54,7 @@ const BusinessNews = ({ businessArticles, headerHide }) => {
                                             </Link>
                                         </div>
                                         <h4>
-                                            <Link to={`/article/${item.id}`}>
+                                            <Link to={`/article/${item.slug}`}>
                                                 {item.title}
                                             </Link>
                                         </h4>

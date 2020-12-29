@@ -19,7 +19,7 @@ const WidgetTabPane = ({ nationalData, aId, id, type }) => {
                             {item.main_image && (
                                 <div className="post_img">
                                     <div className="img_wrap">
-                                        <Link to={`/${type}/${item.id}`}>
+                                        <Link to={`/${type}/${item.slug}`}>
                                             <img
                                                 src={
                                                     process.env
@@ -52,7 +52,7 @@ const WidgetTabPane = ({ nationalData, aId, id, type }) => {
                                     </Link>
                                 </div>
                                 <h4>
-                                    <Link to={`/${type}/${item.id}`}>
+                                    <Link to={`/${type}/${item.slug}`}>
                                         {item.title}
                                     </Link>
                                 </h4>

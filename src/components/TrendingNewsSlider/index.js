@@ -80,7 +80,7 @@ const TrendingNewsSlider = ({ latestArticles, adsHome = [] }) => {
                                     </Link>
                                 </div>
                                 <h4>
-                                    <Link to={`/article/${item.id}`}>
+                                    <Link to={`/article/${item.slug}`}>
                                         {item.title}
                                     </Link>
                                 </h4>

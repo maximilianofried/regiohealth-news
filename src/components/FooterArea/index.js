@@ -33,7 +33,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                     </li>
                                     <li>
                                         <a
-                                            href="http://diewohlfuehler-akademie.de/regio-health-betriebliches-gesundheitsmanagement-in-regionalen-mikrozellen/"
+                                            href="https://479eae97.sibforms.com/serve/MUIEABDskcRWZNUAk0yP8ZUqPl1a5MHmJTQB5Fr5xAJqUy33gngrAR3iLs9mHmq43YZn53_Mi7sphUtUjVnjnAzKiSls8d_oN2F5QvKKBD-9RRa8Get_Kx84EWHuR97qhwolS19aU7BSUvLQ8ss2qJ9LKOQdUhZjmHZ0xOVcm4q89f53HEwuo0I-nst32qIyVtdxBsIYplmm48M0"
                                             target="_blank"
                                         >
                                             <img
