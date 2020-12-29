@@ -173,10 +173,24 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                 </div>
                                 <div className="space-20" />
                                 <ul>
-                                    <li>
-                                        Preis: {'€'}
-                                        {offer.price}
-                                    </li>
+                                    {offer.price && (
+                                        <li>
+                                            Preis:
+                                            {offer.price}
+                                        </li>
+                                    )}
+                                    {offer.start && (
+                                        <li>
+                                            Start:{' '}
+                                            {moment(offer.start).format('LL')}
+                                        </li>
+                                    )}
+                                    {offer.end && (
+                                        <li>
+                                            Ende:{' '}
+                                            {moment(offer.end).format('LL')}
+                                        </li>
+                                    )}
                                 </ul>
 
                                 {offer && offer.content && (

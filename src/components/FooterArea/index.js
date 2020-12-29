@@ -82,7 +82,22 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                 </ul>
                             </div>
                         </div>
-                        <div className="col-4 col-md-5 align-end">
+                        <div className="col-8 col-md-3 ">
+                            <div className="newsletter">
+                                <ul className="inline">
+                                    <li>
+                                        <a
+                                            target="_blank"
+                                            href="https://479eae97.sibforms.com/serve/MUIEABvaG_MM21JAw8QsImj-sWdi4lVwK67sgudJVsYafLIXEMfwXS4woB57pfptvRoaNOKeT7hdpb9kWwBjfjAf9tm5OqfJ2krTQiTyUFj6VLuNaWmvQ46j05EWn724y3-qaKSgfHlApRwzpZJ07c5eAnj3DpLsOrs5_piQ42M4faevLccJOVgaSCcih2HVGbNutNegZwz0W0UI"
+                                        >
+                                            Newsletter{' '}
+                                            <FontAwesome name="newspaper-o" />
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div className="col-4 col-md-2 align-end">
                             <div className="social2">
                                 <ul className="inline">
                                     <li>

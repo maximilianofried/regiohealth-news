@@ -1737,7 +1737,33 @@ span.tranding {
 
     .cta {
         // padding: 70px 0 40px;
+        .newsletter {
+            margin-top: 35px;
 
+            ul {
+                margin: 0;
+                padding: 0;
+
+                li {
+                    list-style: none;
+
+                    a {
+                        width: 200px;
+                        height: 40px;
+                        display: block;
+                        text-align: center;
+                        line-height: 40px;
+                        font-style: $small_font_size;
+                        color: $dark_social_color;
+                        background: $dark_social_bg;
+                        &:hover {
+                            background: $green_regiohealth;
+                            color: $white;
+                        }
+                    }
+                }
+            }
+        }
         .social2 {
             &:last-child {
                 margin-top: 35px;
@@ -2919,5 +2945,11 @@ a.cbtn3 {
         height: 45px;
         margin-bottom: 20px;
         // flex-wrap: wrap;
+    }
+
+    //NEWSLETTER FORM
+
+    .sib-form {
+        color: red;
     }
 }
