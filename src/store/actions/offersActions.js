@@ -43,7 +43,7 @@ export const fetchOffers = ({
         );
         const url = `${
             process.env.REACT_APP_CMS_URL
-        }/offers/published?_sort=createdAt:DESC,publishAt:DESC${
+        }/offers/published?_sort=publishAt:DESC${
             categories ? `&${query}` : ''
         }${city ? `&city=${city}` : ''}${start ? `&_start=${start}` : ''}${
             limit ? `&_limit=${limit}` : ''
