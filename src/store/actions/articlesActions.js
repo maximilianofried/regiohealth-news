@@ -59,7 +59,7 @@ export const fetchArticles = ({
         );
         const url = `${
             process.env.REACT_APP_CMS_URL
-        }/articles/published?_sort=publishAt:DESC,createdAt:DESC${
+        }/articles/published?_sort=publishAt:desc${
             categories ? `&${query}` : ''
         }${city ? `&city=${city}` : ''}${start ? `&_start=${start}` : ''}${
             limit ? `&_limit=${limit}` : ''
