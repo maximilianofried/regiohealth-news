@@ -56,8 +56,6 @@ const PostGallery = ({
                                                     <div className="cat_date">
                                                         {moment(
                                                             item.publishAt
-                                                                ? item.publishAt
-                                                                : item.createdAt
                                                         ).format('LL')}
                                                     </div>
                                                 </div>

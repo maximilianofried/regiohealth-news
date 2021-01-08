@@ -46,11 +46,9 @@ const BusinessNews = ({ businessArticles, headerHide }) => {
                                         <div className="meta3">
                                             <Link to="/">{item.author}</Link>
                                             <Link to="/">
-                                                {moment(
-                                                    item.publishAt
-                                                        ? item.publishAt
-                                                        : item.createdAt
-                                                ).format('LL')}
+                                                {moment(item.publishAt).format(
+                                                    'LL'
+                                                )}
                                             </Link>
                                         </div>
                                         <h4>

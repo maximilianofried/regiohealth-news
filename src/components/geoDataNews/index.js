@@ -60,11 +60,9 @@ const GeoDataNews = ({ geoData, headerHide }) => {
                                     <div className="single_post_text">
                                         <div className="meta3_suchportal">
                                             <Link to="/">
-                                                {moment(
-                                                    item.publishAt
-                                                        ? item.publishAt
-                                                        : item.createdAt
-                                                ).format('LL')}
+                                                {moment(item.publishAt).format(
+                                                    'LL'
+                                                )}
                                             </Link>
                                             <Link to="/">
                                                 {item.company

@@ -109,8 +109,6 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                                 <li>
                                                     {moment(
                                                         offer.publishAt
-                                                            ? offer.publishAt
-                                                            : offer.createdAt
                                                     ).format('LL')}
                                                 </li>
                                             </ul>
