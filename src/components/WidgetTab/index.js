@@ -3,6 +3,7 @@ import { TabContent, TabPane, Fade } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import Heading from '../uiStyle/Heading';
+import NewsLetter from '../Newsletter';
 
 const WidgetTabPane = ({ latestData, type, aId, id }) => {
     return (
@@ -15,7 +16,7 @@ const WidgetTabPane = ({ latestData, type, aId, id }) => {
                                 item.main_image ? '' : 'widgets_small_no_image'
                             }`}
                         >
-                            {item.main_image && item.main_image.formats && (
+                            {item.main_image && (
                                 <div className="post_img">
                                     <div className="img_wrap">
                                         <Link
@@ -29,8 +30,11 @@ const WidgetTabPane = ({ latestData, type, aId, id }) => {
                                                 src={
                                                     process.env
                                                         .REACT_APP_CMS_URL +
-                                                    item.main_image.formats
-                                                        .thumbnail.url
+                                                    (item.main_image.formats
+                                                        ? item.main_image
+                                                              .formats.thumbnail
+                                                              .url
+                                                        : item.main_image.url)
                                                 }
                                                 alt="thumb"
                                             />
@@ -93,8 +97,13 @@ const WidgetTab = ({
                         id="1"
                     />
                 </TabPane>
-                <Heading title="New Offers" />
             </TabContent>
+            <div className="row">
+                <div className="col-lg-12">
+                    <NewsLetter />
+                </div>
+            </div>
+            <Heading title="New Offers" />
             <TabContent activeTab={activeTab}>
                 <TabPane tabId="1">
                     <WidgetTabPane
