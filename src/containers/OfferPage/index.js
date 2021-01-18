@@ -13,7 +13,10 @@ import { RG_LOGO } from '../../utils/constants';
 
 const replaceContent = (data) => {
     let content = data.replace(/href/g, "target='_blank' href");
-    content = content.replace(/src/g, `src=${process.env.REACT_APP_CMS_URL}`);
+    content = content.replace(
+        /src="/g,
+        `src="${process.env.REACT_APP_CMS_URL}`
+    );
     return content;
 };
 
