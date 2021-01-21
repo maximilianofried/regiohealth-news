@@ -16,7 +16,7 @@ const NewsLetter = ({ className, inputWhite, titleClass }) => {
                     <li>
                         <a
                             target="_blank"
-                            href="https://479eae97.sibforms.com/serve/MUIEABvaG_MM21JAw8QsImj-sWdi4lVwK67sgudJVsYafLIXEMfwXS4woB57pfptvRoaNOKeT7hdpb9kWwBjfjAf9tm5OqfJ2krTQiTyUFj6VLuNaWmvQ46j05EWn724y3-qaKSgfHlApRwzpZJ07c5eAnj3DpLsOrs5_piQ42M4faevLccJOVgaSCcih2HVGbNutNegZwz0W0UI"
+                            href="https://479eae97.sibforms.com/serve/MUIEADSWDylT8D8OgTnMcV25um59XUPhc5k4mhMnNsnmZjdPO-now3kkr00XjVoC6FdrE3cS-xXfIj9Sk6Bclwn8pJiCD2tYlCpiviSkhDvcg3EcwCZSMNLbzICM3RiJ57diUgFwGyAMRkzUGa0DYEyLG56PnHP8c3pDMTcOhlL6HM9kF1mYTR5in6T0xLGXVnj2LmuBYbwWEs0H"
                         >
                             Abonnieren <FontAwesome name="newspaper-o" />
                         </a>
