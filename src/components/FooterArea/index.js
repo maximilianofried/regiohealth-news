@@ -33,7 +33,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                     </li>
                                     <li>
                                         <a
-                                            href="https://479eae97.sibforms.com/serve/MUIEABDskcRWZNUAk0yP8ZUqPl1a5MHmJTQB5Fr5xAJqUy33gngrAR3iLs9mHmq43YZn53_Mi7sphUtUjVnjnAzKiSls8d_oN2F5QvKKBD-9RRa8Get_Kx84EWHuR97qhwolS19aU7BSUvLQ8ss2qJ9LKOQdUhZjmHZ0xOVcm4q89f53HEwuo0I-nst32qIyVtdxBsIYplmm48M0"
+                                            href="https://479eae97.sibforms.com/serve/MUIEAEvroLOl7gAeKgjfkbLkysmfsuAS3Tg6HJf6pH3obY0A938-9XXoyezLoftkDhOte_IPJ4UzRcIaiUwNZVuQPKYRpGLaLvT5TZ5udL7Bhv2Vlh9onojMKyw5UxBFiuAoIcA89fFusp3sdopMgDpkOXeSLuurQRJPPChbLNNYIGmg4-8iLrJQA8l6xcpt-8K9i8z56LepgN9j"
                                             target="_blank"
                                         >
                                             <img
@@ -88,7 +88,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                     <li>
                                         <a
                                             target="_blank"
-                                            href="https://479eae97.sibforms.com/serve/MUIEABvaG_MM21JAw8QsImj-sWdi4lVwK67sgudJVsYafLIXEMfwXS4woB57pfptvRoaNOKeT7hdpb9kWwBjfjAf9tm5OqfJ2krTQiTyUFj6VLuNaWmvQ46j05EWn724y3-qaKSgfHlApRwzpZJ07c5eAnj3DpLsOrs5_piQ42M4faevLccJOVgaSCcih2HVGbNutNegZwz0W0UI"
+                                            href="https://479eae97.sibforms.com/serve/MUIEAEvroLOl7gAeKgjfkbLkysmfsuAS3Tg6HJf6pH3obY0A938-9XXoyezLoftkDhOte_IPJ4UzRcIaiUwNZVuQPKYRpGLaLvT5TZ5udL7Bhv2Vlh9onojMKyw5UxBFiuAoIcA89fFusp3sdopMgDpkOXeSLuurQRJPPChbLNNYIGmg4-8iLrJQA8l6xcpt-8K9i8z56LepgN9j"
                                         >
                                             Newsletter{' '}
                                             <FontAwesome name="newspaper-o" />
