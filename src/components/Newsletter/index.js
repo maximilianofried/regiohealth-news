@@ -8,8 +8,8 @@ const NewsLetter = ({ className, inputWhite, titleClass }) => {
                 RegioHealth.NEWSLETTER
             </h2>
             <p>
-                Abonnieren Sie hier die wöchentliche Zusammenfassung der
-                interessantesten Beiträge.
+                Erhalten Sie eine regelmäßige Zusammenfassung der
+                interessantesten Beiträge!
             </p>
             <div className="newsletter">
                 <ul className="inline">
