@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import WidgetTab from '../WidgetTab';
 import '../../../node_modules/slick-carousel/slick/slick.css';
 import PostCarousel from '../PostCarousel';
 import TrendingNews from '../TrendingNews';
 import sliderImg1 from '../../doc/img/header/sider-top.jpg';
 import './style.scss';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const PostGallery = ({
     className,
@@ -28,60 +30,69 @@ const PostGallery = ({
                         <div className="row">
                             <div className="col-xl-8">
                                 <div className="slider_demo2">
-                                    {topArticles.slice(0, 1).map((item) => (
-                                        <div
-                                            key={item.id}
-                                            className="single_post post_type6 xs-mb30"
-                                        >
-                                            <div className="single_post_text">
-                                                <h4>
-                                                    <Link
-                                                        className="play_btn"
-                                                        to={`/article/${item.slug}`}
-                                                    >
-                                                        {item.title}
-                                                    </Link>
-                                                </h4>
-                                                <div className="post-p">
-                                                    {item.description}
-                                                </div>
-                                                <div className="meta meta_separator1 d-flex">
-                                                    <div className="cat_date">
-                                                        {item.categories
-                                                            .length > 0
-                                                            ? item.categories[0]
-                                                                  .name
-                                                            : ''}
+                                    {topArticles ? (
+                                        topArticles.slice(0, 1).map((item) => (
+                                            <div
+                                                key={item.id}
+                                                className="single_post post_type6 xs-mb30"
+                                            >
+                                                <div className="single_post_text">
+                                                    <h4>
+                                                        <Link
+                                                            className="play_btn"
+                                                            to={`/article/${item.slug}`}
+                                                        >
+                                                            {item.title}
+                                                        </Link>
+                                                    </h4>
+                                                    <div className="post-p">
+                                                        {item.description}
                                                     </div>
-                                                    <div className="cat_date">
-                                                        {moment(
-                                                            item.publishAt
-                                                        ).format('LL')}
+                                                    <div className="meta meta_separator1 d-flex">
+                                                        <div className="cat_date">
+                                                            {item.categories
+                                                                .length > 0
+                                                                ? item
+                                                                      .categories[0]
+                                                                      .name
+                                                                : ''}
+                                                        </div>
+                                                        <div className="cat_date">
+                                                            {moment(
+                                                                item.publishAt
+                                                            ).format('LL')}
+                                                        </div>
                                                     </div>
+                                                    <div className="space-10" />
                                                 </div>
-                                                <div className="space-10" />
+                                                <Link
+                                                    to={`/article/${item.slug}`}
+                                                >
+                                                    <div className="wrapper post_img gradient1">
+                                                        <LazyLoadImage
+                                                            className="wrapper__img"
+                                                            src={
+                                                                item.main_image
+                                                                    ? `${
+                                                                          process
+                                                                              .env
+                                                                              .REACT_APP_CMS_URL +
+                                                                          item
+                                                                              .main_image
+                                                                              .url
+                                                                      }`
+                                                                    : sliderImg1
+                                                            }
+                                                            alt="thumb"
+                                                            effect="blur"
+                                                        />
+                                                    </div>
+                                                </Link>
                                             </div>
-                                            <Link to={`/article/${item.slug}`}>
-                                                <div className="post_img gradient1">
-                                                    <img
-                                                        src={
-                                                            item.main_image
-                                                                ? `${
-                                                                      process
-                                                                          .env
-                                                                          .REACT_APP_CMS_URL +
-                                                                      item
-                                                                          .main_image
-                                                                          .url
-                                                                  }`
-                                                                : sliderImg1
-                                                        }
-                                                        alt="thumb"
-                                                    />
-                                                </div>
-                                            </Link>
-                                        </div>
-                                    ))}
+                                        ))
+                                    ) : (
+                                        <div />
+                                    )}
                                 </div>
                                 <TrendingNews
                                     adsHome={adsHome.filter(

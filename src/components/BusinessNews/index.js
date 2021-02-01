@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const BusinessNews = ({ businessArticles, headerHide }) => {
     return (
@@ -32,9 +34,10 @@ const BusinessNews = ({ businessArticles, headerHide }) => {
                                         <div className="img_wrap">
                                             <Link to={`/article/${item.slug}`}>
                                                 {item.main_image ? (
-                                                    <img
+                                                    <LazyLoadImage
                                                         src={`${process.env.REACT_APP_CMS_URL}${item.main_image.url}`}
                                                         alt="thumb"
+                                                        effect="blur"
                                                     />
                                                 ) : (
                                                     ''

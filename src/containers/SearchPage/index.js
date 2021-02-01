@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import StickyBox from 'react-sticky-box';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {
     fetchGeoData,
     fetchAds,
@@ -14,6 +15,7 @@ import '@reach/combobox/styles.css';
 import '@reach/listbox/styles.css';
 import BannerSection from '../../components/BannerSection';
 import SearchBox from '../../components/SearchBox';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const SearchPage = ({
     fetchGeoData,
@@ -124,7 +126,7 @@ const SearchPage = ({
                                     >
                                         {banner350x292.image &&
                                             banner350x292.image.length > 0 && (
-                                                <img
+                                                <LazyLoadImage
                                                     src={
                                                         process.env
                                                             .REACT_APP_CMS_URL +
@@ -132,6 +134,7 @@ const SearchPage = ({
                                                             .url
                                                     }
                                                     alt="banner"
+                                                    effect="blur"
                                                 />
                                             )}
                                     </a>
