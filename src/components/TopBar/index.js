@@ -45,67 +45,64 @@ const TopBar = ({ className, dark, offers = [], fetchOffers }) => {
                 <div className="row">
                     {offers && (
                         <div className="col-md-8 align-self-center">
-                            {offers && offers.length > 0 && (
-                                <div
-                                    className={`trancarousel_area ${
-                                        dark ? 'white' : ''
-                                    }`}
-                                >
-                                    <div className="trand">Offers</div>
-                                    <div className="nav_style1">
-                                        <Swiper
-                                            ref={ref}
-                                            className="trancarousel"
-                                            {...params}
-                                        >
-                                            {offers.map((item) => (
-                                                <div
-                                                    key={item.id}
-                                                    className="trancarousel_item"
-                                                >
-                                                    <div className="tran_p">
-                                                        <Link
-                                                            to={`/offer/${item.slug}`}
-                                                        >
-                                                            {item.title
-                                                                .length <= 30
-                                                                ? `${
-                                                                      item.title
-                                                                  } - ${
-                                                                      item.description
-                                                                          ? item.description.substr(
-                                                                                0,
-                                                                                35
-                                                                            )
-                                                                          : ''
-                                                                  }\u2026`
-                                                                : item.title}
-                                                        </Link>
-                                                    </div>
+                            <div
+                                className={`trancarousel_area ${
+                                    dark ? 'white' : ''
+                                }`}
+                            >
+                                <div className="trand">Offers</div>
+                                <div className="nav_style1">
+                                    <Swiper
+                                        ref={ref}
+                                        className="trancarousel"
+                                        {...params}
+                                    >
+                                        {offers.map((item) => (
+                                            <div
+                                                key={item.id}
+                                                className="trancarousel_item"
+                                            >
+                                                <div className="tran_p">
+                                                    <Link
+                                                        to={`/offer/${item.slug}`}
+                                                    >
+                                                        {item.title.length <= 30
+                                                            ? `${
+                                                                  item.title
+                                                              } - ${
+                                                                  item.description
+                                                                      ? item.description.substr(
+                                                                            0,
+                                                                            35
+                                                                        )
+                                                                      : ''
+                                                              }\u2026`
+                                                            : item.title}
+                                                    </Link>
                                                 </div>
-                                            ))}
-                                        </Swiper>
-                                        {!isMobile && (
-                                            <div className="navBtns">
-                                                <button
-                                                    type="button"
-                                                    className="navBtn prevBtn"
-                                                    onClick={goPrev}
-                                                >
-                                                    <FontAwesome name="angle-left" />
-                                                </button>
-                                                <button
-                                                    type="button"
-                                                    className="navBtn nextBtn"
-                                                    onClick={goNext}
-                                                >
-                                                    <FontAwesome name="angle-right" />
-                                                </button>
                                             </div>
-                                        )}
-                                    </div>
+                                        ))}
+                                    </Swiper>
+                                    {!isMobile && (
+                                        <div className="navBtns">
+                                            <button
+                                                type="button"
+                                                className="navBtn prevBtn"
+                                                onClick={goPrev}
+                                            >
+                                                <FontAwesome name="angle-left" />
+                                            </button>
+                                            <button
+                                                type="button"
+                                                className="navBtn nextBtn"
+                                                onClick={goNext}
+                                            >
+                                                <FontAwesome name="angle-right" />
+                                            </button>
+                                        </div>
+                                    )}
                                 </div>
-                            )}
+                            </div>
                         </div>
                     )}
                     {!isMobile && (

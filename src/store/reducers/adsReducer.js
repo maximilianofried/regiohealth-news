@@ -2,38 +2,36 @@ import {
     FETCH_ADS_REQUEST,
     FETCH_ADS_SUCCESS,
     FETCH_ADS_FAILURE,
-}
-from "../constants/adsTypes";
+} from '../constants/adsTypes';
 
 const initialState = {
     loading: false,
     ads: [],
-    error: ''
-}
-
-
+    error: '',
+};
 
 const adsReducer = (state = initialState, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case FETCH_ADS_REQUEST:
-        return {
-            ...state,
-            loading: true
-        }
+            return {
+                ...state,
+                loading: true,
+            };
         case FETCH_ADS_SUCCESS:
-        return {
-            loading: false,
-            ads: action.payload,
-            error: ''
-        }
+            return {
+                loading: false,
+                ads: action.payload,
+                error: '',
+            };
         case FETCH_ADS_FAILURE:
-        return {
-            loading: false,
-            ads: [],
-            error: action.payload
-        }
-        default: return state
+            return {
+                loading: false,
+                ads: [],
+                error: action.payload,
+            };
+        default:
+            return state;
     }
-}
+};
 
 export default adsReducer;

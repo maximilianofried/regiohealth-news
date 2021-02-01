@@ -35,42 +35,64 @@
         "position": "m02",
         "categories": [
             {
-                "_id": "5f2930644916ca033738562d",
-                "name": "Health & Business",
-                "createdAt": "2020-08-04T09:54:44.346Z",
-                "updatedAt": "2020-09-12T09:01:31.664Z",
+                "_id": "5f588123edaf772aca8a07cd",
+                "name": "GT-Partner-News",
+                "createdAt": "2020-09-09T07:15:47.093Z",
+                "updatedAt": "2020-10-01T05:35:06.900Z",
                 "__v": 0,
-                "link": "/business",
+                "created_by": "5ef316809cc738029b69ba6c",
                 "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f2930644916ca033738562d"
+                "id": "5f588123edaf772aca8a07cd"
             },
             {
-                "_id": "5f29306e4916ca033738562f",
-                "name": "Health & Tech",
-                "createdAt": "2020-08-04T09:54:54.826Z",
-                "updatedAt": "2020-09-12T09:02:02.532Z",
+                "_id": "5f609b0b084507189963f797",
+                "name": "GT Netzwerk",
+                "createdAt": "2020-09-15T10:44:27.649Z",
+                "updatedAt": "2020-09-15T10:44:27.738Z",
                 "__v": 0,
-                "link": "/tech",
+                "created_by": "5ef316809cc738029b69ba6c",
                 "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f29306e4916ca033738562f"
-            },
-            {
-                "_id": "5f2930774916ca0337385630",
-                "name": "Health & Science",
-                "createdAt": "2020-08-04T09:55:03.068Z",
-                "updatedAt": "2020-09-12T09:00:41.615Z",
-                "__v": 0,
-                "link": "/science",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f2930774916ca0337385630"
+                "id": "5f609b0b084507189963f797"
             }
         ],
-        "_id": "5f7af60d89987c407106433e",
-        "linkText": "Wirtschaft",
-        "link": "/wirtschaft",
+        "_id": "5fec2fb8ce25ef78af691675",
+        "linkText": "GesundheitsTicket News",
+        "link": "/gesundheitsticket–news",
         "submenu": [],
-        "createdAt": "2020-10-05T10:31:41.493Z",
-        "updatedAt": "2020-11-16T05:46:12.572Z",
+        "createdAt": "2020-12-30T07:43:52.666Z",
+        "updatedAt": "2020-12-30T07:51:46.741Z",
+        "__v": 0,
+        "created_by": {
+            "_id": "5ef316809cc738029b69ba6c",
+            "username": "Christian Lombardt",
+            "createdAt": "2020-06-24T09:01:52.382Z",
+            "updatedAt": "2020-09-24T13:12:58.021Z",
+            "__v": 0,
+            "lastname": "Lombardt",
+            "firstname": "Christian",
+            "id": "5ef316809cc738029b69ba6c"
+        },
+        "updated_by": {
+            "_id": "5ef316809cc738029b69ba6c",
+            "username": "Christian Lombardt",
+            "createdAt": "2020-06-24T09:01:52.382Z",
+            "updatedAt": "2020-09-24T13:12:58.021Z",
+            "__v": 0,
+            "lastname": "Lombardt",
+            "firstname": "Christian",
+            "id": "5ef316809cc738029b69ba6c"
+        },
+        "id": "5fec2fb8ce25ef78af691675"
+    },
+    {
+        "position": "m03",
+        "categories": [],
+        "_id": "5f7b097e89987c4071064346",
+        "linkText": "Sport",
+        "link": "/Sport",
+        "submenu": [],
+        "createdAt": "2020-10-05T11:54:38.370Z",
+        "updatedAt": "2020-12-30T07:49:14.625Z",
         "__v": 0,
         "created_by": {
             "_id": "5ef315f59cc738029b69ba6b",
@@ -90,108 +112,10 @@
             "firstname": "Christian",
             "id": "5ef316809cc738029b69ba6c"
         },
-        "id": "5f7af60d89987c407106433e"
-    },
-    {
-        "position": "m03",
-        "categories": [
-            {
-                "_id": "5ef3169b9cc738029b69ba6e",
-                "name": "Health & Politics",
-                "createdAt": "2020-06-24T09:02:19.692Z",
-                "updatedAt": "2020-09-12T09:01:45.961Z",
-                "__v": 0,
-                "link": "/politics",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5ef3169b9cc738029b69ba6e"
-            },
-            {
-                "_id": "5f7181faf635596fe4064dff",
-                "name": "Health & Society",
-                "createdAt": "2020-09-28T06:26:02.506Z",
-                "updatedAt": "2020-09-28T06:26:02.596Z",
-                "__v": 0,
-                "created_by": "5ef316809cc738029b69ba6c",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f7181faf635596fe4064dff"
-            }
-        ],
-        "_id": "5f7af69f89987c4071064340",
-        "linkText": "Politik",
-        "link": "/politik",
-        "submenu": [],
-        "createdAt": "2020-10-05T10:34:07.737Z",
-        "updatedAt": "2020-11-08T11:21:36.641Z",
-        "__v": 0,
-        "created_by": {
-            "_id": "5ef315f59cc738029b69ba6b",
-            "username": "Maxi Fried",
-            "createdAt": "2020-06-24T08:59:33.537Z",
-            "updatedAt": "2020-08-26T09:36:48.219Z",
-            "__v": 0,
-            "id": "5ef315f59cc738029b69ba6b"
-        },
-        "updated_by": {
-            "_id": "5ef315f59cc738029b69ba6b",
-            "username": "Maxi Fried",
-            "createdAt": "2020-06-24T08:59:33.537Z",
-            "updatedAt": "2020-08-26T09:36:48.219Z",
-            "__v": 0,
-            "id": "5ef315f59cc738029b69ba6b"
-        },
-        "id": "5f7af69f89987c4071064340"
+        "id": "5f7b097e89987c4071064346"
     },
     {
         "position": "m04",
-        "categories": [
-            {
-                "_id": "5f29306e4916ca033738562f",
-                "name": "Health & Tech",
-                "createdAt": "2020-08-04T09:54:54.826Z",
-                "updatedAt": "2020-09-12T09:02:02.532Z",
-                "__v": 0,
-                "link": "/tech",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f29306e4916ca033738562f"
-            },
-            {
-                "_id": "5f2930774916ca0337385630",
-                "name": "Health & Science",
-                "createdAt": "2020-08-04T09:55:03.068Z",
-                "updatedAt": "2020-09-12T09:00:41.615Z",
-                "__v": 0,
-                "link": "/science",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f2930774916ca0337385630"
-            }
-        ],
-        "_id": "5f7af66989987c407106433f",
-        "linkText": "Wissenschaft",
-        "link": "/wissenschaft",
-        "submenu": [],
-        "createdAt": "2020-10-05T10:33:13.491Z",
-        "updatedAt": "2020-11-08T11:21:41.860Z",
-        "__v": 0,
-        "created_by": {
-            "_id": "5ef315f59cc738029b69ba6b",
-            "username": "Maxi Fried",
-            "createdAt": "2020-06-24T08:59:33.537Z",
-            "updatedAt": "2020-08-26T09:36:48.219Z",
-            "__v": 0,
-            "id": "5ef315f59cc738029b69ba6b"
-        },
-        "updated_by": {
-            "_id": "5ef315f59cc738029b69ba6b",
-            "username": "Maxi Fried",
-            "createdAt": "2020-06-24T08:59:33.537Z",
-            "updatedAt": "2020-08-26T09:36:48.219Z",
-            "__v": 0,
-            "id": "5ef315f59cc738029b69ba6b"
-        },
-        "id": "5f7af66989987c407106433f"
-    },
-    {
-        "position": "m05",
         "categories": [
             {
                 "_id": "5f2930774916ca0337385630",
@@ -259,7 +183,7 @@
         "link": "/ernährung",
         "submenu": [],
         "createdAt": "2020-10-05T10:35:10.990Z",
-        "updatedAt": "2020-11-06T12:11:48.091Z",
+        "updatedAt": "2020-12-30T07:50:33.499Z",
         "__v": 0,
         "created_by": {
             "_id": "5ef315f59cc738029b69ba6b",
@@ -270,97 +194,20 @@
             "id": "5ef315f59cc738029b69ba6b"
         },
         "updated_by": {
-            "_id": "5ef315f59cc738029b69ba6b",
-            "username": "Maxi Fried",
-            "createdAt": "2020-06-24T08:59:33.537Z",
-            "updatedAt": "2020-08-26T09:36:48.219Z",
+            "_id": "5ef316809cc738029b69ba6c",
+            "username": "Christian Lombardt",
+            "createdAt": "2020-06-24T09:01:52.382Z",
+            "updatedAt": "2020-09-24T13:12:58.021Z",
             "__v": 0,
-            "id": "5ef315f59cc738029b69ba6b"
+            "lastname": "Lombardt",
+            "firstname": "Christian",
+            "id": "5ef316809cc738029b69ba6c"
         },
         "child": false,
         "id": "5f7af6de89987c4071064341"
     },
     {
-        "position": "m06",
-        "categories": [
-            {
-                "_id": "5f7181faf635596fe4064dff",
-                "name": "Health & Society",
-                "createdAt": "2020-09-28T06:26:02.506Z",
-                "updatedAt": "2020-09-28T06:26:02.596Z",
-                "__v": 0,
-                "created_by": "5ef316809cc738029b69ba6c",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f7181faf635596fe4064dff"
-            },
-            {
-                "_id": "5ef3169b9cc738029b69ba6e",
-                "name": "Health & Politics",
-                "createdAt": "2020-06-24T09:02:19.692Z",
-                "updatedAt": "2020-09-12T09:01:45.961Z",
-                "__v": 0,
-                "link": "/politics",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5ef3169b9cc738029b69ba6e"
-            },
-            {
-                "_id": "5f2930774916ca0337385630",
-                "name": "Health & Science",
-                "createdAt": "2020-08-04T09:55:03.068Z",
-                "updatedAt": "2020-09-12T09:00:41.615Z",
-                "__v": 0,
-                "link": "/science",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f2930774916ca0337385630"
-            },
-            {
-                "_id": "5f2930a34916ca0337385636",
-                "name": "Blue Zones",
-                "createdAt": "2020-08-04T09:55:47.176Z",
-                "updatedAt": "2020-08-20T13:59:34.609Z",
-                "__v": 0,
-                "link": "/bluezones",
-                "id": "5f2930a34916ca0337385636"
-            },
-            {
-                "_id": "5f6f0610f635596fe4064de9",
-                "name": "Health & Film",
-                "createdAt": "2020-09-26T09:12:48.711Z",
-                "updatedAt": "2020-09-26T09:12:48.795Z",
-                "__v": 0,
-                "created_by": "5ef316809cc738029b69ba6c",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f6f0610f635596fe4064de9"
-            }
-        ],
-        "_id": "5f7af78f89987c4071064342",
-        "linkText": "Gesellschaft",
-        "child": false,
-        "link": "/gesellschaft",
-        "submenu": [],
-        "createdAt": "2020-10-05T10:38:07.457Z",
-        "updatedAt": "2020-11-06T12:11:55.685Z",
-        "__v": 0,
-        "created_by": {
-            "_id": "5ef315f59cc738029b69ba6b",
-            "username": "Maxi Fried",
-            "createdAt": "2020-06-24T08:59:33.537Z",
-            "updatedAt": "2020-08-26T09:36:48.219Z",
-            "__v": 0,
-            "id": "5ef315f59cc738029b69ba6b"
-        },
-        "updated_by": {
-            "_id": "5ef315f59cc738029b69ba6b",
-            "username": "Maxi Fried",
-            "createdAt": "2020-06-24T08:59:33.537Z",
-            "updatedAt": "2020-08-26T09:36:48.219Z",
-            "__v": 0,
-            "id": "5ef315f59cc738029b69ba6b"
-        },
-        "id": "5f7af78f89987c4071064342"
-    },
-    {
-        "position": "m07",
+        "position": "m05",
         "categories": [
             {
                 "_id": "5f2930a34916ca0337385636",
@@ -447,7 +294,88 @@
         "link": "/blue-zones",
         "submenu": [],
         "createdAt": "2020-10-05T10:38:22.609Z",
-        "updatedAt": "2020-11-06T12:12:09.105Z",
+        "updatedAt": "2020-12-30T07:50:45.845Z",
+        "__v": 0,
+        "created_by": {
+            "_id": "5ef315f59cc738029b69ba6b",
+            "username": "Maxi Fried",
+            "createdAt": "2020-06-24T08:59:33.537Z",
+            "updatedAt": "2020-08-26T09:36:48.219Z",
+            "__v": 0,
+            "id": "5ef315f59cc738029b69ba6b"
+        },
+        "updated_by": {
+            "_id": "5ef316809cc738029b69ba6c",
+            "username": "Christian Lombardt",
+            "createdAt": "2020-06-24T09:01:52.382Z",
+            "updatedAt": "2020-09-24T13:12:58.021Z",
+            "__v": 0,
+            "lastname": "Lombardt",
+            "firstname": "Christian",
+            "id": "5ef316809cc738029b69ba6c"
+        },
+        "id": "5f7af79e89987c4071064343"
+    },
+    {
+        "position": "m06",
+        "categories": [
+            {
+                "_id": "5f7181faf635596fe4064dff",
+                "name": "Health & Society",
+                "createdAt": "2020-09-28T06:26:02.506Z",
+                "updatedAt": "2020-09-28T06:26:02.596Z",
+                "__v": 0,
+                "created_by": "5ef316809cc738029b69ba6c",
+                "updated_by": "5ef316809cc738029b69ba6c",
+                "id": "5f7181faf635596fe4064dff"
+            },
+            {
+                "_id": "5ef3169b9cc738029b69ba6e",
+                "name": "Health & Politics",
+                "createdAt": "2020-06-24T09:02:19.692Z",
+                "updatedAt": "2020-09-12T09:01:45.961Z",
+                "__v": 0,
+                "link": "/politics",
+                "updated_by": "5ef316809cc738029b69ba6c",
+                "id": "5ef3169b9cc738029b69ba6e"
+            },
+            {
+                "_id": "5f2930774916ca0337385630",
+                "name": "Health & Science",
+                "createdAt": "2020-08-04T09:55:03.068Z",
+                "updatedAt": "2020-09-12T09:00:41.615Z",
+                "__v": 0,
+                "link": "/science",
+                "updated_by": "5ef316809cc738029b69ba6c",
+                "id": "5f2930774916ca0337385630"
+            },
+            {
+                "_id": "5f2930a34916ca0337385636",
+                "name": "Blue Zones",
+                "createdAt": "2020-08-04T09:55:47.176Z",
+                "updatedAt": "2020-08-20T13:59:34.609Z",
+                "__v": 0,
+                "link": "/bluezones",
+                "id": "5f2930a34916ca0337385636"
+            },
+            {
+                "_id": "5f6f0610f635596fe4064de9",
+                "name": "Health & Film",
+                "createdAt": "2020-09-26T09:12:48.711Z",
+                "updatedAt": "2020-09-26T09:12:48.795Z",
+                "__v": 0,
+                "created_by": "5ef316809cc738029b69ba6c",
+                "updated_by": "5ef316809cc738029b69ba6c",
+                "id": "5f6f0610f635596fe4064de9"
+            }
+        ],
+        "_id": "5f7af78f89987c4071064342",
+        "linkText": "Gesellschaft",
+        "child": false,
+        "link": "/gesellschaft",
+        "submenu": [],
+        "createdAt": "2020-10-05T10:38:07.457Z",
+        "updatedAt": "2020-11-06T12:11:55.685Z",
         "__v": 0,
         "created_by": {
             "_id": "5ef315f59cc738029b69ba6b",
@@ -465,7 +393,68 @@
             "__v": 0,
             "id": "5ef315f59cc738029b69ba6b"
         },
-        "id": "5f7af79e89987c4071064343"
+        "id": "5f7af78f89987c4071064342"
+    },
+    {
+        "position": "m07",
+        "categories": [
+            {
+                "_id": "5f2930644916ca033738562d",
+                "name": "Health & Business",
+                "createdAt": "2020-08-04T09:54:44.346Z",
+                "updatedAt": "2020-09-12T09:01:31.664Z",
+                "__v": 0,
+                "link": "/business",
+                "updated_by": "5ef316809cc738029b69ba6c",
+                "id": "5f2930644916ca033738562d"
+            },
+            {
+                "_id": "5f29306e4916ca033738562f",
+                "name": "Health & Tech",
+                "createdAt": "2020-08-04T09:54:54.826Z",
+                "updatedAt": "2020-09-12T09:02:02.532Z",
+                "__v": 0,
+                "link": "/tech",
+                "updated_by": "5ef316809cc738029b69ba6c",
+                "id": "5f29306e4916ca033738562f"
+            },
+            {
+                "_id": "5f2930774916ca0337385630",
+                "name": "Health & Science",
+                "createdAt": "2020-08-04T09:55:03.068Z",
+                "updatedAt": "2020-09-12T09:00:41.615Z",
+                "__v": 0,
+                "link": "/science",
+                "updated_by": "5ef316809cc738029b69ba6c",
+                "id": "5f2930774916ca0337385630"
+            }
+        ],
+        "_id": "5f7af60d89987c407106433e",
+        "linkText": "Wirtschaft",
+        "link": "/wirtschaft",
+        "submenu": [],
+        "createdAt": "2020-10-05T10:31:41.493Z",
+        "updatedAt": "2020-12-30T07:50:59.937Z",
+        "__v": 0,
+        "created_by": {
+            "_id": "5ef315f59cc738029b69ba6b",
+            "username": "Maxi Fried",
+            "createdAt": "2020-06-24T08:59:33.537Z",
+            "updatedAt": "2020-08-26T09:36:48.219Z",
+            "__v": 0,
+            "id": "5ef315f59cc738029b69ba6b"
+        },
+        "updated_by": {
+            "_id": "5ef316809cc738029b69ba6c",
+            "username": "Christian Lombardt",
+            "createdAt": "2020-06-24T09:01:52.382Z",
+            "updatedAt": "2020-09-24T13:12:58.021Z",
+            "__v": 0,
+            "lastname": "Lombardt",
+            "firstname": "Christian",
+            "id": "5ef316809cc738029b69ba6c"
+        },
+        "id": "5f7af60d89987c407106433e"
     },
     {
         "position": "m08",
@@ -507,48 +496,6 @@
             "id": "5ef316809cc738029b69ba6c"
         },
         "id": "5f7b033c89987c4071064344"
-    },
-    {
-        "position": "m09",
-        "categories": [
-            {
-                "_id": "5fcde1d903b2f27197e1223b",
-                "name": "Health & Sports",
-                "link": "/sports",
-                "createdAt": "2020-12-07T08:03:37.297Z",
-                "updatedAt": "2020-12-07T08:03:37.394Z",
-                "__v": 0,
-                "created_by": "5ef316809cc738029b69ba6c",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5fcde1d903b2f27197e1223b"
-            }
-        ],
-        "_id": "5f7b097e89987c4071064346",
-        "linkText": "Sport",
-        "link": "/Sport",
-        "submenu": [],
-        "createdAt": "2020-10-05T11:54:38.370Z",
-        "updatedAt": "2020-12-08T19:16:42.172Z",
-        "__v": 0,
-        "created_by": {
-            "_id": "5ef315f59cc738029b69ba6b",
-            "username": "Maxi Fried",
-            "createdAt": "2020-06-24T08:59:33.537Z",
-            "updatedAt": "2020-08-26T09:36:48.219Z",
-            "__v": 0,
-            "id": "5ef315f59cc738029b69ba6b"
-        },
-        "updated_by": {
-            "_id": "5ef316809cc738029b69ba6c",
-            "username": "Christian Lombardt",
-            "createdAt": "2020-06-24T09:01:52.382Z",
-            "updatedAt": "2020-09-24T13:12:58.021Z",
-            "__v": 0,
-            "lastname": "Lombardt",
-            "firstname": "Christian",
-            "id": "5ef316809cc738029b69ba6c"
-        },
-        "id": "5f7b097e89987c4071064346"
     },
     {
         "position": "m10",

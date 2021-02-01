@@ -1,8 +1,10 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Heading from '../uiStyle/Heading';
 import TrendingNewsSlider from '../TrendingNewsSlider';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const TrendingNews = ({ dark, latestArticles, adsHome }) => {
     return (
@@ -29,7 +31,7 @@ const TrendingNews = ({ dark, latestArticles, adsHome }) => {
                                     <div className="post_img">
                                         <div className="img_wrap">
                                             <Link to={`/article/${item.slug}`}>
-                                                <img
+                                                <LazyLoadImage
                                                     src={
                                                         process.env
                                                             .REACT_APP_CMS_URL +
@@ -41,6 +43,7 @@ const TrendingNews = ({ dark, latestArticles, adsHome }) => {
                                                                   .url)
                                                     }
                                                     alt="thumb"
+                                                    effect="blur"
                                                 />
                                             </Link>
                                         </div>
@@ -92,7 +95,7 @@ const TrendingNews = ({ dark, latestArticles, adsHome }) => {
                                     <div className="post_img">
                                         <div className="img_wrap">
                                             <Link to={`/article/${item.slug}`}>
-                                                <img
+                                                <LazyLoadImage
                                                     src={
                                                         process.env
                                                             .REACT_APP_CMS_URL +
@@ -104,6 +107,7 @@ const TrendingNews = ({ dark, latestArticles, adsHome }) => {
                                                                   .url)
                                                     }
                                                     alt="thumb"
+                                                    effect="blur"
                                                 />
                                             </Link>
                                         </div>

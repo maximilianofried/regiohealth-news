@@ -83,6 +83,7 @@ body {
 
 //topbar style 1
 .topbar {
+    min-height: 41px;
     ul {
         li {
             font-size: 14px;
@@ -148,16 +149,17 @@ body {
 }
 
 .trancarousel_area {
+    min-height: 41px;
     .nav_style1 {
         position: relative;
         text-align: start;
         .navBtns {
             position: absolute;
             right: -9%;
-            top: 50%;
+            //top: 50%;
             z-index: 1;
-            margin-top: -15px;
-
+            margin-top: 53px;
+            min-height: 47px;
             .navBtn {
                 height: 23px;
                 width: 23px;
@@ -243,7 +245,7 @@ body {
 
 .logo_area {
     padding: 10px 0;
-
+    min-height: 77.813px;
     .tp_search_form {
         width: 75%;
 
@@ -901,6 +903,10 @@ span.tranding.tranding_border {
     }
 }
 
+.tab_height {
+    min-height: 526px;
+}
+
 .tab-pane.active {
     @include transform(translateX(0px));
     @include transition(all 0.3s);
@@ -1144,6 +1150,7 @@ span.tranding {
         }
 
         div.owl-prev {
+            min-height: 70px;
             right: auto;
             left: 0;
         }
@@ -2424,6 +2431,11 @@ a.cbtn3 {
     }
     .trancarousel_area .nav_style1 .navBtns {
         right: -13%;
+        min-height: 41px;
+    }
+
+    .trancarousel_area .nav_style1 {
+        min-height: 41px;
     }
 
     .mt-md-60 {
@@ -2489,6 +2501,7 @@ a.cbtn3 {
     .carousel_padding {
         padding-right: 0;
         padding-left: 0;
+        min-height: 140px;
     }
 
     .copyright {
@@ -2787,6 +2800,9 @@ a.cbtn3 {
     // .carousel_posts1 .post_type5 .single_post_text p {
     //   display: none;
     // }
+    .carousel_posts1 {
+        min-height: 70px;
+    }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1300px) {
