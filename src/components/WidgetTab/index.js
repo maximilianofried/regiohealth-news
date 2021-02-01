@@ -1,5 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { TabContent, TabPane, Fade } from 'reactstrap';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import Heading from '../uiStyle/Heading';
@@ -26,7 +28,7 @@ const WidgetTabPane = ({ latestData, type, aId, id }) => {
                                                     : 'offer'
                                             }/${item.slug}`}
                                         >
-                                            <img
+                                            <LazyLoadImage
                                                 src={
                                                     process.env
                                                         .REACT_APP_CMS_URL +
@@ -86,8 +88,8 @@ const WidgetTab = ({
     const [activeTab] = useState('1');
 
     return (
-        <div className={`widget_tab md-mt-30 ${className}`}>
-            <TabContent activeTab={activeTab}>
+        <div className={`widget_tab md-mt-30 tab_w ${className}`}>
+            <TabContent className="tab_height" activeTab={activeTab}>
                 <TabPane tabId="1">
                     <WidgetTabPane
                         latestData={latestArticles}
@@ -120,7 +122,7 @@ const WidgetTab = ({
                     {adsHome && adsHome.length > 0 && (
                         <div className="banner2 mb30">
                             <a target="_blank" href={adsHome[0].link}>
-                                <img
+                                <LazyLoadImage
                                     src={
                                         process.env.REACT_APP_CMS_URL +
                                         adsHome[0].image[0].url

@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {
     fetchArticles,
     fetchAds,
@@ -9,6 +10,7 @@ import BreadCrumb from '../../components/BreadCrumb';
 import BusinessNews from '../../components/BusinessNews';
 import BannerSection from '../../components/BannerSection';
 import Metadata from '../../components/Metadata';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const CategoryPage = ({
     fetchArticles,
@@ -85,13 +87,15 @@ const CategoryPage = ({
                                 <a href={banner350x292.link} target="_blank">
                                     {banner350x292.image &&
                                         banner350x292.image.length > 0 && (
-                                            <img
+                                            <LazyLoadImage
                                                 src={
                                                     process.env
                                                         .REACT_APP_CMS_URL +
                                                     banner350x292.image[0].url
                                                 }
                                                 alt="banner"
+                                                effect="blur"
+                                                visibleByDefault="true"
                                             />
                                         )}
                                 </a>
