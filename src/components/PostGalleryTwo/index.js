@@ -1,5 +1,7 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import FontAwesome from '../uiStyle/FontAwesome';
 import FollowUs from '../FollowUs';
 import NewsLetter from '../Newsletter';
@@ -10,6 +12,7 @@ import col22 from '../../doc/img/header/widget/col22.jpg';
 import col23 from '../../doc/img/header/widget/col23.jpg';
 import col24 from '../../doc/img/header/widget/col24.jpg';
 import col25 from '../../doc/img/header/widget/col25.jpg';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const posts = [
     {
@@ -27,52 +30,76 @@ const posts = [
         title: 'Mutul fund mark from down up to 15%.',
         category: 'TECHNOLOGY',
     },
-    // {
-    //     image: col24,
-    //     title: 'Danny meyer’s form latest restaurantes…',
-    //     category: 'TECHNOLOGY',
-    // },
+    {
+        image: col24,
+        title: 'Danny meyer’s form latest restaurantes…',
+        category: 'TECHNOLOGY',
+    },
 ];
 
-const PostGalleryTwo = () => {
+const PostGalleryTwo = ({ knowledgeArticles, newsArticles }) => {
     return (
         <div className="post_gallary_area theme3_bg mb40 padding-top-30">
             <div className="container">
                 <div className="row">
-                    <div className="col-md-12 col-lg-8">
-                        <div className="single_post post_type6 border-radious7 xs-mb30">
-                            <div className="post_img gradient1">
-                                <div className="img_wrap">
-                                    <Link to="/">
-                                        <img src={big_img} alt="big_img" />
-                                    </Link>
+                    <div className="col-md-12 col-lg-8 ">
+                        {knowledgeArticles && (
+                            <div className="single_post post_type6 border-radious7 xs-mb30">
+                                <div className="post_img gradient1">
+                                    <div className="img_wrap">
+                                        <Link to="/">
+                                            <LazyLoadImage
+                                                className="wrapper__img"
+                                                src={
+                                                    knowledgeArticles.main_image
+                                                        ? `${
+                                                              process.env
+                                                                  .REACT_APP_CMS_URL +
+                                                              knowledgeArticles
+                                                                  .main_image
+                                                                  .url
+                                                          }`
+                                                        : big_img
+                                                }
+                                                alt="thumb"
+                                                effect="blur"
+                                            />
+                                        </Link>
+                                    </div>
                                 </div>
-                                <span className="tranding">
-                                    <FontAwesome name="play" />
-                                </span>
-                            </div>
-                            <div className="single_post_text">
-                                <h4>
-                                    <Link to="/video_post1">
-                                        Japan’s virus success has puzzled the
-                                        world. Is its luck running out?
-                                    </Link>
-                                </h4>
-                                <div className="space-5" />
+                                <div className="single_post_text">
+                                    <h4>
+                                        <Link
+                                            to={`/article/${knowledgeArticles.slug}`}
+                                        >
+                                            {knowledgeArticles.title}
+                                        </Link>
+                                    </h4>
+                                    <div className="space-5" />
 
-                                <p className="post-p">
-                                    The property, complete with 30-seat
-                                    screening from room, a 100-seat amphitheater
-                                    and a swimming pond with sandy shower…
-                                </p>
+                                    <p className="post-p">
+                                        {knowledgeArticles.description}
+                                    </p>
 
-                                <div className="space-20" />
-                                <div className="meta meta_separator1">
-                                    <Link to="/">TECHNOLOGY</Link>
-                                    <Link to="/">March 26, 2020</Link>
+                                    <div className="space-20" />
+                                    <div className="meta meta_separator1">
+                                        <Link to="/">
+                                            {knowledgeArticles.categories
+                                                .length > 0
+                                                ? knowledgeArticles
+                                                      .categories[0].name
+                                                : ''}
+                                        </Link>
+                                        <Link to="/">
+                                            {' '}
+                                            {moment(
+                                                knowledgeArticles.publishAt
+                                            ).format('LL')}
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        )}
                     </div>
                     {/* <div className="d-none d-xl-block col-xl-3">
                         <div className="white_bg padding15 border-radious5 sm-mt30">
@@ -116,38 +143,65 @@ const PostGalleryTwo = () => {
                             className="border-radious5 white_bg padding20 sm-mt30"
                         />
                         <div className="white_bg padding15 border-radious5 sm-mt30">
-                            {posts.map((item, i) => (
-                                <div
-                                    key={i}
-                                    className="single_post type14 widgets_small"
-                                >
-                                    <div className="post_img">
-                                        <div className="img_wrap">
-                                            <Link to="/">
-                                                <img
-                                                    src={item.image}
-                                                    alt="thumb"
-                                                />
-                                            </Link>
+                            {newsArticles &&
+                                newsArticles.map((item, i) => (
+                                    <div
+                                        key={item.id}
+                                        className="single_post type14 widgets_small"
+                                    >
+                                        <div className="post_img">
+                                            <div className="img_wrap">
+                                                <Link
+                                                    to={`/article/${item.slug}`}
+                                                >
+                                                    <LazyLoadImage
+                                                        className="wrapper__img"
+                                                        src={
+                                                            item.main_image
+                                                                ? `${
+                                                                      process
+                                                                          .env
+                                                                          .REACT_APP_CMS_URL +
+                                                                      item
+                                                                          .main_image
+                                                                          .formats
+                                                                          .thumbnail
+                                                                          .url
+                                                                  }`
+                                                                : big_img
+                                                        }
+                                                        alt="thumb"
+                                                        effect="blur"
+                                                    />
+                                                </Link>
+                                            </div>
+                                        </div>
+                                        <div className="single_post_text">
+                                            <h4>
+                                                <Link
+                                                    to={`/article/${item.slug}`}
+                                                >
+                                                    {item.title}
+                                                </Link>
+                                            </h4>
+                                            <div className="meta4">
+                                                <Link to="/">
+                                                    {item.categories.length > 0
+                                                        ? item.categories[0]
+                                                              .name
+                                                        : ''}
+                                                </Link>
+                                            </div>
+                                            {i + 1 < posts.length ? (
+                                                <>
+                                                    <div className="space-5" />
+                                                    <div className="border_black" />
+                                                    <div className="space-15" />
+                                                </>
+                                            ) : null}
                                         </div>
                                     </div>
-                                    <div className="single_post_text">
-                                        <h4>
-                                            <Link to="/post">{item.title}</Link>
-                                        </h4>
-                                        <div className="meta4">
-                                            <Link to="/">{item.category}</Link>
-                                        </div>
-                                        {i + 1 < posts.length ? (
-                                            <>
-                                                <div className="space-5" />
-                                                <div className="border_black" />
-                                                <div className="space-15" />
-                                            </>
-                                        ) : null}
-                                    </div>
-                                </div>
-                            ))}
+                                ))}
                         </div>
                         {/* <div className="single_post post_type3 post_type15 mb30 border-radious5 sm-mt30">
                             <div className="post_img">

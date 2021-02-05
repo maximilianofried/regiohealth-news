@@ -431,7 +431,7 @@ body {
     text-transform: capitalize;
     position: relative;
     z-index: 2;
-    display: inline-block;
+    // display: inline-block;
 }
 
 .about_post_list {
@@ -1166,8 +1166,10 @@ span.tranding {
 }
 
 /*POST TYPE-6*/
-
+.knowledge_post {
+}
 .post_type6 {
+    // height: 575px;
     span.tranding {
         height: 54px;
         width: 54px;

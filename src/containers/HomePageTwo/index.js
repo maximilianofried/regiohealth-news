@@ -1,34 +1,54 @@
-import React, { Fragment } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import {
+    fetchArticles,
+    fetchArticleHomepage,
+    fetchAds,
+    fetchOffers,
+} from '../../store/actions';
+import PostGallery from '../../components/PostGallery';
+import Metadata from '../../components/Metadata';
+import { RG_DESCRIPTION } from '../../utils/constants';
 import PostGalleryTwo from '../../components/PostGalleryTwo';
-import TrendingNewsTwo from '../../components/TrendingNewsTwo';
-import FeatureNewsTwo from '../../components/FeatureNewsTwo';
 import BusinessNewsTwo from '../../components/BusinessNewsTwo';
 import MostViewTwo from '../../components/MostViewTwo';
 import banner2 from '../../doc/img/bg/sidebar-1.png';
 import banner3 from '../../doc/img/bg/banner1.png';
 import WidgetFinance from '../../components/WidgetFinance';
-import VideoNews from '../../components/VideoNews';
-import WidgetTabTwo from '../../components/WidgetTabTwo';
-import Opinion from '../../components/Opinion';
-import Whatsnew from '../../components/Whatsnew';
-import NewsLetter from '../../components/Newsletter';
 import FollowUs from '../../components/FollowUs';
 import MostViewThree from '../../components/MostViewThree';
 import Sports from '../../components/Sports';
 import International from '../../components/International';
 
-const HomePageTwo = () => {
+const HomePageTwo = ({
+    fetchArticleHomepage,
+    knowledgeArticles,
+    publisherArticles,
+    newsArticles,
+}) => {
+    useEffect(() => {
+        fetchArticleHomepage();
+    }, []);
     return (
         <>
-            <PostGalleryTwo />
+            <Metadata
+                title="Regionale Gesundheit"
+                description={RG_DESCRIPTION}
+            />
+            <PostGalleryTwo
+                knowledgeArticles={knowledgeArticles}
+                newsArticles={newsArticles}
+            />
             <div className="total3 mb30">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12 col-lg-8 homepage_col_top">
                             {/* <TrendingNewsTwo />
                             <FeatureNewsTwo /> */}
-                            <BusinessNewsTwo />
+                            <BusinessNewsTwo
+                                publisherArticles={publisherArticles}
+                            />
                         </div>
                         <div className="col-lg-4">
                             <div className="row justify-content-center">
@@ -43,9 +63,9 @@ const HomePageTwo = () => {
                                     <MostViewTwo />
                                 </div>
 
-                                <div className="col-md-6 col-lg-12">
+                                {/* <div className="col-md-6 col-lg-12">
                                     <WidgetFinance />
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
@@ -67,7 +87,7 @@ const HomePageTwo = () => {
                     </div>
                 </div>
             </div> */}
-            <div className="mix_elements">
+            {/* <div className="mix_elements">
                 <div className="container">
                     <div className="row">
                         <div className="col-xl-8 col-md-12">
@@ -100,10 +120,24 @@ const HomePageTwo = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <div className="space-70" />
         </>
     );
 };
 
-export default HomePageTwo;
+const mapStateToProps = (state) => {
+    return {
+        knowledgeArticles: state.articles.articlesHomepage.knowledgeArticles,
+        publisherArticles: state.articles.articlesHomepage.publisherArticles,
+        newsArticles: state.articles.articlesHomepage.newsArticles,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchArticleHomepage: () => dispatch(fetchArticleHomepage()),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePageTwo);
