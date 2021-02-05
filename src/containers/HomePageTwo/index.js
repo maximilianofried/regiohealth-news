@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import { connect } from 'react-redux';
 import {
     fetchArticles,
@@ -23,12 +25,18 @@ import International from '../../components/International';
 
 const HomePageTwo = ({
     fetchArticleHomepage,
+    fetchOffers,
+    fetchAds,
     knowledgeArticles,
     publisherArticles,
     newsArticles,
+    latestOffers,
+    adsHome,
 }) => {
     useEffect(() => {
         fetchArticleHomepage();
+        fetchOffers({ start: 0, limit: 4 });
+        fetchAds();
     }, []);
     return (
         <>
@@ -53,14 +61,29 @@ const HomePageTwo = ({
                         <div className="col-lg-4">
                             <div className="row justify-content-center">
                                 <div className="col-md-6 col-lg-12 d-md-none d-lg-block">
-                                    <div className="banner2 mb30 border-radious5">
-                                        <Link to="/">
-                                            <img src={banner2} alt="thumb" />
-                                        </Link>
-                                    </div>
+                                    {adsHome && adsHome.length > 0 && (
+                                        <div className="banner2 mb30 border-radious5">
+                                            <a
+                                                target="_blank"
+                                                href={adsHome[0].link}
+                                            >
+                                                <LazyLoadImage
+                                                    src={
+                                                        process.env
+                                                            .REACT_APP_CMS_URL +
+                                                        adsHome[0].image[0].url
+                                                    }
+                                                    alt="thumb"
+                                                />
+                                            </a>
+                                        </div>
+                                    )}
                                 </div>
                                 <div className="col-md-6 col-lg-12">
-                                    <MostViewTwo />
+                                    <MostViewTwo
+                                        title="Offers"
+                                        latestOffers={latestOffers}
+                                    />
                                 </div>
 
                                 {/* <div className="col-md-6 col-lg-12">
@@ -131,13 +154,19 @@ const mapStateToProps = (state) => {
         knowledgeArticles: state.articles.articlesHomepage.knowledgeArticles,
         publisherArticles: state.articles.articlesHomepage.publisherArticles,
         newsArticles: state.articles.articlesHomepage.newsArticles,
+        latestOffers: state.offers.offers,
+        adsHome: state.ads.ads.filter(
+            (ad) => ad.position === 'home' && ad.size === 's350x292'
+        ),
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchArticleHomepage: () => dispatch(fetchArticleHomepage()),
+        fetchOffers: ({ start, limit }) =>
+            dispatch(fetchOffers({ start, limit })),
+        fetchAds: () => dispatch(fetchAds()),
     };
 };
-
 export default connect(mapStateToProps, mapDispatchToProps)(HomePageTwo);

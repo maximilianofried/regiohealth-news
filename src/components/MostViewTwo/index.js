@@ -1,5 +1,8 @@
 import React, { Fragment, useState } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 import Swiper from 'react-id-swiper';
 import FontAwesome from '../uiStyle/FontAwesome';
 
@@ -74,7 +77,7 @@ const mostView = [
     },
 ];
 
-const MostViewTwo = ({ title }) => {
+const MostViewTwo = ({ title, latestOffers }) => {
     const [swiper, setSwiper] = useState(null);
 
     const goNext = () => {
@@ -100,49 +103,52 @@ const MostViewTwo = ({ title }) => {
             </div>
             <div className="post_type2_carousel multipleRowCarousel pt12_wrapper nav_style1">
                 {/* CAROUSEL START */}
-                <Swiper getSwiper={setSwiper} {...params}>
-                    {mostViewSort(mostView).map((item, i) => (
-                        <div
-                            key={i}
-                            className="single_post widgets_small type8 type17"
-                        >
-                            <div className="post_img">
-                                <div className="img_wrap_2">
-                                    <Link to="/">
-                                        <img src={item.image} alt="thumb" />
-                                    </Link>
-                                </div>
-                                <span className="tranding tranding_border">
-                                    {item.id}
-                                </span>
-                            </div>
-                            <div className="single_post_text">
-                                <h4>
-                                    <Link to="/post1">{item.title}</Link>
-                                </h4>
-                                <div className="meta2">
-                                    <Link to="/">{item.category}</Link>
-                                    <Link to="/">{item.date}</Link>
-                                </div>
-                                {i + 2 < mostView.length ? (
-                                    <>
-                                        <div className="space-5" />
-                                        <div className="border_black" />
-                                        <div className="space-15" />
-                                    </>
-                                ) : null}
+                {latestOffers.map((item, i) => (
+                    <div
+                        key={item.id}
+                        className="single_post widgets_small type8 type17"
+                    >
+                        <div className="post_img">
+                            <div className="img_wrap_2">
+                                <Link to="/">
+                                    <LazyLoadImage
+                                        src={
+                                            process.env.REACT_APP_CMS_URL +
+                                            (item.main_image.formats
+                                                ? item.main_image.formats
+                                                      .thumbnail.url
+                                                : item.main_image.url)
+                                        }
+                                        alt="thumb"
+                                    />
+                                </Link>
                             </div>
                         </div>
-                    ))}
-                </Swiper>
-                <div className="navBtns">
+                        <div className="single_post_text">
+                            <h4>
+                                <Link to="/post1">{item.title}</Link>
+                            </h4>
+                            <div className="meta2">
+                                <Link to="/">{item.categories[0].name}</Link>
+                            </div>
+                            {i + 2 < mostView.length ? (
+                                <>
+                                    <div className="space-5" />
+                                    <div className="border_black" />
+                                    <div className="space-15" />
+                                </>
+                            ) : null}
+                        </div>
+                    </div>
+                ))}
+                {/* <div className="navBtns">
                     <div onClick={goPrev} className="navBtn prevtBtn">
                         <FontAwesome name="angle-left" />
                     </div>
                     <div onClick={goNext} className="navBtn nextBtn">
                         <FontAwesome name="angle-right" />
                     </div>
-                </div>
+                </div> */}
                 {/* CAROUSEL END */}
             </div>
         </div>

@@ -58,7 +58,6 @@ const business = [
     },
 ];
 const BusinessNewsTwo = ({ publisherArticles }) => {
-    console.log(publisherArticles);
     return (
         <div className="business3 padding20 white_bg border-radious5">
             <h4 className="widget-title">Business</h4>
