@@ -12,7 +12,7 @@ const NotFoundPage = () => {
                             <div className="area404 text-center">
                                 <img
                                     alt="regio health logo"
-                                    src={`${process.env.REACT_APP_CMS_URL}/uploads/regiohealth_news_d00278de38.svg`}
+                                    src={`${process.env.REACT_APP_CMS_URL}/uploads/regiohealth_news_16cb0d731e.svg`}
                                 />
                             </div>
                             <div className="space-30" />
