@@ -1,5 +1,7 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Swiper from 'react-id-swiper';
@@ -76,64 +78,63 @@ const PostCarousel = ({ className, latestArticles }) => {
                                     {...params}
                                     shouldSwiperUpdate
                                 >
-                                    {latestArticles.length > 0 &&
-                                        latestArticles.map((item) => (
-                                            <div
-                                                key={item.id}
-                                                className={`single_post widgets_small post_type5 ${
-                                                    item.main_image
-                                                        ? ''
-                                                        : 'no_padding_left'
-                                                }`}
-                                            >
-                                                {item.main_image && (
-                                                    <div className="post_img">
-                                                        <div className="img_wrap">
-                                                            <Link
-                                                                to={`/article/${item.slug}`}
-                                                            >
-                                                                <img
-                                                                    src={
-                                                                        item.main_image
-                                                                            ? `${
-                                                                                  process
-                                                                                      .env
-                                                                                      .REACT_APP_CMS_URL +
-                                                                                  item
-                                                                                      .main_image
-                                                                                      .url
-                                                                              }`
-                                                                            : hside1
-                                                                    }
-                                                                    alt="slider5"
-                                                                />
-                                                            </Link>
-                                                        </div>
-                                                    </div>
-                                                )}
-                                                <div className="single_post_text">
-                                                    <h4>
+                                    {latestArticles.map((item) => (
+                                        <div
+                                            key={item.id}
+                                            className={`single_post widgets_small post_type5 ${
+                                                item.main_image
+                                                    ? ''
+                                                    : 'no_padding_left'
+                                            }`}
+                                        >
+                                            {item.main_image && (
+                                                <div className="post_img">
+                                                    <div className="img_wrap">
                                                         <Link
                                                             to={`/article/${item.slug}`}
                                                         >
-                                                            {item.title.length >
-                                                            35
-                                                                ? `${item.title.substr(
-                                                                      0,
-                                                                      35
-                                                                  )}\u2026`
-                                                                : item.title}
+                                                            <LazyLoadImage
+                                                                src={
+                                                                    item.main_image
+                                                                        ? `${
+                                                                              process
+                                                                                  .env
+                                                                                  .REACT_APP_CMS_URL +
+                                                                              item
+                                                                                  .main_image
+                                                                                  .url
+                                                                          }`
+                                                                        : hside1
+                                                                }
+                                                                alt="slider5"
+                                                                effect="blur"
+                                                            />
                                                         </Link>
-                                                    </h4>
-                                                    <div className="post-p">
-                                                        {renderText(
-                                                            item.description,
-                                                            item.categories
-                                                        )}
                                                     </div>
                                                 </div>
+                                            )}
+                                            <div className="single_post_text">
+                                                <h4>
+                                                    <Link
+                                                        to={`/article/${item.slug}`}
+                                                    >
+                                                        {item.title.length > 35
+                                                            ? `${item.title.substr(
+                                                                  0,
+                                                                  35
+                                                              )}\u2026`
+                                                            : item.title}
+                                                    </Link>
+                                                </h4>
+                                                <div className="post-p">
+                                                    {renderText(
+                                                        item.description,
+                                                        item.categories
+                                                    )}
+                                                </div>
                                             </div>
-                                        ))}
+                                        </div>
+                                    ))}
                                 </Swiper>
                                 <div className="owl-nav">
                                     <div onClick={goPrev} className="owl-prev">

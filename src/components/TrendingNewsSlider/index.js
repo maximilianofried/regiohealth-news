@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Swiper from 'react-id-swiper';
 import moment from 'moment';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import FontAwesome from '../uiStyle/FontAwesome';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const TrendingNewsSlider = ({ latestArticles, adsHome = [] }) => {
     const ref = useRef(null);
@@ -99,12 +101,13 @@ const TrendingNewsSlider = ({ latestArticles, adsHome = [] }) => {
                 {adsHome && adsHome.length > 0 && (
                     <div className="banner1">
                         <a href={adsHome[0].link} target="_blank">
-                            <img
+                            <LazyLoadImage
                                 src={
                                     process.env.REACT_APP_CMS_URL +
                                     adsHome[0].image[0].url
                                 }
                                 alt="banner"
+                                effect="blur"
                             />
                         </a>
                     </div>

@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import FooterCopyright from '../FooterCopyright';
 import FontAwesome from '../uiStyle/FontAwesome';
 import { fetchPages } from '../../store/actions';
 import mockPages from '../../mockdata/pages.json';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const FooterArea = ({ className, fetchPages, pages }) => {
     useEffect(() => {
@@ -24,10 +26,12 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             href="https://www.gesundheitsticket.de/"
                                             target="_blank"
                                         >
-                                            <img
+                                            <LazyLoadImage
                                                 alt="logo"
                                                 className="gt_logo"
                                                 src={`${process.env.REACT_APP_CMS_URL}/uploads/logo_gt3_d2142e249a.svg`}
+                                                effect="blur"
+
                                             />
                                         </a>
                                     </li>
@@ -36,10 +40,12 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             href="https://479eae97.sibforms.com/serve/MUIEAEvroLOl7gAeKgjfkbLkysmfsuAS3Tg6HJf6pH3obY0A938-9XXoyezLoftkDhOte_IPJ4UzRcIaiUwNZVuQPKYRpGLaLvT5TZ5udL7Bhv2Vlh9onojMKyw5UxBFiuAoIcA89fFusp3sdopMgDpkOXeSLuurQRJPPChbLNNYIGmg4-8iLrJQA8l6xcpt-8K9i8z56LepgN9j"
                                             target="_blank"
                                         >
-                                            <img
+                                            <LazyLoadImage
                                                 alt="logo"
                                                 className="gt_logo"
                                                 src={`${process.env.REACT_APP_CMS_URL}/uploads/regiohealth_b_7bbe36540e.svg`}
+                                                effect="blur"
+
                                             />
                                         </a>
                                     </li>
@@ -48,10 +54,11 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             href="http://diewohlfuehler-akademie.de/gesundheit-in-der-kommune/"
                                             target="_blank"
                                         >
-                                            <img
+                                            <LazyLoadImage
                                                 alt="logo"
                                                 className="gt_logo"
                                                 src={`${process.env.REACT_APP_CMS_URL}/uploads/regiohealth_k_45f8d252a5.svg`}
+                                                effect="blur"
                                             />
                                         </a>
                                     </li>
@@ -60,10 +67,11 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             href="https://www.diewohlfuehler.de/"
                                             target="_blank"
                                         >
-                                            <img
+                                            <LazyLoadImage
                                                 alt="logo"
                                                 className="gt_logo"
                                                 src={`${process.env.REACT_APP_CMS_URL}/uploads/LOGO_WF_3f61100d67.svg`}
+                                                effect="blur"
                                             />
                                         </a>
                                     </li>
@@ -72,10 +80,11 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             href="http://diewohlfuehler-akademie.de/"
                                             target="_blank"
                                         >
-                                            <img
+                                            <LazyLoadImage
                                                 alt="logo"
                                                 className="gt_logo"
                                                 src="https://www.gesundheitsticket.de/woak-logo.svg"
+                                                effect="blur"
                                             />
                                         </a>
                                     </li>

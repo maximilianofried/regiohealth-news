@@ -3,7 +3,9 @@ import { TabContent, TabPane, Nav, NavItem, Fade } from 'reactstrap';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Heading from '../uiStyle/Heading';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const WidgetTabPane = ({ nationalData, aId, id, type }) => {
     return (
@@ -20,7 +22,7 @@ const WidgetTabPane = ({ nationalData, aId, id, type }) => {
                                 <div className="post_img">
                                     <div className="img_wrap">
                                         <Link to={`/${type}/${item.slug}`}>
-                                            <img
+                                            <LazyLoadImage
                                                 src={
                                                     process.env
                                                         .REACT_APP_CMS_URL +
@@ -31,6 +33,7 @@ const WidgetTabPane = ({ nationalData, aId, id, type }) => {
                                                         : item.main_image.url)
                                                 }
                                                 alt="thumb"
+                                                effect="blur"
                                             />
                                         </Link>
                                     </div>
@@ -151,12 +154,13 @@ const WidgetSuchPortal = ({
                     {adsHome && adsHome.length > 0 && (
                         <div className="banner2 mb30">
                             <a href={adsHome[0].link}>
-                                <img
+                                <LazyLoadImage
                                     src={
                                         process.env.REACT_APP_CMS_URL +
                                         adsHome[0].image[0].url
                                     }
                                     alt="thumb"
+                                    effect="blur"
                                 />
                             </a>
                         </div>

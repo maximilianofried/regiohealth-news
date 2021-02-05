@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import moment from 'moment';
 import ReactTooltip from 'react-tooltip';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { fetchOffer, fetchOfferCleanUp } from '../../store/actions';
 import BreadCrumb from '../../components/BreadCrumb';
 import FontAwesome from '../../components/uiStyle/FontAwesome';
@@ -10,6 +11,7 @@ import BannerSection from '../../components/BannerSection';
 import singlePost1 from '../../doc/img/blog/single_post1.jpg';
 import Metadata from '../../components/Metadata';
 import { RG_LOGO } from '../../utils/constants';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const replaceContent = (data) => {
     let content = data.replace(/href/g, "target='_blank' href");
@@ -87,7 +89,7 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                     <div className="container">
                         <div className="row">
                             <div className="col-12 col-md-10 col-lg-8 m-auto">
-                                <img
+                                <LazyLoadImage
                                     src={
                                         offer.main_image
                                             ? `${
@@ -98,6 +100,7 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                             : singlePost1
                                     }
                                     alt="thumb"
+                                    effect="blur"
                                 />
                                 <div className="space-20" />
                                 <div className="single_post_heading">

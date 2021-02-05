@@ -4,12 +4,14 @@ import { Link, useParams } from 'react-router-dom';
 import moment from 'moment';
 import ReactTooltip from 'react-tooltip';
 import ReactMarkdown from 'react-markdown';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { fetchArticle, fetchArticleCleanUp } from '../../store/actions';
 import BreadCrumb from '../../components/BreadCrumb';
 import FontAwesome from '../../components/uiStyle/FontAwesome';
 import BannerSection from '../../components/BannerSection';
 import singlePost1 from '../../doc/img/blog/single_post1.jpg';
 import Metadata from '../../components/Metadata';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const replaceContent = (data) => {
     let content = data.replace(/href/g, "target='_blank' href");
@@ -100,7 +102,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                     <div className="container">
                         <div className="row">
                             <div className="col-12 col-md-10 col-lg-8 m-auto">
-                                <img
+                                <LazyLoadImage
                                     src={
                                         article.main_image
                                             ? `${
@@ -111,6 +113,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                             : singlePost1
                                     }
                                     alt="thumb"
+                                    effect="blur"
                                 />
                                 <div className="space-20" />
                                 <div className="single_post_heading">
@@ -124,7 +127,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                                 article.profile.logo && (
                                                     <div className="author_img">
                                                         <div className="author_img_wrap">
-                                                            <img
+                                                            <LazyLoadImage
                                                                 src={
                                                                     process.env
                                                                         .REACT_APP_CMS_URL +
@@ -134,6 +137,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                                                         .url
                                                                 }
                                                                 alt="author2"
+                                                                effect="blur"
                                                             />
                                                         </div>
                                                     </div>
