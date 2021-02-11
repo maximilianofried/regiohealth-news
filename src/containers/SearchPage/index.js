@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 import StickyBox from 'react-sticky-box';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -27,7 +28,9 @@ const SearchPage = ({
     adsCategory,
     limit,
 }) => {
+    const location = useLocation();
     useEffect(() => {
+        console.log(location);
         fetchAds();
         fetchNationalData({
             limit: 6,
@@ -37,7 +40,7 @@ const SearchPage = ({
             includeCountry: 'Germany',
         });
     }, []);
-    const [place, setPlace] = useState('');
+    const [place, setPlace] = useState(location.place);
     // const [radius, setRadius] = useState('5000');
     const [type, setType] = useState('alle');
     const [keyWord, setKeyWord] = useState('');
@@ -66,7 +69,7 @@ const SearchPage = ({
                                     <div className="col-12 align-self-center">
                                         <div className="categories_title">
                                             <h5>Mach deine Suche:</h5>
-                                            <SearchBox
+                                            {/* <SearchBox
                                                 fetchGeoData={fetchGeoData}
                                                 place={place}
                                                 type={type}
@@ -74,7 +77,7 @@ const SearchPage = ({
                                                 setPlace={setPlace}
                                                 setType={setType}
                                                 setKeyWord={setKeyWord}
-                                            />
+                                            /> */}
                                             <div className="space-30" />
                                         </div>
                                     </div>

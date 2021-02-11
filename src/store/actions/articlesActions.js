@@ -5,6 +5,7 @@ import {
     FETCH_ARTICLES_SUCCESS,
     FETCH_ARTICLES_FAILURE,
     FETCH_ARTICLES_CITY_SUCCESS,
+    FETCH_ARTICLES_HOMEPAGE_SUCCESS,
     FETCH_ARTICLES_CLEAN_UP,
 } from '../constants/articlesTypes';
 
@@ -31,6 +32,13 @@ const fetchArticlesFailure = (error) => {
 const fetchArticlesByCitySuccess = (payload) => {
     return {
         type: FETCH_ARTICLES_CITY_SUCCESS,
+        payload,
+    };
+};
+
+const fetchArticlesHomepageSuccess = (payload) => {
+    return {
+        type: FETCH_ARTICLES_HOMEPAGE_SUCCESS,
         payload,
     };
 };
@@ -76,6 +84,46 @@ export const fetchArticles = ({
                     })
                 );
             })
+            .catch((error) => {
+                const errorMsg = error.message;
+                dispatch(fetchArticlesFailure(errorMsg));
+            });
+    };
+};
+
+export const fetchArticleHomepage = () => {
+    return (dispatch) => {
+        const urlKnowledge = `${process.env.REACT_APP_CMS_URL}/articles/published?_sort=publishAt:desc&homepage=knowledge`;
+        const urlPublisher = `${process.env.REACT_APP_CMS_URL}/articles/published?_sort=publishAt:desc&homepage=publisher`;
+        const urlNews = `${process.env.REACT_APP_CMS_URL}/articles/published?_sort=publishAt:desc&homepage=news`;
+        dispatch(fetchArticlesRequest);
+        axios
+            .all([
+                axios.get(urlKnowledge),
+                axios.get(urlPublisher),
+                axios.get(urlNews),
+            ])
+            .then(
+                axios.spread((...responses) => {
+                    const knowledgeArticles = responses[0];
+                    const publisherArticles = responses[1];
+                    const newsArticles = responses[2];
+                    const articles = {
+                        knowledgeArticles: knowledgeArticles.data[0],
+                        publisherArticles: publisherArticles.data,
+                        newsArticles: newsArticles.data,
+                    };
+                    dispatch(fetchArticlesHomepageSuccess({ articles }));
+                })
+            )
+            // .then((response) => {
+            //     const articles = response.data;
+            //     dispatch(
+            //         fetchArticlesSuccess({
+            //             articles,
+            //         })
+            //     );
+            // })
             .catch((error) => {
                 const errorMsg = error.message;
                 dispatch(fetchArticlesFailure(errorMsg));

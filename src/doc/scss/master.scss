@@ -33,6 +33,8 @@
 @import 'typography';
 @import 'main-nav';
 @import 'background';
+@import 'theme3_nav';
+@import 'theme-3';
 @import 'buttons';
 @import 'inner';
 @import 'categories';
@@ -271,6 +273,10 @@ body {
             }
         }
     }
+
+    .logo_area_searchbox {
+        padding-left: 83px;
+    }
 }
 
 .logo {
@@ -424,12 +430,12 @@ body {
 
 .widget-title {
     font-size: $widget_font_size2;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-weight: $wightMedium;
     text-transform: capitalize;
     position: relative;
     z-index: 2;
-    display: inline-block;
+    // display: inline-block;
 }
 
 .about_post_list {
@@ -555,7 +561,7 @@ a.social_medium {
 
 .news_letter {
     .newsletter {
-        margin-top: 35px;
+        // margin-top: 35px;
 
         ul {
             margin: 0;
@@ -582,7 +588,7 @@ a.social_medium {
             }
         }
     }
-    background: $input_bg;
+    // background: $input_bg;
 
     p {
         color: $news_letter_body;
@@ -850,6 +856,9 @@ span.tranding.tranding_border {
     .img_wrap {
         height: 77px;
         width: 100px;
+    }
+    .img_wrap_2 {
+        overflow: hidden;
     }
 }
 
@@ -1161,8 +1170,8 @@ span.tranding {
 }
 
 /*POST TYPE-6*/
-
 .post_type6 {
+    // height: 575px;
     span.tranding {
         height: 54px;
         width: 54px;
@@ -1180,10 +1189,10 @@ span.tranding {
     }
 
     .single_post_text {
-        //position: absolute;
+        position: absolute;
         bottom: 0;
         z-index: 9;
-        // padding: 40px;
+        padding: 40px;
 
         div.post-p {
             font-size: 15px;
@@ -1200,25 +1209,21 @@ span.tranding {
             }
         }
 
-        .cat_date {
-            color: black;
-            font-size: $heading3;
-            line-height: 36px;
+        p {
+            color: $white;
         }
 
-        a,
-        .tag {
-            color: black;
+        a {
+            color: $white;
             font-size: $heading3;
             line-height: 36px;
+            font-weight: $wightBold;
         }
 
         .meta {
             margin-bottom: 0;
 
-            a,
-            .cat_date,
-            .tag {
+            a {
                 font-size: 14px;
                 text-transform: capitalize;
                 position: relative;
@@ -1241,6 +1246,47 @@ span.tranding {
                 }
             }
         }
+        // .cat_date {
+        //     color: black;
+        //     font-size: $heading3;
+        //     line-height: 36px;
+        // }
+
+        // a,
+        // .tag {
+        //     color: black;
+        //     font-size: $heading3;
+        //     line-height: 36px;
+        // }
+
+        // .meta {
+        //     margin-bottom: 0;
+
+        //     a,
+        //     .cat_date,
+        //     .tag {
+        //         font-size: 14px;
+        //         text-transform: capitalize;
+        //         position: relative;
+        //         z-index: 2;
+
+        //         &:last-child {
+        //             margin-left: 20px;
+
+        //             &:before {
+        //                 position: absolute;
+        //                 content: '/';
+        //                 height: 20px;
+        //                 width: 10px;
+        //                 left: -18px;
+        //                 top: 50%;
+        //                 margin-top: -10px;
+        //                 line-height: 20px;
+        //                 text-align: center;
+        //             }
+        //         }
+        //     }
+        // }
     }
 }
 
@@ -2491,11 +2537,11 @@ a.cbtn3 {
         margin-right: 0;
     }
 
-    .my-flex-container {
-        button {
-            min-width: fit-content;
-        }
-    }
+    // .my-flex-container {
+    //     button {
+    //         min-width: fit-content;
+    //     }
+    // }
 
     .social2 {
         text-align: center;
@@ -2987,16 +3033,38 @@ a.cbtn3 {
         }
     }
 
-    .my-flex-container {
-        //border: 2px solid green;
-        height: 45px;
-        margin-bottom: 20px;
-        // flex-wrap: wrap;
-    }
+    // .my-flex-container {
+    //     //border: 2px solid green;
+    //     height: 45px;
+    //     margin-bottom: 20px;
+    //     // flex-wrap: wrap;
+    // }
 
     //NEWSLETTER FORM
 
     .sib-form {
         color: red;
+    }
+}
+
+.search_logo {
+    .search_results,
+    .search_box {
+        // margin-bottom: 50px;
+    }
+    input {
+        margin-bottom: 5px;
+        height: 32px;
+    }
+    .search-button {
+        background-color: $green_regiohealth;
+        color: white;
+        margin-bottom: 5px;
+        border: 0;
+        &.active,
+        &:hover {
+            background-color: #406314;
+            border-color: #406314;
+        }
     }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PrivateRoute from '../_PrivateRoute';
 import HomePage from '../HomePage';
+import HomePageTwo from '../HomePageTwo';
 import CategoryPage from '../CategoryPage';
 import InfoPage from '../InfoPage';
 import NotFoundPage from '../NotFoundPage';
@@ -41,7 +42,8 @@ const Routes = ({ menuData, pages }) => {
                     key={item.id}
                     exact
                     path={item.link}
-                    parentClass="theme-1"
+                    home_style={2}
+                    parentClass="theme-3 theme3_bg"
                     component={(props) =>
                         selectPage(item.linkText, item.categories, props)
                     }
@@ -70,11 +72,20 @@ const Routes = ({ menuData, pages }) => {
                 parentClass="theme-1"
                 component={OfferPage}
             />
+            {/* <PrivateRoute
+                exact
+                path="/such-portal"
+                home_style={2}
+                parentClass="theme-1"
+                component={(props) => <SearchPage {...props} />} */}
+            />
+            {/* home two routes */}
             <PrivateRoute
                 exact
-                path="/search"
-                parentClass="theme-1"
-                component={(props) => <SearchPage {...props} />}
+                home_style={2}
+                parentClass="theme-3 theme3_bg"
+                path="/home-two"
+                component={HomePageTwo}
             />
             <Route exact component={NotFoundPage} />
         </Switch>

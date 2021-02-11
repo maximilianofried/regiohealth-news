@@ -3,12 +3,14 @@ import {
     FETCH_ARTICLES_SUCCESS,
     FETCH_ARTICLES_FAILURE,
     FETCH_ARTICLES_CITY_SUCCESS,
+    FETCH_ARTICLES_HOMEPAGE_SUCCESS,
     FETCH_ARTICLES_CLEAN_UP,
 } from '../constants/articlesTypes';
 
 const initialState = {
     loading: false,
     articles: [],
+    articlesHomepage: {},
     articlesByCity: [],
     error: '',
     limit: 4,
@@ -40,6 +42,13 @@ const articlesReducer = (state = initialState, action) => {
                 loading: false,
                 articlesByCity: action.payload.articles,
                 limit: action.payload.limit,
+                error: '',
+            };
+        case FETCH_ARTICLES_HOMEPAGE_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                articlesHomepage: action.payload.articles,
                 error: '',
             };
         case FETCH_ARTICLES_CLEAN_UP:
