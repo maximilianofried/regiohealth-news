@@ -1,10 +1,22 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
+import {
+    fetchGeoData,
+    fetchAds,
+    fetchNationalData,
+    fetchNationalDataCleanUp,
+} from '../../store/actions';
 import logo from '../../doc/img/logo/logo.png';
 import tempIcon from '../../doc/img/icon/temp.png';
+import SearchBox from '../SearchBox';
 
-const LogoAreaTwo = () => {
+const LogoAreaTwo = ({ history, fetchGeoData }) => {
     const [search, setSearch] = useState('');
+    const [place, setPlace] = useState('');
+    // const [radius, setRadius] = useState('5000');
+    const [type, setType] = useState('alle');
+    const [keyWord, setKeyWord] = useState('');
     const submitHandler = (e) => {
         e.preventDefault();
         setSearch('');
@@ -12,39 +24,41 @@ const LogoAreaTwo = () => {
     return (
         <div className="logo_area white_bg">
             <div className="container">
-                <div className="row">
+                <div className="row justify-content-between">
                     <div className="col-lg-3 align-self-center">
                         <div
                             className="logo"
-                            // onClick={() => history.push('/home-two')}
+                            onClick={() => history.push('/home-two')}
                         >
                             <img
                                 alt="regio health logo"
-                                src={`${process.env.REACT_APP_CMS_URL}/uploads/regiohealth_news_d00278de38.svg`}
+                                src={`${process.env.REACT_APP_CMS_URL}/uploads/regiohealth_news_16cb0d731e.svg`}
                             />
                         </div>
                     </div>
-                    <div className="col-lg-6 align-self-center">
-                        {/* <div className="signup_form header_search3">
-                            <form onSubmit={submitHandler}>
-                                <input
-                                    className="signup"
-                                    type="email"
-                                    placeholder="Your email address"
-                                    value={search}
-                                    onChange={(e) => setSearch(e.target.value)}
-                                />
-                                <button type="submit" className="cbtn">
-                                    sign up
-                                </button>
-                            </form>
-                        </div> */}
+                    <div className="col-7 align-self-center search_logo">
+                        <div className="logo_area_searchbox">
+                            <SearchBox
+                                fetchGeoData={fetchGeoData}
+                                place={place}
+                                type={type}
+                                keyWord={keyWord}
+                                setPlace={setPlace}
+                                setType={setType}
+                                setKeyWord={setKeyWord}
+                            />
+                        </div>
                     </div>
-                    <div className="col-lg-2 align-self-center offset-lg-1"></div>
                 </div>
             </div>
         </div>
     );
 };
 
-export default withRouter(LogoAreaTwo);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchGeoData: (filters) => dispatch(fetchGeoData(filters)),
+    };
+};
+
+export default connect(null, mapDispatchToProps)(withRouter(LogoAreaTwo));

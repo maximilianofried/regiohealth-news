@@ -44,7 +44,7 @@ const PostGalleryTwo = ({ knowledgeArticles, newsArticles }) => {
                 <div className="row">
                     <div className="col-md-12 col-lg-8 ">
                         {knowledgeArticles && (
-                            <div className="single_post post_type6 border-radious7 xs-mb30">
+                            <div className="single_post post_type6 border-radious7 xs-mb30 main_article_homepage">
                                 <div className="post_img gradient1">
                                     <div className="img_wrap">
                                         <Link to="/">
@@ -143,6 +143,7 @@ const PostGalleryTwo = ({ knowledgeArticles, newsArticles }) => {
                             className="border-radious5 white_bg padding20 sm-mt30"
                         />
                         <div className="white_bg padding15 border-radious5 sm-mt30">
+                            <h2 className="widget-title">News</h2>
                             {newsArticles &&
                                 newsArticles.map((item, i) => (
                                     <div

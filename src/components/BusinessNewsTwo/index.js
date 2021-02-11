@@ -60,7 +60,7 @@ const business = [
 const BusinessNewsTwo = ({ publisherArticles }) => {
     return (
         <div className="business3 padding20 white_bg border-radious5">
-            <h4 className="widget-title">Business</h4>
+            <h4 className="widget-title">Publisher</h4>
             {publisherArticles &&
                 publisherArticles.map((item, i) => (
                     <div

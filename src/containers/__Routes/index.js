@@ -42,7 +42,8 @@ const Routes = ({ menuData, pages }) => {
                     key={item.id}
                     exact
                     path={item.link}
-                    parentClass="theme-1"
+                    home_style={2}
+                    parentClass="theme-3 theme3_bg"
                     component={(props) =>
                         selectPage(item.linkText, item.categories, props)
                     }
@@ -71,11 +72,12 @@ const Routes = ({ menuData, pages }) => {
                 parentClass="theme-1"
                 component={OfferPage}
             />
-            <PrivateRoute
+            {/* <PrivateRoute
                 exact
-                path="/search"
+                path="/such-portal"
+                home_style={2}
                 parentClass="theme-1"
-                component={(props) => <SearchPage {...props} />}
+                component={(props) => <SearchPage {...props} />} */}
             />
             {/* home two routes */}
             <PrivateRoute

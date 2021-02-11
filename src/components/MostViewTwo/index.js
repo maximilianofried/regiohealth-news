@@ -110,18 +110,20 @@ const MostViewTwo = ({ title, latestOffers }) => {
                     >
                         <div className="post_img">
                             <div className="img_wrap_2">
-                                <Link to="/">
-                                    <LazyLoadImage
-                                        src={
-                                            process.env.REACT_APP_CMS_URL +
-                                            (item.main_image.formats
-                                                ? item.main_image.formats
-                                                      .thumbnail.url
-                                                : item.main_image.url)
-                                        }
-                                        alt="thumb"
-                                    />
-                                </Link>
+                                {item.main_image && (
+                                    <Link to="/">
+                                        <LazyLoadImage
+                                            src={
+                                                process.env.REACT_APP_CMS_URL +
+                                                (item.main_image.formats
+                                                    ? item.main_image.formats
+                                                          .thumbnail.url
+                                                    : item.main_image.url)
+                                            }
+                                            alt="thumb"
+                                        />
+                                    </Link>
+                                )}
                             </div>
                         </div>
                         <div className="single_post_text">

@@ -3,6 +3,7 @@ import usePlacesAutocomplete, {
     getGeocode,
     // getLatLng,
 } from 'use-places-autocomplete';
+import { withRouter } from 'react-router-dom';
 import {
     Combobox,
     ComboboxInput,
@@ -19,6 +20,7 @@ const SearchBox = ({
     setPlace,
     setType,
     setKeyWord,
+    history,
 }) => {
     const options = {
         componentRestrictions: { country: ['de', 'pl'] },
@@ -77,9 +79,16 @@ const SearchBox = ({
             });
     };
 
-    const handleSubmit = (event) => {
-        event.stopPropagation();
+    const handleSubmit = (event, history) => {
         event.preventDefault();
+        event.stopPropagation();
+        // eslint-disable-next-line no-restricted-globals
+        history.push({
+            pathname: '/such-portal',
+            place,
+            type,
+            keyWord,
+        });
         fetchGeoData({
             limit: 6,
             start: 0,
@@ -90,7 +99,10 @@ const SearchBox = ({
         });
     };
     return (
-        <form onSubmit={(event) => handleSubmit(event)} className="search_box">
+        <form
+            onSubmit={(event) => handleSubmit(event, history)}
+            className="search_box"
+        >
             <Combobox
                 onSelect={(address) => onComboSelect(address)}
                 className="form-row align-items-center"
@@ -157,4 +169,4 @@ const SearchBox = ({
     );
 };
 
-export default SearchBox;
+export default withRouter(SearchBox);

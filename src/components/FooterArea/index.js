@@ -29,7 +29,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             <LazyLoadImage
                                                 alt="logo"
                                                 className="gt_logo"
-                                                src={`${process.env.REACT_APP_CMS_URL}/uploads/logo_gt_1c7fd3b58d.svg`}
+                                                src={`${process.env.REACT_APP_CMS_URL}/uploads/logo_gt3_d2142e249a.svg`}
                                                 effect="blur"
                                             />
                                         </a>
@@ -42,7 +42,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             <LazyLoadImage
                                                 alt="logo"
                                                 className="gt_logo"
-                                                src={`${process.env.REACT_APP_CMS_URL}/uploads/regiohealth_b_2504b34553.svg`}
+                                                src={`${process.env.REACT_APP_CMS_URL}/uploads/regiohealth_b_7bbe36540e.svg`}
                                                 effect="blur"
                                             />
                                         </a>
@@ -55,7 +55,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             <LazyLoadImage
                                                 alt="logo"
                                                 className="gt_logo"
-                                                src={`${process.env.REACT_APP_CMS_URL}/uploads/regiohealth_k_7e8e5e4a52.svg`}
+                                                src={`${process.env.REACT_APP_CMS_URL}/uploads/regiohealth_k_45f8d252a5.svg`}
                                                 effect="blur"
                                             />
                                         </a>
@@ -68,7 +68,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             <LazyLoadImage
                                                 alt="logo"
                                                 className="gt_logo"
-                                                src={`${process.env.REACT_APP_CMS_URL}/uploads/LOGO_WF_657d71e353.svg`}
+                                                src={`${process.env.REACT_APP_CMS_URL}/uploads/LOGO_WF_3f61100d67.svg`}
                                                 effect="blur"
                                             />
                                         </a>

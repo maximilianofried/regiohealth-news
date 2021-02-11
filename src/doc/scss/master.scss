@@ -273,6 +273,10 @@ body {
             }
         }
     }
+
+    .logo_area_searchbox {
+        padding-left: 83px;
+    }
 }
 
 .logo {
@@ -1166,8 +1170,6 @@ span.tranding {
 }
 
 /*POST TYPE-6*/
-.knowledge_post {
-}
 .post_type6 {
     // height: 575px;
     span.tranding {
@@ -2535,11 +2537,11 @@ a.cbtn3 {
         margin-right: 0;
     }
 
-    .my-flex-container {
-        button {
-            min-width: fit-content;
-        }
-    }
+    // .my-flex-container {
+    //     button {
+    //         min-width: fit-content;
+    //     }
+    // }
 
     .social2 {
         text-align: center;
@@ -3031,16 +3033,38 @@ a.cbtn3 {
         }
     }
 
-    .my-flex-container {
-        //border: 2px solid green;
-        height: 45px;
-        margin-bottom: 20px;
-        // flex-wrap: wrap;
-    }
+    // .my-flex-container {
+    //     //border: 2px solid green;
+    //     height: 45px;
+    //     margin-bottom: 20px;
+    //     // flex-wrap: wrap;
+    // }
 
     //NEWSLETTER FORM
 
     .sib-form {
         color: red;
+    }
+}
+
+.search_logo {
+    .search_results,
+    .search_box {
+        // margin-bottom: 50px;
+    }
+    input {
+        margin-bottom: 5px;
+        height: 32px;
+    }
+    .search-button {
+        background-color: $green_regiohealth;
+        color: white;
+        margin-bottom: 5px;
+        border: 0;
+        &.active,
+        &:hover {
+            background-color: #406314;
+            border-color: #406314;
+        }
     }
 }
