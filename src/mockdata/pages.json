@@ -3,9 +3,9 @@
         "_id": "5f75a14689987c4071064328",
         "name": "Über uns",
         "link": "/ueber-uns",
-        "content": "<p><strong>RegioHealth.News</strong>&nbsp;ist eine Plattform für Informationen und Neuigkeiten rund um regionale und überregionale Gesundheitsthemen der Partner des GesundheitsTicket-Netzwerks.&nbsp;</p><p>Die Idee für RegioHealth.News entstand aus dem Wunsch einer besseren Vernetzung der Kunden und GesundheitsPartnern des Netzwerks der GesundheitsTicket GmbH mit der Möglichkeit, über Projekte und Aktionen und Angebote zu publizieren, um sie der Öffentlichkeit aber auch konkreten Zielgruppen wie GesundheitsTicket-Inhabern zugänglich zu machen.</p><p>Darüber hinaus veröffentlicht die Plattform auch Informationen rund um Aktivitäten und Projekte unserer Unternehmensgruppe und stellt allgemein interessante Informationen zum Thema Gesundheit und gesunde Lebenswelten zur Verfügung.&nbsp;</p><p>Damit ist RegioHealth.News auch eine geeignete Informationsquelle für Unternehmen, Kommunen, Gesundheitsregionen, GesundheitsmanagerInnen, PersonalleiterInnen und alle an Gesundheitsthemen interessierte Menschen.</p><p>Ein Anliegen ist uns seit Langem, gemeinnützige Organisationen und Projekte im In- und Ausland zu unterstützen und deren Arbeit bekannter zu machen, die sich unter der Überschrift Gesundheit und Prävention in den Bereichen der deutsch-polnischen Zusammenarbeit, der Menschenrechte, dem Schutz von Minderheiten, dem Umweltschutz und der Entwicklung von gesundheitsfördernden Strukturen engagieren.&nbsp;</p><p>Diesem Herzensthema widmen wir verschiedene kostenloste Werbebutton und Artikel in der Kategorie NGO.&nbsp;</p><p>Im Laufe der Zeit werden wir diese Plattform immer weiter entwickeln und um sinnvolle Funktionen erweitern. Wir laden Sie als gesundheitsinteressierten Besucher und Nutzer unserer Plattform herzlich ein, Ihre Wünsche und Meinungen einzubringen, damit wir diese Plattform mit Leben füllen und weiterentwickeln können.&nbsp;</p><p>Christian Lombardt CEO &amp; Founder</p>",
+        "content": "<p><strong>RegioHealth.News</strong>&nbsp;ist eine Plattform für Informationen und Neuigkeiten rund um regionale und überregionale Gesundheitsthemen der Partner des GesundheitsTicket-Netzwerks.&nbsp;</p><p>Die Idee für RegioHealth.News entstand aus dem Wunsch einer besseren Vernetzung unserer Kunden und GesundheitsPartnern des Netzwerks der GesundheitsTicket GmbH mit der Möglichkeit, über Projekte und Aktionen und Angebote zu publizieren, um sie der Öffentlichkeit, aber auch konkreten Zielgruppen wie GesundheitsTicket-Inhabern zugänglich zu machen.</p><p>Darüber hinaus veröffentlicht die Plattform auch Informationen rund um Aktivitäten und Projekte unserer Unternehmensgruppe und stellt allgemein interessante Informationen zum Thema Gesundheit und gesunde Lebenswelten zur Verfügung.&nbsp;</p><p>Damit ist RegioHealth.News auch eine geeignete Informationsquelle für Unternehmen, Kommunen, Gesundheitsregionen, GesundheitsmanagerInnen, PersonalleiterInnen und alle an Gesundheitsthemen interessierte Menschen.</p><p>Ein Anliegen ist uns seit Langem, gemeinnützige Organisationen und Projekte im In- und Ausland zu unterstützen und deren Arbeit bekannter zu machen, die sich unter der Überschrift Gesundheit und Prävention in den Bereichen der deutsch-polnischen Zusammenarbeit, der Menschenrechte, dem Schutz von Minderheiten, dem Umweltschutz und der Entwicklung von gesundheitsfördernden Strukturen engagieren.&nbsp;</p><p>Diesem Herzensthema widmen wir verschiedene kostenloste Werbebutton und Artikel in der Kategorie NGO.&nbsp;</p><p>Im Laufe der Zeit werden wir diese Plattform immer weiter entwickeln und um sinnvolle Funktionen erweitern. Wir laden Sie als gesundheitsinteressierten Besucher und Nutzer unserer Plattform herzlich ein, Ihre Wünsche und Meinungen einzubringen, damit wir diese Plattform mit Leben füllen und weiterentwickeln können.&nbsp;</p><p>Christian Lombardt CEO &amp; Founder</p>",
         "createdAt": "2020-10-01T09:28:38.830Z",
-        "updatedAt": "2020-12-09T14:18:20.635Z",
+        "updatedAt": "2020-12-27T07:34:57.442Z",
         "__v": 0,
         "created_by": {
             "_id": "5ef315f59cc738029b69ba6b",
@@ -16,12 +16,14 @@
             "id": "5ef315f59cc738029b69ba6b"
         },
         "updated_by": {
-            "_id": "5ef315f59cc738029b69ba6b",
-            "username": "Maxi Fried",
-            "createdAt": "2020-06-24T08:59:33.537Z",
-            "updatedAt": "2020-08-26T09:36:48.219Z",
+            "_id": "5ef316809cc738029b69ba6c",
+            "username": "Christian Lombardt",
+            "createdAt": "2020-06-24T09:01:52.382Z",
+            "updatedAt": "2020-09-24T13:12:58.021Z",
             "__v": 0,
-            "id": "5ef315f59cc738029b69ba6b"
+            "lastname": "Lombardt",
+            "firstname": "Christian",
+            "id": "5ef316809cc738029b69ba6c"
         },
         "id": "5f75a14689987c4071064328"
     },
