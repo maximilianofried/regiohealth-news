@@ -20,6 +20,8 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8BTZiI8mQlbxR68KJnPWP3RQEuHvdJDM&libraries=places"></script>
+        <% if (process.env.NODE_ENV === 'production') { %>
         <link
             rel="stylesheet"
             type="text/css"
@@ -34,21 +36,11 @@
             async
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
         ></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8BTZiI8mQlbxR68KJnPWP3RQEuHvdJDM&libraries=places"></script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script
             async
             src="https://www.googletagmanager.com/gtag/js?id=%REACT_APP_UA_TRACK%"
         ></script>
-        <!-- <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
-
-            gtag('config', '%REACT_APP_UA_TRACK%');
-        </script> -->
         <script>
             // Reads the value of a cookie by name or returns empty string
             function getCookie(name) {
@@ -66,8 +58,7 @@
             const cookieConsent = getCookie('cookieconsent_status');
 
             // Start analytics if user consented or did not deny
-            if (cookieConsent === 'allow' || cookieConsent === '') {
-                console.log('ADDS GTAG');
+            if (cookieConsent === 'allow') {
                 window.dataLayer = window.dataLayer || [];
 
                 function gtag() {
@@ -78,6 +69,18 @@
                 gtag('config', '%REACT_APP_UA_TRACK%');
             }
         </script>
+        <% } %>
+
+        <!-- <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', '%REACT_APP_UA_TRACK%');
+        </script> -->
+
         <!-- <style>
             .loader-container {
                 position: fixed;
@@ -125,6 +128,7 @@
   To begin the development, run `npm start` or `yarn start`.
   To create a production bundle, use `npm run build` or `yarn build`.
 -->
+        <% if (process.env.NODE_ENV === 'production') { %>
         <script>
             // Initialise cookie consent banner
             window.cookieconsent.initialise({
@@ -150,5 +154,6 @@
                 },
             });
         </script>
+        <% } %>
     </body>
 </html>
