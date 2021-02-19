@@ -37,13 +37,13 @@ const posts = [
     },
 ];
 
-const PostGalleryTwo = ({ knowledgeArticles, newsArticles }) => {
+const PostGalleryTwo = ({ mainArticle, newsArticles }) => {
     return (
         <div className="post_gallary_area theme3_bg mb40 padding-top-30">
             <div className="container">
                 <div className="row">
                     <div className="col-md-12 col-lg-8 ">
-                        {knowledgeArticles && (
+                        {mainArticle && (
                             <div className="single_post post_type6 border-radious7 xs-mb30 main_article_homepage">
                                 <div className="post_img gradient1">
                                     <div className="img_wrap">
@@ -51,11 +51,11 @@ const PostGalleryTwo = ({ knowledgeArticles, newsArticles }) => {
                                             <LazyLoadImage
                                                 className="wrapper__img"
                                                 src={
-                                                    knowledgeArticles.main_image
+                                                    mainArticle.main_image
                                                         ? `${
                                                               process.env
                                                                   .REACT_APP_CMS_URL +
-                                                              knowledgeArticles
+                                                              mainArticle
                                                                   .main_image
                                                                   .url
                                                           }`
@@ -70,30 +70,28 @@ const PostGalleryTwo = ({ knowledgeArticles, newsArticles }) => {
                                 <div className="single_post_text">
                                     <h4>
                                         <Link
-                                            to={`/article/${knowledgeArticles.slug}`}
+                                            to={`/article/${mainArticle.slug}`}
                                         >
-                                            {knowledgeArticles.title}
+                                            {mainArticle.title}
                                         </Link>
                                     </h4>
                                     <div className="space-5" />
 
                                     <p className="post-p">
-                                        {knowledgeArticles.description}
+                                        {mainArticle.description}
                                     </p>
 
                                     <div className="space-20" />
                                     <div className="meta meta_separator1">
                                         <Link to="/">
-                                            {knowledgeArticles.categories
-                                                .length > 0
-                                                ? knowledgeArticles
-                                                      .categories[0].name
+                                            {mainArticle.categories.length > 0
+                                                ? mainArticle.categories[0].name
                                                 : ''}
                                         </Link>
                                         <Link to="/">
                                             {' '}
                                             {moment(
-                                                knowledgeArticles.publishAt
+                                                mainArticle.publishAt
                                             ).format('LL')}
                                         </Link>
                                     </div>

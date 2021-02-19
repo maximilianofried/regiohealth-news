@@ -93,23 +93,23 @@ export const fetchArticles = ({
 
 export const fetchArticleHomepage = () => {
     return (dispatch) => {
-        const urlKnowledge = `${process.env.REACT_APP_CMS_URL}/articles/published?_sort=publishAt:desc&homepage=knowledge`;
+        const urlMainArticle = `${process.env.REACT_APP_CMS_URL}/articles/published?_sort=publishAt:desc&homepage=main_article`;
         const urlPublisher = `${process.env.REACT_APP_CMS_URL}/articles/published?_sort=publishAt:desc&homepage=publisher`;
         const urlNews = `${process.env.REACT_APP_CMS_URL}/articles/published?_sort=publishAt:desc&homepage=news`;
         dispatch(fetchArticlesRequest);
         axios
             .all([
-                axios.get(urlKnowledge),
+                axios.get(urlMainArticle),
                 axios.get(urlPublisher),
                 axios.get(urlNews),
             ])
             .then(
                 axios.spread((...responses) => {
-                    const knowledgeArticles = responses[0];
+                    const mainArticle = responses[0];
                     const publisherArticles = responses[1];
                     const newsArticles = responses[2];
                     const articles = {
-                        knowledgeArticles: knowledgeArticles.data[0],
+                        mainArticle: mainArticle.data[0],
                         publisherArticles: publisherArticles.data,
                         newsArticles: newsArticles.data,
                     };
