@@ -49,7 +49,7 @@ const Routes = ({ menuData, pages }) => {
                     }
                 />
             ))}
-            {pagesMenu.map((item) => (
+            {mockPages.map((item) => (
                 <PrivateRoute
                     key={item.id}
                     exact
