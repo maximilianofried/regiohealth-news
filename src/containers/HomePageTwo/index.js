@@ -27,7 +27,7 @@ const HomePageTwo = ({
     fetchArticleHomepage,
     fetchOffers,
     fetchAds,
-    knowledgeArticles,
+    mainArticle,
     publisherArticles,
     newsArticles,
     latestOffers,
@@ -45,7 +45,7 @@ const HomePageTwo = ({
                 description={RG_DESCRIPTION}
             />
             <PostGalleryTwo
-                knowledgeArticles={knowledgeArticles}
+                mainArticle={mainArticle}
                 newsArticles={newsArticles}
             />
             <div className="total3 mb30">
@@ -151,7 +151,7 @@ const HomePageTwo = ({
 
 const mapStateToProps = (state) => {
     return {
-        knowledgeArticles: state.articles.articlesHomepage.knowledgeArticles,
+        mainArticle: state.articles.articlesHomepage.mainArticle,
         publisherArticles: state.articles.articlesHomepage.publisherArticles,
         newsArticles: state.articles.articlesHomepage.newsArticles,
         latestOffers: state.offers.offers,

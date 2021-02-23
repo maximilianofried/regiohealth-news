@@ -403,7 +403,7 @@
                 li {
                     a {
                         color: $body_color;
-                        padding: 0 10px;
+                        padding: 0 5px;
 
                         &:hover {
                             color: $body_color;
@@ -502,7 +502,7 @@
 
             &:before {
                 position: absolute;
-                content: '';
+                // content: '';
                 height: 15px;
                 width: 2px;
                 background: $secondary_bg;
@@ -843,8 +843,9 @@
 
     .type20 {
         .post_img {
-            width: 42%;
-
+            // width: 42%;
+            width: 315px;
+            height: 216px;
             .tranding {
                 height: 30px;
                 width: 30px;

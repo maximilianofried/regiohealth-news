@@ -25,7 +25,7 @@ const LogoAreaTwo = ({ history, fetchGeoData }) => {
         <div className="logo_area white_bg">
             <div className="container">
                 <div className="row justify-content-between">
-                    <div className="col-lg-3 align-self-center">
+                    <div className="col-sm-12 col-md-4 col-lg-3 col-xl-3 align-self-center">
                         <div
                             className="logo"
                             onClick={() => history.push('/home-two')}
@@ -36,7 +36,7 @@ const LogoAreaTwo = ({ history, fetchGeoData }) => {
                             />
                         </div>
                     </div>
-                    <div className="col-7 align-self-center search_logo">
+                    <div className="col-sm-12 col-md-8 col-lg-9 col-xl-7 align-self-center search_logo">
                         <div className="logo_area_searchbox">
                             <SearchBox
                                 fetchGeoData={fetchGeoData}

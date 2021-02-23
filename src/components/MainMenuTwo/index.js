@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 import moment from 'moment';
 import FontAwesome from '../uiStyle/FontAwesome';
+import { fetchMenu } from '../../store/actions';
 import SidebarMenu from '../SidebarMenu';
 
 const menus = [
@@ -207,9 +209,13 @@ const menus = [
         link: '/home-two/contact',
     },
 ];
-const MainMenuTwo = () => {
+const MainMenuTwo = ({ fetchMenu, menuData }) => {
+    useEffect(() => {
+        fetchMenu();
+    }, []);
     const [sideShow, setSideShow] = useState(false);
     const currentDate = moment().format('dddd, MMMM D, YYYY');
+    // const menus = menuData.menu;
     return (
         <div className="container">
             <div className="main-menu">
@@ -366,4 +372,16 @@ const MainMenuTwo = () => {
     );
 };
 
-export default MainMenuTwo;
+const mapStateToProps = (state) => {
+    return {
+        menuData: state.menu,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchMenu: () => dispatch(fetchMenu()),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainMenuTwo);

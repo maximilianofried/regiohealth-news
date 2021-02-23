@@ -94,11 +94,11 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                     url={`${process.env.REACT_APP_BASE_PAGE_URL}/article/${slug}`}
                 />
                 <div className="archives post post1">
-                    <BreadCrumb
+                    {/* <BreadCrumb
                         className="shadow5 padding-top-30"
                         title="Archive / Articles"
-                    />
-                    <span className="space-30" />
+                    /> */}
+                    <div className="space-30" />
                     <div className="container">
                         <div className="row">
                             <div className="col-12 col-md-10 col-lg-8 m-auto">

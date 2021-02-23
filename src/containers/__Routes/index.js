@@ -63,7 +63,8 @@ const Routes = ({ menuData, pages }) => {
             <PrivateRoute
                 exact
                 path="/article/:slug"
-                parentClass="theme-1"
+                home_style={2}
+                parentClass="theme-3 theme3_bg"
                 component={PostTwoPage}
             />
             <PrivateRoute
@@ -78,7 +79,6 @@ const Routes = ({ menuData, pages }) => {
                 home_style={2}
                 parentClass="theme-1"
                 component={(props) => <SearchPage {...props} />} */}
-            />
             {/* home two routes */}
             <PrivateRoute
                 exact

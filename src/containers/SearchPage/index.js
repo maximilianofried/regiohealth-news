@@ -59,7 +59,7 @@ const SearchPage = ({
 
     return (
         <>
-            <BreadCrumb title="Suchportal GesundheitsTicket" />
+            {/* <BreadCrumb title="Suchportal GesundheitsTicket" /> */}
             <div className="archives padding-top-30">
                 <div className="container">
                     <div className="row">
@@ -68,7 +68,7 @@ const SearchPage = ({
                                 <div className="row">
                                     <div className="col-12 align-self-center">
                                         <div className="categories_title">
-                                            <h5>Mach deine Suche:</h5>
+                                            <h5>Deine Suche:</h5>
                                             {/* <SearchBox
                                                 fetchGeoData={fetchGeoData}
                                                 place={place}
