@@ -36,7 +36,7 @@ const GeoDataNews = ({ geoData, headerHide }) => {
                             {geoData.map((item) => (
                                 <div
                                     key={item.id}
-                                    className="single_post post_type3 post_type12_b"
+                                    className="single_post post_type3 post_type12_b border-radious5 white_bg padding10"
                                 >
                                     {/* <div className="post_img">
                                         <div className="img_wrap">

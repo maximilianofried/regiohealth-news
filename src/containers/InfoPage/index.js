@@ -38,7 +38,7 @@ const InfoPage = ({ fetchPage, page, name }) => {
                     </div>
                 </>
             </BreadCrumb>
-            <div className="space-70" />
+            {/* <div className="space-70" /> */}
             <BannerSection />
         </>
     );

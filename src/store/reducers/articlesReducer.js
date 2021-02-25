@@ -27,6 +27,7 @@ const articlesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 articles: action.payload.articles,
+                articlesHomepage: state.articlesHomepage,
                 limit: action.payload.limit,
                 error: '',
             };
@@ -53,6 +54,7 @@ const articlesReducer = (state = initialState, action) => {
             };
         case FETCH_ARTICLES_CLEAN_UP:
             return {
+                ...state,
                 articles: [],
             };
         default:

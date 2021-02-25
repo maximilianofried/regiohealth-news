@@ -62,7 +62,7 @@ const HomePageTwo = ({
                             <div className="row justify-content-center">
                                 <div className="col-md-6 col-lg-12 d-md-none d-lg-block">
                                     {adsHome && adsHome.length > 0 && (
-                                        <div className="banner2 mb30 border-radious5">
+                                        <div className="banner2 mb30 mt20 border-radious5">
                                             <a
                                                 target="_blank"
                                                 href={adsHome[0].link}

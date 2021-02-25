@@ -30,7 +30,6 @@ const SearchPage = ({
 }) => {
     const location = useLocation();
     useEffect(() => {
-        console.log(location);
         fetchAds();
         fetchNationalData({
             limit: 6,
@@ -78,7 +77,6 @@ const SearchPage = ({
                                                 setType={setType}
                                                 setKeyWord={setKeyWord}
                                             /> */}
-                                            <div className="space-30" />
                                         </div>
                                     </div>
                                 </div>
@@ -122,7 +120,7 @@ const SearchPage = ({
                                 {/* <WidgetTrendingNews/> */}
                                 {/* <NewsLetter/>
                             <FollowUs title="Follow Us"/> */}
-                                <div className="banner2 mb30">
+                                <div className="banner2 mb30 mt30">
                                     <a
                                         href={banner350x292.link}
                                         target="_blank"

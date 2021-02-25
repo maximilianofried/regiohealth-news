@@ -215,13 +215,13 @@ const MainMenuTwo = ({ fetchMenu, menuData }) => {
     }, []);
     const [sideShow, setSideShow] = useState(false);
     const currentDate = moment().format('dddd, MMMM D, YYYY');
-    // const menus = menuData.menu;
+    const menus = menuData.menu;
     return (
         <div className="container">
             <div className="main-menu">
                 <div className="main-nav clearfix is-ts-sticky">
                     <div className="row justify-content-between">
-                        <nav className="navbar navbar-expand-lg col-lg-8 align-self-center">
+                        <nav className="navbar navbar-expand-lg col-lg-9 align-self-center">
                             <div className="site-nav-inner">
                                 <button
                                     className="navbar-toggler"
@@ -355,7 +355,7 @@ const MainMenuTwo = ({ fetchMenu, menuData }) => {
                                     </ul>
                                 </div>
                                 <SidebarMenu
-                                    className="themeBlue"
+                                    // className="themeBlue"
                                     sideShow={sideShow}
                                     setSideShow={setSideShow}
                                     menus={menus}
