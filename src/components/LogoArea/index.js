@@ -10,7 +10,7 @@ const LogoArea = ({ className, history }) => {
                         <div className="logo" onClick={() => history.push('/')}>
                             <img
                                 alt="regio health logo"
-                                src={`${process.env.REACT_APP_CMS_URL}/uploads/regiohealth_news_d00278de38.svg`}
+                                src={`${process.env.REACT_APP_CMS_URL}/uploads/regiohealth_news_16cb0d731e.svg`}
                             />
                         </div>
                     </div>

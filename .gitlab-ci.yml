@@ -13,7 +13,7 @@ step-develop:
         - dev
     script:
         - echo "REACT_APP_BASE_PAGE_URL=$REACT_APP_BASE_PAGE_URL_DEV" >> .env
-        - echo "REACT_APP_CMS_URL=$REACT_APP_CMS_URL" >> .env
+        - echo "REACT_APP_CMS_URL=$REACT_APP_CMS_URL_DEV" >> .env
         - sudo docker image prune -f
         - sudo docker-compose -f docker-compose.yml build --no-cache
         - sudo docker-compose -f docker-compose.yml up -d
@@ -25,7 +25,7 @@ step-production:
         - prod
     script:
         - echo "REACT_APP_BASE_PAGE_URL=$REACT_APP_BASE_PAGE_URL_PROD" >> .env
-        - echo "REACT_APP_CMS_URL=$REACT_APP_CMS_URL" >> .env
+        - echo "REACT_APP_CMS_URL=$REACT_APP_CMS_URL_PROD" >> .env
         - echo "REACT_APP_UA_TRACK=$REACT_APP_UA_TRACK" >> .env
         - sudo docker image prune -f
         - sudo docker-compose -f docker-compose-prod.yml build --no-cache

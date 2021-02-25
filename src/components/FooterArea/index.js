@@ -31,6 +31,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                                 className="gt_logo"
                                                 src={`${process.env.REACT_APP_CMS_URL}/uploads/logo_gt3_d2142e249a.svg`}
                                                 effect="blur"
+
                                             />
                                         </a>
                                     </li>
@@ -44,6 +45,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                                 className="gt_logo"
                                                 src={`${process.env.REACT_APP_CMS_URL}/uploads/regiohealth_b_7bbe36540e.svg`}
                                                 effect="blur"
+
                                             />
                                         </a>
                                     </li>
