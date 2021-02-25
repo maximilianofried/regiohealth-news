@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import StickyBox from 'react-sticky-box';
 import {
     fetchArticles,
     fetchAds,
@@ -45,7 +46,7 @@ const CategoryPage = ({
                 description={name}
                 url={`${process.env.REACT_APP_BASE_PAGE_URL}/${name}`}
             />
-            <BreadCrumb title={name} />
+            {/* <BreadCrumb title={name} /> */}
             <div className="archives padding-top-30">
                 <div className="container">
                     <div className="row">
@@ -83,23 +84,6 @@ const CategoryPage = ({
                         </div>
                         <div className="space-70" />
                         <div className="col-md-6 col-lg-4">
-                            <div className="banner2 mb30">
-                                <a href={banner350x292.link} target="_blank">
-                                    {banner350x292.image &&
-                                        banner350x292.image.length > 0 && (
-                                            <LazyLoadImage
-                                                src={
-                                                    process.env
-                                                        .REACT_APP_CMS_URL +
-                                                    banner350x292.image[0].url
-                                                }
-                                                alt="banner"
-                                                effect="blur"
-                                                visibleByDefault="true"
-                                            />
-                                        )}
-                                </a>
-                            </div>
                             <iframe
                                 title="advertisement"
                                 frameBorder="0"
@@ -120,6 +104,29 @@ const CategoryPage = ({
                                 </a>{' '}
                                 auf betterplace.org öffnen.
                             </iframe>
+                            <StickyBox offsetTop={20}>
+                                <div className="banner2 mb30">
+                                    <a
+                                        href={banner350x292.link}
+                                        target="_blank"
+                                    >
+                                        {banner350x292.image &&
+                                            banner350x292.image.length > 0 && (
+                                                <LazyLoadImage
+                                                    src={
+                                                        process.env
+                                                            .REACT_APP_CMS_URL +
+                                                        banner350x292.image[0]
+                                                            .url
+                                                    }
+                                                    alt="banner"
+                                                    effect="blur"
+                                                    visibleByDefault="true"
+                                                />
+                                            )}
+                                    </a>
+                                </div>
+                            </StickyBox>
                         </div>
                     </div>
                 </div>

@@ -72,12 +72,14 @@ const BusinessNewsTwo = ({ publisherArticles }) => {
                                 <Link to={`/article/${item.slug}`}>
                                     <img
                                         src={
-                                            item.main_image
+                                            item.main_image &&
+                                            item.main_image.formats &&
+                                            item.main_image.formats.small
                                                 ? `${
                                                       process.env
                                                           .REACT_APP_CMS_URL +
                                                       item.main_image.formats
-                                                          .thumbnail.url
+                                                          .small.url
                                                   }`
                                                 : ''
                                         }
@@ -120,7 +122,12 @@ const BusinessNewsTwo = ({ publisherArticles }) => {
                                     </ul>
                                 </div>
                             </div>
-                            <p className="post-p">{item.description}</p>
+                            <p
+                                className="post-p"
+                                dangerouslySetInnerHTML={{
+                                    __html: item.content.substr(0, 150) + '...',
+                                }}
+                            ></p>
                             <div className="space-10" />
                             <Link
                                 to={`/article/${item.slug}`}
@@ -128,7 +135,7 @@ const BusinessNewsTwo = ({ publisherArticles }) => {
                             >
                                 Read more <img src={arrow3} alt="arrow3" />
                             </Link>
-                            {i + 1 < business.length ? (
+                            {i + 1 < publisherArticles.length ? (
                                 <>
                                     <div className="space-10" />
                                     <div className="border_black" />
@@ -138,9 +145,9 @@ const BusinessNewsTwo = ({ publisherArticles }) => {
                         </div>
                     </div>
                 ))}
-            <Link to="/" className="showmore">
+            {/* <Link to="/" className="showmore">
                 Show more
-            </Link>
+            </Link> */}
         </div>
     );
 };

@@ -30,7 +30,6 @@ const SearchPage = ({
 }) => {
     const location = useLocation();
     useEffect(() => {
-        console.log(location);
         fetchAds();
         fetchNationalData({
             limit: 6,
@@ -59,7 +58,7 @@ const SearchPage = ({
 
     return (
         <>
-            <BreadCrumb title="Suchportal GesundheitsTicket" />
+            {/* <BreadCrumb title="Suchportal GesundheitsTicket" /> */}
             <div className="archives padding-top-30">
                 <div className="container">
                     <div className="row">
@@ -68,7 +67,7 @@ const SearchPage = ({
                                 <div className="row">
                                     <div className="col-12 align-self-center">
                                         <div className="categories_title">
-                                            <h5>Mach deine Suche:</h5>
+                                            <h5>Deine Suche:</h5>
                                             {/* <SearchBox
                                                 fetchGeoData={fetchGeoData}
                                                 place={place}
@@ -78,7 +77,6 @@ const SearchPage = ({
                                                 setType={setType}
                                                 setKeyWord={setKeyWord}
                                             /> */}
-                                            <div className="space-30" />
                                         </div>
                                     </div>
                                 </div>
@@ -122,7 +120,7 @@ const SearchPage = ({
                                 {/* <WidgetTrendingNews/> */}
                                 {/* <NewsLetter/>
                             <FollowUs title="Follow Us"/> */}
-                                <div className="banner2 mb30">
+                                <div className="banner2 mb30 mt30">
                                     <a
                                         href={banner350x292.link}
                                         target="_blank"

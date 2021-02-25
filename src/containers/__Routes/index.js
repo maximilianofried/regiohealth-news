@@ -33,9 +33,16 @@ const Routes = ({ menuData, pages }) => {
         <Switch>
             <PrivateRoute
                 exact
-                path="/"
+                path="/home-one"
                 parentClass="theme-1"
                 component={HomePage}
+            />
+            <PrivateRoute
+                exact
+                home_style={2}
+                parentClass="theme-3 theme3_bg"
+                path="/"
+                component={HomePageTwo}
             />
             {menu.map((item) => (
                 <PrivateRoute
@@ -54,7 +61,8 @@ const Routes = ({ menuData, pages }) => {
                     key={item.id}
                     exact
                     path={item.link}
-                    parentClass="theme-1"
+                    home_style={2}
+                    parentClass="theme-3 theme3_bg"
                     component={(props) => (
                         <InfoPage {...props} name={item.name} />
                     )}
@@ -63,7 +71,8 @@ const Routes = ({ menuData, pages }) => {
             <PrivateRoute
                 exact
                 path="/article/:slug"
-                parentClass="theme-1"
+                home_style={2}
+                parentClass="theme-3 theme3_bg"
                 component={PostTwoPage}
             />
             <PrivateRoute
@@ -72,20 +81,12 @@ const Routes = ({ menuData, pages }) => {
                 parentClass="theme-1"
                 component={OfferPage}
             />
-            {/* <PrivateRoute
+            <PrivateRoute
                 exact
                 path="/such-portal"
                 home_style={2}
-                parentClass="theme-1"
-                component={(props) => <SearchPage {...props} />} */}
-            />
-            {/* home two routes */}
-            <PrivateRoute
-                exact
-                home_style={2}
                 parentClass="theme-3 theme3_bg"
-                path="/home-two"
-                component={HomePageTwo}
+                component={(props) => <SearchPage {...props} />}
             />
             <Route exact component={NotFoundPage} />
         </Switch>

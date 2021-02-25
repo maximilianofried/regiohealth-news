@@ -77,9 +77,16 @@ const PostGalleryTwo = ({ mainArticle, newsArticles }) => {
                                     </h4>
                                     <div className="space-5" />
 
-                                    <p className="post-p">
-                                        {mainArticle.description}
-                                    </p>
+                                    <p
+                                        className="post-p"
+                                        dangerouslySetInnerHTML={{
+                                            __html:
+                                                mainArticle.content.substr(
+                                                    0,
+                                                    150
+                                                ) + '...',
+                                        }}
+                                    />
 
                                     <div className="space-20" />
                                     <div className="meta meta_separator1">
@@ -135,7 +142,7 @@ const PostGalleryTwo = ({ mainArticle, newsArticles }) => {
                             ))}
                         </div>
                     </div> */}
-                    <div className="d-none d-lg-block col-lg-4 col-xl-4">
+                    <div className="d-lg-block col-lg-4 col-xl-4">
                         <FollowUs
                             title="Contact Us"
                             className="border-radious5 white_bg padding20 sm-mt30"

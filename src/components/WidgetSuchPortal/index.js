@@ -129,7 +129,10 @@ const WidgetSuchPortal = ({
                     </button>
                 </NavItem>
             </Nav>
-            <TabContent activeTab={activeTab}>
+            <TabContent
+                activeTab={activeTab}
+                className="border-radious5 white_bg padding10"
+            >
                 <TabPane tabId="1">
                     <WidgetTabPane
                         nationalData={nationalData}
@@ -152,7 +155,7 @@ const WidgetSuchPortal = ({
             <div className="row">
                 <div className="col-lg-12">
                     {adsHome && adsHome.length > 0 && (
-                        <div className="banner2 mb30">
+                        <div className="banner2 mb30 mt30">
                             <a href={adsHome[0].link}>
                                 <LazyLoadImage
                                     src={
