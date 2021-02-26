@@ -51,14 +51,14 @@ const HomePageTwo = ({
             <div className="total3 mb30">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-12 col-lg-8 homepage_col_top">
+                        <div className="col-md-12 col-lg-9 homepage_col_top">
                             {/* <TrendingNewsTwo />
                             <FeatureNewsTwo /> */}
                             <BusinessNewsTwo
                                 publisherArticles={publisherArticles}
                             />
                         </div>
-                        <div className="col-lg-4">
+                        <div className="col-lg-3">
                             <div className="row justify-content-center">
                                 <div className="col-md-6 col-lg-12 d-md-none d-lg-block">
                                     {adsHome && adsHome.length > 0 && (
@@ -81,7 +81,7 @@ const HomePageTwo = ({
                                 </div>
                                 <div className="col-md-6 col-lg-12">
                                     <MostViewTwo
-                                        title="Offers"
+                                        title="ANGEBOTE"
                                         latestOffers={latestOffers}
                                     />
                                 </div>

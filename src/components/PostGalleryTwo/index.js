@@ -42,7 +42,7 @@ const PostGalleryTwo = ({ mainArticle, newsArticles }) => {
         <div className="post_gallary_area theme3_bg mb40 padding-top-30">
             <div className="container">
                 <div className="row">
-                    <div className="col-md-12 col-lg-8 ">
+                    <div className="col-md-12 col-lg-9 ">
                         {mainArticle && (
                             <div className="single_post post_type6 border-radious7 xs-mb30 main_article_homepage">
                                 <div className="post_img gradient1">
@@ -142,9 +142,9 @@ const PostGalleryTwo = ({ mainArticle, newsArticles }) => {
                             ))}
                         </div>
                     </div> */}
-                    <div className="d-lg-block col-lg-4 col-xl-4">
+                    <div className="d-lg-block col-lg-4 col-xl-3">
                         <FollowUs
-                            title="Contact Us"
+                            title="FOLGEN SIE UNS"
                             className="border-radious5 white_bg padding20 sm-mt30"
                         />
                         <div className="white_bg padding15 border-radious5 sm-mt30">

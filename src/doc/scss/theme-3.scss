@@ -11,6 +11,15 @@
         max-width: 1230px;
     }
 
+    input.textfield_text {
+        border-radius: 5px;
+        font-family: $font_open_sans;
+        font-weight: $wightRegular;
+        font-size: $textfield_text;
+        background: $light_grey_02;
+        color: $light_grey_01;
+    }
+
     /*OTHERS STYLE*/
 
     .signup_form {

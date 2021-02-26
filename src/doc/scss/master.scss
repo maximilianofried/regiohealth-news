@@ -41,6 +41,9 @@
 @import 'preloader';
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;300;400;500;700;800;900&display=swap');
 
+/* IMPORT FONTS REGIO HEALTH*/
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 a {
     @include transition(all 0.4s);
     color: $secondary_color;
@@ -68,7 +71,7 @@ body {
     font-size: $body_font_size;
     line-height: 27px;
     color: $body_color;
-    font-family: $font1;
+    font-family: $font_oswald;
     font-weight: $wightRegular;
     overflow-x: hidden;
 }
@@ -3039,7 +3042,17 @@ a.cbtn3 {
 }
 
 [data-reach-listbox-button] {
-    width: 100px;
+    border-radius: 5px;
+    border-color: $dark_grey;
+    border-width: 2px;
+    width: 125px;
+    font-family: $font_open_sans;
+    font-weight: $wightSemi;
+}
+
+[data-reach-listbox-option] {
+    font-family: $font_open_sans;
+    font-weight: $wightSemi;
 }
 
 .search_page {
@@ -3087,14 +3100,19 @@ a.cbtn3 {
         height: 32px;
     }
     .search-button {
-        background-color: $green_regiohealth;
+        font-family: $font_open_sans;
+        font-weight: $wightRegular;
+        font-size: $button_text;
+        background-color: $dark_grey;
         color: white;
         margin-bottom: 5px;
+        width: 120px;
         border: 0;
         &.active,
         &:hover {
-            background-color: #406314;
-            border-color: #406314;
+            background-color: $health_green;
+            // border-color: #406314;
+            box-shadow: 2px 2px 12px rgba(50, 50, 50, 0.2);
         }
     }
 }

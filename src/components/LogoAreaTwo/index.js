@@ -33,7 +33,7 @@ const LogoAreaTwo = ({ history, fetchGeoData }) => {
                             />
                         </div>
                     </div>
-                    <div className="col-sm-12 col-md-8 col-lg-9 col-xl-7 align-self-center search_logo">
+                    <div className="col-sm-12 col-md-8 col-lg-9 col-xl-9 align-self-center search_logo">
                         <div className="logo_area_searchbox">
                             <SearchBox
                                 fetchGeoData={fetchGeoData}
