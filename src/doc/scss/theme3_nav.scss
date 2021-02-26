@@ -537,6 +537,10 @@
             color: $green_regiohealth;
         }
 
+        .active {
+            color: $green_regiohealth !important;
+        }
+
         .main-nav ul.navbar-nav > li:after {
             position: absolute;
             content: '';

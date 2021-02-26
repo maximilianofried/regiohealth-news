@@ -37,7 +37,7 @@ const MainMenuTwo = ({ fetchMenu, menuData }) => {
                                             id="scroll"
                                         >
                                             {menus.length > 0
-                                                ? menus.map((item, i) => (
+                                                ? menus.map((item) => (
                                                       <li
                                                           key={item.id}
                                                           className={`
