@@ -13,54 +13,9 @@ import business24 from '../../doc/img/business/business24.jpg';
 import business25 from '../../doc/img/business/business25.jpg';
 import business26 from '../../doc/img/business/business26.jpg';
 
-const business = [
-    {
-        photo: business21,
-        date: 'April 26, 2020',
-        title: 'She tried for many years pregnant & happy and thing going..',
-        description:
-            'She tried for so many years and now she finally pregnant happy and things are going well & it just happens that this pregnancy takes place with this epidemic…',
-    },
-    {
-        photo: business22,
-        date: 'April 26, 2020',
-        title: 'She tried for many years pregnant & happy and thing going..',
-        description:
-            'She tried for so many years and now she finally pregnant happy and things are going well & it just happens that this pregnancy takes place with this epidemic…',
-    },
-    {
-        photo: business23,
-        date: 'April 26, 2020',
-        title: 'She tried for many years pregnant & happy and thing going..',
-        description:
-            'She tried for so many years and now she finally pregnant happy and things are going well & it just happens that this pregnancy takes place with this epidemic…',
-    },
-    {
-        photo: business24,
-        date: 'April 26, 2020',
-        title: 'She tried for many years pregnant & happy and thing going..',
-        description:
-            'She tried for so many years and now she finally pregnant happy and things are going well & it just happens that this pregnancy takes place with this epidemic…',
-    },
-    {
-        photo: business25,
-        date: 'April 26, 2020',
-        title: 'She tried for many years pregnant & happy and thing going..',
-        description:
-            'She tried for so many years and now she finally pregnant happy and things are going well & it just happens that this pregnancy takes place with this epidemic…',
-    },
-    {
-        photo: business26,
-        date: 'April 26, 2020',
-        title: 'She tried for many years pregnant & happy and thing going..',
-        description:
-            'She tried for so many years and now she finally pregnant happy and things are going well & it just happens that this pregnancy takes place with this epidemic…',
-    },
-];
 const BusinessNewsTwo = ({ publisherArticles }) => {
     return (
         <div className="business3 padding20 white_bg border-radious5">
-            <h4 className="widget-title">Publisher</h4>
             {publisherArticles &&
                 publisherArticles.map((item, i) => (
                     <div
@@ -87,18 +42,15 @@ const BusinessNewsTwo = ({ publisherArticles }) => {
                                     />
                                 </Link>
                             </div>
-                            <span className="tranding border_tranding">
-                                <FontAwesome name="bolt" />
-                            </span>
                         </div>
                         <div className="single_post_text">
-                            <h4>
+                            <h3>
                                 <Link to={`/article/${item.slug}`}>
                                     {item.title}
                                 </Link>
-                            </h4>
+                            </h3>
                             <div className="row">
-                                <div className="col-6 align-self-center">
+                                <div className="col-12 align-self-center">
                                     <div className="meta_col">
                                         <p>
                                             {moment(item.publishAt).format(
@@ -107,7 +59,7 @@ const BusinessNewsTwo = ({ publisherArticles }) => {
                                         </p>
                                     </div>
                                 </div>
-                                <div className="col-6 text-right align-self-center">
+                                {/* <div className="col-6 text-right align-self-center">
                                     <ul className="meta_share inline">
                                         <li>
                                             <Link to="/">
@@ -120,26 +72,20 @@ const BusinessNewsTwo = ({ publisherArticles }) => {
                                             </Link>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> */}
                             </div>
-                            <p
-                                className="post-p"
-                                dangerouslySetInnerHTML={{
-                                    __html: item.content.substr(0, 150) + '...',
-                                }}
-                            ></p>
+                            <p className="post-p">{item.description}</p>
                             <div className="space-10" />
                             <Link
                                 to={`/article/${item.slug}`}
                                 className="readmore3"
                             >
-                                Read more <img src={arrow3} alt="arrow3" />
+                                Mehr Lesen
                             </Link>
                             {i + 1 < publisherArticles.length ? (
                                 <>
                                     <div className="space-10" />
-                                    <div className="border_black" />
-                                    <div className="space-15" />
+                                    {/* <div className="border_black" /> */}
                                 </>
                             ) : null}
                         </div>

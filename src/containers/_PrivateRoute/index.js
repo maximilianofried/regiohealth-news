@@ -15,7 +15,7 @@ const PrivateRoute = (props) => {
         <div className={props.parentClass}>
             {props.home_style === 2 ? (
                 <>
-                    {/*=== home two ===*/}
+                    {/*= == home two === */}
                     {/* <TopBarTwo /> */}
                     <div className="border_black" />
                     <LogoAreaTwo />
@@ -35,7 +35,7 @@ const PrivateRoute = (props) => {
             )}
 
             <Route {...rest} render={(props) => <Component {...props} />} />
-            <FooterArea className="primay_bg" />
+            <FooterArea />
         </div>
     );
 };

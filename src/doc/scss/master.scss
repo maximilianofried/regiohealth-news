@@ -72,7 +72,7 @@ body {
     line-height: 27px;
     color: $body_color;
     font-family: $font_oswald;
-    font-weight: $wightRegular;
+    // font-weight: $wightRegular;
     overflow-x: hidden;
 }
 
@@ -432,10 +432,11 @@ body {
 }
 
 .widget-title {
-    font-size: $widget_font_size2;
+    font-family: $font_oswald;
+    font-size: $header3;
     margin-bottom: 10px;
-    font-weight: $wightMedium;
-    text-transform: capitalize;
+    font-weight: $wightRegular;
+    text-transform: uppercase;
     position: relative;
     z-index: 2;
     // display: inline-block;
@@ -618,7 +619,7 @@ a.social_medium {
     .single_post_text {
         a {
             &:hover {
-                color: $orange_regiohealth;
+                // color: $orange_regiohealth;
                 @include transition(all 0.3s);
             }
         }
@@ -809,7 +810,7 @@ span.tranding.tranding_border {
 }
 
 .widgets_small {
-    padding-left: 117px;
+    // padding-left: 117px;
     min-height: 70px;
 
     .post_img {
@@ -1197,50 +1198,46 @@ span.tranding {
         z-index: 9;
         padding: 40px;
 
-        div.post-p {
-            font-size: 15px;
+        p.post-p {
+            font-family: $font_open_sans_regular;
+            font-size: $paragraph;
+            // font-weight: $wightRegular;
             line-height: 21px;
-            font-weight: 400;
-        }
-
-        .meta {
-            font-weight: 500;
-            font-size: 14px;
-
-            span {
-                color: $white;
-            }
-        }
-
-        p {
             color: $white;
+            // font-weight: 400;
         }
 
         a {
+            font-family: $font_oswald;
             color: $white;
-            font-size: $heading3;
-            line-height: 36px;
-            font-weight: $wightBold;
+            font-size: $header2;
+            text-transform: uppercase;
+            // line-height: 36px;
         }
 
         .meta {
+            font-family: $font_open_sans_semi;
             margin-bottom: 0;
 
-            a {
+            .meta-category {
+                text-transform: uppercase;
+            }
+            span {
                 font-size: 14px;
                 text-transform: capitalize;
                 position: relative;
                 z-index: 2;
+                color: $white;
 
                 &:last-child {
-                    margin-left: 20px;
+                    margin-left: 15px;
 
                     &:before {
                         position: absolute;
-                        content: '/';
+                        content: '|';
                         height: 20px;
                         width: 10px;
-                        left: -18px;
+                        left: -10px;
                         top: 50%;
                         margin-top: -10px;
                         line-height: 20px;
@@ -1458,7 +1455,7 @@ span.tranding {
 .post_type12 {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 20px;
+    // margin-top: 20px;
     .post_img {
         // width: 48%;
         //float: left;
@@ -1813,6 +1810,7 @@ span.tranding {
 */
 
 .footer {
+    background-color: $white;
     .gt_logo {
         width: 100px;
         height: 48px;
@@ -1824,7 +1822,7 @@ span.tranding {
 
     .partner_logos {
         &:last-child {
-            margin-top: 35px;
+            margin-top: 20px;
         }
 
         ul {
@@ -1835,7 +1833,7 @@ span.tranding {
                 list-style: none;
 
                 .gt_logo {
-                    margin-right: 4px;
+                    margin-right: 20px;
                 }
             }
         }
@@ -2040,9 +2038,12 @@ span.tranding {
         background: $third_bg;
         margin-top: 30px;
         padding: 15px 0;
-        font-size: 13px;
+        // font-size: 13px;
         .copy_text {
-            color: $footer_dark_color;
+            font-family: $font_open_sans_semi;
+            font-size: $description_text;
+            // font-weight: $wightSemi;
+            color: $light_grey_01;
             // text-align: center;
         }
 
@@ -2054,11 +2055,14 @@ span.tranding {
                 list-style: none;
 
                 a {
-                    color: $footer_dark_color;
+                    font-family: $font_oswald;
+                    font-size: $header4;
+                    text-transform: uppercase;
+                    color: $mid_grey;
                     padding: 0 5px;
 
                     &:hover {
-                        color: $white;
+                        color: $green_regiohealth;
                     }
                 }
             }
@@ -3045,14 +3049,14 @@ a.cbtn3 {
     border-radius: 5px;
     border-color: $dark_grey;
     border-width: 2px;
-    width: 125px;
-    font-family: $font_open_sans;
-    font-weight: $wightSemi;
+    width: 120px;
+    font-family: $font_open_sans_semi;
+    // font-weight: $wightSemi;
 }
 
 [data-reach-listbox-option] {
-    font-family: $font_open_sans;
-    font-weight: $wightSemi;
+    font-family: $font_open_sans_semi;
+    // font-weight: $wightSemi;
 }
 
 .search_page {
@@ -3071,6 +3075,7 @@ a.cbtn3 {
         border: 0;
         &.active,
         &:hover {
+            @include transition(all 0.4s);
             background-color: #406314;
             border-color: #406314;
         }
@@ -3100,19 +3105,93 @@ a.cbtn3 {
         height: 32px;
     }
     .search-button {
-        font-family: $font_open_sans;
-        font-weight: $wightRegular;
+        font-family: $font_open_sans_semi;
+        // font-weight: $wightRegular;
         font-size: $button_text;
         background-color: $dark_grey;
         color: white;
         margin-bottom: 5px;
-        width: 120px;
+        width: 200px;
         border: 0;
         &.active,
         &:hover {
             background-color: $health_green;
+            @include transition(all 0.4s);
             // border-color: #406314;
             box-shadow: 2px 2px 12px rgba(50, 50, 50, 0.2);
+        }
+    }
+}
+
+/* SOCIAL BUTTONS */
+.cta {
+    // padding: 70px 0 40px;
+    .news_letter {
+        // background: $input_bg;
+
+        p {
+            color: $dark_grey;
+            font-size: $header4;
+            font-family: $font_oswald;
+            text-transform: uppercase;
+        }
+    }
+    .newsletter {
+        text-align: center;
+        margin-top: 40px;
+
+        ul {
+            margin: 0;
+            padding: 0;
+
+            li {
+                list-style: none;
+
+                a {
+                    border-radius: 5px;
+                    width: 240px;
+                    height: 40px;
+                    display: block;
+                    text-align: center;
+                    line-height: 40px;
+                    font-family: $font_open_sans_semi;
+                    font-size: 16px;
+                    text-transform: uppercase;
+                    color: $white;
+                    background: $dark_grey;
+                    &:hover {
+                        background: $green_regiohealth;
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+    .social2 {
+        text-align: center;
+        &:last-child {
+            margin-top: 35px;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+
+            li {
+                list-style: none;
+                margin-right: 10px;
+                a {
+                    @extend %social2;
+
+                    &:hover {
+                        background: $green_regiohealth;
+                        color: $white;
+                    }
+                }
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
         }
     }
 }

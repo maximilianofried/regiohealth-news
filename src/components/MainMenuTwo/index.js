@@ -5,6 +5,7 @@ import moment from 'moment';
 import FontAwesome from '../uiStyle/FontAwesome';
 import { fetchMenu } from '../../store/actions';
 import SidebarMenu from '../SidebarMenu';
+import mockMenu from '../../mockdata/menu.json';
 
 const MainMenuTwo = ({ fetchMenu, menuData }) => {
     useEffect(() => {
@@ -12,7 +13,7 @@ const MainMenuTwo = ({ fetchMenu, menuData }) => {
     }, []);
     const [sideShow, setSideShow] = useState(false);
     const currentDate = moment().format('dddd, MMMM D, YYYY');
-    const menus = menuData.menu;
+    const menus = mockMenu;
     return (
         <div className="white_bg">
             <div className="container">
