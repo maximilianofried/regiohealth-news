@@ -101,6 +101,7 @@ const MostViewTwo = ({ title, latestOffers }) => {
             <div className="heading">
                 <h2 className="widget-title">{title || 'Most View'}</h2>
             </div>
+            <div className="space-20" />
             <div className="post_type2_carousel multipleRowCarousel pt12_wrapper nav_style1">
                 {/* CAROUSEL START */}
                 {latestOffers.map((item, i) => (
@@ -131,15 +132,9 @@ const MostViewTwo = ({ title, latestOffers }) => {
                                 <Link to="/post1">{item.title}</Link>
                             </h4>
                             <div className="meta2">
-                                <Link to="/">{item.categories[0].name}</Link>
+                                <p>{moment(item.publishAt).format('LL')}</p>
                             </div>
-                            {i + 2 < mostView.length ? (
-                                <>
-                                    <div className="space-5" />
-                                    <div className="border_black" />
-                                    <div className="space-15" />
-                                </>
-                            ) : null}
+                            <div className="space-10" />
                         </div>
                     </div>
                 ))}

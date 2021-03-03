@@ -42,7 +42,7 @@ const PostGalleryTwo = ({ mainArticle, newsArticles }) => {
         <div className="post_gallary_area theme3_bg mb40 padding-top-30">
             <div className="container">
                 <div className="row">
-                    <div className="col-md-12 col-lg-8 ">
+                    <div className="col-md-12 col-lg-9 ">
                         {mainArticle && (
                             <div className="single_post post_type6 border-radious7 xs-mb30 main_article_homepage">
                                 <div className="post_img gradient1">
@@ -68,39 +68,32 @@ const PostGalleryTwo = ({ mainArticle, newsArticles }) => {
                                     </div>
                                 </div>
                                 <div className="single_post_text">
-                                    <h4>
+                                    <h2>
                                         <Link
                                             to={`/article/${mainArticle.slug}`}
                                         >
                                             {mainArticle.title}
                                         </Link>
-                                    </h4>
-                                    <div className="space-5" />
+                                    </h2>
+                                    <div className="space-10" />
 
-                                    <p
-                                        className="post-p"
-                                        dangerouslySetInnerHTML={{
-                                            __html:
-                                                mainArticle.content.substr(
-                                                    0,
-                                                    150
-                                                ) + '...',
-                                        }}
-                                    />
+                                    <p className="post-p">
+                                        {mainArticle.description}
+                                    </p>
 
-                                    <div className="space-20" />
+                                    {/* <div className="space-20" /> */}
                                     <div className="meta meta_separator1">
-                                        <Link to="/">
+                                        <span className="meta-category">
                                             {mainArticle.categories.length > 0
                                                 ? mainArticle.categories[0].name
                                                 : ''}
-                                        </Link>
-                                        <Link to="/">
+                                        </span>
+                                        <span>
                                             {' '}
                                             {moment(
                                                 mainArticle.publishAt
                                             ).format('LL')}
-                                        </Link>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -142,20 +135,21 @@ const PostGalleryTwo = ({ mainArticle, newsArticles }) => {
                             ))}
                         </div>
                     </div> */}
-                    <div className="d-lg-block col-lg-4 col-xl-4">
+                    <div className="d-lg-block col-lg-4 col-xl-3">
                         <FollowUs
-                            title="Contact Us"
+                            title="FOLGEN SIE UNS"
                             className="border-radious5 white_bg padding20 sm-mt30"
                         />
                         <div className="white_bg padding15 border-radious5 sm-mt30">
                             <h2 className="widget-title">News</h2>
+                            <div className="space-20" />
                             {newsArticles &&
                                 newsArticles.map((item, i) => (
                                     <div
                                         key={item.id}
                                         className="single_post type14 widgets_small"
                                     >
-                                        <div className="post_img">
+                                        {/* <div className="post_img">
                                             <div className="img_wrap">
                                                 <Link
                                                     to={`/article/${item.slug}`}
@@ -181,7 +175,7 @@ const PostGalleryTwo = ({ mainArticle, newsArticles }) => {
                                                     />
                                                 </Link>
                                             </div>
-                                        </div>
+                                        </div> */}
                                         <div className="single_post_text">
                                             <h4>
                                                 <Link
@@ -191,18 +185,16 @@ const PostGalleryTwo = ({ mainArticle, newsArticles }) => {
                                                 </Link>
                                             </h4>
                                             <div className="meta4">
-                                                <Link to="/">
-                                                    {item.categories.length > 0
-                                                        ? item.categories[0]
-                                                              .name
-                                                        : ''}
-                                                </Link>
+                                                <p>
+                                                    {moment(
+                                                        item.publishAt
+                                                    ).format('LL')}
+                                                </p>
                                             </div>
                                             {i + 1 < posts.length ? (
                                                 <>
-                                                    <div className="space-5" />
-                                                    <div className="border_black" />
-                                                    <div className="space-15" />
+                                                    <div className="space-20" />
+                                                    {/* <div className="border_black" /> */}
                                                 </>
                                             ) : null}
                                         </div>

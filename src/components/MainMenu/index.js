@@ -15,8 +15,9 @@ const MainMenu = ({ className, dark, fetchMenu, menuData }) => {
     }, []);
     const [sideShow, setSideShow] = useState(false);
     const currentDate = moment().format('dddd, MMMM D, YYYY');
-    const arr =
-        menuData.menu && menuData.menu.length > 0 ? menuData.menu : mockMenu;
+    // const arr =
+    //     menuData.menu && menuData.menu.length > 0 ? menuData.menu : mockMenu;
+    const arr = mockMenu;
     return (
         <>
             <div className={`main-menu ${className || ''}`} id="header">

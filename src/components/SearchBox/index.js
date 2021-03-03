@@ -109,22 +109,24 @@ const SearchBox = ({
             >
                 <div className="col-auto">
                     <input
+                        className="textfield_text"
                         value={keyWord}
                         onChange={(e) => {
                             setKeyWord(e.target.value);
                         }}
-                        placeholder="Was suchst du?"
+                        placeholder="Was suchen Sie?"
                     />
                 </div>
                 <div className="col-auto">
                     <Listbox type={type} onChange={setType}>
-                        <ListboxOption value="alle">Alle</ListboxOption>
-                        <ListboxOption value="article">Articles</ListboxOption>
-                        <ListboxOption value="offer">Offers</ListboxOption>
+                        <ListboxOption value="alle">ALLE</ListboxOption>
+                        <ListboxOption value="article">ARTIKEL</ListboxOption>
+                        <ListboxOption value="offer">ANGEBOTE</ListboxOption>
                     </Listbox>
                 </div>
                 <div className="col-auto">
                     <ComboboxInput
+                        className="textfield_text"
                         value={value}
                         onChange={(e) => {
                             setValue(e.target.value);
@@ -161,7 +163,7 @@ const SearchBox = ({
                 </div> */}
                 <div className="col-auto">
                     <button type="submit" className="btn-sm search-button">
-                        <i className="fa fa-search" /> Finden
+                        SUCHEN
                     </button>
                 </div>
             </Combobox>

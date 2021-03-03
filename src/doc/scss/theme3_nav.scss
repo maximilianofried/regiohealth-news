@@ -11,7 +11,9 @@
     }
 
     .main-nav {
-        background: $primary_bg;
+        background: $white;
+        font-family: $font_open_sans_semi;
+        font-size: $menu_text;
     }
 
     .navbar {
@@ -50,8 +52,8 @@
     }
 
     ul.navbar-nav > li > a {
-        font-weight: 400;
-        text-transform: capitalize;
+        font-weight: $wightSemi;
+        text-transform: uppercase;
         margin: 0;
         position: relative;
         -webkit-transition: 350ms;
@@ -472,7 +474,7 @@
             background: transparent;
         }
         ul.navbar-nav > li > a {
-            color: $white;
+            color: $mid_grey;
             padding: 0 22px;
         }
         .header.header-menu ul.navbar-nav > li.mega-dropdown,
@@ -519,16 +521,24 @@
             transition: all 0.3s;
         }
 
-        .main-nav ul.navbar-nav > li:before {
-            position: absolute;
-            content: '';
-            height: 0;
-            width: 100%;
-            background: #1091ff;
-            z-index: -1;
-            left: 0;
-            top: 0;
-            transition: all 0.3s;
+        // .main-nav ul.navbar-nav > li:before {
+        //     position: absolute;
+        //     content: '';
+        //     height: 0;
+        //     width: 100%;
+        //     // background: #1091ff;
+        //     z-index: -1;
+        //     left: 0;
+        //     top: 0;
+        //     transition: all 0.3s;
+        // }
+
+        .main-nav ul.navbar-nav li.nav-item > a:hover {
+            color: $green_regiohealth;
+        }
+
+        .active {
+            color: $green_regiohealth !important;
         }
 
         .main-nav ul.navbar-nav > li:after {

@@ -44,7 +44,7 @@ const Routes = ({ menuData, pages }) => {
                 path="/"
                 component={HomePageTwo}
             />
-            {menu.map((item) => (
+            {mockMenu.map((item) => (
                 <PrivateRoute
                     key={item.id}
                     exact
