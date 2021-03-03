@@ -23,6 +23,23 @@
 
     /*OTHERS STYLE*/
 
+    .more_articles {
+        border-radius: 5px;
+        border-width: 2px;
+        border-style: solid;
+        color: $light_grey_01;
+        border-color: $light_grey_01;
+        font-family: $font_open_sans_regular;
+        font-size: $textfield_text;
+        width: 100%;
+
+        &:hover {
+            color: $white;
+            background-color: $green_regiohealth;
+            border-color: $green_regiohealth;
+        }
+    }
+
     .signup_form {
         form {
             background: $input3_bg;
@@ -879,9 +896,11 @@
 
     .type20 {
         .post_img {
-            // width: 42%;
-            width: 315px;
-            height: 216px;
+            width: 43%;
+            img {
+                width: 315px;
+                height: 216px;
+            }
             .tranding {
                 height: 30px;
                 width: 30px;
@@ -894,7 +913,7 @@
 
         .single_post_text {
             width: 57%;
-
+            padding-left: 0;
             a {
                 font-family: $font_oswald;
                 font-size: $header3;
@@ -914,10 +933,11 @@
                 font-size: $description_text;
                 color: $light_grey_01;
                 line-height: 20px;
+                margin-bottom: 0;
             }
 
             .meta_col {
-                margin-bottom: 15px;
+                margin-bottom: 10px;
 
                 p {
                     font-family: $font_open_sans_regular;
@@ -926,6 +946,7 @@
                     position: relative;
                     z-index: 2;
                     line-height: 17px;
+                    margin-bottom: 0;
                     // font-weight: 500;
                     color: $light_grey_01;
                     // opacity: 0.6;

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -15,6 +15,7 @@ import { RG_DESCRIPTION } from '../../utils/constants';
 import PostGalleryTwo from '../../components/PostGalleryTwo';
 import BusinessNewsTwo from '../../components/BusinessNewsTwo';
 import MostViewTwo from '../../components/MostViewTwo';
+import FontAwesome from '../../components/uiStyle/FontAwesome';
 import banner2 from '../../doc/img/bg/sidebar-1.png';
 import banner3 from '../../doc/img/bg/banner1.png';
 import WidgetFinance from '../../components/WidgetFinance';
@@ -38,6 +39,11 @@ const HomePageTwo = ({
         fetchOffers({ start: 0, limit: 4 });
         fetchAds();
     }, []);
+    const [articleLimit, setArticleLimit] = useState(2);
+    const handleClickMoreArticles = () => {
+        if (publisherArticles.length > articleLimit)
+            setArticleLimit(articleLimit + 2);
+    };
     return (
         <>
             <Metadata
@@ -55,8 +61,18 @@ const HomePageTwo = ({
                             {/* <TrendingNewsTwo />
                             <FeatureNewsTwo /> */}
                             <BusinessNewsTwo
+                                articleLimit={articleLimit}
                                 publisherArticles={publisherArticles}
                             />
+                            <div className="space-20" />
+                            <button
+                                className="more_articles"
+                                type="button"
+                                onClick={handleClickMoreArticles}
+                            >
+                                MEHR ANZEIGEN{' '}
+                                <FontAwesome name="angle-double-down" />
+                            </button>
                         </div>
                         <div className="col-lg-3">
                             <div className="row justify-content-center">
@@ -144,7 +160,7 @@ const HomePageTwo = ({
                     </div>
                 </div>
             </div> */}
-            <div className="space-70" />
+            <div className="space-40" />
         </>
     );
 };

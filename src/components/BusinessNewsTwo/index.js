@@ -4,28 +4,21 @@ import moment from 'moment';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import FontAwesome from '../uiStyle/FontAwesome';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-// images
-import business21 from '../../doc/img/business/business21.jpg';
-import arrow3 from '../../doc/img/icon/arrow3.png';
-import business22 from '../../doc/img/business/business22.jpg';
-import business23 from '../../doc/img/business/business23.jpg';
-import business24 from '../../doc/img/business/business24.jpg';
-import business25 from '../../doc/img/business/business25.jpg';
-import business26 from '../../doc/img/business/business26.jpg';
 
-const BusinessNewsTwo = ({ publisherArticles }) => {
+const BusinessNewsTwo = ({ publisherArticles, articleLimit }) => {
     return (
         <div className="business3 padding20 white_bg border-radious5">
             {publisherArticles &&
-                publisherArticles.map((item, i) => (
+                publisherArticles.slice(0, articleLimit).map((item, i) => (
                     <div
                         key={item.id}
                         className="single_post post_type12 type20"
                     >
-                        <div className="post_img border-radious5">
+                        <div className="post_img">
                             <div className="img_wrap">
                                 <Link to={`/article/${item.slug}`}>
-                                    <img
+                                    <LazyLoadImage
+                                        className="border-radious5"
                                         src={
                                             item.main_image &&
                                             item.main_image.formats &&
@@ -39,6 +32,7 @@ const BusinessNewsTwo = ({ publisherArticles }) => {
                                                 : ''
                                         }
                                         alt="thumb"
+                                        effect="blur"
                                     />
                                 </Link>
                             </div>
