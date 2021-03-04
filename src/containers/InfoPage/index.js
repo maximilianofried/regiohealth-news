@@ -21,7 +21,7 @@ const InfoPage = ({ fetchPage, page, name }) => {
                     <div className="space-50" />
                     <div className="row">
                         <div className="col-12">
-                            <div className="author_about">
+                            <div className="info_content">
                                 {page && page.content && (
                                     <div
                                         // eslint-disable-next-line react/no-danger

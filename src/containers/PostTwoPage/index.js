@@ -102,6 +102,13 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                     <div className="container">
                         <div className="row">
                             <div className="col-12 col-md-10 col-lg-8 m-auto">
+                                <div className="single_post_heading">
+                                    <h1>{article.title}</h1>
+                                </div>
+                                <div className="space-20" />
+                                <div className="single_post_description">
+                                    <p>{article.description}</p>
+                                </div>
                                 <LazyLoadImage
                                     src={
                                         article.main_image
@@ -116,10 +123,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                     effect="blur"
                                 />
                                 <div className="space-20" />
-                                <div className="single_post_heading">
-                                    <h1>{article.title}</h1>
-                                </div>
-                                <div className="space-20" />
+
                                 <div className="row">
                                     <div className="col-7 col-lg-6 align-self-center">
                                         <div className="author">
@@ -206,7 +210,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="space-30" />
+                                {/* <div className="space-30" />
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="page_comments">
@@ -217,33 +221,35 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                                         ? article.categories[0].name.toUpperCase()
                                                         : ''}
                                                 </li>
-                                                {/* <li><FontAwesome name="comment"/>563</li>
-                                            <li><FontAwesome name="fire"/>536</li> */}
+                                                <li><FontAwesome name="comment"/>563</li>
+                                            <li><FontAwesome name="fire"/>536</li>
                                             </ul>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                                 <div className="space-20" />
-                                {!article.bodyIsHtml && (
-                                    <ReactMarkdown
-                                        className="markdownContainer margin"
-                                        transformImageUri={(data) =>
-                                            transform(data)
-                                        }
-                                        renderers={{ link: LinkRenderer }}
-                                        source={article.content}
-                                    />
-                                )}
-                                {article.bodyIsHtml && (
-                                    <div
-                                        // eslint-disable-next-line react/no-danger
-                                        dangerouslySetInnerHTML={{
-                                            __html: replaceContent(
-                                                article.content
-                                            ),
-                                        }}
-                                    />
-                                )}
+                                <div className="single_post_content">
+                                    {!article.bodyIsHtml && (
+                                        <ReactMarkdown
+                                            className="markdownContainer margin"
+                                            transformImageUri={(data) =>
+                                                transform(data)
+                                            }
+                                            renderers={{ link: LinkRenderer }}
+                                            source={article.content}
+                                        />
+                                    )}
+                                    {article.bodyIsHtml && (
+                                        <div
+                                            // eslint-disable-next-line react/no-danger
+                                            dangerouslySetInnerHTML={{
+                                                __html: replaceContent(
+                                                    article.content
+                                                ),
+                                            }}
+                                        />
+                                    )}
+                                </div>
                                 {article.documents && (
                                     <div className="documents">
                                         <ul className="none">
@@ -265,7 +271,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                         </ul>
                                     </div>
                                 )}
-                                <div className="space-30" />
+                                {/* <div className="space-30" />
                                 <div className="tags">
                                     <ul className="inline">
                                         <li className="tag_list">
@@ -281,7 +287,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                     </ul>
                                 </div>
                                 <div className="space-40" />
-                                <div className="border_black" />
+                                <div className="border_black" /> */}
                                 {/* <div className="space-40"/>
                             <PostOnePagination className="next_prv_single padding20 fourth_bg"/> */}
                             </div>
