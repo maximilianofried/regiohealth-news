@@ -1,22 +1,34 @@
 import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import moment from 'moment';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import StickyBox from 'react-sticky-box';
 import {
     fetchArticles,
+    fetchArticleHomepage,
+    fetchOffers,
     fetchAds,
     fetchArticlesCleanUp,
 } from '../../store/actions';
 import BreadCrumb from '../../components/BreadCrumb';
 import BusinessNews from '../../components/BusinessNews';
+import BusinessNewsTwo from '../../components/BusinessNewsTwo';
+import MostViewTwo from '../../components/MostViewTwo';
 import BannerSection from '../../components/BannerSection';
+import FollowUs from '../../components/FollowUs';
 import Metadata from '../../components/Metadata';
+import FontAwesome from '../../components/uiStyle/FontAwesome';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const CategoryPage = ({
     fetchArticles,
     fetchArticlesCleanUp,
+    fetchArticleHomepage,
+    fetchOffers,
     allArticles,
+    newsArticles,
+    latestOffers,
     name,
     fetchAds,
     adsCategory,
@@ -26,6 +38,8 @@ const CategoryPage = ({
     useEffect(() => {
         window.scrollTo(0, 0);
         fetchArticlesCleanUp();
+        if (latestOffers.length === 0) fetchOffers({ start: 0, limit: 4 });
+        fetchArticleHomepage();
         if (categories.length > 0)
             fetchArticles({ categories, start: 0, limit: 4 });
         fetchAds();
@@ -38,7 +52,6 @@ const CategoryPage = ({
         if (categories.length > 0)
             fetchArticles({ categories, start: 0, limit: limit + 2 });
     };
-
     return (
         <>
             <Metadata
@@ -50,6 +63,120 @@ const CategoryPage = ({
             <div className="archives padding-top-30">
                 <div className="container">
                     <div className="row">
+                        <div className="col-md-12 col-lg-9 homepage_col_top">
+                            {/* <TrendingNewsTwo />
+                            <FeatureNewsTwo /> */}
+                            <BusinessNewsTwo
+                                // articleLimit={articleLimit}
+                                publisherArticles={allArticles}
+                            />
+                            <div className="space-20" />
+                            <button
+                                className="more_articles"
+                                type="button"
+                                onClick={showMore}
+                            >
+                                MEHR ANZEIGEN{' '}
+                                <FontAwesome name="angle-double-down" />
+                            </button>
+                        </div>
+                        <div className="col-lg-3">
+                            <div className="row justify-content-center">
+                                <div className="col-md-6 col-lg-12 d-md-none d-lg-block">
+                                    {banner350x292 && banner350x292.length > 0 && (
+                                        <div className="banner2 mb30 mt20 border-radious5">
+                                            <a
+                                                target="_blank"
+                                                href={banner350x292[0].link}
+                                            >
+                                                <LazyLoadImage
+                                                    src={
+                                                        process.env
+                                                            .REACT_APP_CMS_URL +
+                                                        banner350x292[0]
+                                                            .image[0].url
+                                                    }
+                                                    alt="thumb"
+                                                />
+                                            </a>
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="col-md-6 col-lg-12">
+                                    <FollowUs
+                                        title="FOLGEN SIE UNS"
+                                        className="border-radious5 white_bg padding20 sm-mt30"
+                                    />
+                                    <div className="white_bg padding15 border-radious5 sm-mt30 mb30">
+                                        <h2 className="widget-title">News</h2>
+                                        <div className="space-20" />
+                                        {newsArticles &&
+                                            newsArticles.map((item, i) => (
+                                                <div
+                                                    key={item.id}
+                                                    className="single_post type14 widgets_small"
+                                                >
+                                                    <div className="single_post_text">
+                                                        <h4>
+                                                            <Link
+                                                                to={`/article/${item.slug}`}
+                                                            >
+                                                                {item.title}
+                                                            </Link>
+                                                        </h4>
+                                                        <div className="meta4">
+                                                            <p>
+                                                                {moment(
+                                                                    item.publishAt
+                                                                ).format('LL')}
+                                                            </p>
+                                                        </div>
+                                                        {i + 1 <
+                                                        newsArticles.length ? (
+                                                            <>
+                                                                <div className="space-20" />
+                                                            </>
+                                                        ) : null}
+                                                    </div>
+                                                </div>
+                                            ))}
+                                    </div>
+                                    <div className="banner2 mb30 border-radious5">
+                                        <a
+                                            href={banner350x292.link}
+                                            target="_blank"
+                                        >
+                                            {banner350x292.image &&
+                                                banner350x292.image.length >
+                                                    0 && (
+                                                    <LazyLoadImage
+                                                        src={
+                                                            process.env
+                                                                .REACT_APP_CMS_URL +
+                                                            banner350x292
+                                                                .image[0].url
+                                                        }
+                                                        alt="banner"
+                                                        effect="blur"
+                                                        visibleByDefault="true"
+                                                    />
+                                                )}
+                                        </a>
+                                    </div>
+                                    <MostViewTwo
+                                        title="ANGEBOTE"
+                                        latestOffers={latestOffers}
+                                    />
+                                </div>
+
+                                {/* <div className="col-md-6 col-lg-12">
+                                    <WidgetFinance />
+                                </div> */}
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* <div className="row">
                         <div className="col-md-6 col-lg-8">
                             <div className="businerss_news">
                                 <div className="row">
@@ -128,10 +255,9 @@ const CategoryPage = ({
                                 </div>
                             </StickyBox>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
-            <div className="space-70" />
             <BannerSection />
         </>
     );
@@ -142,6 +268,8 @@ const mapStateToProps = (state) => {
         adsCategory: state.ads.ads.filter((ad) => ad.position === 'category'),
         allArticles: state.articles.articles,
         limit: state.articles.limit,
+        newsArticles: state.articles.articlesHomepage.newsArticles,
+        latestOffers: state.offers.offers,
     };
 };
 
@@ -150,6 +278,9 @@ const mapDispatchToProps = (dispatch) => {
         fetchArticles: ({ categories, start, limit }) =>
             dispatch(fetchArticles({ categories, start, limit })),
         fetchAds: () => dispatch(fetchAds()),
+        fetchArticleHomepage: () => dispatch(fetchArticleHomepage()),
+        fetchOffers: ({ start, limit }) =>
+            dispatch(fetchOffers({ start, limit })),
         fetchArticlesCleanUp: () => dispatch(fetchArticlesCleanUp()),
     };
 };

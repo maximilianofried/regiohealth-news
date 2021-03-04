@@ -13,7 +13,7 @@ const MainMenuTwo = ({ fetchMenu, menuData }) => {
     }, []);
     const [sideShow, setSideShow] = useState(false);
     const currentDate = moment().format('dddd, MMMM D, YYYY');
-    const menus = mockMenu;
+    const menus = menuData.menu || mockMenu;
     return (
         <div className="white_bg">
             <div className="container">

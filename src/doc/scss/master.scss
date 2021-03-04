@@ -2286,8 +2286,8 @@ textarea {
                 line-height: 40px;
                 width: 40px;
                 text-align: center;
-                background: $pagination_bg;
-                color: $body_color;
+                background: $dark_grey;
+                color: $white;
 
                 &:hover {
                     background: $green_regiohealth;
@@ -2312,8 +2312,9 @@ textarea {
     text-align: left;
 
     a {
-        color: $body_color;
-        font-weight: $wightMedium;
+        font-family: $font_open_sans_semi;
+        font-size: $description_text;
+        color: $light_grey_01;
     }
 
     .author_img {
@@ -2338,14 +2339,15 @@ textarea {
         li {
             list-style: none;
             display: inline-block;
-            color: $author_text_color;
-            font-size: 15px;
+            color: $light_grey_01;
+            font-family: $font_open_sans_semi;
+            font-size: $description_text;
 
-            a {
-                color: $author_text_color;
-                font-weight: $wightRegular;
-                font-size: 15px;
-            }
+            // a {
+            //     color: $author_text_color;
+            //     font-weight: $wightRegular;
+            //     font-size: 15px;
+            // }
         }
     }
 }
