@@ -873,6 +873,7 @@ span.tranding.tranding_border {
 
 .img_wrap {
     overflow: hidden;
+    text-align: center;
     /*height: -webkit-fill-available;
   width: -webkit-fill-available;
   */
@@ -1213,6 +1214,13 @@ span.tranding {
             font-size: $header2;
             text-transform: uppercase;
             // line-height: 36px;
+        }
+
+        .single_post_title {
+            font-family: $font_oswald;
+            color: $white;
+            font-size: $header2;
+            text-transform: uppercase;
         }
 
         .meta {

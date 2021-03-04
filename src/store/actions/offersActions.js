@@ -4,6 +4,7 @@ import {
     FETCH_OFFERS_REQUEST,
     FETCH_OFFERS_SUCCESS,
     FETCH_OFFERS_FAILURE,
+    FETCH_OFFERS_CLEAN_UP,
 } from '../constants/offersTypes';
 
 const fetchOffersRequest = () => {
@@ -23,6 +24,12 @@ const fetchOffersFailure = (error) => {
     return {
         type: FETCH_OFFERS_FAILURE,
         payload: error,
+    };
+};
+
+export const fetchOffersCleanUp = () => {
+    return {
+        type: FETCH_OFFERS_CLEAN_UP,
     };
 };
 

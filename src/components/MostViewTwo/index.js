@@ -112,7 +112,7 @@ const MostViewTwo = ({ title, latestOffers }) => {
                         <div className="post_img">
                             <div className="img_wrap_2">
                                 {item.main_image && (
-                                    <Link to="/">
+                                    <Link to={`/offer/${item.slug}`}>
                                         <LazyLoadImage
                                             src={
                                                 process.env.REACT_APP_CMS_URL +
@@ -129,7 +129,9 @@ const MostViewTwo = ({ title, latestOffers }) => {
                         </div>
                         <div className="single_post_text">
                             <h4>
-                                <Link to="/post1">{item.title}</Link>
+                                <Link to={`/offer/${item.slug}`}>
+                                    {item.title}
+                                </Link>
                             </h4>
                             <div className="meta2">
                                 <p>{moment(item.publishAt).format('LL')}</p>

@@ -2,6 +2,7 @@ import {
     FETCH_OFFERS_REQUEST,
     FETCH_OFFERS_SUCCESS,
     FETCH_OFFERS_FAILURE,
+    FETCH_OFFERS_CLEAN_UP,
 } from '../constants/offersTypes';
 
 const initialState = {
@@ -30,6 +31,11 @@ const offersReducer = (state = initialState, action) => {
                 loading: false,
                 offers: [],
                 error: action.payload,
+            };
+        case FETCH_OFFERS_CLEAN_UP:
+            return {
+                ...state,
+                offers: [],
             };
         default:
             return state;

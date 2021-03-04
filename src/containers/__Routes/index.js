@@ -9,6 +9,7 @@ import NotFoundPage from '../NotFoundPage';
 import PostTwoPage from '../PostTwoPage';
 import SearchPage from '../SearchPage';
 import OfferPage from '../OfferPage';
+import OffersPage from '../OffersPage';
 import useTracking from '../../utils/useTracking';
 import mockMenu from '../../mockdata/menu.json';
 import mockPages from '../../mockdata/pages.json';
@@ -20,6 +21,11 @@ const selectPage = (pageName, categories, props) => {
     }
     if (pageName === 'Suchportal') {
         return <SearchPage {...props} />;
+    }
+    if (pageName === 'angebote') {
+        return (
+            <OffersPage {...props} name={pageName} categories={categories} />
+        );
     }
     return <CategoryPage {...props} name={pageName} categories={categories} />;
 };
@@ -78,7 +84,8 @@ const Routes = ({ menuData, pages }) => {
             <PrivateRoute
                 exact
                 path="/offer/:slug"
-                parentClass="theme-1"
+                home_style={2}
+                parentClass="theme-3 theme3_bg"
                 component={OfferPage}
             />
             <PrivateRoute
