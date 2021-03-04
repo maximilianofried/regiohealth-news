@@ -359,6 +359,12 @@
     }
 }
 
+.single_post_info {
+    font-family: $font_open_sans_semi;
+    font-size: $paragraph;
+    color: $mid_grey;
+}
+
 .archives h3 {
     font-size: $widget_font_size2;
     font-weight: $wightMedium;

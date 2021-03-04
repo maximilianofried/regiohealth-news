@@ -98,7 +98,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                         className="shadow5 padding-top-30"
                         title="Archive / Articles"
                     /> */}
-                    <div className="space-30" />
+                    <div className="space-20" />
                     <div className="container">
                         <div className="row">
                             <div className="col-12 col-md-10 col-lg-8 m-auto">
@@ -109,19 +109,22 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                 <div className="single_post_description">
                                     <p>{article.description}</p>
                                 </div>
-                                <LazyLoadImage
-                                    src={
-                                        article.main_image
-                                            ? `${
-                                                  process.env
-                                                      .REACT_APP_CMS_URL +
-                                                  article.main_image.url
-                                              }`
-                                            : singlePost1
-                                    }
-                                    alt="thumb"
-                                    effect="blur"
-                                />
+                                <div className="img_wrap">
+                                    <LazyLoadImage
+                                        src={
+                                            article.main_image
+                                                ? `${
+                                                      process.env
+                                                          .REACT_APP_CMS_URL +
+                                                      article.main_image.url
+                                                  }`
+                                                : singlePost1
+                                        }
+                                        alt="thumb"
+                                        effect="blur"
+                                    />
+                                </div>
+
                                 <div className="space-20" />
 
                                 <div className="row">

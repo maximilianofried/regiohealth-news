@@ -81,36 +81,75 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                     url={`${process.env.REACT_APP_BASE_PAGE_URL}/offer/${slug}`}
                 />
                 <div className="archives post post1">
-                    <BreadCrumb
+                    {/* <BreadCrumb
                         className="shadow5 padding-top-30"
                         title="Archive / Offers"
-                    />
-                    <span className="space-30" />
+                    /> */}
+                    <div className="space-20" />
                     <div className="container">
                         <div className="row">
                             <div className="col-12 col-md-10 col-lg-8 m-auto">
-                                <LazyLoadImage
-                                    src={
-                                        offer.main_image
-                                            ? `${
-                                                  process.env
-                                                      .REACT_APP_CMS_URL +
-                                                  offer.main_image.url
-                                              }`
-                                            : singlePost1
-                                    }
-                                    alt="thumb"
-                                    effect="blur"
-                                />
-                                <div className="space-20" />
                                 <div className="single_post_heading">
                                     <h1>{offer.title}</h1>
                                 </div>
                                 <div className="space-20" />
+                                <div className="single_post_description">
+                                    <p>{offer.description}</p>
+                                </div>
+                                <div className="img_wrap">
+                                    <LazyLoadImage
+                                        src={
+                                            offer.main_image
+                                                ? `${
+                                                      process.env
+                                                          .REACT_APP_CMS_URL +
+                                                      offer.main_image.url
+                                                  }`
+                                                : singlePost1
+                                        }
+                                        alt="thumb"
+                                        effect="blur"
+                                    />
+                                </div>
+                                <div className="space-20" />
+
                                 <div className="row">
                                     <div className="col-7 col-lg-6 align-self-center">
                                         <div className="author">
-                                            <Link to="/">{offer.author}</Link>
+                                            {offer.profile &&
+                                                offer.profile.logo && (
+                                                    <div className="author_img">
+                                                        <div className="author_img_wrap">
+                                                            <LazyLoadImage
+                                                                src={
+                                                                    process.env
+                                                                        .REACT_APP_CMS_URL +
+                                                                    offer
+                                                                        .profile
+                                                                        .logo
+                                                                        .url
+                                                                }
+                                                                alt="author2"
+                                                                effect="blur"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            <a
+                                                target="_blank"
+                                                href={
+                                                    offer.profile &&
+                                                    offer.profile.website
+                                                        ? offer.profile.website
+                                                        : '#'
+                                                }
+                                            >
+                                                {offer.author}
+                                                {offer.profile &&
+                                                offer.profile.company
+                                                    ? ` / ${offer.profile.company}`
+                                                    : ''}
+                                            </a>
                                             <ul>
                                                 <li>
                                                     {moment(
@@ -159,54 +198,45 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="space-30" />
-                                <div className="row">
-                                    <div className="col-12">
-                                        <div className="page_comments">
-                                            <ul className="inline">
-                                                <li className="page_category">
-                                                    {offer.categories.length > 0
-                                                        ? offer.categories[0].name.toUpperCase()
-                                                        : ''}
-                                                </li>
-                                                {/* <li><FontAwesome name="comment"/>563</li>
-                                            <li><FontAwesome name="fire"/>536</li> */}
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div className="space-20" />
-                                <ul>
-                                    {offer.price && (
-                                        <li>
-                                            Preis:
-                                            {offer.price}
-                                        </li>
-                                    )}
-                                    {offer.start && (
-                                        <li>
-                                            Start:{' '}
-                                            {moment(offer.start).format('LL')}
-                                        </li>
-                                    )}
-                                    {offer.end && (
-                                        <li>
-                                            Ende:{' '}
-                                            {moment(offer.end).format('LL')}
-                                        </li>
-                                    )}
-                                </ul>
+                                <div className="single_post_info">
+                                    <ul>
+                                        {offer.price && (
+                                            <li>
+                                                Preis:
+                                                {offer.price}
+                                            </li>
+                                        )}
+                                        {offer.start && (
+                                            <li>
+                                                Start:{' '}
+                                                {moment(offer.start).format(
+                                                    'LL'
+                                                )}
+                                            </li>
+                                        )}
+                                        {offer.end && (
+                                            <li>
+                                                Ende:{' '}
+                                                {moment(offer.end).format('LL')}
+                                            </li>
+                                        )}
+                                    </ul>
+                                </div>
 
-                                {offer && offer.content && (
-                                    <div
-                                        // eslint-disable-next-line react/no-danger
-                                        dangerouslySetInnerHTML={{
-                                            __html: replaceContent(
-                                                offer.content
-                                            ),
-                                        }}
-                                    />
-                                )}
+                                <div className="single_post_content">
+                                    {offer && offer.content && (
+                                        <div
+                                            // eslint-disable-next-line react/no-danger
+                                            dangerouslySetInnerHTML={{
+                                                __html: replaceContent(
+                                                    offer.content
+                                                ),
+                                            }}
+                                        />
+                                    )}
+                                </div>
+
                                 {offer.documents && (
                                     <div className="documents">
                                         <ul className="none">
@@ -228,23 +258,6 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                         </ul>
                                     </div>
                                 )}
-                                <div className="space-30" />
-                                <div className="tags">
-                                    <ul className="inline">
-                                        <li className="tag_list">
-                                            <FontAwesome name="tag" /> tags
-                                        </li>
-                                        {offer.categories.map((category) => (
-                                            <li key={category.id}>
-                                                <Link to="/">
-                                                    {category.name}
-                                                </Link>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                                <div className="space-40" />
-                                <div className="border_black" />
                                 {/* <div className="space-40"/>
                             <PostOnePagination className="next_prv_single padding20 fourth_bg"/> */}
                             </div>

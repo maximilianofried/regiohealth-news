@@ -5,7 +5,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import FontAwesome from '../uiStyle/FontAwesome';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
-const BusinessNewsTwo = ({ publisherArticles, articleLimit }) => {
+const BusinessNewsTwo = ({ publisherArticles, articleLimit, offer }) => {
     return (
         <div className="business3 padding20 white_bg border-radious5">
             {publisherArticles &&
@@ -16,7 +16,12 @@ const BusinessNewsTwo = ({ publisherArticles, articleLimit }) => {
                     >
                         <div className="post_img">
                             <div className="img_wrap">
-                                <Link to={`/article/${item.slug}`}>
+                                <Link
+                                    to={
+                                        (offer ? `/offer/` : `/article/`) +
+                                        item.slug
+                                    }
+                                >
                                     <LazyLoadImage
                                         className="border-radious5"
                                         src={
@@ -39,7 +44,12 @@ const BusinessNewsTwo = ({ publisherArticles, articleLimit }) => {
                         </div>
                         <div className="single_post_text">
                             <h3>
-                                <Link to={`/article/${item.slug}`}>
+                                <Link
+                                    to={
+                                        (offer ? `/offer/` : `/article/`) +
+                                        item.slug
+                                    }
+                                >
                                     {item.title}
                                 </Link>
                             </h3>
