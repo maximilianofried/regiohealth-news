@@ -6,36 +6,7 @@ import FontAwesome from '../uiStyle/FontAwesome';
 import FollowUs from '../FollowUs';
 import NewsLetter from '../Newsletter';
 import big_img from '../../doc/img/header/sider-top3.jpg';
-import col26 from '../../doc/img/header/widget/col26.jpg';
-import col21 from '../../doc/img/header/widget/col21.jpg';
-import col22 from '../../doc/img/header/widget/col22.jpg';
-import col23 from '../../doc/img/header/widget/col23.jpg';
-import col24 from '../../doc/img/header/widget/col24.jpg';
-import col25 from '../../doc/img/header/widget/col25.jpg';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-
-const posts = [
-    {
-        image: col21,
-        title: 'The city with highest quality of life in world.',
-        category: 'TECHNOLOGY',
-    },
-    {
-        image: col22,
-        title: 'Fire shows that will improve your…',
-        category: 'TECHNOLOGY',
-    },
-    {
-        image: col23,
-        title: 'Mutul fund mark from down up to 15%.',
-        category: 'TECHNOLOGY',
-    },
-    {
-        image: col24,
-        title: 'Danny meyer’s form latest restaurantes…',
-        category: 'TECHNOLOGY',
-    },
-];
 
 const PostGalleryTwo = ({ mainArticle, newsArticles }) => {
     return (
@@ -191,7 +162,7 @@ const PostGalleryTwo = ({ mainArticle, newsArticles }) => {
                                                     ).format('LL')}
                                                 </p>
                                             </div>
-                                            {i + 1 < posts.length ? (
+                                            {i + 1 < newsArticles.length ? (
                                                 <>
                                                     <div className="space-20" />
                                                     {/* <div className="border_black" /> */}
