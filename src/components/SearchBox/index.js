@@ -120,7 +120,7 @@ const SearchBox = ({
                 <div className="col-auto">
                     <Listbox type={type} onChange={setType}>
                         <ListboxOption value="alle">ALLE</ListboxOption>
-                        <ListboxOption value="article">ARTIKEL</ListboxOption>
+                        <ListboxOption value="article">NEWS</ListboxOption>
                         <ListboxOption value="offer">ANGEBOTE</ListboxOption>
                     </Listbox>
                 </div>

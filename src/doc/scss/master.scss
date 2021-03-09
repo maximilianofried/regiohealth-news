@@ -3048,6 +3048,12 @@ a.cbtn3 {
     margin-bottom: 5px;
     height: 32px;
 }
+
+[data-reach-combobox-option] {
+    font-family: $font_open_sans_semi;
+    list-style-type: none;
+}
+
 [data-reach-listbox-input] {
     margin-bottom: 5px;
 }
@@ -3058,10 +3064,14 @@ a.cbtn3 {
 [data-reach-listbox-button] {
     border-radius: 5px;
     border-color: $dark_grey;
-    border-width: 2px;
+    border: 2px solid #323232;
     width: 120px;
     font-family: $font_open_sans_semi;
     // font-weight: $wightSemi;
+
+    &:focus {
+        outline-style: inherit;
+    }
 }
 
 [data-reach-listbox-option] {
@@ -3204,4 +3214,8 @@ a.cbtn3 {
             }
         }
     }
+}
+
+.business3 {
+    min-height: 1076px;
 }

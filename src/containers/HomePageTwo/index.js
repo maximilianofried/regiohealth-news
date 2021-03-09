@@ -39,7 +39,7 @@ const HomePageTwo = ({
         fetchOffers({ start: 0, limit: 4 });
         fetchAds();
     }, []);
-    const [articleLimit, setArticleLimit] = useState(2);
+    const [articleLimit, setArticleLimit] = useState(4);
     const handleClickMoreArticles = () => {
         if (publisherArticles.length > articleLimit)
             setArticleLimit(articleLimit + 2);
