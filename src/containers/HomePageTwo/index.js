@@ -9,20 +9,12 @@ import {
     fetchAds,
     fetchOffers,
 } from '../../store/actions';
-import PostGallery from '../../components/PostGallery';
 import Metadata from '../../components/Metadata';
 import { RG_DESCRIPTION } from '../../utils/constants';
 import PostGalleryTwo from '../../components/PostGalleryTwo';
 import BusinessNewsTwo from '../../components/BusinessNewsTwo';
 import MostViewTwo from '../../components/MostViewTwo';
 import FontAwesome from '../../components/uiStyle/FontAwesome';
-import banner2 from '../../doc/img/bg/sidebar-1.png';
-import banner3 from '../../doc/img/bg/banner1.png';
-import WidgetFinance from '../../components/WidgetFinance';
-import FollowUs from '../../components/FollowUs';
-import MostViewThree from '../../components/MostViewThree';
-import Sports from '../../components/Sports';
-import International from '../../components/International';
 
 const HomePageTwo = ({
     fetchArticleHomepage,
@@ -39,7 +31,7 @@ const HomePageTwo = ({
         fetchOffers({ start: 0, limit: 4 });
         fetchAds();
     }, []);
-    const [articleLimit, setArticleLimit] = useState(2);
+    const [articleLimit, setArticleLimit] = useState(4);
     const handleClickMoreArticles = () => {
         if (publisherArticles.length > articleLimit)
             setArticleLimit(articleLimit + 2);

@@ -14,52 +14,21 @@ const WidgetTabPane = ({ nationalData, aId, id, type }) => {
                 {nationalData.slice(0, 6).map((item) => (
                     <Fragment key={item.id}>
                         <div
-                            className={`single_post widgets_small ${
+                            className={`single_post type14 widgets_small ${
                                 item.main_image ? '' : 'widgets_small_no_image'
                             }`}
                         >
-                            {item.main_image && (
-                                <div className="post_img">
-                                    <div className="img_wrap">
-                                        <Link to={`/${type}/${item.slug}`}>
-                                            <LazyLoadImage
-                                                src={
-                                                    process.env
-                                                        .REACT_APP_CMS_URL +
-                                                    (item.main_image.formats
-                                                        ? item.main_image
-                                                              .formats.thumbnail
-                                                              .url
-                                                        : item.main_image.url)
-                                                }
-                                                alt="thumb"
-                                                effect="blur"
-                                            />
-                                        </Link>
-                                    </div>
-                                </div>
-                            )}
                             <div className="single_post_text">
-                                <div className="meta2 meta_separator1">
-                                    <Link to="/">
-                                        {item &&
-                                            item.categories.length > 0 &&
-                                            item.categories[0].name}
-                                    </Link>
-                                    <Link to="/">
-                                        {moment(item.publishAt).format('LL')}
-                                    </Link>
-                                </div>
                                 <h4>
                                     <Link to={`/${type}/${item.slug}`}>
                                         {item.title}
                                     </Link>
                                 </h4>
+                                <div className="meta4">
+                                    <p>{moment(item.publishAt).format('LL')}</p>
+                                </div>
                             </div>
                         </div>
-                        <div className="space-15" />
-                        <div className="border_white" />
-                        <div className="space-15" />
                     </Fragment>
                 ))}
             </div>
@@ -81,8 +50,8 @@ const WidgetSuchPortal = ({
         if (activeTab !== tab) setActiveTab(tab);
     };
     return (
-        <div className={`widget_tab md-mt-30 ${className}`}>
-            <Heading title="National News" />
+        <div className={` white_bg padding15 border-radious5 sm-mt30 mb30`}>
+            <Heading title="NEWS" />
             <Nav tabs>
                 <NavItem>
                     <button
@@ -103,7 +72,7 @@ const WidgetSuchPortal = ({
                             });
                         }}
                     >
-                        ARTICLES
+                        ARTIKLES
                     </button>
                 </NavItem>
                 <NavItem>
@@ -125,7 +94,7 @@ const WidgetSuchPortal = ({
                             });
                         }}
                     >
-                        OFFERS
+                        ANGEBOTE
                     </button>
                 </NavItem>
             </Nav>
