@@ -20,21 +20,21 @@ const MainMenuTwo = ({ fetchMenu, menuData }) => {
                 <div className="main-menu">
                     <div className="main-nav clearfix is-ts-sticky">
                         <div className="row justify-content-between">
-                            <nav className="navbar navbar-expand-lg col-lg-12 align-self-center">
+                            <nav className="navbar  navbar-expand-lg  col-lg-12 align-self-center">
                                 <div className="site-nav-inner">
-                                    <button
+                                    {/* <button
                                         type="button"
                                         className="navbar-toggler"
                                         onClick={() => setSideShow(true)}
                                     >
                                         <FontAwesome name="bars" />
-                                    </button>
+                                    </button> */}
                                     <div
                                         id="navbarSupportedContent"
-                                        className="collapse navbar-collapse navbar-responsive-collapse"
+                                        // className="collapse navbar-collapse navbar-responsive-collapse"
                                     >
                                         <ul
-                                            className="nav navbar-nav"
+                                            className="nav navbar-nav flex-row"
                                             id="scroll"
                                         >
                                             {menus.length > 0
@@ -57,12 +57,12 @@ const MainMenuTwo = ({ fetchMenu, menuData }) => {
                                                 : null}
                                         </ul>
                                     </div>
-                                    <SidebarMenu
+                                    {/* <SidebarMenu
                                         // className="themeBlue"
                                         sideShow={sideShow}
                                         setSideShow={setSideShow}
                                         menus={menus}
-                                    />
+                                    /> */}
                                 </div>
                             </nav>
                             {/* <div className="col-lg-3 text-right align-self-center">

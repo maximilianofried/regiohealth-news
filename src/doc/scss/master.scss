@@ -811,7 +811,7 @@ span.tranding.tranding_border {
 
 .widgets_small {
     // padding-left: 117px;
-    min-height: 70px;
+    // min-height: 70px;
 
     .post_img {
         position: absolute;
@@ -1482,10 +1482,10 @@ span.tranding {
 
 .post_type12_b {
     display: inline-block;
-
+    width: 100%;
     .single_post_text {
         float: left;
-        width: 760px;
+        width: 100%;
         padding: 0;
         line-height: 1;
 
@@ -2608,7 +2608,7 @@ a.cbtn3 {
 
     .logo_area {
         text-align: -webkit-center;
-        margin-bottom: 5px;
+        // margin-bottom: 5px;
     }
 
     .copyright_menus.text-right {
@@ -2794,6 +2794,12 @@ a.cbtn3 {
     }
     .slider_demo1 {
         margin-bottom: 30px;
+    }
+
+    .search_logo {
+        .search-button {
+            width: 120px !important;
+        }
     }
 }
 
