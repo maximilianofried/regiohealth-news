@@ -3,6 +3,7 @@ import usePlacesAutocomplete, {
     getGeocode,
     // getLatLng,
 } from 'use-places-autocomplete';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import {
     Combobox,
@@ -11,15 +12,20 @@ import {
     ComboboxOption,
 } from '@reach/combobox';
 import { Listbox, ListboxOption } from '@reach/listbox';
+import {
+    saveSearchType,
+    saveSearchPlace,
+    saveSearchKeyword,
+} from '../../store/actions';
 
 const SearchBox = ({
     fetchGeoData,
     place,
     type,
-    keyWord,
-    setPlace,
-    setType,
-    setKeyWord,
+    keyword,
+    saveSearchType,
+    saveSearchPlace,
+    saveSearchKeyword,
     history,
 }) => {
     const options = {
@@ -71,7 +77,7 @@ const SearchBox = ({
                 return '';
             })
             .then((place) => {
-                setPlace(place);
+                saveSearchPlace(place);
             })
             .catch((error) => {
                 // eslint-disable-next-line no-console
@@ -87,7 +93,7 @@ const SearchBox = ({
             pathname: '/such-portal',
             place,
             type,
-            keyWord,
+            keyword,
         });
         fetchGeoData({
             limit: 6,
@@ -95,7 +101,7 @@ const SearchBox = ({
             place,
             type,
             responseType: 'mixed',
-            keyWord,
+            keyword,
         });
     };
     return (
@@ -110,16 +116,16 @@ const SearchBox = ({
                 <div className="col-auto">
                     <input
                         className="textfield_text"
-                        value={keyWord}
+                        value={keyword}
                         onChange={(e) => {
-                            setKeyWord(e.target.value);
+                            saveSearchKeyword(e.target.value);
                         }}
                         placeholder="Was suchen Sie?"
                     />
                 </div>
                 <div className="col-auto">
-                    <Listbox type={type} onChange={setType}>
-                        <ListboxOption value="alle">ALLE</ListboxOption>
+                    <Listbox type={type} onChange={saveSearchType}>
+                        {/* <ListboxOption value="alle">ALLE</ListboxOption> */}
                         <ListboxOption value="article">NEWS</ListboxOption>
                         <ListboxOption value="offer">ANGEBOTE</ListboxOption>
                     </Listbox>
@@ -131,7 +137,7 @@ const SearchBox = ({
                         onChange={(e) => {
                             setValue(e.target.value);
                             if (e.target.value === '') {
-                                setPlace('');
+                                saveSearchPlace('');
                             }
                         }}
                         disabled={!ready}
@@ -171,4 +177,23 @@ const SearchBox = ({
     );
 };
 
-export default withRouter(SearchBox);
+const mapStateToProps = (state) => {
+    return {
+        place: state.searchData.place,
+        type: state.searchData.type,
+        keyword: state.searchData.keyword,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        saveSearchType: (type) => dispatch(saveSearchType(type)),
+        saveSearchPlace: (place) => dispatch(saveSearchPlace(place)),
+        saveSearchKeyword: (keyword) => dispatch(saveSearchKeyword(keyword)),
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(withRouter(SearchBox));

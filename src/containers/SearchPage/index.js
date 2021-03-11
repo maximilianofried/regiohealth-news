@@ -33,6 +33,9 @@ const SearchPage = ({
     fetchAds,
     adsCategory,
     limit,
+    place,
+    type,
+    keyword,
 }) => {
     const location = useLocation();
     useEffect(() => {
@@ -46,17 +49,14 @@ const SearchPage = ({
             includeCountry: 'Germany',
         });
     }, []);
-    const [place, setPlace] = useState(location.place);
     // const [radius, setRadius] = useState('5000');
-    const [type, setType] = useState('alle');
-    const [keyWord, setKeyWord] = useState('');
     const showMore = () => {
         fetchGeoData({
             limit: limit + 2,
             start: 0,
             place,
             type,
-            keyWord,
+            keyword,
             responseType: 'mixed',
         });
     };
@@ -198,6 +198,9 @@ const mapStateToProps = (state) => {
         limit: state.geoData.limit,
         nationalData: state.nationalData.nationalData,
         latestOffers: state.offers.offers,
+        place: state.searchData.place,
+        type: state.searchData.type,
+        keyword: state.searchData.keyword,
     };
 };
 

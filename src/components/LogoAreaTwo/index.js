@@ -12,15 +12,7 @@ import tempIcon from '../../doc/img/icon/temp.png';
 import SearchBox from '../SearchBox';
 
 const LogoAreaTwo = ({ history, fetchGeoData }) => {
-    const [search, setSearch] = useState('');
-    const [place, setPlace] = useState('');
     // const [radius, setRadius] = useState('5000');
-    const [type, setType] = useState('alle');
-    const [keyWord, setKeyWord] = useState('');
-    const submitHandler = (e) => {
-        e.preventDefault();
-        setSearch('');
-    };
     return (
         <div className="logo_area white_bg">
             <div className="container">
@@ -35,15 +27,7 @@ const LogoAreaTwo = ({ history, fetchGeoData }) => {
                     </div>
                     <div className="col-sm-12 col-md-8 col-lg-9 col-xl-9 align-self-center search_logo">
                         <div className="logo_area_searchbox">
-                            <SearchBox
-                                fetchGeoData={fetchGeoData}
-                                place={place}
-                                type={type}
-                                keyWord={keyWord}
-                                setPlace={setPlace}
-                                setType={setType}
-                                setKeyWord={setKeyWord}
-                            />
+                            <SearchBox fetchGeoData={fetchGeoData} />
                         </div>
                     </div>
                 </div>
