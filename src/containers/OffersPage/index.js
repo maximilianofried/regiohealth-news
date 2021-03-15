@@ -30,7 +30,7 @@ const CategoryPage = ({
     allArticles,
     newsArticles,
     latestOffers,
-    name,
+    menuName,
     fetchAds,
     adsCategory,
     limit,
@@ -41,8 +41,7 @@ const CategoryPage = ({
         fetchOffersCleanUp();
         if (latestOffers.length === 0) fetchOffers({ start: 0, limit: 4 });
         fetchArticleHomepage();
-        if (categories.length > 0)
-            fetchArticles({ categories, start: 0, limit: 4 });
+        fetchArticles({ categories, start: 0, limit: 4 });
         fetchAds();
     }, []);
     const banner350x292 =
@@ -54,9 +53,9 @@ const CategoryPage = ({
     return (
         <>
             <Metadata
-                title={name}
+                title={menuName}
                 description={ANGEBOTE_DESCRIPTION}
-                url={`${process.env.REACT_APP_BASE_PAGE_URL}/${name}`}
+                url={`${process.env.REACT_APP_BASE_PAGE_URL}/${menuName}`}
             />
             {/* <BreadCrumb title={name} /> */}
             <div className="archives padding-top-30">
