@@ -81,7 +81,10 @@ const BusinessNewsTwo = ({ publisherArticles, articleLimit, offer }) => {
                             <p className="post-p">{item.description}</p>
                             <div className="space-10" />
                             <Link
-                                to={`/article/${item.slug}`}
+                                to={
+                                    (offer ? `/offer/` : `/article/`) +
+                                    item.slug
+                                }
                                 className="readmore3"
                             >
                                 Mehr Lesen
