@@ -37,8 +37,8 @@ const MainMenuTwo = ({ fetchMenu, menuData }) => {
                                             className="nav navbar-nav flex-row"
                                             id="scroll"
                                         >
-                                            {menus.length > 0
-                                                ? menus.map((item) => (
+                                            {mockMenu.length > 0
+                                                ? mockMenu.map((item) => (
                                                       <li
                                                           key={item.id}
                                                           className={`

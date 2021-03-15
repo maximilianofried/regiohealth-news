@@ -2,129 +2,129 @@
     {
         "position": "m01",
         "categories": [],
-        "_id": "6037742ca5e1f127779be880",
+        "_id": "6040a5be1acb2a3475c7ab38",
         "linkText": "wissen",
         "link": "/wissen",
         "submenu": [],
-        "createdAt": "2021-02-25T09:55:56.520Z",
-        "updatedAt": "2021-02-25T09:55:56.596Z",
+        "createdAt": "2021-03-04T09:17:50.346Z",
+        "updatedAt": "2021-03-15T10:24:24.206Z",
         "__v": 0,
         "created_by": {
-            "_id": "5f9ad2f0ad9ea376a469278f",
+            "_id": "6023ebb6d4fb3722c2ebbe28",
             "username": null,
-            "firstname": "Maxi",
+            "firstname": "Maximiliano",
             "lastname": "Fried",
-            "createdAt": "2020-10-29T14:34:24.899Z",
-            "updatedAt": "2020-10-29T14:34:25.065Z",
+            "createdAt": "2021-02-10T14:20:38.204Z",
+            "updatedAt": "2021-02-10T14:20:38.209Z",
             "__v": 0,
-            "id": "5f9ad2f0ad9ea376a469278f"
+            "id": "6023ebb6d4fb3722c2ebbe28"
         },
         "updated_by": {
-            "_id": "5f9ad2f0ad9ea376a469278f",
+            "_id": "6023ebb6d4fb3722c2ebbe28",
             "username": null,
-            "firstname": "Maxi",
+            "firstname": "Maximiliano",
             "lastname": "Fried",
-            "createdAt": "2020-10-29T14:34:24.899Z",
-            "updatedAt": "2020-10-29T14:34:25.065Z",
+            "createdAt": "2021-02-10T14:20:38.204Z",
+            "updatedAt": "2021-02-10T14:20:38.209Z",
             "__v": 0,
-            "id": "5f9ad2f0ad9ea376a469278f"
+            "id": "6023ebb6d4fb3722c2ebbe28"
         },
-        "id": "6037742ca5e1f127779be880"
+        "id": "6040a5be1acb2a3475c7ab38"
     },
     {
         "position": "m02",
         "categories": [],
-        "_id": "60377449a5e1f127779be881",
+        "_id": "6040a5cd1acb2a3475c7ab39",
         "linkText": "gesundheitstipps",
         "link": "/gesundheitstipps",
         "submenu": [],
-        "createdAt": "2021-02-25T09:56:25.330Z",
-        "updatedAt": "2021-02-25T09:56:25.417Z",
+        "createdAt": "2021-03-04T09:18:05.790Z",
+        "updatedAt": "2021-03-04T09:18:05.809Z",
         "__v": 0,
         "created_by": {
-            "_id": "5f9ad2f0ad9ea376a469278f",
+            "_id": "6023ebb6d4fb3722c2ebbe28",
             "username": null,
-            "firstname": "Maxi",
+            "firstname": "Maximiliano",
             "lastname": "Fried",
-            "createdAt": "2020-10-29T14:34:24.899Z",
-            "updatedAt": "2020-10-29T14:34:25.065Z",
+            "createdAt": "2021-02-10T14:20:38.204Z",
+            "updatedAt": "2021-02-10T14:20:38.209Z",
             "__v": 0,
-            "id": "5f9ad2f0ad9ea376a469278f"
+            "id": "6023ebb6d4fb3722c2ebbe28"
         },
         "updated_by": {
-            "_id": "5f9ad2f0ad9ea376a469278f",
+            "_id": "6023ebb6d4fb3722c2ebbe28",
             "username": null,
-            "firstname": "Maxi",
+            "firstname": "Maximiliano",
             "lastname": "Fried",
-            "createdAt": "2020-10-29T14:34:24.899Z",
-            "updatedAt": "2020-10-29T14:34:25.065Z",
+            "createdAt": "2021-02-10T14:20:38.204Z",
+            "updatedAt": "2021-02-10T14:20:38.209Z",
             "__v": 0,
-            "id": "5f9ad2f0ad9ea376a469278f"
+            "id": "6023ebb6d4fb3722c2ebbe28"
         },
-        "id": "60377449a5e1f127779be881"
+        "id": "6040a5cd1acb2a3475c7ab39"
     },
     {
         "position": "m03",
         "categories": [],
-        "_id": "60377459a5e1f127779be882",
+        "_id": "6040a5dc1acb2a3475c7ab3a",
         "linkText": "news",
         "link": "/news",
         "submenu": [],
-        "createdAt": "2021-02-25T09:56:41.527Z",
-        "updatedAt": "2021-02-25T09:56:41.600Z",
+        "createdAt": "2021-03-04T09:18:20.177Z",
+        "updatedAt": "2021-03-04T09:18:20.183Z",
         "__v": 0,
         "created_by": {
-            "_id": "5f9ad2f0ad9ea376a469278f",
+            "_id": "6023ebb6d4fb3722c2ebbe28",
             "username": null,
-            "firstname": "Maxi",
+            "firstname": "Maximiliano",
             "lastname": "Fried",
-            "createdAt": "2020-10-29T14:34:24.899Z",
-            "updatedAt": "2020-10-29T14:34:25.065Z",
+            "createdAt": "2021-02-10T14:20:38.204Z",
+            "updatedAt": "2021-02-10T14:20:38.209Z",
             "__v": 0,
-            "id": "5f9ad2f0ad9ea376a469278f"
+            "id": "6023ebb6d4fb3722c2ebbe28"
         },
         "updated_by": {
-            "_id": "5f9ad2f0ad9ea376a469278f",
+            "_id": "6023ebb6d4fb3722c2ebbe28",
             "username": null,
-            "firstname": "Maxi",
+            "firstname": "Maximiliano",
             "lastname": "Fried",
-            "createdAt": "2020-10-29T14:34:24.899Z",
-            "updatedAt": "2020-10-29T14:34:25.065Z",
+            "createdAt": "2021-02-10T14:20:38.204Z",
+            "updatedAt": "2021-02-10T14:20:38.209Z",
             "__v": 0,
-            "id": "5f9ad2f0ad9ea376a469278f"
+            "id": "6023ebb6d4fb3722c2ebbe28"
         },
-        "id": "60377459a5e1f127779be882"
+        "id": "6040a5dc1acb2a3475c7ab3a"
     },
     {
         "position": "m04",
         "categories": [],
-        "_id": "60377469a5e1f127779be883",
+        "_id": "6040a5eb1acb2a3475c7ab3b",
         "linkText": "angebote",
         "link": "/angebote",
         "submenu": [],
-        "createdAt": "2021-02-25T09:56:57.765Z",
-        "updatedAt": "2021-02-25T09:56:57.912Z",
+        "createdAt": "2021-03-04T09:18:35.340Z",
+        "updatedAt": "2021-03-04T09:18:35.347Z",
         "__v": 0,
         "created_by": {
-            "_id": "5f9ad2f0ad9ea376a469278f",
+            "_id": "6023ebb6d4fb3722c2ebbe28",
             "username": null,
-            "firstname": "Maxi",
+            "firstname": "Maximiliano",
             "lastname": "Fried",
-            "createdAt": "2020-10-29T14:34:24.899Z",
-            "updatedAt": "2020-10-29T14:34:25.065Z",
+            "createdAt": "2021-02-10T14:20:38.204Z",
+            "updatedAt": "2021-02-10T14:20:38.209Z",
             "__v": 0,
-            "id": "5f9ad2f0ad9ea376a469278f"
+            "id": "6023ebb6d4fb3722c2ebbe28"
         },
         "updated_by": {
-            "_id": "5f9ad2f0ad9ea376a469278f",
+            "_id": "6023ebb6d4fb3722c2ebbe28",
             "username": null,
-            "firstname": "Maxi",
+            "firstname": "Maximiliano",
             "lastname": "Fried",
-            "createdAt": "2020-10-29T14:34:24.899Z",
-            "updatedAt": "2020-10-29T14:34:25.065Z",
+            "createdAt": "2021-02-10T14:20:38.204Z",
+            "updatedAt": "2021-02-10T14:20:38.209Z",
             "__v": 0,
-            "id": "5f9ad2f0ad9ea376a469278f"
+            "id": "6023ebb6d4fb3722c2ebbe28"
         },
-        "id": "60377469a5e1f127779be883"
+        "id": "6040a5eb1acb2a3475c7ab3b"
     }
 ]

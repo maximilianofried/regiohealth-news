@@ -16,18 +16,21 @@ import mockPages from '../../mockdata/pages.json';
 // import PublicRoute from '../_PublicRoute';
 
 const selectPage = (pageName, categories, props) => {
-    if (pageName === 'Über uns' || pageName === 'Kontakt') {
-        return <InfoPage {...props} name={pageName} />;
-    }
     if (pageName === 'Suchportal') {
         return <SearchPage {...props} />;
     }
     if (pageName === 'angebote') {
         return (
-            <OffersPage {...props} name={pageName} categories={categories} />
+            <OffersPage
+                {...props}
+                menuName={pageName}
+                categories={categories}
+            />
         );
     }
-    return <CategoryPage {...props} name={pageName} categories={categories} />;
+    return (
+        <CategoryPage {...props} menuName={pageName} categories={categories} />
+    );
 };
 
 const Routes = ({ menuData, pages }) => {
@@ -50,7 +53,7 @@ const Routes = ({ menuData, pages }) => {
                 path="/"
                 component={HomePageTwo}
             />
-            {menu.map((item) => (
+            {mockMenu.map((item) => (
                 <PrivateRoute
                     key={item.id}
                     exact

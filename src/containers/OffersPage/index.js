@@ -19,6 +19,7 @@ import BannerSection from '../../components/BannerSection';
 import FollowUs from '../../components/FollowUs';
 import Metadata from '../../components/Metadata';
 import FontAwesome from '../../components/uiStyle/FontAwesome';
+import { ANGEBOTE_DESCRIPTION } from '../../utils/constants';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const CategoryPage = ({
@@ -54,7 +55,7 @@ const CategoryPage = ({
         <>
             <Metadata
                 title={name}
-                description={name}
+                description={ANGEBOTE_DESCRIPTION}
                 url={`${process.env.REACT_APP_BASE_PAGE_URL}/${name}`}
             />
             {/* <BreadCrumb title={name} /> */}

@@ -55,23 +55,27 @@ export const fetchArticles = ({
     city = undefined,
     start = undefined,
     limit = undefined,
+    menuName = '',
 } = {}) => {
     return (dispatch) => {
         let categoriesList = [];
+        let query = '';
         categoriesList = categories.map((item) => item.id);
-        const query = qs.stringify(
-            {
-                _where: { 'categories.id': categoriesList },
-            },
-            { encode: false, arrayFormat: 'repeat' }
-        );
+        if (categoriesList.length > 0) {
+            query = qs.stringify(
+                {
+                    _where: { 'categories.id': categoriesList },
+                },
+                { encode: false, arrayFormat: 'repeat' }
+            );
+        }
         const url = `${
             process.env.REACT_APP_CMS_URL
         }/articles/published?_sort=publishAt:desc${
-            categories ? `&${query}` : ''
-        }${city ? `&city=${city}` : ''}${start ? `&_start=${start}` : ''}${
-            limit ? `&_limit=${limit}` : ''
-        }`;
+            categoriesList.length > 0 ? `&${query}` : ''
+        }${menuName ? `&menu.linkText=${menuName}` : ''}${
+            city ? `&city=${city}` : ''
+        }${start ? `&_start=${start}` : ''}${limit ? `&_limit=${limit}` : ''}`;
         dispatch(fetchArticlesRequest);
         axios
             .get(url)
