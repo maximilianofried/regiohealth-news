@@ -17,18 +17,12 @@ const Metadata = ({
             <meta charSet="utf-8" />
             <title>{`Regio Health News - ${title}`}</title>
             <link rel="canonical" href={urlLowerCase} />
-            <meta
-                name="description"
-                content={`Regio Health News - ${description}`}
-            />
+            <meta name="description" content={description} />
             <meta
                 property="og:title"
                 content={`Regio Health News - ${title}`}
             />
-            <meta
-                property="og:description"
-                content={`Regio Health News - ${description}`}
-            />
+            <meta property="og:description" content={description} />
             <meta property="og:url" content={urlLowerCase} />
             <meta property="og:type" content="article" />
             <meta property="og:site_name" content="Regio Health News" />

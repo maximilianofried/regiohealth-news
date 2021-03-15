@@ -19,6 +19,7 @@ import BannerSection from '../../components/BannerSection';
 import FollowUs from '../../components/FollowUs';
 import Metadata from '../../components/Metadata';
 import FontAwesome from '../../components/uiStyle/FontAwesome';
+import { MENU_DESCRIPTION } from '../../utils/constants';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const CategoryPage = ({
@@ -29,7 +30,7 @@ const CategoryPage = ({
     allArticles,
     newsArticles,
     latestOffers,
-    name,
+    menuName,
     fetchAds,
     adsCategory,
     limit,
@@ -40,8 +41,8 @@ const CategoryPage = ({
         fetchArticlesCleanUp();
         if (latestOffers.length === 0) fetchOffers({ start: 0, limit: 4 });
         fetchArticleHomepage();
-        if (categories.length > 0)
-            fetchArticles({ categories, start: 0, limit: 4 });
+        // if (categories.length > 0)
+        fetchArticles({ categories, start: 0, limit: 4, menuName });
         fetchAds();
     }, []);
 
@@ -49,15 +50,14 @@ const CategoryPage = ({
         adsCategory.filter((ad) => ad.size === 's350x292')[0] || {};
 
     const showMore = () => {
-        if (categories.length > 0)
-            fetchArticles({ categories, start: 0, limit: limit + 2 });
+        fetchArticles({ categories, start: 0, limit: limit + 2, menuName });
     };
     return (
         <>
             <Metadata
-                title={name}
-                description={name}
-                url={`${process.env.REACT_APP_BASE_PAGE_URL}/${name}`}
+                title={menuName}
+                description={MENU_DESCRIPTION[menuName]}
+                url={`${process.env.REACT_APP_BASE_PAGE_URL}/${menuName}`}
             />
             {/* <BreadCrumb title={name} /> */}
             <div className="archives padding-top-30">
@@ -275,8 +275,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchArticles: ({ categories, start, limit }) =>
-            dispatch(fetchArticles({ categories, start, limit })),
+        fetchArticles: ({ categories, start, limit, menuName }) =>
+            dispatch(fetchArticles({ categories, start, limit, menuName })),
         fetchAds: () => dispatch(fetchAds()),
         fetchArticleHomepage: () => dispatch(fetchArticleHomepage()),
         fetchOffers: ({ start, limit }) =>

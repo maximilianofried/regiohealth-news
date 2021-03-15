@@ -125,7 +125,7 @@ const SearchBox = ({
                 </div>
                 <div className="col-auto">
                     <Listbox type={type} onChange={saveSearchType}>
-                        {/* <ListboxOption value="alle">ALLE</ListboxOption> */}
+                        <ListboxOption value="alle">ALLE</ListboxOption>
                         <ListboxOption value="article">NEWS</ListboxOption>
                         <ListboxOption value="offer">ANGEBOTE</ListboxOption>
                     </Listbox>
