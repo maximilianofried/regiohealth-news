@@ -28,7 +28,7 @@ const FollowUs = ({ className = '', title }) => {
                         </li>
                         <li>
                             <a
-                                href="https://www.instagram.com/regiohealth.news"
+                                href="https://twitter.com/regiohealth1"
                                 target="_blank"
                             >
                                 <FontAwesome name="twitter" />
