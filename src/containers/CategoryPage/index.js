@@ -39,13 +39,16 @@ const CategoryPage = ({
 }) => {
     useEffect(() => {
         // window.scrollTo(0, 0);
-        fetchArticlesCleanUp();
         if (latestOffers.length === 0) fetchOffers({ start: 0, limit: 4 });
         fetchArticleHomepage();
         // if (categories.length > 0)
         if (stateArticles.articles.length === 0)
             fetchArticles({ categories, start: 0, limit: 4, menuName });
         fetchAds();
+
+        return () => {
+            fetchArticlesCleanUp();
+        };
     }, []);
 
     const banner350x292 =
