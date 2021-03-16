@@ -100,7 +100,7 @@ const CategoryPage = ({
                                         )}
                                 </a>
                             </div>
-                            <iframe
+                            {/* <iframe
                                 title="advertisement"
                                 frameBorder="0"
                                 marginHeight="0"
@@ -119,7 +119,7 @@ const CategoryPage = ({
                                     MOAS Migrant Offshore Aid Station“
                                 </a>{' '}
                                 auf betterplace.org öffnen.
-                            </iframe>
+                            </iframe> */}
                         </div>
                     </div>
                 </div>
