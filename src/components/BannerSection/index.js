@@ -6,7 +6,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const BannerSection = ({ className, fetchAds, adsCategory }) => {
     useEffect(() => {
-        fetchAds();
+        if (adsCategory.length === 0) fetchAds();
     }, []);
     const banner729x90 =
         adsCategory.filter((ad) => ad.size === 's729x90')[0] || {};

@@ -37,7 +37,7 @@ const CategoryPage = ({
     categories,
 }) => {
     useEffect(() => {
-        window.scrollTo(0, 0);
+        // window.scrollTo(0, 0);
         fetchArticlesCleanUp();
         if (latestOffers.length === 0) fetchOffers({ start: 0, limit: 4 });
         fetchArticleHomepage();

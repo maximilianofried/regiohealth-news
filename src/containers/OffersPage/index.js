@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useLayoutEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
@@ -9,7 +9,8 @@ import {
     fetchArticleHomepage,
     fetchOffers,
     fetchAds,
-    fetchOffersCleanUp,
+    fetchOffersForPageCleanUp,
+    fetchOffersForPage,
 } from '../../store/actions';
 import BreadCrumb from '../../components/BreadCrumb';
 import BusinessNews from '../../components/BusinessNews';
@@ -22,33 +23,33 @@ import FontAwesome from '../../components/uiStyle/FontAwesome';
 import { ANGEBOTE_DESCRIPTION } from '../../utils/constants';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
-const CategoryPage = ({
+const OffersPage = ({
     fetchArticles,
-    fetchOffersCleanUp,
+    fetchOffersForPageCleanUp,
     fetchArticleHomepage,
-    fetchOffers,
+    fetchOffersForPage,
     allArticles,
-    newsArticles,
-    latestOffers,
+    newsArticles = [],
+    latestOffers = [],
     menuName,
     fetchAds,
     adsCategory,
     limit,
     categories,
 }) => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-        fetchOffersCleanUp();
-        if (latestOffers.length === 0) fetchOffers({ start: 0, limit: 4 });
-        fetchArticleHomepage();
-        fetchArticles({ categories, start: 0, limit: 4 });
-        fetchAds();
+    useLayoutEffect(() => {
+        // window.scrollTo(0, 0);
+        if (latestOffers.length === 0)
+            fetchOffersForPage({ start: 0, limit: 4 });
+        if (newsArticles.length === 0) fetchArticleHomepage();
+        // fetchArticles({ categories, start: 0, limit: 4 });
+        if (adsCategory.length === 0) fetchAds();
     }, []);
     const banner350x292 =
         adsCategory.filter((ad) => ad.size === 's350x292')[0] || {};
 
     const showMore = () => {
-        fetchOffers({ start: 0, limit: limit + 2 });
+        fetchOffersForPage({ start: 0, limit: limit + 2 });
     };
     return (
         <>
@@ -96,6 +97,7 @@ const CategoryPage = ({
                                                             .image[0].url
                                                     }
                                                     alt="thumb"
+                                                    effect="blur"
                                                 />
                                             </a>
                                         </div>
@@ -268,7 +270,7 @@ const mapStateToProps = (state) => {
         allArticles: state.articles.articles,
         limit: state.articles.limit,
         newsArticles: state.articles.articlesHomepage.newsArticles,
-        latestOffers: state.offers.offers,
+        latestOffers: state.offers.offersForPage,
     };
 };
 
@@ -278,10 +280,10 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(fetchArticles({ categories, start, limit })),
         fetchAds: () => dispatch(fetchAds()),
         fetchArticleHomepage: () => dispatch(fetchArticleHomepage()),
-        fetchOffers: ({ start, limit }) =>
-            dispatch(fetchOffers({ start, limit })),
-        fetchOffersCleanUp: () => dispatch(fetchOffersCleanUp()),
+        fetchOffersForPage: ({ start, limit }) =>
+            dispatch(fetchOffersForPage({ start, limit })),
+        fetchOffersForPageCleanUp: () => dispatch(fetchOffersForPageCleanUp()),
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CategoryPage);
+export default connect(mapStateToProps, mapDispatchToProps)(OffersPage);
