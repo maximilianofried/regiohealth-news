@@ -35,6 +35,7 @@ const CategoryPage = ({
     adsCategory,
     limit,
     categories,
+    stateArticles,
 }) => {
     useEffect(() => {
         // window.scrollTo(0, 0);
@@ -42,7 +43,8 @@ const CategoryPage = ({
         if (latestOffers.length === 0) fetchOffers({ start: 0, limit: 4 });
         fetchArticleHomepage();
         // if (categories.length > 0)
-        fetchArticles({ categories, start: 0, limit: 4, menuName });
+        if (stateArticles.articles.length === 0)
+            fetchArticles({ categories, start: 0, limit: 4, menuName });
         fetchAds();
     }, []);
 
@@ -266,6 +268,7 @@ const CategoryPage = ({
 const mapStateToProps = (state) => {
     return {
         adsCategory: state.ads.ads.filter((ad) => ad.position === 'category'),
+        stateArticles: state.articles,
         allArticles: state.articles.articles,
         limit: state.articles.limit,
         newsArticles: state.articles.articlesHomepage.newsArticles,
