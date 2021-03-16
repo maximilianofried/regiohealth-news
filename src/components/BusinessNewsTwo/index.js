@@ -6,9 +6,10 @@ import FontAwesome from '../uiStyle/FontAwesome';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const BusinessNewsTwo = ({ publisherArticles, articleLimit, offer }) => {
+    console.log(publisherArticles[0]);
     return (
         <div className="business3 padding20 white_bg border-radious5">
-            {publisherArticles &&
+            {publisherArticles.length > 0 &&
                 publisherArticles.slice(0, articleLimit).map((item, i) => (
                     <div
                         key={item.id}
@@ -22,23 +23,27 @@ const BusinessNewsTwo = ({ publisherArticles, articleLimit, offer }) => {
                                         item.slug
                                     }
                                 >
-                                    <LazyLoadImage
-                                        className="border-radious5"
-                                        src={
-                                            item.main_image &&
-                                            item.main_image.formats &&
-                                            item.main_image.formats.small
-                                                ? `${
-                                                      process.env
-                                                          .REACT_APP_CMS_URL +
-                                                      item.main_image.formats
-                                                          .small.url
-                                                  }`
-                                                : ''
-                                        }
-                                        alt="thumb"
-                                        effect="blur"
-                                    />
+                                    {item ? (
+                                        <LazyLoadImage
+                                            className="border-radious5"
+                                            src={
+                                                item.main_image &&
+                                                item.main_image.formats &&
+                                                item.main_image.formats.small
+                                                    ? `${
+                                                          process.env
+                                                              .REACT_APP_CMS_URL +
+                                                          item.main_image
+                                                              .formats.small.url
+                                                      }`
+                                                    : ''
+                                            }
+                                            alt="thumb"
+                                            effect="blur"
+                                        />
+                                    ) : (
+                                        ''
+                                    )}
                                 </Link>
                             </div>
                         </div>
