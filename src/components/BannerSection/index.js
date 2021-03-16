@@ -15,7 +15,7 @@ const BannerSection = ({ className, fetchAds, adsCategory }) => {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-8 m-auto">
-                        <div className="banner1">
+                        <div className="banner-section">
                             <a href={banner729x90.link} target="_blank">
                                 {banner729x90.image &&
                                     banner729x90.image.length > 0 && (
@@ -26,6 +26,7 @@ const BannerSection = ({ className, fetchAds, adsCategory }) => {
                                             }
                                             alt="banner"
                                             effect="blur"
+                                            className="horizontal-banner"
                                         />
                                     )}
                             </a>
