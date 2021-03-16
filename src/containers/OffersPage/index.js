@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useLayoutEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
@@ -37,13 +37,16 @@ const OffersPage = ({
     limit,
     categories,
 }) => {
-    useLayoutEffect(() => {
+    useEffect(() => {
         // window.scrollTo(0, 0);
         if (latestOffers.length === 0)
             fetchOffersForPage({ start: 0, limit: 4 });
         if (newsArticles.length === 0) fetchArticleHomepage();
         // fetchArticles({ categories, start: 0, limit: 4 });
         if (adsCategory.length === 0) fetchAds();
+        return () => {
+            fetchOffersForPageCleanUp();
+        };
     }, []);
     const banner350x292 =
         adsCategory.filter((ad) => ad.size === 's350x292')[0] || {};
