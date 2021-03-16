@@ -57,7 +57,7 @@
             // Reading "cookieconsent_status" cookie
             const cookieConsent = getCookie('cookieconsent_status');
 
-            // Start analytics if user consented or did not deny
+            // Start analytics if user consented
             if (cookieConsent === 'allow') {
                 window.dataLayer = window.dataLayer || [];
 
