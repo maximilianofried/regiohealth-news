@@ -5,6 +5,13 @@
         <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
+        <script
+            id="Cookiebot"
+            src="https://consent.cookiebot.com/uc.js"
+            data-cbid="8fa59645-db52-4940-913b-5e5a06a99e9f"
+            data-blockingmode="auto"
+            type="text/javascript"
+        ></script>
         <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
         <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -128,7 +135,7 @@
   To begin the development, run `npm start` or `yarn start`.
   To create a production bundle, use `npm run build` or `yarn build`.
 -->
-        <% if (process.env.NODE_ENV === 'production') { %>
+        <!-- <% if (process.env.NODE_ENV === 'production') { %>
         <script>
             // Initialise cookie consent banner
             window.cookieconsent.initialise({
@@ -155,6 +162,12 @@
                 },
             });
         </script>
-        <% } %>
+        <% } %> -->
+        <script
+            id="CookieDeclaration"
+            src="https://consent.cookiebot.com/8fa59645-db52-4940-913b-5e5a06a99e9f/cd.js"
+            type="text/javascript"
+            async
+        ></script>
     </body>
 </html>
