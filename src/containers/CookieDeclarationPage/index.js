@@ -16,7 +16,7 @@ const CookieDeclarationPage = ({ fetchPage, page, name }) => {
         const div = document.getElementsByClassName('author_about')[0];
         div.appendChild(script);
         return () => {
-            document.body.removeChild(script);
+            div.removeChild(script);
         };
     }, []);
     return (
