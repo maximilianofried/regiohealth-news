@@ -6,6 +6,19 @@ import { fetchPage } from '../../store/actions';
 import Metadata from '../../components/Metadata';
 
 const CookieDeclarationPage = ({ fetchPage, page, name }) => {
+    useEffect(() => {
+        const script = document.createElement('script');
+        script.id = 'CookieDeclaration';
+        script.src =
+            'https://consent.cookiebot.com/8fa59645-db52-4940-913b-5e5a06a99e9f/cd.js';
+        script.type = 'text/javascript';
+        script.async = true;
+        const div = document.getElementsByClassName('author_about')[0];
+        div.appendChild(script);
+        return () => {
+            document.body.removeChild(script);
+        };
+    }, []);
     return (
         <>
             <Metadata
@@ -18,14 +31,7 @@ const CookieDeclarationPage = ({ fetchPage, page, name }) => {
                     <div className="space-50" />
                     <div className="row">
                         <div className="col-12">
-                            <div className="author_about">
-                                <script
-                                    id="CookieDeclaration"
-                                    src="https://consent.cookiebot.com/8fa59645-db52-4940-913b-5e5a06a99e9f/cd.js"
-                                    type="text/javascript"
-                                    async
-                                />
-                            </div>
+                            <div className="author_about" />
                         </div>
                     </div>
                 </>
