@@ -26,7 +26,7 @@ const CookieDeclarationPage = ({ fetchPage, page, name }) => {
                 description={name}
                 url={`${process.env.REACT_APP_BASE_PAGE_URL}/${name}`}
             />
-            <BreadCrumb className="shadow5" title={name}>
+            <BreadCrumb className="shadow5" title="Cookie Erklärung">
                 <>
                     <div className="space-50" />
                     <div className="row">
