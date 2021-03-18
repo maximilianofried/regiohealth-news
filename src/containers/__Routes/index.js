@@ -11,6 +11,7 @@ import OfferPage from '../OfferPage';
 import useTracking from '../../utils/useTracking';
 import mockMenu from '../../mockdata/menu.json';
 import mockPages from '../../mockdata/pages.json';
+import CookieDeclarationPage from '../CookieDeclarationPage';
 // import PublicRoute from '../_PublicRoute';
 
 const selectPage = (pageName, categories, props) => {
@@ -75,6 +76,12 @@ const Routes = ({ menuData, pages }) => {
                 path="/search"
                 parentClass="theme-1"
                 component={(props) => <SearchPage {...props} />}
+            />
+            <PrivateRoute
+                exact
+                path="/cookie-declaration"
+                parentClass="theme-1"
+                component={CookieDeclarationPage}
             />
             <Route exact component={NotFoundPage} />
         </Switch>
