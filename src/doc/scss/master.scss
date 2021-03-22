@@ -2479,6 +2479,17 @@ a.cbtn3 {
         width: 32.3%;
     }
 }
+@media screen and (max-width: 424px) {
+    .main-nav ul.navbar-nav > li > a {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .display_search_box {
+        display: none;
+    }
+}
 
 /*================================
 	SMALL LEPTOP DEVICE
@@ -2583,10 +2594,10 @@ a.cbtn3 {
     // }
 
     .logo_area {
-        height: 185px;
+        height: 0;
 
         .logo_area_searchbox {
-            padding-left: 50px;
+            padding-left: 36px;
         }
     }
 
@@ -2800,6 +2811,9 @@ a.cbtn3 {
         .search-button {
             width: 120px !important;
         }
+        input.textfield_text {
+            width: 155px;
+        }
     }
 }
 
@@ -2907,6 +2921,8 @@ a.cbtn3 {
     }
 }
 
+@media screen and (min-width: 425px) and (max-width: 425px) {
+}
 @media screen and (min-width: 1024px) and (max-width: 1300px) {
     .archives .widget_tab ul li {
         width: 30.3%;
@@ -3224,4 +3240,27 @@ a.cbtn3 {
 
 .business3 {
     min-height: 1076px;
+}
+
+.fadeIn {
+    animation: fadeInAnimation 1s;
+}
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fa-search {
+    font-size: 13px !important;
+    padding-left: 9px;
+}
+
+.angebote-icon {
+    width: 17px;
+    margin-bottom: 5px;
 }

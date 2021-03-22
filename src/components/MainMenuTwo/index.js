@@ -2,18 +2,34 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import moment from 'moment';
+import { isMobile } from 'react-device-detect';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import FontAwesome from '../uiStyle/FontAwesome';
-import { fetchMenu } from '../../store/actions';
+import { fetchMenu, toggleSearchBox } from '../../store/actions';
 import SidebarMenu from '../SidebarMenu';
 import mockMenu from '../../mockdata/menu.json';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
-const MainMenuTwo = ({ fetchMenu, menuData }) => {
+const MainMenuTwo = ({
+    fetchMenu,
+    menuData,
+    toggleSearchBox,
+    displaySearchBox,
+}) => {
     useEffect(() => {
         fetchMenu();
     }, []);
-    const [sideShow, setSideShow] = useState(false);
-    const currentDate = moment().format('dddd, MMMM D, YYYY');
-    const menus = menuData.menu || mockMenu;
+    // const [sideShow, setSideShow] = useState(false);
+    // const currentDate = moment().format('dddd, MMMM D, YYYY');
+    // const menus = menuData.menu || mockMenu;
+
+    const handleClick = (event, displaySearchBox) => {
+        event.preventDefault();
+        toggleSearchBox();
+        const logoArea = document.getElementsByClassName('logo_area');
+        logoArea[0].style.height = !displaySearchBox ? '185px' : '0';
+    };
+
     return (
         <div className="white_bg">
             <div className="container">
@@ -42,9 +58,22 @@ const MainMenuTwo = ({ fetchMenu, menuData }) => {
                                                       <li
                                                           key={item.id}
                                                           className={`
-                                                ${item.child ? 'dropdown' : ''}
+                                                ${
+                                                    item.linkText === 'angebote'
+                                                        ? 'no-padding-menu'
+                                                        : ''
+                                                }
                                                 nav-item`}
                                                       >
+                                                          {item.linkText ===
+                                                          'angebote' ? (
+                                                              <LazyLoadImage
+                                                                  className="angebote-icon"
+                                                                  src="https://strapi-sandbox.gesundheitsticket.de/uploads/icon_app_7bc6820dc7.png"
+                                                                  alt="author2"
+                                                                  effect="blur"
+                                                              />
+                                                          ) : null}
                                                           <NavLink
                                                               to={item.link}
                                                               className="menu-dropdown"
@@ -55,6 +84,18 @@ const MainMenuTwo = ({ fetchMenu, menuData }) => {
                                                       </li>
                                                   ))
                                                 : null}
+
+                                            <li className="nav-item search_icon">
+                                                <FontAwesome
+                                                    name="search"
+                                                    onClick={(event) =>
+                                                        handleClick(
+                                                            event,
+                                                            displaySearchBox
+                                                        )
+                                                    }
+                                                />
+                                            </li>
                                         </ul>
                                     </div>
                                     {/* <SidebarMenu
@@ -79,12 +120,14 @@ const MainMenuTwo = ({ fetchMenu, menuData }) => {
 const mapStateToProps = (state) => {
     return {
         menuData: state.menu,
+        displaySearchBox: state.searchData.displaySearchBox,
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchMenu: () => dispatch(fetchMenu()),
+        toggleSearchBox: () => dispatch(toggleSearchBox()),
     };
 };
 

@@ -1259,6 +1259,13 @@
             padding-left: 45px;
         }
     }
+    li.search_icon {
+        display: none;
+    }
+
+    li.no-padding-menu > a {
+        padding: 0px 2px 0px !important;
+    }
 
     /*================================
       RESPONSIVE CSS
@@ -1400,6 +1407,11 @@
         }
     }
 
+    @media screen and (min-width: 426px) {
+        .search_icon {
+            display: none !important;
+        }
+    }
     @media screen and (max-width: $Medium) {
         .type20 .post_img {
             width: 100%;

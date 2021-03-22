@@ -600,6 +600,10 @@
             padding: 0px 10px 0px;
         }
 
+        .main-nav ul.navbar-nav > li {
+            padding: 0px 10px 0px;
+        }
+
         .sidebar {
             margin-left: 40px;
         }
@@ -1034,8 +1038,8 @@
             color: #333;
             // border-top: 1px solid #f1f1f1 !important;
             border-bottom: 0;
-            padding: 7px 12px;
-            display: block;
+            padding: 8px 7px;
+            // display: block;
             background: transparent;
         }
 
