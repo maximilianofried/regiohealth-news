@@ -2469,7 +2469,7 @@ a.cbtn3 {
         font-size: 12px;
     }
     .main-nav ul.navbar-nav > li > a {
-        font-size: 13px;
+        // font-size: 13px;
     }
     .widget_tab {
         margin-top: 30px;
@@ -2485,7 +2485,7 @@ a.cbtn3 {
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
     .display_search_box {
         display: none;
     }
@@ -2618,7 +2618,7 @@ a.cbtn3 {
     }
 
     .logo_area {
-        text-align: -webkit-center;
+        text-align: -webkit-left;
         // margin-bottom: 5px;
     }
 
@@ -2809,7 +2809,7 @@ a.cbtn3 {
 
     .search_logo {
         .search-button {
-            width: 120px !important;
+            width: 115px !important;
         }
         input.textfield_text {
             width: 155px;
@@ -2921,8 +2921,6 @@ a.cbtn3 {
     }
 }
 
-@media screen and (min-width: 425px) and (max-width: 425px) {
-}
 @media screen and (min-width: 1024px) and (max-width: 1300px) {
     .archives .widget_tab ul li {
         width: 30.3%;
@@ -3017,7 +3015,15 @@ a.cbtn3 {
     }
 }
 
-@media screen and (min-width: 768px) and (max-width: 960px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .search_logo {
+        .search-button {
+            width: 115px !important;
+        }
+        input.textfield_text {
+            width: 155px;
+        }
+    }
     a.single_social {
         width: 30.3%;
     }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import FontAwesome from '../uiStyle/FontAwesome';
 
 const Dropdown = ({ menus }) => {
@@ -24,6 +25,14 @@ const Dropdown = ({ menus }) => {
                     className="menu-dropdown"
                     data-toggle="dropdown"
                 >
+                    {item.linkText === 'angebote' ? (
+                        <LazyLoadImage
+                            className="angebote-icon"
+                            src="https://strapi-sandbox.gesundheitsticket.de/uploads/icon_app_7bc6820dc7.png"
+                            alt="author2"
+                            //   effect="blur"
+                        />
+                    ) : null}
                     {item.linkText} <FontAwesome name={item.icon} />
                 </NavLink>
             )}

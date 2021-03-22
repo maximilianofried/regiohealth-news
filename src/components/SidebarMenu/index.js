@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { Collapse } from 'reactstrap';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import FontAwesome from '../uiStyle/FontAwesome';
-
+import { fetchGeoData } from '../../store/actions';
+import SearchBox from '../SearchBox';
 import './style.scss';
 
-const SidebarMenu = ({ menus, sideShow, setSideShow, className }) => {
+const SidebarMenu = ({
+    menus,
+    sideShow,
+    setSideShow,
+    className,
+    fetchGeoData,
+}) => {
     const [sMenu, setSMenu] = useState(null);
     const [stMenu, setSTMenu] = useState(null);
     return (
@@ -53,6 +62,14 @@ const SidebarMenu = ({ menus, sideShow, setSideShow, className }) => {
                                       }
                                       to={item.link}
                                   >
+                                      {item.linkText === 'angebote' ? (
+                                          <LazyLoadImage
+                                              className="angebote-icon"
+                                              src="https://strapi-sandbox.gesundheitsticket.de/uploads/icon_app_7bc6820dc7.png"
+                                              alt="author2"
+                                              //   effect="blur"
+                                          />
+                                      ) : null}
                                       {item.linkText}
                                   </NavLink>
                               )}
@@ -145,8 +162,20 @@ const SidebarMenu = ({ menus, sideShow, setSideShow, className }) => {
                       ))
                     : null}
             </ul>
+
+            <div className="col-sm-12 col-md-8 col-lg-9 col-xl-9 align-self-center search_logo  fadeIn">
+                <div className="logo_area_searchbox">
+                    <SearchBox fetchGeoData={fetchGeoData} sidebar />
+                </div>
+            </div>
         </div>
     );
 };
 
-export default SidebarMenu;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchGeoData: (filters) => dispatch(fetchGeoData(filters)),
+    };
+};
+
+export default connect(null, mapDispatchToProps)(SidebarMenu);

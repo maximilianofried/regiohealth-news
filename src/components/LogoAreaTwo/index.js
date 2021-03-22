@@ -11,7 +11,6 @@ import {
 import SearchBox from '../SearchBox';
 
 const LogoAreaTwo = ({ history, fetchGeoData, displaySearchBox }) => {
-    console.log('mobile', isMobile, 'display', displaySearchBox);
     // const [radius, setRadius] = useState('5000');
     return (
         <div className="logo_area white_bg">

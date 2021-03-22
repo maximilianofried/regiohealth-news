@@ -27,6 +27,7 @@ const SearchBox = ({
     saveSearchPlace,
     saveSearchKeyword,
     history,
+    sidebar,
 }) => {
     const options = {
         componentRestrictions: { country: ['de', 'pl'] },
@@ -111,7 +112,7 @@ const SearchBox = ({
         >
             <Combobox
                 onSelect={(address) => onComboSelect(address)}
-                className="form-row align-items-center"
+                className="form-row flex-nowrap flex-lg-wrap align-items-center"
             >
                 <div className="col-auto">
                     <input
@@ -123,38 +124,44 @@ const SearchBox = ({
                         placeholder="Was suchen Sie?"
                     />
                 </div>
-                <div className="col-auto">
-                    <Listbox type={type} onChange={saveSearchType}>
-                        <ListboxOption value="alle">ALLE</ListboxOption>
-                        <ListboxOption value="article">NEWS</ListboxOption>
-                        <ListboxOption value="offer">ANGEBOTE</ListboxOption>
-                    </Listbox>
-                </div>
-                <div className="col-auto">
-                    <ComboboxInput
-                        className="textfield_text"
-                        value={value}
-                        onChange={(e) => {
-                            setValue(e.target.value);
-                            if (e.target.value === '') {
-                                saveSearchPlace('');
-                            }
-                        }}
-                        disabled={!ready}
-                        placeholder="PLZ oder Ort"
-                    />
-                    <ComboboxPopover className="pop_over">
-                        {status === 'OK' &&
-                            data.map((result) => {
-                                return (
-                                    <ComboboxOption
-                                        key={result.place_id}
-                                        value={result.description}
-                                    />
-                                );
-                            })}
-                    </ComboboxPopover>
-                </div>
+                {!sidebar && (
+                    <div className="col-auto">
+                        <Listbox type={type} onChange={saveSearchType}>
+                            <ListboxOption value="alle">ALLE</ListboxOption>
+                            <ListboxOption value="article">NEWS</ListboxOption>
+                            <ListboxOption value="offer">
+                                ANGEBOTE
+                            </ListboxOption>
+                        </Listbox>
+                    </div>
+                )}
+                {!sidebar && (
+                    <div className="col-auto">
+                        <ComboboxInput
+                            className="textfield_text"
+                            value={value}
+                            onChange={(e) => {
+                                setValue(e.target.value);
+                                if (e.target.value === '') {
+                                    saveSearchPlace('');
+                                }
+                            }}
+                            disabled={!ready}
+                            placeholder="PLZ oder Ort"
+                        />
+                        <ComboboxPopover className="pop_over">
+                            {status === 'OK' &&
+                                data.map((result) => {
+                                    return (
+                                        <ComboboxOption
+                                            key={result.place_id}
+                                            value={result.description}
+                                        />
+                                    );
+                                })}
+                        </ComboboxPopover>
+                    </div>
+                )}
                 {/* <div className="col-auto">
                     <Listbox radius={radius} onChange={setRadius}>
                         <ListboxOption value="5000">+5 km</ListboxOption>
