@@ -501,6 +501,10 @@
         transition: all 0.3s;
     }
 
+    .active {
+        color: $green_regiohealth !important;
+    }
+
     /* Responsive styles
   ================================================== */
 
@@ -535,10 +539,6 @@
 
         .main-nav ul.navbar-nav li.nav-item > a:hover {
             color: $green_regiohealth;
-        }
-
-        .active {
-            color: $green_regiohealth !important;
         }
 
         .main-nav ul.navbar-nav > li:after {

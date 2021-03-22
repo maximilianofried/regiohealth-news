@@ -32,7 +32,7 @@ const searchReducer = (state = initialState, action) => {
         case TOGGEL_SEARCH_BOX:
             return {
                 ...state,
-                displaySearchBox: !state.displaySearchBox,
+                displaySearchBox: action.payload,
             };
         default:
             return state;
