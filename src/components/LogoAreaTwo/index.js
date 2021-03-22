@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
+import { isMobile } from 'react-device-detect';
 import {
     fetchGeoData,
     fetchAds,
@@ -11,7 +12,8 @@ import logo from '../../doc/img/logo/logo.png';
 import tempIcon from '../../doc/img/icon/temp.png';
 import SearchBox from '../SearchBox';
 
-const LogoAreaTwo = ({ history, fetchGeoData }) => {
+const LogoAreaTwo = ({ history, fetchGeoData, displaySearchBox }) => {
+    console.log('mobile', isMobile, 'display', displaySearchBox);
     // const [radius, setRadius] = useState('5000');
     return (
         <div className="logo_area white_bg">
@@ -25,7 +27,12 @@ const LogoAreaTwo = ({ history, fetchGeoData }) => {
                             />
                         </div>
                     </div>
-                    <div className="col-sm-12 col-md-8 col-lg-9 col-xl-9 align-self-center search_logo">
+
+                    <div
+                        className={`col-sm-12 col-md-8 col-lg-9 col-xl-9 align-self-center search_logo  fadeIn ${
+                            !displaySearchBox ? 'display_search_box' : ''
+                        }`}
+                    >
                         <div className="logo_area_searchbox">
                             <SearchBox fetchGeoData={fetchGeoData} />
                         </div>
@@ -36,10 +43,19 @@ const LogoAreaTwo = ({ history, fetchGeoData }) => {
     );
 };
 
+const mapStateToProps = (state) => {
+    return {
+        displaySearchBox: state.searchData.displaySearchBox,
+    };
+};
+
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchGeoData: (filters) => dispatch(fetchGeoData(filters)),
     };
 };
 
-export default connect(null, mapDispatchToProps)(withRouter(LogoAreaTwo));
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(withRouter(LogoAreaTwo));
