@@ -18,6 +18,10 @@ const MainMenuTwo = ({
 }) => {
     useEffect(() => {
         fetchMenu();
+
+        return () => {
+            toggleSearchBox(false);
+        };
     }, []);
     // const [sideShow, setSideShow] = useState(false);
     // const currentDate = moment().format('dddd, MMMM D, YYYY');
@@ -25,7 +29,7 @@ const MainMenuTwo = ({
 
     const handleClick = (event, displaySearchBox) => {
         event.preventDefault();
-        toggleSearchBox();
+        toggleSearchBox(!displaySearchBox);
         const logoArea = document.getElementsByClassName('logo_area');
         logoArea[0].style.height = !displaySearchBox ? '185px' : '0';
     };
@@ -71,7 +75,7 @@ const MainMenuTwo = ({
                                                                   className="angebote-icon"
                                                                   src="https://strapi-sandbox.gesundheitsticket.de/uploads/icon_app_7bc6820dc7.png"
                                                                   alt="author2"
-                                                                  effect="blur"
+                                                                  //   effect="blur"
                                                               />
                                                           ) : null}
                                                           <NavLink
@@ -127,7 +131,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchMenu: () => dispatch(fetchMenu()),
-        toggleSearchBox: () => dispatch(toggleSearchBox()),
+        toggleSearchBox: (toggle) => dispatch(toggleSearchBox(toggle)),
     };
 };
 

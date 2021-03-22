@@ -1266,6 +1266,9 @@
     li.no-padding-menu > a {
         padding: 0px 2px 0px !important;
     }
+    li.no-padding-menu {
+        margin-left: 10px;
+    }
 
     /*================================
       RESPONSIVE CSS

@@ -26,8 +26,9 @@ export const saveSearchKeyword = (keyword) => {
     };
 };
 
-export const toggleSearchBox = () => {
+export const toggleSearchBox = (toggle) => {
     return {
         type: TOGGEL_SEARCH_BOX,
+        payload: toggle,
     };
 };
