@@ -8,8 +8,6 @@ import {
     fetchNationalData,
     fetchNationalDataCleanUp,
 } from '../../store/actions';
-import logo from '../../doc/img/logo/logo.png';
-import tempIcon from '../../doc/img/icon/temp.png';
 import SearchBox from '../SearchBox';
 
 const LogoAreaTwo = ({ history, fetchGeoData, displaySearchBox }) => {

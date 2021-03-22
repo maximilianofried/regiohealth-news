@@ -5,77 +5,7 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import Swiper from 'react-id-swiper';
 import FontAwesome from '../uiStyle/FontAwesome';
-
-// images
-import mostsm1 from '../../doc/img/most_view/mostsm1.jpg';
-import mostsm2 from '../../doc/img/most_view/mostsm2.jpg';
-import mostsm3 from '../../doc/img/most_view/mostsm3.jpg';
-import mostsm4 from '../../doc/img/most_view/mostsm4.jpg';
-import mostsm5 from '../../doc/img/most_view/mostsm5.jpg';
 import { mostViewSort } from '../../utils/commonFunctions';
-
-const mostView = [
-    {
-        image: mostsm1,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'Nancy zhang a chinese busy woman and dhaka',
-    },
-    {
-        image: mostsm2,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'The billionaire Philan thropist read to learn',
-    },
-    {
-        image: mostsm3,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'Cheap smartphone sensor could help you',
-    },
-    {
-        image: mostsm4,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'Ratiffe to be Director of nation talent Trump',
-    },
-    {
-        image: mostsm5,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'Nancy zhang a chinese busy woman and dhaka',
-    },
-    {
-        image: mostsm1,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'The billionaire Philan thropist read to learn',
-    },
-    {
-        image: mostsm1,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'Nancy zhang a chinese busy woman and dhaka',
-    },
-    {
-        image: mostsm2,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'The billionaire Philan thropist read to learn',
-    },
-    {
-        image: mostsm3,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'Cheap smartphone sensor could help you',
-    },
-    {
-        image: mostsm4,
-        category: 'TECHNOLOGY',
-        date: 'March 26, 2020',
-        title: 'Ratiffe to be Director of nation talent Trump',
-    },
-];
 
 const MostViewTwo = ({ title, latestOffers }) => {
     const [swiper, setSwiper] = useState(null);
