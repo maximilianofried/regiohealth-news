@@ -62,7 +62,6 @@ const SearchPage = ({
     };
     const banner350x292 =
         adsCategory.filter((ad) => ad.size === 's350x292')[0] || {};
-    console.log(geoData);
     return (
         <>
             {/* <BreadCrumb title="Suchportal GesundheitsTicket" /> */}
