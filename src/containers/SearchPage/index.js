@@ -62,7 +62,7 @@ const SearchPage = ({
     };
     const banner350x292 =
         adsCategory.filter((ad) => ad.size === 's350x292')[0] || {};
-
+    console.log(geoData);
     return (
         <>
             {/* <BreadCrumb title="Suchportal GesundheitsTicket" /> */}
@@ -73,12 +73,14 @@ const SearchPage = ({
                             {/* <h5 className="categories_title">Deine Suche:</h5>
                             <div className="space-20" /> */}
                             <div className="search_page">
-                                {geoData && (
+                                {geoData && geoData.length > 0 ? (
                                     <GeoDataNews
                                         fetchGeoData={fetchGeoData}
                                         geoData={geoData}
                                         headerHide
                                     />
+                                ) : (
+                                    'Leider konnten wir keine Ergebnisse finden.'
                                 )}
                                 {/* <div className="row">
                                     <div className="col-12 align-self-center">

@@ -31,13 +31,13 @@ export const fetchGeoData = ({
     place = '',
     type = 'alle',
     responseType = 'mixed',
-    keyWord = '',
+    keyword = '',
 }) => {
     return (dispatch) => {
         const url = `${process.env.REACT_APP_CMS_URL}/geoinfos/string?${
             type === 'alle' ? 'type=article&type=offer' : `type=${type}`
         }&start=${start}&limit=${limit}&responseType=${responseType}${
-            keyWord ? `&keyWord=${keyWord}` : ''
+            keyword ? `&keyword=${keyword}` : ''
         }${place ? `&_q=${place}` : ''}`;
         dispatch(fetchGeoDataRequest);
         axios

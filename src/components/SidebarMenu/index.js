@@ -62,6 +62,7 @@ const SidebarMenu = ({
                                       }
                                       to={item.link}
                                   >
+                                      {item.linkText}{' '}
                                       {item.linkText === 'angebote' ? (
                                           <LazyLoadImage
                                               className="angebote-icon"
@@ -70,7 +71,6 @@ const SidebarMenu = ({
                                               //   effect="blur"
                                           />
                                       ) : null}
-                                      {item.linkText}
                                   </NavLink>
                               )}
                               {item.child ? (
@@ -165,7 +165,11 @@ const SidebarMenu = ({
 
             <div className="col-sm-12 col-md-8 col-lg-9 col-xl-9 align-self-center search_logo  fadeIn">
                 <div className="logo_area_searchbox">
-                    <SearchBox fetchGeoData={fetchGeoData} sidebar />
+                    <SearchBox
+                        fetchGeoData={fetchGeoData}
+                        setSideShow={setSideShow}
+                        sidebar
+                    />
                 </div>
             </div>
         </div>

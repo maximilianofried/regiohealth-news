@@ -25,6 +25,7 @@ const Dropdown = ({ menus }) => {
                     className="menu-dropdown"
                     data-toggle="dropdown"
                 >
+                    {item.linkText}{' '}
                     {item.linkText === 'angebote' ? (
                         <LazyLoadImage
                             className="angebote-icon"
@@ -32,8 +33,7 @@ const Dropdown = ({ menus }) => {
                             alt="author2"
                             //   effect="blur"
                         />
-                    ) : null}
-                    {item.linkText} <FontAwesome name={item.icon} />
+                    ) : null}{' '}
                 </NavLink>
             )}
 

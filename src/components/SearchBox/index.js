@@ -28,6 +28,7 @@ const SearchBox = ({
     saveSearchKeyword,
     history,
     sidebar,
+    setSideShow,
 }) => {
     const options = {
         componentRestrictions: { country: ['de', 'pl'] },
@@ -89,6 +90,7 @@ const SearchBox = ({
     const handleSubmit = (event, history) => {
         event.preventDefault();
         event.stopPropagation();
+        if (setSideShow) setSideShow(false);
         // eslint-disable-next-line no-restricted-globals
         history.push({
             pathname: '/such-portal',

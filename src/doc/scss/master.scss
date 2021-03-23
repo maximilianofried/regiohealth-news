@@ -2641,12 +2641,20 @@ a.cbtn3 {
     }
 
     .post_type6 {
-        background: $grey_regiohealth;
+        background: white;
 
         .single_post_text {
             padding: 20px;
             position: relative;
 
+            h2.single_post_title {
+                color: $dark_grey;
+                font-size: $header3;
+            }
+
+            .meta_separator1 > span {
+                color: $dark_grey;
+            }
             a,
             p {
                 margin-top: 10px;
@@ -2654,6 +2662,10 @@ a.cbtn3 {
                 font-size: 22px;
                 line-height: 24px;
                 font-weight: 700;
+
+                &.post-p {
+                    color: $dark_grey;
+                }
             }
         }
     }

@@ -17,8 +17,12 @@
         // font-weight: $wightRegular;
         font-size: $textfield_text;
         background: $light_grey_02;
-        color: $light_grey_01;
+        color: $dark_grey;
         width: 200px;
+    }
+
+    input.textfield_text::placeholder {
+        color: $light_grey_01;
     }
 
     /*OTHERS STYLE*/
