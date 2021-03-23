@@ -6,7 +6,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const BannerSection = ({ className, fetchAds, adsCategory }) => {
     useEffect(() => {
-        fetchAds();
+        if (adsCategory.length === 0) fetchAds();
     }, []);
     const banner729x90 =
         adsCategory.filter((ad) => ad.size === 's729x90')[0] || {};
@@ -15,7 +15,7 @@ const BannerSection = ({ className, fetchAds, adsCategory }) => {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-8 m-auto">
-                        <div className="banner1">
+                        <div className="banner-section">
                             <a href={banner729x90.link} target="_blank">
                                 {banner729x90.image &&
                                     banner729x90.image.length > 0 && (
@@ -26,6 +26,7 @@ const BannerSection = ({ className, fetchAds, adsCategory }) => {
                                             }
                                             alt="banner"
                                             effect="blur"
+                                            className="horizontal-banner"
                                         />
                                     )}
                             </a>

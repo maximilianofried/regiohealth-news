@@ -2,557 +2,129 @@
     {
         "position": "m01",
         "categories": [],
-        "_id": "5fb21260a955d04a7ffad40f",
-        "link": "/such-portal",
-        "linkText": "Suchportal",
+        "_id": "6040a5be1acb2a3475c7ab38",
+        "linkText": "wissen",
+        "link": "/wissen",
         "submenu": [],
-        "createdAt": "2020-11-16T05:47:12.898Z",
-        "updatedAt": "2020-12-04T10:22:43.269Z",
+        "createdAt": "2021-03-04T09:17:50.346Z",
+        "updatedAt": "2021-03-15T10:24:24.206Z",
         "__v": 0,
         "created_by": {
-            "_id": "5ef316809cc738029b69ba6c",
-            "username": "Christian Lombardt",
-            "createdAt": "2020-06-24T09:01:52.382Z",
-            "updatedAt": "2020-09-24T13:12:58.021Z",
+            "_id": "6023ebb6d4fb3722c2ebbe28",
+            "username": null,
+            "firstname": "Maximiliano",
+            "lastname": "Fried",
+            "createdAt": "2021-02-10T14:20:38.204Z",
+            "updatedAt": "2021-02-10T14:20:38.209Z",
             "__v": 0,
-            "lastname": "Lombardt",
-            "firstname": "Christian",
-            "id": "5ef316809cc738029b69ba6c"
+            "id": "6023ebb6d4fb3722c2ebbe28"
         },
         "updated_by": {
-            "_id": "5ef316809cc738029b69ba6c",
-            "username": "Christian Lombardt",
-            "createdAt": "2020-06-24T09:01:52.382Z",
-            "updatedAt": "2020-09-24T13:12:58.021Z",
+            "_id": "6023ebb6d4fb3722c2ebbe28",
+            "username": null,
+            "firstname": "Maximiliano",
+            "lastname": "Fried",
+            "createdAt": "2021-02-10T14:20:38.204Z",
+            "updatedAt": "2021-02-10T14:20:38.209Z",
             "__v": 0,
-            "lastname": "Lombardt",
-            "firstname": "Christian",
-            "id": "5ef316809cc738029b69ba6c"
+            "id": "6023ebb6d4fb3722c2ebbe28"
         },
-        "id": "5fb21260a955d04a7ffad40f"
+        "id": "6040a5be1acb2a3475c7ab38"
     },
     {
         "position": "m02",
-        "categories": [
-            {
-                "_id": "5f588123edaf772aca8a07cd",
-                "name": "GT-Partner-News",
-                "createdAt": "2020-09-09T07:15:47.093Z",
-                "updatedAt": "2020-10-01T05:35:06.900Z",
-                "__v": 0,
-                "created_by": "5ef316809cc738029b69ba6c",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f588123edaf772aca8a07cd"
-            },
-            {
-                "_id": "5f609b0b084507189963f797",
-                "name": "GT Netzwerk",
-                "createdAt": "2020-09-15T10:44:27.649Z",
-                "updatedAt": "2020-09-15T10:44:27.738Z",
-                "__v": 0,
-                "created_by": "5ef316809cc738029b69ba6c",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f609b0b084507189963f797"
-            }
-        ],
-        "_id": "5fec2fb8ce25ef78af691675",
-        "linkText": "GesundheitsTicket News",
-        "link": "/gesundheitsticket–news",
+        "categories": [],
+        "_id": "6040a5cd1acb2a3475c7ab39",
+        "linkText": "gesundheitstipps",
+        "link": "/gesundheitstipps",
         "submenu": [],
-        "createdAt": "2020-12-30T07:43:52.666Z",
-        "updatedAt": "2020-12-30T07:51:46.741Z",
+        "createdAt": "2021-03-04T09:18:05.790Z",
+        "updatedAt": "2021-03-04T09:18:05.809Z",
         "__v": 0,
         "created_by": {
-            "_id": "5ef316809cc738029b69ba6c",
-            "username": "Christian Lombardt",
-            "createdAt": "2020-06-24T09:01:52.382Z",
-            "updatedAt": "2020-09-24T13:12:58.021Z",
+            "_id": "6023ebb6d4fb3722c2ebbe28",
+            "username": null,
+            "firstname": "Maximiliano",
+            "lastname": "Fried",
+            "createdAt": "2021-02-10T14:20:38.204Z",
+            "updatedAt": "2021-02-10T14:20:38.209Z",
             "__v": 0,
-            "lastname": "Lombardt",
-            "firstname": "Christian",
-            "id": "5ef316809cc738029b69ba6c"
+            "id": "6023ebb6d4fb3722c2ebbe28"
         },
         "updated_by": {
-            "_id": "5ef316809cc738029b69ba6c",
-            "username": "Christian Lombardt",
-            "createdAt": "2020-06-24T09:01:52.382Z",
-            "updatedAt": "2020-09-24T13:12:58.021Z",
+            "_id": "6023ebb6d4fb3722c2ebbe28",
+            "username": null,
+            "firstname": "Maximiliano",
+            "lastname": "Fried",
+            "createdAt": "2021-02-10T14:20:38.204Z",
+            "updatedAt": "2021-02-10T14:20:38.209Z",
             "__v": 0,
-            "lastname": "Lombardt",
-            "firstname": "Christian",
-            "id": "5ef316809cc738029b69ba6c"
+            "id": "6023ebb6d4fb3722c2ebbe28"
         },
-        "id": "5fec2fb8ce25ef78af691675"
+        "id": "6040a5cd1acb2a3475c7ab39"
     },
     {
         "position": "m03",
         "categories": [],
-        "_id": "5f7b097e89987c4071064346",
-        "linkText": "Sport",
-        "link": "/Sport",
+        "_id": "6040a5dc1acb2a3475c7ab3a",
+        "linkText": "news",
+        "link": "/news",
         "submenu": [],
-        "createdAt": "2020-10-05T11:54:38.370Z",
-        "updatedAt": "2020-12-30T07:49:14.625Z",
+        "createdAt": "2021-03-04T09:18:20.177Z",
+        "updatedAt": "2021-03-04T09:18:20.183Z",
         "__v": 0,
         "created_by": {
-            "_id": "5ef315f59cc738029b69ba6b",
-            "username": "Maxi Fried",
-            "createdAt": "2020-06-24T08:59:33.537Z",
-            "updatedAt": "2020-08-26T09:36:48.219Z",
+            "_id": "6023ebb6d4fb3722c2ebbe28",
+            "username": null,
+            "firstname": "Maximiliano",
+            "lastname": "Fried",
+            "createdAt": "2021-02-10T14:20:38.204Z",
+            "updatedAt": "2021-02-10T14:20:38.209Z",
             "__v": 0,
-            "id": "5ef315f59cc738029b69ba6b"
+            "id": "6023ebb6d4fb3722c2ebbe28"
         },
         "updated_by": {
-            "_id": "5ef316809cc738029b69ba6c",
-            "username": "Christian Lombardt",
-            "createdAt": "2020-06-24T09:01:52.382Z",
-            "updatedAt": "2020-09-24T13:12:58.021Z",
+            "_id": "6023ebb6d4fb3722c2ebbe28",
+            "username": null,
+            "firstname": "Maximiliano",
+            "lastname": "Fried",
+            "createdAt": "2021-02-10T14:20:38.204Z",
+            "updatedAt": "2021-02-10T14:20:38.209Z",
             "__v": 0,
-            "lastname": "Lombardt",
-            "firstname": "Christian",
-            "id": "5ef316809cc738029b69ba6c"
+            "id": "6023ebb6d4fb3722c2ebbe28"
         },
-        "id": "5f7b097e89987c4071064346"
+        "id": "6040a5dc1acb2a3475c7ab3a"
     },
     {
         "position": "m04",
-        "categories": [
-            {
-                "_id": "5f2930774916ca0337385630",
-                "name": "Health & Science",
-                "createdAt": "2020-08-04T09:55:03.068Z",
-                "updatedAt": "2020-09-12T09:00:41.615Z",
-                "__v": 0,
-                "link": "/science",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f2930774916ca0337385630"
-            },
-            {
-                "_id": "5f2930854916ca0337385633",
-                "name": "Health & Food",
-                "createdAt": "2020-08-04T09:55:17.844Z",
-                "updatedAt": "2020-09-12T09:02:38.952Z",
-                "__v": 0,
-                "link": "/food",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f2930854916ca0337385633"
-            },
-            {
-                "_id": "5f5c8df1084507189963f77c",
-                "name": "Vegane Trends",
-                "createdAt": "2020-09-12T08:59:29.104Z",
-                "updatedAt": "2020-09-12T08:59:29.200Z",
-                "__v": 0,
-                "created_by": "5ef316809cc738029b69ba6c",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f5c8df1084507189963f77c"
-            },
-            {
-                "_id": "5f5c8dfc084507189963f77d",
-                "name": "Health & Sustainability",
-                "createdAt": "2020-09-12T08:59:40.172Z",
-                "updatedAt": "2020-10-01T05:35:31.846Z",
-                "__v": 0,
-                "created_by": "5ef316809cc738029b69ba6c",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f5c8dfc084507189963f77d"
-            },
-            {
-                "_id": "5f7093e3f635596fe4064df4",
-                "name": "Health & Agriculture",
-                "createdAt": "2020-09-27T13:30:11.394Z",
-                "updatedAt": "2020-09-27T13:30:11.492Z",
-                "__v": 0,
-                "created_by": "5ef316809cc738029b69ba6c",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f7093e3f635596fe4064df4"
-            },
-            {
-                "_id": "5f6f0610f635596fe4064de9",
-                "name": "Health & Film",
-                "createdAt": "2020-09-26T09:12:48.711Z",
-                "updatedAt": "2020-09-26T09:12:48.795Z",
-                "__v": 0,
-                "created_by": "5ef316809cc738029b69ba6c",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f6f0610f635596fe4064de9"
-            }
-        ],
-        "_id": "5f7af6de89987c4071064341",
-        "linkText": "Ernährung",
-        "link": "/ernährung",
-        "submenu": [],
-        "createdAt": "2020-10-05T10:35:10.990Z",
-        "updatedAt": "2020-12-30T07:50:33.499Z",
-        "__v": 0,
-        "created_by": {
-            "_id": "5ef315f59cc738029b69ba6b",
-            "username": "Maxi Fried",
-            "createdAt": "2020-06-24T08:59:33.537Z",
-            "updatedAt": "2020-08-26T09:36:48.219Z",
-            "__v": 0,
-            "id": "5ef315f59cc738029b69ba6b"
-        },
-        "updated_by": {
-            "_id": "5ef316809cc738029b69ba6c",
-            "username": "Christian Lombardt",
-            "createdAt": "2020-06-24T09:01:52.382Z",
-            "updatedAt": "2020-09-24T13:12:58.021Z",
-            "__v": 0,
-            "lastname": "Lombardt",
-            "firstname": "Christian",
-            "id": "5ef316809cc738029b69ba6c"
-        },
-        "child": false,
-        "id": "5f7af6de89987c4071064341"
-    },
-    {
-        "position": "m05",
-        "categories": [
-            {
-                "_id": "5f2930a34916ca0337385636",
-                "name": "Blue Zones",
-                "createdAt": "2020-08-04T09:55:47.176Z",
-                "updatedAt": "2020-08-20T13:59:34.609Z",
-                "__v": 0,
-                "link": "/bluezones",
-                "id": "5f2930a34916ca0337385636"
-            },
-            {
-                "_id": "5f2930774916ca0337385630",
-                "name": "Health & Science",
-                "createdAt": "2020-08-04T09:55:03.068Z",
-                "updatedAt": "2020-09-12T09:00:41.615Z",
-                "__v": 0,
-                "link": "/science",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f2930774916ca0337385630"
-            },
-            {
-                "_id": "5f2930854916ca0337385633",
-                "name": "Health & Food",
-                "createdAt": "2020-08-04T09:55:17.844Z",
-                "updatedAt": "2020-09-12T09:02:38.952Z",
-                "__v": 0,
-                "link": "/food",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f2930854916ca0337385633"
-            },
-            {
-                "_id": "5f29308c4916ca0337385634",
-                "name": "Health & Travel",
-                "createdAt": "2020-08-04T09:55:24.380Z",
-                "updatedAt": "2020-09-12T09:02:53.692Z",
-                "__v": 0,
-                "link": "/travel",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f29308c4916ca0337385634"
-            },
-            {
-                "_id": "5f5b99b0084507189963f778",
-                "name": "Gesunder Schlaf",
-                "createdAt": "2020-09-11T15:37:20.567Z",
-                "updatedAt": "2020-09-11T15:37:20.651Z",
-                "__v": 0,
-                "created_by": "5ef316809cc738029b69ba6c",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f5b99b0084507189963f778"
-            },
-            {
-                "_id": "5f5c8dfc084507189963f77d",
-                "name": "Health & Sustainability",
-                "createdAt": "2020-09-12T08:59:40.172Z",
-                "updatedAt": "2020-10-01T05:35:31.846Z",
-                "__v": 0,
-                "created_by": "5ef316809cc738029b69ba6c",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f5c8dfc084507189963f77d"
-            },
-            {
-                "_id": "5f7181faf635596fe4064dff",
-                "name": "Health & Society",
-                "createdAt": "2020-09-28T06:26:02.506Z",
-                "updatedAt": "2020-09-28T06:26:02.596Z",
-                "__v": 0,
-                "created_by": "5ef316809cc738029b69ba6c",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f7181faf635596fe4064dff"
-            },
-            {
-                "_id": "5f7093e3f635596fe4064df4",
-                "name": "Health & Agriculture",
-                "createdAt": "2020-09-27T13:30:11.394Z",
-                "updatedAt": "2020-09-27T13:30:11.492Z",
-                "__v": 0,
-                "created_by": "5ef316809cc738029b69ba6c",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f7093e3f635596fe4064df4"
-            }
-        ],
-        "_id": "5f7af79e89987c4071064343",
-        "linkText": "Blue Zones",
-        "link": "/blue-zones",
-        "submenu": [],
-        "createdAt": "2020-10-05T10:38:22.609Z",
-        "updatedAt": "2020-12-30T07:50:45.845Z",
-        "__v": 0,
-        "created_by": {
-            "_id": "5ef315f59cc738029b69ba6b",
-            "username": "Maxi Fried",
-            "createdAt": "2020-06-24T08:59:33.537Z",
-            "updatedAt": "2020-08-26T09:36:48.219Z",
-            "__v": 0,
-            "id": "5ef315f59cc738029b69ba6b"
-        },
-        "updated_by": {
-            "_id": "5ef316809cc738029b69ba6c",
-            "username": "Christian Lombardt",
-            "createdAt": "2020-06-24T09:01:52.382Z",
-            "updatedAt": "2020-09-24T13:12:58.021Z",
-            "__v": 0,
-            "lastname": "Lombardt",
-            "firstname": "Christian",
-            "id": "5ef316809cc738029b69ba6c"
-        },
-        "id": "5f7af79e89987c4071064343"
-    },
-    {
-        "position": "m06",
-        "categories": [
-            {
-                "_id": "5f7181faf635596fe4064dff",
-                "name": "Health & Society",
-                "createdAt": "2020-09-28T06:26:02.506Z",
-                "updatedAt": "2020-09-28T06:26:02.596Z",
-                "__v": 0,
-                "created_by": "5ef316809cc738029b69ba6c",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f7181faf635596fe4064dff"
-            },
-            {
-                "_id": "5ef3169b9cc738029b69ba6e",
-                "name": "Health & Politics",
-                "createdAt": "2020-06-24T09:02:19.692Z",
-                "updatedAt": "2020-09-12T09:01:45.961Z",
-                "__v": 0,
-                "link": "/politics",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5ef3169b9cc738029b69ba6e"
-            },
-            {
-                "_id": "5f2930774916ca0337385630",
-                "name": "Health & Science",
-                "createdAt": "2020-08-04T09:55:03.068Z",
-                "updatedAt": "2020-09-12T09:00:41.615Z",
-                "__v": 0,
-                "link": "/science",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f2930774916ca0337385630"
-            },
-            {
-                "_id": "5f2930a34916ca0337385636",
-                "name": "Blue Zones",
-                "createdAt": "2020-08-04T09:55:47.176Z",
-                "updatedAt": "2020-08-20T13:59:34.609Z",
-                "__v": 0,
-                "link": "/bluezones",
-                "id": "5f2930a34916ca0337385636"
-            },
-            {
-                "_id": "5f6f0610f635596fe4064de9",
-                "name": "Health & Film",
-                "createdAt": "2020-09-26T09:12:48.711Z",
-                "updatedAt": "2020-09-26T09:12:48.795Z",
-                "__v": 0,
-                "created_by": "5ef316809cc738029b69ba6c",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f6f0610f635596fe4064de9"
-            }
-        ],
-        "_id": "5f7af78f89987c4071064342",
-        "linkText": "Gesellschaft",
-        "child": false,
-        "link": "/gesellschaft",
-        "submenu": [],
-        "createdAt": "2020-10-05T10:38:07.457Z",
-        "updatedAt": "2020-11-06T12:11:55.685Z",
-        "__v": 0,
-        "created_by": {
-            "_id": "5ef315f59cc738029b69ba6b",
-            "username": "Maxi Fried",
-            "createdAt": "2020-06-24T08:59:33.537Z",
-            "updatedAt": "2020-08-26T09:36:48.219Z",
-            "__v": 0,
-            "id": "5ef315f59cc738029b69ba6b"
-        },
-        "updated_by": {
-            "_id": "5ef315f59cc738029b69ba6b",
-            "username": "Maxi Fried",
-            "createdAt": "2020-06-24T08:59:33.537Z",
-            "updatedAt": "2020-08-26T09:36:48.219Z",
-            "__v": 0,
-            "id": "5ef315f59cc738029b69ba6b"
-        },
-        "id": "5f7af78f89987c4071064342"
-    },
-    {
-        "position": "m07",
-        "categories": [
-            {
-                "_id": "5f2930644916ca033738562d",
-                "name": "Health & Business",
-                "createdAt": "2020-08-04T09:54:44.346Z",
-                "updatedAt": "2020-09-12T09:01:31.664Z",
-                "__v": 0,
-                "link": "/business",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f2930644916ca033738562d"
-            },
-            {
-                "_id": "5f29306e4916ca033738562f",
-                "name": "Health & Tech",
-                "createdAt": "2020-08-04T09:54:54.826Z",
-                "updatedAt": "2020-09-12T09:02:02.532Z",
-                "__v": 0,
-                "link": "/tech",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f29306e4916ca033738562f"
-            },
-            {
-                "_id": "5f2930774916ca0337385630",
-                "name": "Health & Science",
-                "createdAt": "2020-08-04T09:55:03.068Z",
-                "updatedAt": "2020-09-12T09:00:41.615Z",
-                "__v": 0,
-                "link": "/science",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f2930774916ca0337385630"
-            }
-        ],
-        "_id": "5f7af60d89987c407106433e",
-        "linkText": "Wirtschaft",
-        "link": "/wirtschaft",
-        "submenu": [],
-        "createdAt": "2020-10-05T10:31:41.493Z",
-        "updatedAt": "2020-12-30T07:50:59.937Z",
-        "__v": 0,
-        "created_by": {
-            "_id": "5ef315f59cc738029b69ba6b",
-            "username": "Maxi Fried",
-            "createdAt": "2020-06-24T08:59:33.537Z",
-            "updatedAt": "2020-08-26T09:36:48.219Z",
-            "__v": 0,
-            "id": "5ef315f59cc738029b69ba6b"
-        },
-        "updated_by": {
-            "_id": "5ef316809cc738029b69ba6c",
-            "username": "Christian Lombardt",
-            "createdAt": "2020-06-24T09:01:52.382Z",
-            "updatedAt": "2020-09-24T13:12:58.021Z",
-            "__v": 0,
-            "lastname": "Lombardt",
-            "firstname": "Christian",
-            "id": "5ef316809cc738029b69ba6c"
-        },
-        "id": "5f7af60d89987c407106433e"
-    },
-    {
-        "position": "m08",
-        "categories": [
-            {
-                "_id": "5f29306a4916ca033738562e",
-                "name": "NGOs",
-                "createdAt": "2020-08-04T09:54:50.422Z",
-                "updatedAt": "2020-10-01T05:34:46.736Z",
-                "__v": 0,
-                "link": "/ngo",
-                "updated_by": "5ef316809cc738029b69ba6c",
-                "id": "5f29306a4916ca033738562e"
-            }
-        ],
-        "_id": "5f7b033c89987c4071064344",
-        "linkText": "NGOs",
-        "link": "/ngos",
-        "submenu": [],
-        "createdAt": "2020-10-05T11:27:56.447Z",
-        "updatedAt": "2020-12-08T19:13:55.672Z",
-        "__v": 0,
-        "created_by": {
-            "_id": "5ef315f59cc738029b69ba6b",
-            "username": "Maxi Fried",
-            "createdAt": "2020-06-24T08:59:33.537Z",
-            "updatedAt": "2020-08-26T09:36:48.219Z",
-            "__v": 0,
-            "id": "5ef315f59cc738029b69ba6b"
-        },
-        "updated_by": {
-            "_id": "5ef316809cc738029b69ba6c",
-            "username": "Christian Lombardt",
-            "createdAt": "2020-06-24T09:01:52.382Z",
-            "updatedAt": "2020-09-24T13:12:58.021Z",
-            "__v": 0,
-            "lastname": "Lombardt",
-            "firstname": "Christian",
-            "id": "5ef316809cc738029b69ba6c"
-        },
-        "id": "5f7b033c89987c4071064344"
-    },
-    {
-        "position": "m10",
         "categories": [],
-        "_id": "5f7c64f389987c407106434d",
-        "linkText": "Über uns",
-        "link": "/ueber-uns",
+        "_id": "6040a5eb1acb2a3475c7ab3b",
+        "linkText": "angebote",
+        "link": "/angebote",
         "submenu": [],
-        "createdAt": "2020-10-06T12:37:07.824Z",
-        "updatedAt": "2020-12-09T14:12:31.300Z",
+        "createdAt": "2021-03-04T09:18:35.340Z",
+        "updatedAt": "2021-03-04T09:18:35.347Z",
         "__v": 0,
         "created_by": {
-            "_id": "5ef315f59cc738029b69ba6b",
-            "username": "Maxi Fried",
-            "createdAt": "2020-06-24T08:59:33.537Z",
-            "updatedAt": "2020-08-26T09:36:48.219Z",
+            "_id": "6023ebb6d4fb3722c2ebbe28",
+            "username": null,
+            "firstname": "Maximiliano",
+            "lastname": "Fried",
+            "createdAt": "2021-02-10T14:20:38.204Z",
+            "updatedAt": "2021-02-10T14:20:38.209Z",
             "__v": 0,
-            "id": "5ef315f59cc738029b69ba6b"
+            "id": "6023ebb6d4fb3722c2ebbe28"
         },
         "updated_by": {
-            "_id": "5ef316809cc738029b69ba6c",
-            "username": "Christian Lombardt",
-            "createdAt": "2020-06-24T09:01:52.382Z",
-            "updatedAt": "2020-09-24T13:12:58.021Z",
+            "_id": "6023ebb6d4fb3722c2ebbe28",
+            "username": null,
+            "firstname": "Maximiliano",
+            "lastname": "Fried",
+            "createdAt": "2021-02-10T14:20:38.204Z",
+            "updatedAt": "2021-02-10T14:20:38.209Z",
             "__v": 0,
-            "lastname": "Lombardt",
-            "firstname": "Christian",
-            "id": "5ef316809cc738029b69ba6c"
+            "id": "6023ebb6d4fb3722c2ebbe28"
         },
-        "id": "5f7c64f389987c407106434d"
-    },
-    {
-        "position": "m11",
-        "categories": [],
-        "_id": "5f7c64fc89987c407106434e",
-        "linkText": "Kontakt",
-        "link": "/kontakt",
-        "submenu": [],
-        "createdAt": "2020-10-06T12:37:16.989Z",
-        "updatedAt": "2020-11-06T12:12:37.566Z",
-        "__v": 0,
-        "created_by": {
-            "_id": "5ef315f59cc738029b69ba6b",
-            "username": "Maxi Fried",
-            "createdAt": "2020-06-24T08:59:33.537Z",
-            "updatedAt": "2020-08-26T09:36:48.219Z",
-            "__v": 0,
-            "id": "5ef315f59cc738029b69ba6b"
-        },
-        "updated_by": {
-            "_id": "5ef315f59cc738029b69ba6b",
-            "username": "Maxi Fried",
-            "createdAt": "2020-06-24T08:59:33.537Z",
-            "updatedAt": "2020-08-26T09:36:48.219Z",
-            "__v": 0,
-            "id": "5ef315f59cc738029b69ba6b"
-        },
-        "id": "5f7c64fc89987c407106434e"
+        "id": "6040a5eb1acb2a3475c7ab3b"
     }
 ]

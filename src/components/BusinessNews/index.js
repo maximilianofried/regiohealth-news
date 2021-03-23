@@ -28,7 +28,7 @@ const BusinessNews = ({ businessArticles, headerHide }) => {
                             {businessArticles.map((item) => (
                                 <div
                                     key={item.id}
-                                    className="single_post post_type3 post_type12 mb30"
+                                    className="single_post post_type3 post_type12_c mb30 border-radious5 white_bg padding10"
                                 >
                                     <div className="post_img">
                                         <div className="img_wrap">

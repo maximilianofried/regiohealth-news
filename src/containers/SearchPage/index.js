@@ -1,10 +1,12 @@
 import React, { Fragment, useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 import StickyBox from 'react-sticky-box';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {
     fetchGeoData,
     fetchAds,
+    fetchOffers,
     fetchNationalData,
     fetchNationalDataCleanUp,
 } from '../../store/actions';
@@ -15,19 +17,29 @@ import '@reach/combobox/styles.css';
 import '@reach/listbox/styles.css';
 import BannerSection from '../../components/BannerSection';
 import SearchBox from '../../components/SearchBox';
+import MostViewTwo from '../../components/MostViewTwo';
+import FollowUs from '../../components/FollowUs';
+import FontAwesome from '../../components/uiStyle/FontAwesome';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const SearchPage = ({
     fetchGeoData,
     fetchNationalData,
     fetchNationalDataCleanUp,
+    fetchOffers,
+    latestOffers,
     geoData,
     nationalData,
     fetchAds,
     adsCategory,
     limit,
+    place,
+    type,
+    keyword,
 }) => {
+    const location = useLocation();
     useEffect(() => {
+        if (latestOffers.length === 0) fetchOffers({ start: 0, limit: 4 });
         fetchAds();
         fetchNationalData({
             limit: 6,
@@ -37,35 +49,42 @@ const SearchPage = ({
             includeCountry: 'Germany',
         });
     }, []);
-    const [place, setPlace] = useState('');
     // const [radius, setRadius] = useState('5000');
-    const [type, setType] = useState('alle');
-    const [keyWord, setKeyWord] = useState('');
     const showMore = () => {
         fetchGeoData({
             limit: limit + 2,
             start: 0,
             place,
             type,
-            keyWord,
+            keyword,
             responseType: 'mixed',
         });
     };
     const banner350x292 =
         adsCategory.filter((ad) => ad.size === 's350x292')[0] || {};
-
     return (
         <>
-            <BreadCrumb title="Suchportal GesundheitsTicket" />
+            {/* <BreadCrumb title="Suchportal GesundheitsTicket" /> */}
             <div className="archives padding-top-30">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-6 col-lg-8">
+                        <div className="col-md-6 col-lg-9">
+                            {/* <h5 className="categories_title">Deine Suche:</h5>
+                            <div className="space-20" /> */}
                             <div className="search_page">
-                                <div className="row">
+                                {geoData && geoData.length > 0 ? (
+                                    <GeoDataNews
+                                        fetchGeoData={fetchGeoData}
+                                        geoData={geoData}
+                                        headerHide
+                                    />
+                                ) : (
+                                    'Leider konnten wir keine Ergebnisse finden.'
+                                )}
+                                {/* <div className="row">
                                     <div className="col-12 align-self-center">
                                         <div className="categories_title">
-                                            <h5>Mach deine Suche:</h5>
+                                            <h5>Deine Suche:</h5>
                                             <SearchBox
                                                 fetchGeoData={fetchGeoData}
                                                 place={place}
@@ -75,11 +94,10 @@ const SearchPage = ({
                                                 setType={setType}
                                                 setKeyWord={setKeyWord}
                                             />
-                                            <div className="space-30" />
                                         </div>
                                     </div>
-                                </div>
-                                {geoData && (
+                                </div> */}
+                                {/* {geoData && (
                                     <div className="row search_results">
                                         <div className="col-12">
                                             <GeoDataNews
@@ -89,7 +107,8 @@ const SearchPage = ({
                                             />
                                         </div>
                                     </div>
-                                )}
+                                )} */}
+                                <div className="space-20" />
                                 {geoData && geoData.length > 0 && (
                                     <div className="row">
                                         <div className="col-12">
@@ -97,17 +116,23 @@ const SearchPage = ({
                                                 <button
                                                     type="button"
                                                     onClick={showMore}
-                                                    className="readmore cursor_pointer"
+                                                    className="more_articles cursor_pointer"
                                                 >
-                                                    SHOW MORE
+                                                    MEHR ANZEIGEN{' '}
+                                                    <FontAwesome name="angle-double-down" />
                                                 </button>
                                             </div>
                                         </div>
                                     </div>
                                 )}
+                                {/* <BannerSection /> */}
                             </div>
                         </div>
-                        <div className="col-md-6 col-lg-4">
+                        <div className="col-md-6 col-lg-3">
+                            <FollowUs
+                                title="FOLGEN SIE UNS"
+                                className="border-radious5 white_bg padding20 sm-mt30"
+                            />
                             <WidgetSuchPortal
                                 nationalData={nationalData}
                                 fetchNationalData={fetchNationalData}
@@ -115,11 +140,29 @@ const SearchPage = ({
                                     fetchNationalDataCleanUp
                                 }
                             />
-                            <StickyBox offsetTop={20}>
-                                {/* <WidgetTrendingNews/> */}
-                                {/* <NewsLetter/>
-                            <FollowUs title="Follow Us"/> */}
-                                <div className="banner2 mb30">
+                            <div className="banner2 mb30 border-radious5  mt30">
+                                <a href={banner350x292.link} target="_blank">
+                                    {banner350x292.image &&
+                                        banner350x292.image.length > 0 && (
+                                            <LazyLoadImage
+                                                src={
+                                                    process.env
+                                                        .REACT_APP_CMS_URL +
+                                                    banner350x292.image[0].url
+                                                }
+                                                alt="banner"
+                                                effect="blur"
+                                                visibleByDefault="true"
+                                            />
+                                        )}
+                                </a>
+                            </div>
+                            <MostViewTwo
+                                title="ANGEBOTE"
+                                latestOffers={latestOffers}
+                            />
+                            {/* <StickyBox offsetTop={20}>
+                                <div className="banner2 mb30 mt30">
                                     <a
                                         href={banner350x292.link}
                                         target="_blank"
@@ -139,13 +182,12 @@ const SearchPage = ({
                                             )}
                                     </a>
                                 </div>
-                            </StickyBox>
+                            </StickyBox> */}
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="space-70" />
-            <BannerSection />
+            <div className="space-40" />
         </>
     );
 };
@@ -156,6 +198,10 @@ const mapStateToProps = (state) => {
         geoData: state.geoData.geoData,
         limit: state.geoData.limit,
         nationalData: state.nationalData.nationalData,
+        latestOffers: state.offers.offers,
+        place: state.searchData.place,
+        type: state.searchData.type,
+        keyword: state.searchData.keyword,
     };
 };
 
@@ -165,6 +211,8 @@ const mapDispatchToProps = (dispatch) => {
         fetchAds: () => dispatch(fetchAds()),
         fetchNationalData: (filters) => dispatch(fetchNationalData(filters)),
         fetchNationalDataCleanUp: () => dispatch(fetchNationalDataCleanUp()),
+        fetchOffers: ({ start, limit }) =>
+            dispatch(fetchOffers({ start, limit })),
     };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);

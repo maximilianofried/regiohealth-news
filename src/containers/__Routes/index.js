@@ -2,12 +2,14 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PrivateRoute from '../_PrivateRoute';
 import HomePage from '../HomePage';
+import HomePageTwo from '../HomePageTwo';
 import CategoryPage from '../CategoryPage';
 import InfoPage from '../InfoPage';
 import NotFoundPage from '../NotFoundPage';
 import PostTwoPage from '../PostTwoPage';
 import SearchPage from '../SearchPage';
 import OfferPage from '../OfferPage';
+import OffersPage from '../OffersPage';
 import useTracking from '../../utils/useTracking';
 import mockMenu from '../../mockdata/menu.json';
 import mockPages from '../../mockdata/pages.json';
@@ -15,13 +17,21 @@ import CookieDeclarationPage from '../CookieDeclarationPage';
 // import PublicRoute from '../_PublicRoute';
 
 const selectPage = (pageName, categories, props) => {
-    if (pageName === 'Über uns' || pageName === 'Kontakt') {
-        return <InfoPage {...props} name={pageName} />;
-    }
     if (pageName === 'Suchportal') {
         return <SearchPage {...props} />;
     }
-    return <CategoryPage {...props} name={pageName} categories={categories} />;
+    if (pageName === 'angebote') {
+        return (
+            <OffersPage
+                {...props}
+                menuName={pageName}
+                categories={categories}
+            />
+        );
+    }
+    return (
+        <CategoryPage {...props} menuName={pageName} categories={categories} />
+    );
 };
 
 const Routes = ({ menuData, pages }) => {
@@ -33,16 +43,24 @@ const Routes = ({ menuData, pages }) => {
         <Switch>
             <PrivateRoute
                 exact
-                path="/"
+                path="/home-one"
                 parentClass="theme-1"
                 component={HomePage}
             />
-            {menu.map((item) => (
+            <PrivateRoute
+                exact
+                home_style={2}
+                parentClass="theme-3 theme3_bg"
+                path="/"
+                component={HomePageTwo}
+            />
+            {mockMenu.map((item) => (
                 <PrivateRoute
                     key={item.id}
                     exact
                     path={item.link}
-                    parentClass="theme-1"
+                    home_style={2}
+                    parentClass="theme-3 theme3_bg"
                     component={(props) =>
                         selectPage(item.linkText, item.categories, props)
                     }
@@ -53,7 +71,8 @@ const Routes = ({ menuData, pages }) => {
                     key={item.id}
                     exact
                     path={item.link}
-                    parentClass="theme-1"
+                    home_style={2}
+                    parentClass="theme-3 theme3_bg"
                     component={(props) => (
                         <InfoPage {...props} name={item.name} />
                     )}
@@ -62,19 +81,22 @@ const Routes = ({ menuData, pages }) => {
             <PrivateRoute
                 exact
                 path="/article/:slug"
-                parentClass="theme-1"
+                home_style={2}
+                parentClass="theme-3 theme3_bg"
                 component={PostTwoPage}
             />
             <PrivateRoute
                 exact
                 path="/offer/:slug"
-                parentClass="theme-1"
+                home_style={2}
+                parentClass="theme-3 theme3_bg"
                 component={OfferPage}
             />
             <PrivateRoute
                 exact
-                path="/search"
-                parentClass="theme-1"
+                path="/such-portal"
+                home_style={2}
+                parentClass="theme-3 theme3_bg"
                 component={(props) => <SearchPage {...props} />}
             />
             <PrivateRoute

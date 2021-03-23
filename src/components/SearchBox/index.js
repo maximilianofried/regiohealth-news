@@ -3,6 +3,8 @@ import usePlacesAutocomplete, {
     getGeocode,
     // getLatLng,
 } from 'use-places-autocomplete';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import {
     Combobox,
     ComboboxInput,
@@ -10,15 +12,23 @@ import {
     ComboboxOption,
 } from '@reach/combobox';
 import { Listbox, ListboxOption } from '@reach/listbox';
+import {
+    saveSearchType,
+    saveSearchPlace,
+    saveSearchKeyword,
+} from '../../store/actions';
 
 const SearchBox = ({
     fetchGeoData,
     place,
     type,
-    keyWord,
-    setPlace,
-    setType,
-    setKeyWord,
+    keyword,
+    saveSearchType,
+    saveSearchPlace,
+    saveSearchKeyword,
+    history,
+    sidebar,
+    setSideShow,
 }) => {
     const options = {
         componentRestrictions: { country: ['de', 'pl'] },
@@ -69,7 +79,7 @@ const SearchBox = ({
                 return '';
             })
             .then((place) => {
-                setPlace(place);
+                saveSearchPlace(place);
             })
             .catch((error) => {
                 // eslint-disable-next-line no-console
@@ -77,64 +87,83 @@ const SearchBox = ({
             });
     };
 
-    const handleSubmit = (event) => {
-        event.stopPropagation();
+    const handleSubmit = (event, history) => {
         event.preventDefault();
+        event.stopPropagation();
+        if (setSideShow) setSideShow(false);
+        // eslint-disable-next-line no-restricted-globals
+        history.push({
+            pathname: '/such-portal',
+            place,
+            type,
+            keyword,
+        });
         fetchGeoData({
             limit: 6,
             start: 0,
             place,
             type,
             responseType: 'mixed',
-            keyWord,
+            keyword,
         });
     };
     return (
-        <form onSubmit={(event) => handleSubmit(event)} className="search_box">
+        <form
+            onSubmit={(event) => handleSubmit(event, history)}
+            className="search_box"
+        >
             <Combobox
                 onSelect={(address) => onComboSelect(address)}
-                className="form-row align-items-center"
+                className="form-row flex-nowrap flex-lg-wrap align-items-center"
             >
                 <div className="col-auto">
                     <input
-                        value={keyWord}
+                        className="textfield_text"
+                        value={keyword}
                         onChange={(e) => {
-                            setKeyWord(e.target.value);
+                            saveSearchKeyword(e.target.value);
                         }}
-                        placeholder="Was suchst du?"
+                        placeholder="Was suchen Sie?"
                     />
                 </div>
-                <div className="col-auto">
-                    <Listbox type={type} onChange={setType}>
-                        <ListboxOption value="alle">Alle</ListboxOption>
-                        <ListboxOption value="article">Articles</ListboxOption>
-                        <ListboxOption value="offer">Offers</ListboxOption>
-                    </Listbox>
-                </div>
-                <div className="col-auto">
-                    <ComboboxInput
-                        value={value}
-                        onChange={(e) => {
-                            setValue(e.target.value);
-                            if (e.target.value === '') {
-                                setPlace('');
-                            }
-                        }}
-                        disabled={!ready}
-                        placeholder="PLZ oder Ort"
-                    />
-                    <ComboboxPopover className="pop_over">
-                        {status === 'OK' &&
-                            data.map((result) => {
-                                return (
-                                    <ComboboxOption
-                                        key={result.place_id}
-                                        value={result.description}
-                                    />
-                                );
-                            })}
-                    </ComboboxPopover>
-                </div>
+                {!sidebar && (
+                    <div className="col-auto">
+                        <Listbox type={type} onChange={saveSearchType}>
+                            <ListboxOption value="alle">ALLE</ListboxOption>
+                            <ListboxOption value="article">NEWS</ListboxOption>
+                            <ListboxOption value="offer">
+                                ANGEBOTE
+                            </ListboxOption>
+                        </Listbox>
+                    </div>
+                )}
+                {!sidebar && (
+                    <div className="col-auto">
+                        <ComboboxInput
+                            className="textfield_text"
+                            value={value}
+                            onChange={(e) => {
+                                setValue(e.target.value);
+                                if (e.target.value === '') {
+                                    saveSearchPlace('');
+                                }
+                            }}
+                            disabled={!ready}
+                            placeholder="PLZ oder Ort"
+                        />
+                        <ComboboxPopover className="pop_over">
+                            {status === 'OK' &&
+                                data.map((result) => {
+                                    return (
+                                        <ComboboxOption
+                                            key={result.place_id}
+                                            value={result.description}
+                                        />
+                                    );
+                                })}
+                        </ComboboxPopover>
+                    </div>
+                )}
                 {/* <div className="col-auto">
                     <Listbox radius={radius} onChange={setRadius}>
                         <ListboxOption value="5000">+5 km</ListboxOption>
@@ -149,7 +178,7 @@ const SearchBox = ({
                 </div> */}
                 <div className="col-auto">
                     <button type="submit" className="btn-sm search-button">
-                        <i className="fa fa-search" /> Finden
+                        SUCHEN
                     </button>
                 </div>
             </Combobox>
@@ -157,4 +186,23 @@ const SearchBox = ({
     );
 };
 
-export default SearchBox;
+const mapStateToProps = (state) => {
+    return {
+        place: state.searchData.place,
+        type: state.searchData.type,
+        keyword: state.searchData.keyword,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        saveSearchType: (type) => dispatch(saveSearchType(type)),
+        saveSearchPlace: (place) => dispatch(saveSearchPlace(place)),
+        saveSearchKeyword: (keyword) => dispatch(saveSearchKeyword(keyword)),
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(withRouter(SearchBox));

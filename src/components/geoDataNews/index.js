@@ -17,26 +17,12 @@ const GeoDataNews = ({ geoData, headerHide }) => {
         <div className="row">
             <div className="col-12">
                 <div className="businerss_news">
-                    {headerHide ? (
-                        ''
-                    ) : (
-                        <div className="row">
-                            <div className="col-6 align-self-center">
-                                <h2 className="widget-title">Business News</h2>
-                            </div>
-                            <div className="col-6 text-right align-self-center">
-                                <Link to="/" className="see_all mb20">
-                                    See All
-                                </Link>
-                            </div>
-                        </div>
-                    )}
                     <div className="row">
                         <div className="col-12">
                             {geoData.map((item) => (
                                 <div
                                     key={item.id}
-                                    className="single_post post_type3 post_type12_b"
+                                    className="single_post post_type12_b type20 border-radious5 white_bg padding10"
                                 >
                                     {/* <div className="post_img">
                                         <div className="img_wrap">
@@ -58,18 +44,6 @@ const GeoDataNews = ({ geoData, headerHide }) => {
                                         </div>
                                     </div> */}
                                     <div className="single_post_text">
-                                        <div className="meta3_suchportal">
-                                            <Link to="/">
-                                                {moment(item.publishAt).format(
-                                                    'LL'
-                                                )}
-                                            </Link>
-                                            <Link to="/">
-                                                {item.company
-                                                    ? item.company
-                                                    : item.author}
-                                            </Link>
-                                        </div>
                                         <h4>
                                             <Link
                                                 to={generateLink(
@@ -83,7 +57,14 @@ const GeoDataNews = ({ geoData, headerHide }) => {
                                         <div className="post-p">
                                             {item.description}
                                         </div>
-                                        <div className="space-20" />
+                                        <div className="space-10" />
+                                        <div className="meta4">
+                                            <p>
+                                                {moment(item.publishAt).format(
+                                                    'LL'
+                                                )}
+                                            </p>
+                                        </div>
                                         {/* {item.location && (
                                             <div className="meta3">
                                                 <p className="location">

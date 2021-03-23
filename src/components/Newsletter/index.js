@@ -4,9 +4,9 @@ import FontAwesome from '../uiStyle/FontAwesome';
 const NewsLetter = ({ className, inputWhite, titleClass }) => {
     return (
         <div className={`box widget news_letter mb30 ${className || ''}`}>
-            <h2 className={`widget-title ${titleClass}`}>
+            {/* <h2 className={`widget-title ${titleClass}`}>
                 RegioHealth.NEWSLETTER
-            </h2>
+            </h2> */}
             <p>
                 Erhalten Sie eine regelmäßige Zusammenfassung der
                 interessantesten Beiträge!
