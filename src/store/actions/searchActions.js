@@ -25,10 +25,3 @@ export const saveSearchKeyword = (keyword) => {
         payload: keyword,
     };
 };
-
-export const toggleSearchBox = (toggle) => {
-    return {
-        type: TOGGEL_SEARCH_BOX,
-        payload: toggle,
-    };
-};

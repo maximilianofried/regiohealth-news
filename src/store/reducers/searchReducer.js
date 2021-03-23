@@ -2,14 +2,12 @@ import {
     SAVE_SEARCH_TYPE,
     SAVE_SEARCH_PLACE,
     SAVE_SEARCH_KEYWORD,
-    TOGGEL_SEARCH_BOX,
 } from '../constants/searchTypes';
 
 const initialState = {
     place: '',
     type: 'article',
     keyword: '',
-    displaySearchBox: false,
 };
 
 const searchReducer = (state = initialState, action) => {
@@ -28,11 +26,6 @@ const searchReducer = (state = initialState, action) => {
             return {
                 ...state,
                 keyword: action.payload,
-            };
-        case TOGGEL_SEARCH_BOX:
-            return {
-                ...state,
-                displaySearchBox: action.payload,
             };
         default:
             return state;
