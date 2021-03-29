@@ -7,6 +7,7 @@ import FontAwesome from '../uiStyle/FontAwesome';
 import { fetchGeoData } from '../../store/actions';
 import SearchBox from '../SearchBox';
 import './style.scss';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const SidebarMenu = ({
     menus,

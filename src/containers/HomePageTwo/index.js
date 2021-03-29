@@ -76,6 +76,7 @@ const HomePageTwo = ({
                                                 href={adsHome[0].link}
                                             >
                                                 <LazyLoadImage
+                                                    className="lazyLoad"
                                                     src={
                                                         process.env
                                                             .REACT_APP_CMS_URL +
