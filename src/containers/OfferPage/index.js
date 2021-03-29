@@ -197,7 +197,7 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                                 <li>
                                                     <a
                                                         data-tip="Telegram"
-                                                        href={`https://t.me/share/url?url=${process.env.REACT_APP_BASE_PAGE_URL}/offer/${offer.slug}&text=${offer.title}`}
+                                                        href={`https://t.me/share/url?url=${process.env.REACT_APP_BASE_PAGE_URL}/offer/${offer.slug}`}
                                                         target="_blank"
                                                     >
                                                         <FontAwesome name="telegram" />

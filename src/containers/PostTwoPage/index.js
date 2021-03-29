@@ -212,7 +212,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                                 <li>
                                                     <a
                                                         data-tip="Telegram"
-                                                        href={`https://t.me/share/url?url=${process.env.REACT_APP_BASE_PAGE_URL}/article/${article.slug}&text=${article.title}`}
+                                                        href={`https://t.me/share/url?url=${process.env.REACT_APP_BASE_PAGE_URL}/article/${article.slug}`}
                                                         target="_blank"
                                                     >
                                                         <FontAwesome name="telegram" />
