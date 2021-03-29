@@ -2489,6 +2489,38 @@ a.cbtn3 {
     .display_search_box {
         display: none;
     }
+    .author_social {
+        ul {
+            li {
+                a {
+                    height: 25px;
+                    line-height: 25px;
+                    width: 25px;
+                    text-align: center;
+                    background: $dark_grey;
+                    color: $white;
+                }
+            }
+        }
+        p {
+            font-size: 12px;
+        }
+    }
+    .footer {
+        .copyright {
+            ul {
+                li {
+                    a {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+        .gt_logo {
+            width: 59px;
+            height: 25px;
+        }
+    }
 }
 
 /*================================
@@ -3281,4 +3313,9 @@ a.cbtn3 {
 .angebote-icon {
     width: 17px;
     margin-bottom: 5px;
+}
+
+.lazyLoad {
+    min-width: 1px;
+    min-height: 1px;
 }

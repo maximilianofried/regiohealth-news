@@ -209,6 +209,24 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                                         <FontAwesome name="whatsapp" />
                                                     </a>
                                                 </li>
+                                                <li>
+                                                    <a
+                                                        data-tip="Telegram"
+                                                        href={`https://t.me/share/url?url=${process.env.REACT_APP_BASE_PAGE_URL}/article/${article.slug}&text=${article.title}`}
+                                                        target="_blank"
+                                                    >
+                                                        <FontAwesome name="telegram" />
+                                                    </a>
+                                                </li>
+                                                {/* <li>
+                                                    <a
+                                                        data-tip="Signal"
+                                                        href={`https://wa.me/?text=${process.env.REACT_APP_BASE_PAGE_URL}/article/${article.slug}`}
+                                                        target="_blank"
+                                                    >
+                                                        <FontAwesome name="commenting-o" />
+                                                    </a>
+                                                </li> */}
                                             </ul>
                                         </div>
                                     </div>

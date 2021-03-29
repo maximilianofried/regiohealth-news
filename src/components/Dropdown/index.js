@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import FontAwesome from '../uiStyle/FontAwesome';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Dropdown = ({ menus }) => {
     return menus.map((item) => (

@@ -194,6 +194,15 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                                         <FontAwesome name="whatsapp" />
                                                     </a>
                                                 </li>
+                                                <li>
+                                                    <a
+                                                        data-tip="Telegram"
+                                                        href={`https://t.me/share/url?url=${process.env.REACT_APP_BASE_PAGE_URL}/offer/${offer.slug}&text=${offer.title}`}
+                                                        target="_blank"
+                                                    >
+                                                        <FontAwesome name="telegram" />
+                                                    </a>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>

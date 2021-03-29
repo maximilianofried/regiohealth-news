@@ -20,7 +20,7 @@ const PostGalleryTwo = ({ mainArticle, newsArticles }) => {
                                     <div className="post_img gradient1">
                                         <div className="img_wrap">
                                             <LazyLoadImage
-                                                className="wrapper__img"
+                                                className="lazyLoad wrapper__img"
                                                 src={
                                                     mainArticle.main_image
                                                         ? `${
