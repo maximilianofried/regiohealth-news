@@ -104,7 +104,7 @@ const PostGalleryTwo = ({ mainArticle, newsArticles }) => {
                             ))}
                         </div>
                     </div> */}
-                    <div className="d-lg-block col-lg-4 col-xl-3">
+                    <div className="d-lg-block col-lg-3 col-xl-3">
                         <FollowUs
                             title="FOLGEN SIE UNS"
                             className="border-radious5 white_bg padding20 sm-mt30"
