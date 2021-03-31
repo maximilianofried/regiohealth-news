@@ -88,7 +88,7 @@ const HomePageTwo = ({
                                         </div>
                                     )}
                                 </div>
-                                <div className="col-md-6 col-lg-12">
+                                <div className="col-md-12 col-lg-12">
                                     <MostViewTwo
                                         title="ANGEBOTE"
                                         latestOffers={latestOffers}

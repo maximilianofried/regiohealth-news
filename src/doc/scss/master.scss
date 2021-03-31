@@ -2109,6 +2109,16 @@ span.tranding {
             }
         }
     }
+
+    .follow_box .cta {
+        .social2 ul li a {
+            width: 55px;
+        }
+        .news_letter .newsletter ul li a {
+            width: 200px !important;
+            font-size: 12px;
+        }
+    }
 }
 
 /*================================
@@ -2452,7 +2462,7 @@ a.cbtn3 {
     }
     .widgets_small .single_post_text a {
         line-height: 21px;
-        font-size: 12px;
+        // font-size: 12px;
     }
 
     .single_post_text .meta2 a {
@@ -2859,6 +2869,10 @@ a.cbtn3 {
             width: 155px;
         }
     }
+
+    div.follow_box .cta {
+        color: red;
+    }
 }
 
 /*================================
@@ -3079,8 +3093,10 @@ a.cbtn3 {
             width: 100%;
             float: unset;
             padding: 0;
-            padding-left: 0;
+            // padding-left: 0;
             padding: 20px;
+            padding-left: 5px;
+            padding-top: 2px;
         }
 
         .post_img {
