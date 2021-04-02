@@ -43,7 +43,7 @@ const MostViewTwo = ({ title, latestOffers }) => {
                             <div className="img_wrap_2">
                                 {item.main_image && (
                                     <Link to={`/offer/${item.slug}`}>
-                                        <LazyLoadImage
+                                        <img
                                             className="lazyLoad"
                                             src={
                                                 process.env.REACT_APP_CMS_URL +

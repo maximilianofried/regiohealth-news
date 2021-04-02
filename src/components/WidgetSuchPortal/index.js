@@ -126,7 +126,7 @@ const WidgetSuchPortal = ({
                     {adsHome && adsHome.length > 0 && (
                         <div className="banner2 mb30 mt30">
                             <a href={adsHome[0].link}>
-                                <LazyLoadImage
+                                <img
                                     src={
                                         process.env.REACT_APP_CMS_URL +
                                         adsHome[0].image[0].url

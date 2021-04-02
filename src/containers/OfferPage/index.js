@@ -97,7 +97,7 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                     <p>{offer.description}</p>
                                 </div>
                                 <div className="img_wrap">
-                                    <LazyLoadImage
+                                    <img
                                         src={
                                             offer.main_image
                                                 ? `${
@@ -120,7 +120,7 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                                 offer.profile.logo && (
                                                     <div className="author_img">
                                                         <div className="author_img_wrap">
-                                                            <LazyLoadImage
+                                                            <img
                                                                 src={
                                                                     process.env
                                                                         .REACT_APP_CMS_URL +

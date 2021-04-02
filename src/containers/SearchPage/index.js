@@ -144,7 +144,7 @@ const SearchPage = ({
                                 <a href={banner350x292.link} target="_blank">
                                     {banner350x292.image &&
                                         banner350x292.image.length > 0 && (
-                                            <LazyLoadImage
+                                            <img
                                                 src={
                                                     process.env
                                                         .REACT_APP_CMS_URL +
@@ -152,7 +152,6 @@ const SearchPage = ({
                                                 }
                                                 alt="banner"
                                                 effect="blur"
-                                                visibleByDefault="true"
                                             />
                                         )}
                                 </a>
@@ -169,7 +168,7 @@ const SearchPage = ({
                                     >
                                         {banner350x292.image &&
                                             banner350x292.image.length > 0 && (
-                                                <LazyLoadImage
+                                                <img
                                                     src={
                                                         process.env
                                                             .REACT_APP_CMS_URL +

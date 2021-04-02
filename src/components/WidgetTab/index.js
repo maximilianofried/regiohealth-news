@@ -28,7 +28,7 @@ const WidgetTabPane = ({ latestData, type, aId, id }) => {
                                                     : 'offer'
                                             }/${item.slug}`}
                                         >
-                                            <LazyLoadImage
+                                            <img
                                                 src={
                                                     process.env
                                                         .REACT_APP_CMS_URL +
@@ -122,7 +122,7 @@ const WidgetTab = ({
                     {adsHome && adsHome.length > 0 && (
                         <div className="banner2 mb30">
                             <a target="_blank" href={adsHome[0].link}>
-                                <LazyLoadImage
+                                <img
                                     src={
                                         process.env.REACT_APP_CMS_URL +
                                         adsHome[0].image[0].url
