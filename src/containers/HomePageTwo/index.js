@@ -75,7 +75,7 @@ const HomePageTwo = ({
                                                 target="_blank"
                                                 href={adsHome[0].link}
                                             >
-                                                <LazyLoadImage
+                                                <img
                                                     className="lazyLoad"
                                                     src={
                                                         process.env

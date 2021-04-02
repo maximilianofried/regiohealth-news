@@ -28,7 +28,7 @@ const Dropdown = ({ menus }) => {
                 >
                     {item.linkText}{' '}
                     {item.linkText === 'angebote' ? (
-                        <LazyLoadImage
+                        <img
                             className="angebote-icon"
                             src="https://strapi-sandbox.gesundheitsticket.de/uploads/icon_app_7bc6820dc7.png"
                             alt="author2"

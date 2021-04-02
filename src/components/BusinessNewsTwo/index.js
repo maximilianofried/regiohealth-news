@@ -24,7 +24,7 @@ const BusinessNewsTwo = ({ publisherArticles = [], articleLimit, offer }) => {
                                     }
                                 >
                                     {item ? (
-                                        <LazyLoadImage
+                                        <img
                                             className="lazyLoad border-radious5"
                                             src={
                                                 item.main_image &&

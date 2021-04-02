@@ -28,9 +28,13 @@
         color: #fff;
         padding: 8px 15px;
         background: $orange_regiohealth;
-        position: absolute;
+        // position: absolute;
         top: -55px;
         z-index: 9;
+
+        position: fixed;
+        width: auto;
+        height: auto;
     }
 
     .navbar-toggler-icon {
@@ -672,7 +676,8 @@
 
         .navbar-toggler {
             left: 688px;
-            top: -87px;
+            // top: -87px;
+            top: 32px;
         }
 
         .navbar {
@@ -683,21 +688,21 @@
     @media (min-width: 425px) and (max-width: 575px) {
         .navbar-toggler {
             left: 345px;
-            top: -44px;
+            top: 35px;
         }
     }
 
     @media (min-width: 375px) and (max-width: 424px) {
         .navbar-toggler {
             left: 295px;
-            top: -44px;
+            top: 35px;
         }
     }
 
     @media (min-width: 320px) and (max-width: 374px) {
         .navbar-toggler {
             left: 240px;
-            top: -48px;
+            top: 29px;
         }
 
         .logo {

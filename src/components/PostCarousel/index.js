@@ -93,7 +93,7 @@ const PostCarousel = ({ className, latestArticles }) => {
                                                         <Link
                                                             to={`/article/${item.slug}`}
                                                         >
-                                                            <LazyLoadImage
+                                                            <img
                                                                 src={
                                                                     item.main_image
                                                                         ? `${

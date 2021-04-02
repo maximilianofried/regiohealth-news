@@ -69,7 +69,7 @@ const PostGallery = ({
                                                     to={`/article/${item.slug}`}
                                                 >
                                                     <div className="wrapper post_img gradient1">
-                                                        <LazyLoadImage
+                                                        <img
                                                             className="wrapper__img"
                                                             src={
                                                                 item.main_image
