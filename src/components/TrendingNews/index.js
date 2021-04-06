@@ -31,7 +31,7 @@ const TrendingNews = ({ dark, latestArticles, adsHome }) => {
                                     <div className="post_img">
                                         <div className="img_wrap">
                                             <Link to={`/article/${item.slug}`}>
-                                                <LazyLoadImage
+                                                <img
                                                     src={
                                                         process.env
                                                             .REACT_APP_CMS_URL +
@@ -95,7 +95,7 @@ const TrendingNews = ({ dark, latestArticles, adsHome }) => {
                                     <div className="post_img">
                                         <div className="img_wrap">
                                             <Link to={`/article/${item.slug}`}>
-                                                <LazyLoadImage
+                                                <img
                                                     src={
                                                         process.env
                                                             .REACT_APP_CMS_URL +

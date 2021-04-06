@@ -34,7 +34,7 @@ const BusinessNews = ({ businessArticles, headerHide }) => {
                                         <div className="img_wrap">
                                             <Link to={`/article/${item.slug}`}>
                                                 {item.main_image ? (
-                                                    <LazyLoadImage
+                                                    <img
                                                         src={`${process.env.REACT_APP_CMS_URL}${item.main_image.url}`}
                                                         alt="thumb"
                                                         effect="blur"

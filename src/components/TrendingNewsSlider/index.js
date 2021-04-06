@@ -101,7 +101,7 @@ const TrendingNewsSlider = ({ latestArticles, adsHome = [] }) => {
                 {adsHome && adsHome.length > 0 && (
                     <div className="banner1">
                         <a href={adsHome[0].link} target="_blank">
-                            <LazyLoadImage
+                            <img
                                 src={
                                     process.env.REACT_APP_CMS_URL +
                                     adsHome[0].image[0].url

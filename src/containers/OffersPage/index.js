@@ -92,7 +92,7 @@ const OffersPage = ({
                                                 target="_blank"
                                                 href={banner350x292[0].link}
                                             >
-                                                <LazyLoadImage
+                                                <img
                                                     src={
                                                         process.env
                                                             .REACT_APP_CMS_URL +
@@ -153,7 +153,7 @@ const OffersPage = ({
                                             {banner350x292.image &&
                                                 banner350x292.image.length >
                                                     0 && (
-                                                    <LazyLoadImage
+                                                    <img
                                                         src={
                                                             process.env
                                                                 .REACT_APP_CMS_URL +
@@ -162,7 +162,6 @@ const OffersPage = ({
                                                         }
                                                         alt="banner"
                                                         effect="blur"
-                                                        visibleByDefault="true"
                                                     />
                                                 )}
                                         </a>
@@ -243,7 +242,7 @@ const OffersPage = ({
                                     >
                                         {banner350x292.image &&
                                             banner350x292.image.length > 0 && (
-                                                <LazyLoadImage
+                                                <img
                                                     src={
                                                         process.env
                                                             .REACT_APP_CMS_URL +

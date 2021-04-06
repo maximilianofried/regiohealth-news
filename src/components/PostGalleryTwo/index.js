@@ -19,7 +19,7 @@ const PostGalleryTwo = ({ mainArticle, newsArticles }) => {
                                 <div className="single_post post_type6 border-radious7 xs-mb30 main_article_homepage">
                                     <div className="post_img gradient1">
                                         <div className="img_wrap">
-                                            <LazyLoadImage
+                                            <img
                                                 className="lazyLoad wrapper__img"
                                                 src={
                                                     mainArticle.main_image
@@ -123,7 +123,7 @@ const PostGalleryTwo = ({ mainArticle, newsArticles }) => {
                                                 <Link
                                                     to={`/article/${item.slug}`}
                                                 >
-                                                    <LazyLoadImage
+                                                    <img
                                                         className="wrapper__img"
                                                         src={
                                                             item.main_image

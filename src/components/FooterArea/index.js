@@ -26,7 +26,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             href="https://www.gesundheitsticket.de/"
                                             target="_blank"
                                         >
-                                            <LazyLoadImage
+                                            <img
                                                 alt="logo"
                                                 className="gt_logo"
                                                 src={`${process.env.REACT_APP_CMS_URL}/uploads/logo_gt3_d2142e249a.svg`}
@@ -39,7 +39,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             href="https://479eae97.sibforms.com/serve/MUIEAEvroLOl7gAeKgjfkbLkysmfsuAS3Tg6HJf6pH3obY0A938-9XXoyezLoftkDhOte_IPJ4UzRcIaiUwNZVuQPKYRpGLaLvT5TZ5udL7Bhv2Vlh9onojMKyw5UxBFiuAoIcA89fFusp3sdopMgDpkOXeSLuurQRJPPChbLNNYIGmg4-8iLrJQA8l6xcpt-8K9i8z56LepgN9j"
                                             target="_blank"
                                         >
-                                            <LazyLoadImage
+                                            <img
                                                 alt="logo"
                                                 className="gt_logo"
                                                 src={`${process.env.REACT_APP_CMS_URL}/uploads/regiohealth_b_7bbe36540e.svg`}
@@ -52,7 +52,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             href="http://diewohlfuehler-akademie.de/gesundheit-in-der-kommune/"
                                             target="_blank"
                                         >
-                                            <LazyLoadImage
+                                            <img
                                                 alt="logo"
                                                 className="gt_logo"
                                                 src={`${process.env.REACT_APP_CMS_URL}/uploads/regiohealth_k_45f8d252a5.svg`}
@@ -65,7 +65,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             href="https://www.diewohlfuehler.de/"
                                             target="_blank"
                                         >
-                                            <LazyLoadImage
+                                            <img
                                                 alt="logo"
                                                 className="gt_logo"
                                                 src={`${process.env.REACT_APP_CMS_URL}/uploads/LOGO_WF_3f61100d67.svg`}
@@ -78,7 +78,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             href="http://diewohlfuehler-akademie.de/"
                                             target="_blank"
                                         >
-                                            <LazyLoadImage
+                                            <img
                                                 alt="logo"
                                                 className="gt_logo"
                                                 src="https://www.gesundheitsticket.de/woak-logo.svg"

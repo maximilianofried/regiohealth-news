@@ -57,14 +57,17 @@ const HomePageTwo = ({
                                 publisherArticles={publisherArticles}
                             />
                             <div className="space-20" />
-                            <button
-                                className="more_articles"
-                                type="button"
-                                onClick={handleClickMoreArticles}
-                            >
-                                MEHR ANZEIGEN{' '}
-                                <FontAwesome name="angle-double-down" />
-                            </button>
+                            {publisherArticles &&
+                                publisherArticles.length > articleLimit && (
+                                    <button
+                                        className="more_articles"
+                                        type="button"
+                                        onClick={handleClickMoreArticles}
+                                    >
+                                        MEHR ANZEIGEN{' '}
+                                        <FontAwesome name="angle-double-down" />
+                                    </button>
+                                )}
                         </div>
                         <div className="col-lg-3">
                             <div className="row justify-content-center">
@@ -75,7 +78,7 @@ const HomePageTwo = ({
                                                 target="_blank"
                                                 href={adsHome[0].link}
                                             >
-                                                <LazyLoadImage
+                                                <img
                                                     className="lazyLoad"
                                                     src={
                                                         process.env

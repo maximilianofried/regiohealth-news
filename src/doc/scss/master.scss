@@ -251,6 +251,10 @@ body {
 .logo_area {
     padding: 10px 0;
     min-height: 77.813px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9;
     .tp_search_form {
         width: 75%;
 
@@ -1472,7 +1476,7 @@ span.tranding {
     .single_post_text {
         // width: 49%;
         // float: left;
-        height: 269px;
+        height: 100%;
         padding: 0;
         padding-left: 30px;
     }
@@ -2101,7 +2105,7 @@ span.tranding {
     }
 }
 
-@media screen and (max-width: $small__laptop) {
+@media screen and (max-width: 1200px) {
     .signup_form {
         form {
             input.signup {
@@ -2111,6 +2115,9 @@ span.tranding {
     }
 
     .follow_box .cta {
+        .social2 ul li {
+            margin-right: 6px !important;
+        }
         .social2 ul li a {
             width: 55px;
         }
@@ -2243,6 +2250,7 @@ textarea {
 
 .white_bg {
     background: $white !important;
+    opacity: 0.9;
 }
 
 .white {
@@ -2496,9 +2504,6 @@ a.cbtn3 {
 }
 
 @media screen and (max-width: 768px) {
-    .display_search_box {
-        display: none;
-    }
     .author_social {
         ul {
             li {
@@ -2530,6 +2535,20 @@ a.cbtn3 {
             width: 59px;
             height: 25px;
         }
+    }
+}
+@media screen and (max-width: 990px) {
+    .display_search_box {
+        display: none;
+    }
+    .post_gallary_area {
+        padding-top: 140px !important;
+    }
+}
+
+@media screen and (min-width: 990px) {
+    .logo_area {
+        position: static;
     }
 }
 
@@ -2637,7 +2656,7 @@ a.cbtn3 {
 
     .logo_area {
         height: 0;
-
+        position: fixed;
         .logo_area_searchbox {
             padding-left: 36px;
         }
@@ -3095,7 +3114,7 @@ a.cbtn3 {
             padding: 0;
             // padding-left: 0;
             padding: 20px;
-            padding-left: 5px;
+            padding-left: 30px;
             padding-top: 2px;
         }
 

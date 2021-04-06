@@ -19,7 +19,7 @@ const BannerSection = ({ className, fetchAds, adsCategory }) => {
                             <a href={banner729x90.link} target="_blank">
                                 {banner729x90.image &&
                                     banner729x90.image.length > 0 && (
-                                        <LazyLoadImage
+                                        <img
                                             src={
                                                 process.env.REACT_APP_CMS_URL +
                                                 banner729x90.image[0].url
