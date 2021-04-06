@@ -2105,7 +2105,7 @@ span.tranding {
     }
 }
 
-@media screen and (max-width: $small__laptop) {
+@media screen and (max-width: 1200px) {
     .signup_form {
         form {
             input.signup {
@@ -2115,6 +2115,9 @@ span.tranding {
     }
 
     .follow_box .cta {
+        .social2 ul li {
+            margin-right: 6px !important;
+        }
         .social2 ul li a {
             width: 55px;
         }
@@ -3111,7 +3114,7 @@ a.cbtn3 {
             padding: 0;
             // padding-left: 0;
             padding: 20px;
-            padding-left: 5px;
+            padding-left: 30px;
             padding-top: 2px;
         }
 
