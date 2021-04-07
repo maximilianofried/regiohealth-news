@@ -1462,3 +1462,21 @@
         border-radius: 5px;
     }
 }
+
+@media screen and (max-width: 992px) {
+    .archives {
+        margin-top: 120px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .archives {
+        margin-top: 80px;
+    }
+}
+
+@media screen and (min-width: 767px) and (max-width: 992px) {
+    .archives {
+        margin-top: 120px;
+    }
+}
