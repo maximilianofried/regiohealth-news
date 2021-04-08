@@ -16,9 +16,9 @@ const InfoPage = ({ fetchPage, page, name }) => {
                 description={name}
                 url={`${process.env.REACT_APP_BASE_PAGE_URL}/${name}`}
             />
-            <BreadCrumb className="shadow5" title={name}>
+            <BreadCrumb className="shadow5 info_page" title={name}>
                 <>
-                    <div className="space-50" />
+                    <div className="space-10" />
                     <div className="row">
                         <div className="col-12">
                             <div className="info_content">

@@ -1308,7 +1308,7 @@
     @media screen and (min-width: $Medium) {
         //HEIGHT MAIN ARTICLE
         .main_article_homepage {
-            height: 620px;
+            height: 800px;
         }
     }
 
@@ -1473,10 +1473,16 @@
     .archives {
         margin-top: 80px;
     }
+    .info_page {
+        margin-top: 77px;
+    }
 }
 
 @media screen and (min-width: 767px) and (max-width: 992px) {
     .archives {
         margin-top: 120px;
+    }
+    .info_page {
+        margin-top: 100px;
     }
 }
