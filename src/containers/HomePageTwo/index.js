@@ -72,7 +72,7 @@ const HomePageTwo = ({
                         <div className="col-lg-3">
                             <div className="row justify-content-center">
                                 <div className="col-md-6 col-lg-12 d-md-none d-lg-block">
-                                    {adsHome && adsHome.length > 0 && (
+                                    {false && adsHome && adsHome.length > 0 && (
                                         <div className="banner2 mb30 mt20 border-radious5">
                                             <a
                                                 target="_blank"
