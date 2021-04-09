@@ -113,7 +113,7 @@ const PostGalleryTwo = ({ mainArticle, newsArticles }) => {
                             <h2 className="widget-title">News</h2>
                             <div className="space-20" />
                             {newsArticles &&
-                                newsArticles.map((item, i) => (
+                                newsArticles.slice(0, 4).map((item, i) => (
                                     <div
                                         key={item.id}
                                         className="single_post type14 widgets_small"
