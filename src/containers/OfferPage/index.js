@@ -16,8 +16,8 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 const replaceContent = (data) => {
     let content = data.replace(/href/g, "target='_blank' href");
     content = content.replace(
-        /src="/g,
-        `src="${process.env.REACT_APP_CMS_URL}`
+        /src="\/uploads\//g,
+        `src="${process.env.REACT_APP_CMS_URL}/uploads/`
     );
     return content;
 };
