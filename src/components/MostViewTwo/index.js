@@ -34,9 +34,12 @@ const MostViewTwo = ({ title, latestOffers }) => {
             <div className="space-20" />
             <div className="post_type2_carousel multipleRowCarousel pt12_wrapper nav_style1">
                 {/* CAROUSEL START */}
-                {latestOffers.map(
-                    (item, i) =>
-                        item.unPublishAt > moment().format('YYYY-MM-DD') && (
+                {latestOffers.map((item, i) => {
+                    if (
+                        item.unPublishAt > moment().format('YYYY-MM-DD') ||
+                        item.unPublishAt == null
+                    )
+                        return (
                             <div
                                 key={item.id}
                                 className="single_post widgets_small type8 type17"
@@ -79,8 +82,9 @@ const MostViewTwo = ({ title, latestOffers }) => {
                                     <div className="space-10" />
                                 </div>
                             </div>
-                        )
-                )}
+                        );
+                    return '';
+                })}
                 {/* <div className="navBtns">
                     <div onClick={goPrev} className="navBtn prevtBtn">
                         <FontAwesome name="angle-left" />
