@@ -35,10 +35,7 @@ const MostViewTwo = ({ title, latestOffers }) => {
             <div className="post_type2_carousel multipleRowCarousel pt12_wrapper nav_style1">
                 {/* CAROUSEL START */}
                 {latestOffers.map((item, i) => {
-                    if (
-                        item.unPublishAt > moment().format('YYYY-MM-DD') ||
-                        item.unPublishAt == null
-                    )
+                    if (item.end > moment().format('YYYY-MM-DD'))
                         return (
                             <div
                                 key={item.id}
