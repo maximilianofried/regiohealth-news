@@ -30,11 +30,6 @@ const HomePageTwo = ({
         fetchArticleHomepage();
         fetchOffers({ start: 0, limit: 4 });
         fetchAds();
-        const script = document.createElement('script');
-        const adsDiv = document.getElementById('ads');
-        script.src = '//d1esebcdm6wx7j.cloudfront.net/?besed=927709';
-        script.async = false;
-        adsDiv.appendChild(script);
     }, []);
     const [articleLimit, setArticleLimit] = useState(4);
     const handleClickMoreArticles = () => {
