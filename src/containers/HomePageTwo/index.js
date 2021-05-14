@@ -30,6 +30,11 @@ const HomePageTwo = ({
         fetchArticleHomepage();
         fetchOffers({ start: 0, limit: 4 });
         fetchAds();
+        const script = document.createElement('script');
+        const adsDiv = document.getElementById('ads');
+        script.src = '//d1esebcdm6wx7j.cloudfront.net/?besed=927709';
+        script.async = false;
+        adsDiv.appendChild(script);
     }, []);
     const [articleLimit, setArticleLimit] = useState(4);
     const handleClickMoreArticles = () => {
@@ -68,10 +73,14 @@ const HomePageTwo = ({
                                         <FontAwesome name="angle-double-down" />
                                     </button>
                                 )}
+                            {}
                         </div>
                         <div className="col-lg-3">
                             <div className="row justify-content-center">
-                                <div className="col-md-6 col-lg-12 d-md-none d-lg-block">
+                                <div
+                                    id="ads"
+                                    className="col-md-6 col-lg-12 d-md-none d-lg-block"
+                                >
                                     {false && adsHome && adsHome.length > 0 && (
                                         <div className="banner2 mb30 mt20 border-radious5">
                                             <a
