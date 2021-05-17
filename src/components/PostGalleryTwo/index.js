@@ -110,65 +110,67 @@ const PostGalleryTwo = ({ mainArticle, newsArticles }) => {
                             className="border-radious5 white_bg padding20 sm-mt30"
                         />
                         <div className="white_bg padding15 border-radious5 sm-mt30">
-                            <h2 className="widget-title">News</h2>
-                            <div className="space-20" />
-                            {newsArticles &&
-                                newsArticles.slice(0, 4).map((item, i) => (
-                                    <div
-                                        key={item.id}
-                                        className="single_post type14 widgets_small"
-                                    >
-                                        {/* <div className="post_img">
-                                            <div className="img_wrap">
-                                                <Link
-                                                    to={`/article/${item.slug}`}
-                                                >
-                                                    <img
-                                                        className="wrapper__img"
-                                                        src={
-                                                            item.main_image
-                                                                ? `${
-                                                                      process
-                                                                          .env
-                                                                          .REACT_APP_CMS_URL +
-                                                                      item
-                                                                          .main_image
-                                                                          .formats
-                                                                          .thumbnail
-                                                                          .url
-                                                                  }`
-                                                                : big_img
-                                                        }
-                                                        alt="thumb"
-                                                        effect="blur"
-                                                    />
-                                                </Link>
+                            <div>
+                                <h2 className="widget-title">News</h2>
+                                <div className="space-20" />
+                                {newsArticles &&
+                                    newsArticles.slice(0, 4).map((item, i) => (
+                                        <div
+                                            key={item.id}
+                                            className="single_post widgets_small type8 type17"
+                                        >
+                                            <div className="post_img">
+                                                <div className="img_wrap_2">
+                                                    <Link
+                                                        to={`/article/${item.slug}`}
+                                                    >
+                                                        <img
+                                                            className="lazyLoad crop_image"
+                                                            src={
+                                                                item.main_image
+                                                                    ? `${
+                                                                          process
+                                                                              .env
+                                                                              .REACT_APP_CMS_URL +
+                                                                          item
+                                                                              .main_image
+                                                                              .formats
+                                                                              .thumbnail
+                                                                              .url
+                                                                      }`
+                                                                    : big_img
+                                                            }
+                                                            alt="thumb"
+                                                            effect="blur"
+                                                        />
+                                                    </Link>
+                                                </div>
                                             </div>
-                                        </div> */}
-                                        <div className="single_post_text">
-                                            <h4>
-                                                <Link
-                                                    to={`/article/${item.slug}`}
-                                                >
-                                                    {item.title}
-                                                </Link>
-                                            </h4>
-                                            <div className="meta4">
-                                                <p>
-                                                    {moment(
-                                                        item.publishAt
-                                                    ).format('LL')}
-                                                </p>
+                                            <div className="single_post_text">
+                                                <h4>
+                                                    <Link
+                                                        to={`/article/${item.slug}`}
+                                                    >
+                                                        {item.title}
+                                                    </Link>
+                                                </h4>
+                                                <div className="meta4">
+                                                    <p>
+                                                        {moment(
+                                                            item.publishAt
+                                                        ).format('LL')}
+                                                    </p>
+                                                </div>
+                                                {i + 1 < newsArticles.length ? (
+                                                    <>
+                                                        <div className="space-20" />
+                                                        {/* <div className="border_black" /> */}
+                                                    </>
+                                                ) : null}
                                             </div>
-                                            {i + 1 < newsArticles.length ? (
-                                                <>
-                                                    <div className="space-20" />
-                                                    {/* <div className="border_black" /> */}
-                                                </>
-                                            ) : null}
                                         </div>
-                                    </div>
-                                ))}
+                                    ))}
+                            </div>
                         </div>
                         {/* <div className="single_post post_type3 post_type15 mb30 border-radious5 sm-mt30">
                             <div className="post_img">
