@@ -82,6 +82,7 @@ const OffersPage = ({
                                 MEHR ANZEIGEN{' '}
                                 <FontAwesome name="angle-double-down" />
                             </button>
+                            <BannerSection />
                         </div>
                         <div className="col-lg-3">
                             <div className="row justify-content-center">
@@ -145,30 +146,29 @@ const OffersPage = ({
                                                 </div>
                                             ))}
                                     </div>
-                                    {false && (
-                                        <div className="banner2 mb30 border-radious5">
-                                            <a
-                                                href={banner350x292.link}
-                                                target="_blank"
-                                            >
-                                                {banner350x292.image &&
-                                                    banner350x292.image.length >
-                                                        0 && (
-                                                        <img
-                                                            src={
-                                                                process.env
-                                                                    .REACT_APP_CMS_URL +
-                                                                banner350x292
-                                                                    .image[0]
-                                                                    .url
-                                                            }
-                                                            alt="banner"
-                                                            effect="blur"
-                                                        />
-                                                    )}
-                                            </a>
-                                        </div>
-                                    )}
+
+                                    <div className="banner2 mb30 border-radious5">
+                                        <a
+                                            href={banner350x292.link}
+                                            target="_blank"
+                                        >
+                                            {banner350x292.image &&
+                                                banner350x292.image.length >
+                                                    0 && (
+                                                    <img
+                                                        src={
+                                                            process.env
+                                                                .REACT_APP_CMS_URL +
+                                                            banner350x292
+                                                                .image[0].url
+                                                        }
+                                                        alt="banner"
+                                                        effect="blur"
+                                                    />
+                                                )}
+                                        </a>
+                                    </div>
+
                                     <MostViewTwo
                                         title="ANGEBOTE"
                                         latestOffers={latestOffers}
@@ -264,7 +264,6 @@ const OffersPage = ({
                     </div> */}
                 </div>
             </div>
-            {false && <BannerSection />}
         </>
     );
 };

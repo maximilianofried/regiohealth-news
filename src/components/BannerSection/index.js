@@ -11,7 +11,7 @@ const BannerSection = ({ className, fetchAds, adsCategory }) => {
     const banner729x90 =
         adsCategory.filter((ad) => ad.size === 's729x90')[0] || {};
     return (
-        <div className={`${className || 'padding5050 fourth_bg'}`}>
+        <div className={`${className || 'padding2020 '}`}>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-8 m-auto">

@@ -316,7 +316,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                     </div>
                 </div>
                 {/* <div className="space-100"/> */}
-                {false && <BannerSection />}
+                <BannerSection />
                 {/* <div className="space-60"/>
             <OurBlogSection/>
             <div className="space-60"/>
