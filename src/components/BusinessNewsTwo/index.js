@@ -86,15 +86,18 @@ const BusinessNewsTwo = ({ publisherArticles = [], articleLimit, offer }) => {
                                 </div>
                                 <p className="post-p">{item.description}</p>
                                 <div className="space-10" />
-                                <Link
-                                    to={
-                                        (offer ? `/offer/` : `/article/`) +
-                                        item.slug
-                                    }
-                                    className="readmore3"
-                                >
-                                    Mehr Lesen
-                                </Link>
+                                <div className="readmore3_wrapper">
+                                    <Link
+                                        to={
+                                            (offer ? `/offer/` : `/article/`) +
+                                            item.slug
+                                        }
+                                        className="readmore3"
+                                    >
+                                        Mehr Lesen
+                                    </Link>
+                                </div>
+
                                 {i + 1 < publisherArticles.length ? (
                                     <>
                                         <div className="space-10" />
