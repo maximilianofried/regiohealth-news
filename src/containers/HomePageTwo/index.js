@@ -98,28 +98,30 @@ const HomePageTwo = ({
                                             </a>
                                         </div>
                                     )} */}
-                                    <iframe
-                                        title="ads"
-                                        id="a29c23ab"
-                                        name="a29c23ab"
-                                        src="https://adserver.gesundheitsticket.de/revive/www/delivery/afr.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE"
-                                        frameBorder="0"
-                                        scrolling="no"
-                                        width="350"
-                                        height="292"
-                                        allow="autoplay"
-                                    >
-                                        <a
-                                            href="http://adserver.gesundheitsticket.de/revive/www/delivery/ck.php?n=a11cb7bb&amp;cb=INSERT_RANDOM_NUMBER_HERE"
-                                            target="_blank"
+                                    <div className="banner2 mb30 mt20 border-radious5">
+                                        <iframe
+                                            title="ads"
+                                            id="a29c23ab"
+                                            name="a29c23ab"
+                                            src="https://adserver.gesundheitsticket.de/revive/www/delivery/afr.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE"
+                                            frameBorder="0"
+                                            scrolling="no"
+                                            width="350"
+                                            height="292"
+                                            allow="autoplay"
                                         >
-                                            <img
-                                                src="http://adserver.gesundheitsticket.de/revive/www/delivery/avw.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a11cb7bb"
-                                                border="0"
-                                                alt=""
-                                            />
-                                        </a>
-                                    </iframe>
+                                            <a
+                                                href="http://adserver.gesundheitsticket.de/revive/www/delivery/ck.php?n=a11cb7bb&amp;cb=INSERT_RANDOM_NUMBER_HERE"
+                                                target="_blank"
+                                            >
+                                                <img
+                                                    src="http://adserver.gesundheitsticket.de/revive/www/delivery/avw.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a11cb7bb"
+                                                    border="0"
+                                                    alt=""
+                                                />
+                                            </a>
+                                        </iframe>
+                                    </div>
                                 </div>
                                 <div className="col-md-12 col-lg-12">
                                     <MostViewTwo
