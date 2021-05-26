@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useRef, useCallback } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
@@ -54,6 +54,21 @@ const OffersPage = ({
     const showMore = () => {
         fetchOffersForPage({ start: 0, limit: limit + 2 });
     };
+
+    const observer = useRef();
+
+    const lastElementRef = useCallback(
+        (node) => {
+            if (observer.current) observer.current.disconnect();
+            observer.current = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    fetchOffersForPage({ start: 0, limit: limit + 2 });
+                }
+            });
+            if (node) observer.current.observe(node);
+        },
+        [limit]
+    );
     return (
         <>
             <Metadata
@@ -73,15 +88,15 @@ const OffersPage = ({
                                 // articleLimit={articleLimit}
                                 publisherArticles={latestOffers}
                             />
-                            <div className="space-20" />
-                            <button
+                            <div ref={lastElementRef} className="space-20" />
+                            {/* <button
                                 className="more_articles"
                                 type="button"
                                 onClick={showMore}
                             >
                                 MEHR ANZEIGEN{' '}
                                 <FontAwesome name="angle-double-down" />
-                            </button>
+                            </button> */}
                             <BannerSection />
                         </div>
                         <div className="col-lg-3">
