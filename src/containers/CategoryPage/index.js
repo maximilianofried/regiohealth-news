@@ -90,7 +90,7 @@ const CategoryPage = ({
                                 // articleLimit={articleLimit}
                                 publisherArticles={allArticles}
                             />
-                            <div className="space-20" />
+                            <div ref={lastElementRef} className="space-20" />
                             {/* <button
                                 className="more_articles"
                                 type="button"
@@ -199,7 +199,6 @@ const CategoryPage = ({
                     </div>
                 </div>
             </div>
-            <div ref={lastElementRef} className="space-10" />
         </>
     );
 };
