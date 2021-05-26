@@ -34,11 +34,6 @@ const HomePageTwo = ({
 
     const [articleLimit, setArticleLimit] = useState(4);
 
-    const handleClickMoreArticles = () => {
-        if (publisherArticles.length > articleLimit)
-            setArticleLimit(articleLimit + 2);
-    };
-
     const observer = useRef();
 
     const lastElementRef = useCallback(
@@ -78,18 +73,6 @@ const HomePageTwo = ({
                                 publisherArticles={publisherArticles}
                             />
                             <div className="space-20" />
-                            {publisherArticles &&
-                                publisherArticles.length > articleLimit && (
-                                    <button
-                                        className="more_articles"
-                                        type="button"
-                                        onClick={handleClickMoreArticles}
-                                    >
-                                        MEHR ANZEIGEN{' '}
-                                        <FontAwesome name="angle-double-down" />
-                                    </button>
-                                )}
-                            {}
                         </div>
                         <div className="col-lg-3">
                             <div className="row justify-content-center">

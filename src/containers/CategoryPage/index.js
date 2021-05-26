@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useRef, useCallback } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
@@ -50,13 +50,28 @@ const CategoryPage = ({
             fetchArticlesCleanUp();
         };
     }, []);
+    const observer = useRef();
 
+    const lastElementRef = useCallback(
+        (node) => {
+            if (observer.current) observer.current.disconnect();
+            observer.current = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    fetchArticles({
+                        categories,
+                        start: 0,
+                        limit: limit + 2,
+                        menuName,
+                    });
+                }
+            });
+            if (node) observer.current.observe(node);
+        },
+        [limit]
+    );
     const banner350x292 =
         adsCategory.filter((ad) => ad.size === 's350x292')[0] || {};
 
-    const showMore = () => {
-        fetchArticles({ categories, start: 0, limit: limit + 2, menuName });
-    };
     return (
         <>
             <Metadata
@@ -76,14 +91,14 @@ const CategoryPage = ({
                                 publisherArticles={allArticles}
                             />
                             <div className="space-20" />
-                            <button
+                            {/* <button
                                 className="more_articles"
                                 type="button"
                                 onClick={showMore}
                             >
                                 MEHR ANZEIGEN{' '}
                                 <FontAwesome name="angle-double-down" />
-                            </button>
+                            </button> */}
                             <BannerSection />
                         </div>
                         <div className="col-lg-3">
@@ -184,6 +199,7 @@ const CategoryPage = ({
                     </div>
                 </div>
             </div>
+            <div ref={lastElementRef} className="space-10" />
         </>
     );
 };
