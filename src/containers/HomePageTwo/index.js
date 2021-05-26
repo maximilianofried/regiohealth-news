@@ -106,8 +106,8 @@ const HomePageTwo = ({
                                             src="https://adserver.gesundheitsticket.de/revive/www/delivery/afr.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE"
                                             frameBorder="0"
                                             scrolling="no"
-                                            width="100%"
-                                            height="100%"
+                                            width="350"
+                                            height="292"
                                             allow="autoplay"
                                         >
                                             <a
