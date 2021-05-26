@@ -101,9 +101,9 @@ const HomePageTwo = ({
                                     <div className="banner2 mb30 mt20 border-radious5">
                                         <iframe
                                             title="ads"
-                                            id="a29c23ab"
-                                            name="a29c23ab"
-                                            src="https://adserver.gesundheitsticket.de/revive/www/delivery/afr.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE"
+                                            id="a16daaa3"
+                                            name="a16daaa3"
+                                            src="http://adserver.gesundheitsticket.de/revive/www/delivery/afr.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE"
                                             frameBorder="0"
                                             scrolling="no"
                                             width="350"
@@ -111,11 +111,11 @@ const HomePageTwo = ({
                                             allow="autoplay"
                                         >
                                             <a
-                                                href="http://adserver.gesundheitsticket.de/revive/www/delivery/ck.php?n=a11cb7bb&amp;cb=INSERT_RANDOM_NUMBER_HERE"
+                                                href="http://adserver.gesundheitsticket.de/revive/www/delivery/ck.php?n=aa7b7482&amp;cb=INSERT_RANDOM_NUMBER_HERE"
                                                 target="_blank"
                                             >
                                                 <img
-                                                    src="http://adserver.gesundheitsticket.de/revive/www/delivery/avw.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a11cb7bb"
+                                                    src="http://adserver.gesundheitsticket.de/revive/www/delivery/avw.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=aa7b7482"
                                                     border="0"
                                                     alt=""
                                                 />
