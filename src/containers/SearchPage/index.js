@@ -1,4 +1,10 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, {
+    Fragment,
+    useEffect,
+    useState,
+    useRef,
+    useCallback,
+} from 'react';
 import { useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 import StickyBox from 'react-sticky-box';
@@ -60,6 +66,28 @@ const SearchPage = ({
             responseType: 'mixed',
         });
     };
+
+    const observer = useRef();
+
+    const lastElementRef = useCallback(
+        (node) => {
+            if (observer.current) observer.current.disconnect();
+            observer.current = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    fetchGeoData({
+                        limit: limit + 2,
+                        start: 0,
+                        place,
+                        type,
+                        keyword,
+                        responseType: 'mixed',
+                    });
+                }
+            });
+            if (node) observer.current.observe(node);
+        },
+        [limit]
+    );
     const banner350x292 =
         adsCategory.filter((ad) => ad.size === 's350x292')[0] || {};
     return (
@@ -108,8 +136,11 @@ const SearchPage = ({
                                         </div>
                                     </div>
                                 )} */}
-                                <div className="space-20" />
-                                {geoData && geoData.length > 0 && (
+                                <div
+                                    ref={lastElementRef}
+                                    className="space-20"
+                                />
+                                {/* {geoData && geoData.length > 0 && (
                                     <div className="row">
                                         <div className="col-12">
                                             <div className="cpagination">
@@ -124,7 +155,7 @@ const SearchPage = ({
                                             </div>
                                         </div>
                                     </div>
-                                )}
+                                )} */}
                                 {/* <BannerSection /> */}
                             </div>
                         </div>
