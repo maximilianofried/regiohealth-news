@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -21,7 +21,7 @@ const HomePageTwo = ({
     fetchOffers,
     fetchAds,
     mainArticle,
-    publisherArticles,
+    publisherArticles = [],
     newsArticles,
     latestOffers,
     adsHome,
@@ -31,11 +31,32 @@ const HomePageTwo = ({
         fetchOffers({ start: 0, limit: 4 });
         fetchAds();
     }, []);
+
     const [articleLimit, setArticleLimit] = useState(4);
+
     const handleClickMoreArticles = () => {
         if (publisherArticles.length > articleLimit)
             setArticleLimit(articleLimit + 2);
     };
+
+    const observer = useRef();
+
+    const lastElementRef = useCallback(
+        (node) => {
+            if (observer.current) observer.current.disconnect();
+            observer.current = new IntersectionObserver((entries) => {
+                if (
+                    entries[0].isIntersecting &&
+                    publisherArticles.length > articleLimit
+                ) {
+                    setArticleLimit(articleLimit + 2);
+                }
+            });
+            if (node) observer.current.observe(node);
+        },
+        [articleLimit, publisherArticles]
+    );
+
     return (
         <>
             <Metadata
@@ -160,7 +181,7 @@ const HomePageTwo = ({
                     </div>
                 </div>
             </div> */}
-            <div className="space-40" />
+            <div ref={lastElementRef} className="space-40" />
         </>
     );
 };
