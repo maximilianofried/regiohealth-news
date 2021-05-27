@@ -98,7 +98,7 @@ const HomePageTwo = ({
                                             </a>
                                         </div>
                                     )} */}
-                                    <div className="banner2 mb30 mt20 border-radious5">
+                                    <div className="banner2 mb30 mt20 border-radious5 banner_homepage">
                                         <iframe
                                             title="ads"
                                             id="a108b706"

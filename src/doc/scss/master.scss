@@ -3367,3 +3367,13 @@ a.cbtn3 {
 .homepage_col_top {
     padding-bottom: 20px;
 }
+
+.banner_homepage {
+    img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        overflow: hidden !important;
+        border-radius: 5px !important;
+    }
+}
