@@ -3369,11 +3369,13 @@ a.cbtn3 {
 }
 
 .banner_homepage {
-    img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-        overflow: hidden !important;
-        border-radius: 5px !important;
+    #a108b706 {
+        img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            overflow: hidden !important;
+            border-radius: 5px !important;
+        }
     }
 }
