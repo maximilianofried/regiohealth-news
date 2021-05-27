@@ -3368,14 +3368,10 @@ a.cbtn3 {
     padding-bottom: 20px;
 }
 
-.banner_homepage {
-    #a108b706 {
-        img {
-            width: 100% !important;
-            height: 100% !important;
-            object-fit: cover !important;
-            overflow: hidden !important;
-            border-radius: 5px !important;
-        }
-    }
+.img_banner_homepage {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    overflow: hidden !important;
+    border-radius: 5px !important;
 }
