@@ -115,7 +115,7 @@ const HomePageTwo = ({
                                                 target="_blank"
                                             >
                                                 <img
-                                                    className="img_banner_homepage"
+                                                    id="img_banner_homepage"
                                                     src="https://adserver.gesundheitsticket.de/revive/www/delivery/avw.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a270b77f"
                                                     alt=""
                                                 />
