@@ -209,7 +209,7 @@ const PostGalleryTwo = ({
                                         </a>
                                     </div>
                                 )}
-                                <div className="banner2 mb30 mt20 border-radious5 banner_homepage">
+                                {/* <div className="banner2 mb30 mt20 border-radious5 banner_homepage">
                                     <iframe
                                         title="adserver"
                                         id="a3e6229e"
@@ -232,7 +232,7 @@ const PostGalleryTwo = ({
                                             />
                                         </a>
                                     </iframe>
-                                </div>
+                                </div> */}
                             </div>
                             <div className="col-md-12 col-lg-12">
                                 <MostViewTwo
