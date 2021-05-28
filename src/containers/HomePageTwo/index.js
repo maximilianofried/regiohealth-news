@@ -61,17 +61,15 @@ const HomePageTwo = ({
             <PostGalleryTwo
                 mainArticle={mainArticle}
                 newsArticles={newsArticles}
+                articleLimit={articleLimit}
+                publisherArticles={publisherArticles}
+                adsHome={adsHome}
+                latestOffers={latestOffers}
             />
-            <div className="total3 mb30">
+            {/* <div className="total3 mb30">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12 col-lg-9 homepage_col_top">
-                            {/* <TrendingNewsTwo />
-                            <FeatureNewsTwo /> */}
-                            <BusinessNewsTwo
-                                articleLimit={articleLimit}
-                                publisherArticles={publisherArticles}
-                            />
                             <div className="space-20" />
                         </div>
                         <div className="col-lg-3">
@@ -80,7 +78,7 @@ const HomePageTwo = ({
                                     id="ads"
                                     className="col-md-6 col-lg-12 d-md-none d-lg-block"
                                 >
-                                    {/* {adsHome && adsHome.length > 0 && (
+                                    {adsHome && adsHome.length > 0 && (
                                         <div className="banner2 mb30 mt20 border-radious5">
                                             <a
                                                 target="_blank"
@@ -97,7 +95,7 @@ const HomePageTwo = ({
                                                 />
                                             </a>
                                         </div>
-                                    )} */}
+                                    )}
                                     <div className="banner2 mb30 mt20 border-radious5 banner_homepage">
                                         <iframe
                                             title="ads"
@@ -128,60 +126,6 @@ const HomePageTwo = ({
                                         title="ANGEBOTE"
                                         latestOffers={latestOffers}
                                     />
-                                </div>
-
-                                {/* <div className="col-md-6 col-lg-12">
-                                    <WidgetFinance />
-                                </div> */}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {/* <VideoNews /> */}
-            {/* <div className="mix3 mb30">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-6 col-xl-3">
-                            <WidgetTabTwo className="sm-mt0 md-mt0" />
-                        </div>
-                        <div className="col-md-6 col-xl-5 d-lg-none d-xl-block">
-                            <Opinion />
-                        </div>
-                        <div className="col-lg-6 col-xl-4">
-                            <Whatsnew title="Whats new" />
-                        </div>
-                    </div>
-                </div>
-            </div> */}
-            {/* <div className="mix_elements">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-xl-8 col-md-12">
-                            <div className="banner_area mb30 xs-mt60">
-                                <Link to="/">
-                                    <img src={banner3} alt="banner3" />
-                                </Link>
-                            </div>
-                            <div className="row">
-                                <div className="col-md-6">
-                                    <Sports />
-                                </div>
-                                <div className="col-md-6">
-                                    <MostViewThree />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-xl-4 d-md-none d-xl-block col-md-12">
-                            <div className="row">
-                                <div className="col-md-6 col-lg-12">
-                                    <FollowUs
-                                        title="Contact Us"
-                                        className="border-radious5 white_bg padding20 sm-mt30"
-                                    />
-                                </div>
-                                <div className="col-md-6 col-lg-12">
-                                    <International />
                                 </div>
                             </div>
                         </div>

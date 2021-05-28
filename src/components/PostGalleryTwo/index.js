@@ -5,10 +5,19 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import FontAwesome from '../uiStyle/FontAwesome';
 import FollowUs from '../FollowUs';
 import NewsLetter from '../Newsletter';
+import BusinessNewsTwo from '../BusinessNewsTwo';
+import MostViewTwo from '../MostViewTwo';
 import big_img from '../../doc/img/header/sider-top3.jpg';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
-const PostGalleryTwo = ({ mainArticle, newsArticles }) => {
+const PostGalleryTwo = ({
+    mainArticle,
+    newsArticles,
+    articleLimit,
+    publisherArticles,
+    adsHome,
+    latestOffers,
+}) => {
     return (
         <div className="post_gallary_area theme3_bg mb40 padding-top-30">
             <div className="container">
@@ -67,6 +76,11 @@ const PostGalleryTwo = ({ mainArticle, newsArticles }) => {
                                 </div>
                             </Link>
                         )}
+                        <div className="space-10" />
+                        <BusinessNewsTwo
+                            articleLimit={articleLimit}
+                            publisherArticles={publisherArticles}
+                        />
                     </div>
                     {/* <div className="d-none d-xl-block col-xl-3">
                         <div className="white_bg padding15 border-radious5 sm-mt30">
@@ -170,6 +184,61 @@ const PostGalleryTwo = ({ mainArticle, newsArticles }) => {
                                             </div>
                                         </div>
                                     ))}
+                            </div>
+                        </div>
+                        <div className="row justify-content-center">
+                            <div
+                                id="ads"
+                                className="col-md-6 col-lg-12 d-md-none d-lg-block"
+                            >
+                                {adsHome && adsHome.length > 0 && (
+                                    <div className="banner2 mb30 mt20 border-radious5">
+                                        <a
+                                            target="_blank"
+                                            href={adsHome[0].link}
+                                        >
+                                            <img
+                                                className="lazyLoad"
+                                                src={
+                                                    process.env
+                                                        .REACT_APP_CMS_URL +
+                                                    adsHome[0].image[0].url
+                                                }
+                                                alt="thumb"
+                                            />
+                                        </a>
+                                    </div>
+                                )}
+                                <div className="banner2 mb30 mt20 border-radious5 banner_homepage">
+                                    <iframe
+                                        title="ads"
+                                        id="a108b706"
+                                        name="a108b706"
+                                        src="https://adserver.gesundheitsticket.de/revive/www/delivery/afr.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE"
+                                        frameBorder="0"
+                                        scrolling="no"
+                                        width="350"
+                                        height="292"
+                                        allow="autoplay"
+                                    >
+                                        <a
+                                            href="https://adserver.gesundheitsticket.de/revive/www/delivery/ck.php?n=a270b77f&amp;cb=INSERT_RANDOM_NUMBER_HERE"
+                                            target="_blank"
+                                        >
+                                            <img
+                                                id="img_banner_homepage"
+                                                src="https://adserver.gesundheitsticket.de/revive/www/delivery/avw.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a270b77f"
+                                                alt=""
+                                            />
+                                        </a>
+                                    </iframe>
+                                </div>
+                            </div>
+                            <div className="col-md-12 col-lg-12">
+                                <MostViewTwo
+                                    title="ANGEBOTE"
+                                    latestOffers={latestOffers}
+                                />
                             </div>
                         </div>
                         {/* <div className="single_post post_type3 post_type15 mb30 border-radious5 sm-mt30">
