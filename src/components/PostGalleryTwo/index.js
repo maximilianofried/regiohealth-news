@@ -211,23 +211,23 @@ const PostGalleryTwo = ({
                                 )}
                                 <div className="banner2 mb30 mt20 border-radious5 banner_homepage">
                                     <iframe
-                                        title="ads"
-                                        id="a108b706"
-                                        name="a108b706"
-                                        src="https://adserver.gesundheitsticket.de/revive/www/delivery/afr.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE"
+                                        title="adserver"
+                                        id="a3e6229e"
+                                        name="a3e6229e"
+                                        src="http://adserver.gesundheitsticket.de/revive/www/delivery/afr.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE"
                                         frameBorder="0"
                                         scrolling="no"
-                                        width="350"
-                                        height="292"
+                                        width="300"
+                                        height="250"
                                         allow="autoplay"
                                     >
                                         <a
-                                            href="https://adserver.gesundheitsticket.de/revive/www/delivery/ck.php?n=a270b77f&amp;cb=INSERT_RANDOM_NUMBER_HERE"
+                                            href="http://adserver.gesundheitsticket.de/revive/www/delivery/ck.php?n=afbba703&amp;cb=INSERT_RANDOM_NUMBER_HERE"
                                             target="_blank"
                                         >
                                             <img
-                                                id="img_banner_homepage"
-                                                src="https://adserver.gesundheitsticket.de/revive/www/delivery/avw.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a270b77f"
+                                                src="http://adserver.gesundheitsticket.de/revive/www/delivery/avw.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=afbba703"
+                                                border="0"
                                                 alt=""
                                             />
                                         </a>
