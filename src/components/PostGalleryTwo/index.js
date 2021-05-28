@@ -214,7 +214,7 @@ const PostGalleryTwo = ({
                                         title="adserver"
                                         id="a3e6229e"
                                         name="a3e6229e"
-                                        src="http://adserver.gesundheitsticket.de/revive/www/delivery/afr.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE"
+                                        src="https://adserver.gesundheitsticket.de/revive/www/delivery/afr.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE"
                                         frameBorder="0"
                                         scrolling="no"
                                         width="300"
@@ -222,11 +222,11 @@ const PostGalleryTwo = ({
                                         allow="autoplay"
                                     >
                                         <a
-                                            href="http://adserver.gesundheitsticket.de/revive/www/delivery/ck.php?n=afbba703&amp;cb=INSERT_RANDOM_NUMBER_HERE"
+                                            href="https://adserver.gesundheitsticket.de/revive/www/delivery/ck.php?n=afbba703&amp;cb=INSERT_RANDOM_NUMBER_HERE"
                                             target="_blank"
                                         >
                                             <img
-                                                src="http://adserver.gesundheitsticket.de/revive/www/delivery/avw.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=afbba703"
+                                                src="https://adserver.gesundheitsticket.de/revive/www/delivery/avw.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=afbba703"
                                                 border="0"
                                                 alt=""
                                             />
