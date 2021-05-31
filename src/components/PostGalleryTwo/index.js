@@ -209,11 +209,11 @@ const PostGalleryTwo = ({
                                         </a>
                                     </div>
                                 )}
-                                {/* <div className="banner2 mb30 mt20 border-radious5 banner_homepage">
+                                <div className="banner2 mb30 mt20 border-radious5 banner_homepage">
                                     <iframe
                                         title="adserver"
-                                        id="a3e6229e"
-                                        name="a3e6229e"
+                                        id="a45246e8"
+                                        name="a45246e8"
                                         src="https://adserver.gesundheitsticket.de/revive/www/delivery/afr.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE"
                                         frameBorder="0"
                                         scrolling="no"
@@ -222,17 +222,17 @@ const PostGalleryTwo = ({
                                         allow="autoplay"
                                     >
                                         <a
-                                            href="https://adserver.gesundheitsticket.de/revive/www/delivery/ck.php?n=afbba703&amp;cb=INSERT_RANDOM_NUMBER_HERE"
+                                            href="https://adserver.gesundheitsticket.de/revive/www/delivery/ck.php?n=ab9b30e4&amp;cb=INSERT_RANDOM_NUMBER_HERE"
                                             target="_blank"
                                         >
                                             <img
-                                                src="https://adserver.gesundheitsticket.de/revive/www/delivery/avw.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=afbba703"
+                                                src="https://adserver.gesundheitsticket.de/revive/www/delivery/avw.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=ab9b30e4"
                                                 border="0"
                                                 alt=""
                                             />
                                         </a>
                                     </iframe>
-                                </div> */}
+                                </div>
                             </div>
                             <div className="col-md-12 col-lg-12">
                                 <MostViewTwo
