@@ -191,7 +191,7 @@ const PostGalleryTwo = ({
                                 id="ads"
                                 className="col-md-6 col-lg-12 d-md-none d-lg-block"
                             >
-                                {adsHome && adsHome.length > 0 && (
+                                {/* {adsHome && adsHome.length > 0 && (
                                     <div className="banner2 mb30 mt20 border-radious5">
                                         <a
                                             target="_blank"
@@ -208,7 +208,7 @@ const PostGalleryTwo = ({
                                             />
                                         </a>
                                     </div>
-                                )}
+                                )} */}
                                 <div className="banner2 mb30 mt20 border-radious5 banner_homepage">
                                     <iframe
                                         title="adserver"
