@@ -18,6 +18,7 @@ const PostGalleryTwo = ({
     adsHome,
     latestOffers,
 }) => {
+    console.log(latestOffers);
     return (
         <div className="post_gallary_area theme3_bg mb40 padding-top-30">
             <div className="container">
@@ -235,12 +236,14 @@ const PostGalleryTwo = ({
                                     </iframe>
                                 </div>
                             </div>
-                            <div className="col-md-12 col-lg-12">
-                                <MostViewTwo
-                                    title="ANGEBOTE"
-                                    latestOffers={latestOffers}
-                                />
-                            </div>
+                            {latestOffers.length > 0 && (
+                                <div className="col-md-12 col-lg-12">
+                                    <MostViewTwo
+                                        title="ANGEBOTE"
+                                        latestOffers={latestOffers}
+                                    />
+                                </div>
+                            )}
                         </div>
                         {/* <div className="single_post post_type3 post_type15 mb30 border-radious5 sm-mt30">
                             <div className="post_img">
