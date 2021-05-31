@@ -231,7 +231,6 @@ const PostGalleryTwo = ({
                                         >
                                             <img
                                                 src="https://adserver.gesundheitsticket.de/revive/www/delivery/avw.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=ab9b30e4"
-                                                border="0"
                                                 alt=""
                                                 className="border-radious5"
                                             />
