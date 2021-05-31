@@ -18,7 +18,10 @@ const PostGalleryTwo = ({
     adsHome,
     latestOffers,
 }) => {
-    console.log(latestOffers);
+    const displayOffersHomepage = latestOffers.some(
+        (offer) => offer.end > moment().format('YYYY-MM-DD')
+    );
+    console.log(displayOffersHomepage);
     return (
         <div className="post_gallary_area theme3_bg mb40 padding-top-30">
             <div className="container">
@@ -236,7 +239,7 @@ const PostGalleryTwo = ({
                                     </iframe>
                                 </div>
                             </div>
-                            {latestOffers.length > 0 && (
+                            {displayOffersHomepage && (
                                 <div className="col-md-12 col-lg-12">
                                     <MostViewTwo
                                         title="ANGEBOTE"
