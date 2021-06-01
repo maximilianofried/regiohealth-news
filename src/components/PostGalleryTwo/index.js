@@ -21,7 +21,6 @@ const PostGalleryTwo = ({
     const displayOffersHomepage = latestOffers.some(
         (offer) => offer.end > moment().format('YYYY-MM-DD')
     );
-    console.log(displayOffersHomepage);
     return (
         <div className="post_gallary_area theme3_bg mb40 padding-top-30">
             <div className="container">
@@ -233,7 +232,7 @@ const PostGalleryTwo = ({
                                                 src="https://adserver.gesundheitsticket.de/revive/www/delivery/avw.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=ab9b30e4"
                                                 alt=""
                                                 style={{
-                                                    'border-radius':
+                                                    borderRadius:
                                                         '5px !important',
                                                 }}
                                             />
