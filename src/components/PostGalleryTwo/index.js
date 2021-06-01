@@ -123,6 +123,7 @@ const PostGalleryTwo = ({
                         </div>
                     </div> */}
                     <div className="d-lg-block col-lg-3 col-xl-3 px-xl-0">
+                        <AdserverIframe />
                         <FollowUs
                             title="FOLGEN SIE UNS"
                             className="border-radious5 white_bg padding20 sm-mt30"
@@ -213,7 +214,7 @@ const PostGalleryTwo = ({
                                         </a>
                                     </div>
                                 )} */}
-                                <AdserverIframe />
+
                                 {/* <div className="banner2 border-radious5 banner_homepage">
                                     <iframe
                                         title="adserver"
