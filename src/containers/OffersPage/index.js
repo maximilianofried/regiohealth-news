@@ -22,6 +22,7 @@ import Metadata from '../../components/Metadata';
 import FontAwesome from '../../components/uiStyle/FontAwesome';
 import { ANGEBOTE_DESCRIPTION } from '../../utils/constants';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import AdserverIframe from '../../components/AdserverIframe';
 
 const OffersPage = ({
     fetchArticles,
@@ -68,6 +69,9 @@ const OffersPage = ({
             if (node) observer.current.observe(node);
         },
         [limit]
+    );
+    const displayOffers = latestOffers.some(
+        (offer) => offer.end > moment().format('YYYY-MM-DD')
     );
     return (
         <>
@@ -161,8 +165,8 @@ const OffersPage = ({
                                                 </div>
                                             ))}
                                     </div>
-
-                                    <div className="banner2 mb30 border-radious5">
+                                    <AdserverIframe />
+                                    {/* <div className="banner2 mb30 border-radious5">
                                         <a
                                             href={banner350x292.link}
                                             target="_blank"
@@ -182,12 +186,13 @@ const OffersPage = ({
                                                     />
                                                 )}
                                         </a>
-                                    </div>
-
-                                    <MostViewTwo
-                                        title="ANGEBOTE"
-                                        latestOffers={latestOffers}
-                                    />
+                                    </div> */}
+                                    {displayOffers && (
+                                        <MostViewTwo
+                                            title="ANGEBOTE"
+                                            latestOffers={latestOffers}
+                                        />
+                                    )}
                                 </div>
 
                                 {/* <div className="col-md-6 col-lg-12">
