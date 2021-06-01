@@ -192,7 +192,7 @@ const PostGalleryTwo = ({
                         <div className="row justify-content-center">
                             <div
                                 id="ads"
-                                className="col-md-6 col-lg-12 d-md-none d-lg-block"
+                                className="col-md-6 col-lg-12 d-md-none d-lg-block  mb20 mt20"
                             >
                                 {/* {adsHome && adsHome.length > 0 && (
                                     <div className="banner2 mb30 mt20 border-radious5">
@@ -212,7 +212,7 @@ const PostGalleryTwo = ({
                                         </a>
                                     </div>
                                 )} */}
-                                <div className="banner2 mb30 mt20 border-radious5 banner_homepage">
+                                <div className="banner2 border-radious5 banner_homepage">
                                     <iframe
                                         title="adserver"
                                         id="a45246e8"
@@ -231,10 +231,6 @@ const PostGalleryTwo = ({
                                             <img
                                                 src="https://adserver.gesundheitsticket.de/revive/www/delivery/avw.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=ab9b30e4"
                                                 alt=""
-                                                style={{
-                                                    borderRadius:
-                                                        '5px !important',
-                                                }}
                                             />
                                         </a>
                                     </iframe>
