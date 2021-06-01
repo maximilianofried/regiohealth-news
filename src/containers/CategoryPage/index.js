@@ -21,6 +21,7 @@ import Metadata from '../../components/Metadata';
 import FontAwesome from '../../components/uiStyle/FontAwesome';
 import { MENU_DESCRIPTION } from '../../utils/constants';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import AdserverIframe from '../../components/AdserverIframe';
 
 const CategoryPage = ({
     fetchArticles,
@@ -162,8 +163,8 @@ const CategoryPage = ({
                                                 </div>
                                             ))}
                                     </div>
-
-                                    <div className="banner2 mb30 border-radious5">
+                                    <AdserverIframe />
+                                    {/* <div className="banner2 mb30 border-radious5">
                                         <a
                                             href={banner350x292.link}
                                             target="_blank"
@@ -183,7 +184,7 @@ const CategoryPage = ({
                                                     />
                                                 )}
                                         </a>
-                                    </div>
+                                    </div> */}
 
                                     <MostViewTwo
                                         title="ANGEBOTE"
