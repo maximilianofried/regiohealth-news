@@ -128,6 +128,7 @@ const CategoryPage = ({
                                     )}
                                 </div>
                                 <div className="col-md-6 col-lg-12">
+                                    <AdserverIframe />
                                     <FollowUs
                                         title="FOLGEN SIE UNS"
                                         className="border-radious5 white_bg padding20 sm-mt30"
@@ -166,7 +167,7 @@ const CategoryPage = ({
                                                 </div>
                                             ))}
                                     </div>
-                                    <AdserverIframe />
+
                                     {/* <div className="banner2 mb30 border-radious5">
                                         <a
                                             href={banner350x292.link}
