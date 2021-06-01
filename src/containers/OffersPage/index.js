@@ -2,41 +2,32 @@ import React, { Fragment, useEffect, useRef, useCallback } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import StickyBox from 'react-sticky-box';
 import {
     fetchArticles,
     fetchArticleHomepage,
-    fetchOffers,
     fetchAds,
     fetchOffersForPageCleanUp,
     fetchOffersForPage,
 } from '../../store/actions';
-import BreadCrumb from '../../components/BreadCrumb';
-import BusinessNews from '../../components/BusinessNews';
 import BusinessNewsTwo from '../../components/BusinessNewsTwo';
 import MostViewTwo from '../../components/MostViewTwo';
 import BannerSection from '../../components/BannerSection';
 import FollowUs from '../../components/FollowUs';
 import Metadata from '../../components/Metadata';
-import FontAwesome from '../../components/uiStyle/FontAwesome';
 import { ANGEBOTE_DESCRIPTION } from '../../utils/constants';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import AdserverIframe from '../../components/AdserverIframe';
 
 const OffersPage = ({
-    fetchArticles,
     fetchOffersForPageCleanUp,
     fetchArticleHomepage,
     fetchOffersForPage,
-    allArticles,
     newsArticles = [],
     latestOffers = [],
     menuName,
     fetchAds,
     adsCategory,
     limit,
-    categories,
 }) => {
     useEffect(() => {
         // window.scrollTo(0, 0);
@@ -127,6 +118,7 @@ const OffersPage = ({
                                     )}
                                 </div>
                                 <div className="col-md-6 col-lg-12">
+                                    <AdserverIframe />
                                     <FollowUs
                                         title="FOLGEN SIE UNS"
                                         className="border-radious5 white_bg padding20 sm-mt30"
@@ -165,7 +157,7 @@ const OffersPage = ({
                                                 </div>
                                             ))}
                                     </div>
-                                    <AdserverIframe />
+
                                     {/* <div className="banner2 mb30 border-radious5">
                                         <a
                                             href={banner350x292.link}
