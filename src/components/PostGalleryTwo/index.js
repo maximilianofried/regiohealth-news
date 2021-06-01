@@ -6,6 +6,7 @@ import FontAwesome from '../uiStyle/FontAwesome';
 import FollowUs from '../FollowUs';
 import NewsLetter from '../Newsletter';
 import BusinessNewsTwo from '../BusinessNewsTwo';
+import AdserverIframe from '../AdserverIframe';
 import MostViewTwo from '../MostViewTwo';
 import big_img from '../../doc/img/header/sider-top3.jpg';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -212,7 +213,8 @@ const PostGalleryTwo = ({
                                         </a>
                                     </div>
                                 )} */}
-                                <div className="banner2 border-radious5 banner_homepage">
+                                <AdserverIframe />
+                                {/* <div className="banner2 border-radious5 banner_homepage">
                                     <iframe
                                         title="adserver"
                                         id="a45246e8"
@@ -234,7 +236,7 @@ const PostGalleryTwo = ({
                                             />
                                         </a>
                                     </iframe>
-                                </div>
+                                </div> */}
                             </div>
                             {displayOffersHomepage && (
                                 <div className="col-md-12 col-lg-12">
