@@ -103,7 +103,7 @@ const OffersPage = ({
                             </button> */}
                             <BannerSection />
                         </div>
-                        <div className="col-lg-3">
+                        <div className="d-lg-block col-lg-3 col-xl-3 px-xl-0">
                             <div className="row justify-content-center">
                                 <div className="col-md-6 col-lg-12 d-md-none d-lg-block">
                                     {banner350x292 && banner350x292.length > 0 && (
