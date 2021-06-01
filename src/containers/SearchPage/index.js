@@ -1,14 +1,7 @@
-import React, {
-    Fragment,
-    useEffect,
-    useState,
-    useRef,
-    useCallback,
-} from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
-import StickyBox from 'react-sticky-box';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import moment from 'moment';
 import {
     fetchGeoData,
     fetchAds,
@@ -17,16 +10,13 @@ import {
     fetchNationalDataCleanUp,
 } from '../../store/actions';
 import GeoDataNews from '../../components/geoDataNews';
-import BreadCrumb from '../../components/BreadCrumb';
 import WidgetSuchPortal from '../../components/WidgetSuchPortal';
 import '@reach/combobox/styles.css';
 import '@reach/listbox/styles.css';
-import BannerSection from '../../components/BannerSection';
-import SearchBox from '../../components/SearchBox';
 import MostViewTwo from '../../components/MostViewTwo';
 import FollowUs from '../../components/FollowUs';
-import FontAwesome from '../../components/uiStyle/FontAwesome';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import AdserverIframe from '../../components/AdserverIframe';
 
 const SearchPage = ({
     fetchGeoData,
@@ -90,6 +80,10 @@ const SearchPage = ({
     );
     const banner350x292 =
         adsCategory.filter((ad) => ad.size === 's350x292')[0] || {};
+
+    const displayOffers = latestOffers.some(
+        (offer) => offer.end > moment().format('YYYY-MM-DD')
+    );
     return (
         <>
             {/* <BreadCrumb title="Suchportal GesundheitsTicket" /> */}
@@ -159,7 +153,8 @@ const SearchPage = ({
                                 {/* <BannerSection /> */}
                             </div>
                         </div>
-                        <div className="col-md-6 col-lg-3">
+                        <div className="d-lg-block col-lg-3 col-xl-3 px-xl-0">
+                            <AdserverIframe />
                             <FollowUs
                                 title="FOLGEN SIE UNS"
                                 className="border-radious5 white_bg padding20 sm-mt30"
@@ -171,7 +166,7 @@ const SearchPage = ({
                                     fetchNationalDataCleanUp
                                 }
                             />
-                            <div className="banner2 mb30 border-radious5  mt30">
+                            {/* <div className="banner2 mb30 border-radious5  mt30">
                                 <a href={banner350x292.link} target="_blank">
                                     {banner350x292.image &&
                                         banner350x292.image.length > 0 && (
@@ -186,11 +181,13 @@ const SearchPage = ({
                                             />
                                         )}
                                 </a>
-                            </div>
-                            <MostViewTwo
-                                title="ANGEBOTE"
-                                latestOffers={latestOffers}
-                            />
+                            </div> */}
+                            {displayOffers && (
+                                <MostViewTwo
+                                    title="ANGEBOTE"
+                                    latestOffers={latestOffers}
+                                />
+                            )}
                             {/* <StickyBox offsetTop={20}>
                                 <div className="banner2 mb30 mt30">
                                     <a
