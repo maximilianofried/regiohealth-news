@@ -73,6 +73,9 @@ const CategoryPage = ({
     const banner350x292 =
         adsCategory.filter((ad) => ad.size === 's350x292')[0] || {};
 
+    const displayOffers = latestOffers.some(
+        (offer) => offer.end > moment().format('YYYY-MM-DD')
+    );
     return (
         <>
             <Metadata
@@ -186,10 +189,12 @@ const CategoryPage = ({
                                         </a>
                                     </div> */}
 
-                                    <MostViewTwo
-                                        title="ANGEBOTE"
-                                        latestOffers={latestOffers}
-                                    />
+                                    {displayOffers && (
+                                        <MostViewTwo
+                                            title="ANGEBOTE"
+                                            latestOffers={latestOffers}
+                                        />
+                                    )}
                                 </div>
 
                                 {/* <div className="col-md-6 col-lg-12">
