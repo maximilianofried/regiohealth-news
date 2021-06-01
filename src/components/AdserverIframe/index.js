@@ -2,7 +2,7 @@ import React from 'react';
 
 const AdserverIframe = () => {
     return (
-        <div className="banner2 border-radious5 banner_homepage mb20">
+        <div className="banner2 border-radious5 banner_homepage mb20 mt20">
             <iframe
                 title="adserver"
                 id="a45246e8"
