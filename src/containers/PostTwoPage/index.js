@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
+import { isMobileOnly } from 'react-device-detect';
 import moment from 'moment';
 import ReactTooltip from 'react-tooltip';
 import ReactMarkdown from 'react-markdown';
@@ -317,7 +318,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                     </div>
                 </div>
                 {/* <div className="space-100"/> */}
-                <AdserverLeaderboard />
+                {!isMobileOnly && <AdserverLeaderboard />}
                 {/* <div className="space-60"/>
             <OurBlogSection/>
             <div className="space-60"/>
