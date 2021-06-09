@@ -81,6 +81,30 @@ const PostGalleryTwo = ({
                             </Link>
                         )}
                         <div className="space-10" />
+                        <div className="banner2 border-radious5 banner_horizontal mb20 mt20">
+                            <iframe
+                                title="adserver-horizontal"
+                                id="a1e14c5e"
+                                name="a1e14c5e"
+                                src="https://adserver.gesundheitsticket.de/revive/www/delivery/afr.php?zoneid=3&amp;cb=INSERT_RANDOM_NUMBER_HERE"
+                                frameBorder="0"
+                                scrolling="no"
+                                width="728"
+                                height="90"
+                                allow="autoplay"
+                            >
+                                <a
+                                    href="https://adserver.gesundheitsticket.de/revive/www/delivery/ck.php?n=a6cfa9ee&amp;cb=INSERT_RANDOM_NUMBER_HERE"
+                                    target="_blank"
+                                >
+                                    <img
+                                        src="https://adserver.gesundheitsticket.de/revive/www/delivery/avw.php?zoneid=3&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a6cfa9ee"
+                                        border="0"
+                                        alt=""
+                                    />
+                                </a>
+                            </iframe>
+                        </div>
                         <BusinessNewsTwo
                             articleLimit={articleLimit}
                             publisherArticles={publisherArticles}
