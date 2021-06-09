@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { isMobileOnly } from 'react-device-detect';
+import { isMobileOnly, isTablet } from 'react-device-detect';
 import moment from 'moment';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import FontAwesome from '../uiStyle/FontAwesome';
@@ -8,6 +8,7 @@ import FollowUs from '../FollowUs';
 import NewsLetter from '../Newsletter';
 import BusinessNewsTwo from '../BusinessNewsTwo';
 import AdserverIframe from '../AdserverIframe';
+import AdserverLeaderboard from '../AdserverLeaderboard';
 import MostViewTwo from '../MostViewTwo';
 import big_img from '../../doc/img/header/sider-top3.jpg';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -23,7 +24,6 @@ const PostGalleryTwo = ({
     const displayOffersHomepage = latestOffers.some(
         (offer) => offer.end > moment().format('YYYY-MM-DD')
     );
-    console.log('isMobile', isMobileOnly);
     return (
         <div className="post_gallary_area theme3_bg mb40 padding-top-30">
             <div className="container">
@@ -83,32 +83,7 @@ const PostGalleryTwo = ({
                             </Link>
                         )}
                         <div className="space-10" />
-                        {!isMobileOnly && (
-                            <div className="banner2 border-radious5 banner_horizontal mb20 mt20">
-                                <iframe
-                                    title="adserver-horizontal"
-                                    id="abadaf92"
-                                    name="abadaf92"
-                                    src="https://adserver.gesundheitsticket.de/revive/www/delivery/afr.php?zoneid=3&amp;cb=INSERT_RANDOM_NUMBER_HERE"
-                                    frameBorder="0"
-                                    scrolling="no"
-                                    width="729"
-                                    height="90"
-                                    allow="autoplay"
-                                >
-                                    <a
-                                        href="https://adserver.gesundheitsticket.de/revive/www/delivery/ck.php?n=ad79cc61&amp;cb=INSERT_RANDOM_NUMBER_HERE"
-                                        target="_blank"
-                                    >
-                                        <img
-                                            src="https://adserver.gesundheitsticket.de/revive/www/delivery/avw.php?zoneid=3&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=ad79cc61"
-                                            border="0"
-                                            alt=""
-                                        />
-                                    </a>
-                                </iframe>
-                            </div>
-                        )}
+                        {!isMobileOnly && <AdserverLeaderboard />}
                         <BusinessNewsTwo
                             articleLimit={articleLimit}
                             publisherArticles={publisherArticles}
@@ -151,7 +126,7 @@ const PostGalleryTwo = ({
                         </div>
                     </div> */}
                     <div className="d-lg-block col-lg-3 col-xl-3 px-xl-0">
-                        <AdserverIframe />
+                        {!isTablet && <AdserverIframe />}
                         <FollowUs
                             title="FOLGEN SIE UNS"
                             className="border-radious5 white_bg padding20 sm-mt30"
