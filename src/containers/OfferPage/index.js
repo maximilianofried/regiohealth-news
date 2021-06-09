@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import moment from 'moment';
 import ReactTooltip from 'react-tooltip';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { isMobileOnly } from 'react-device-detect';
 import { fetchOffer, fetchOfferCleanUp } from '../../store/actions';
 import BreadCrumb from '../../components/BreadCrumb';
 import FontAwesome from '../../components/uiStyle/FontAwesome';
@@ -275,7 +276,7 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                     </div>
                 </div>
                 {/* <div className="space-100"/> */}
-                <AdserverLeaderboard />
+                {!isMobileOnly && <AdserverLeaderboard />}
                 {/* <div className="space-60"/>
             <OurBlogSection/>
             <div className="space-60"/>
