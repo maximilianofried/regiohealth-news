@@ -12,6 +12,7 @@ import singlePost1 from '../../doc/img/blog/single_post1.jpg';
 import Metadata from '../../components/Metadata';
 import { RG_LOGO } from '../../utils/constants';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import AdserverLeaderboard from '../../components/AdserverLeaderboard';
 
 const replaceContent = (data) => {
     let content = data.replace(/href/g, "target='_blank' href");
@@ -274,7 +275,7 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                     </div>
                 </div>
                 {/* <div className="space-100"/> */}
-                <BannerSection />
+                <AdserverLeaderboard />
                 {/* <div className="space-60"/>
             <OurBlogSection/>
             <div className="space-60"/>
