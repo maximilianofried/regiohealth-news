@@ -17,6 +17,7 @@ import Metadata from '../../components/Metadata';
 import { ANGEBOTE_DESCRIPTION } from '../../utils/constants';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import AdserverIframe from '../../components/AdserverIframe';
+import AdserverLeaderboard from '../../components/AdserverLeaderboard';
 
 const OffersPage = ({
     fetchOffersForPageCleanUp,
@@ -92,12 +93,13 @@ const OffersPage = ({
                                 MEHR ANZEIGEN{' '}
                                 <FontAwesome name="angle-double-down" />
                             </button> */}
-                            <BannerSection />
+                            {/* <BannerSection /> */}
+                            <AdserverLeaderboard />
                         </div>
                         <div className="d-lg-block col-lg-3 col-xl-3 px-xl-0">
                             <div className="row justify-content-center">
                                 <div className="col-md-6 col-lg-12 d-md-none d-lg-block">
-                                    {banner350x292 && banner350x292.length > 0 && (
+                                    {/* {banner350x292 && banner350x292.length > 0 && (
                                         <div className="banner2 mb30 mt20 border-radious5">
                                             <a
                                                 target="_blank"
@@ -115,7 +117,7 @@ const OffersPage = ({
                                                 />
                                             </a>
                                         </div>
-                                    )}
+                                    )} */}
                                 </div>
                                 <div className="col-md-6 col-lg-12">
                                     <AdserverIframe />

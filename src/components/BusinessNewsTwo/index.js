@@ -23,7 +23,10 @@ const BusinessNewsTwo = ({ publisherArticles = [], articleLimit, offer }) => {
                                         item.slug
                                     }
                                 >
-                                    {item ? (
+                                    {item &&
+                                    item.main_image &&
+                                    item.main_image.formats &&
+                                    item.main_image.formats.small ? (
                                         <img
                                             className="lazyLoad border-radious5"
                                             src={
