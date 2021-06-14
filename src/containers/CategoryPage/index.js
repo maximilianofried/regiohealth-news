@@ -22,6 +22,7 @@ import FontAwesome from '../../components/uiStyle/FontAwesome';
 import { MENU_DESCRIPTION } from '../../utils/constants';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import AdserverIframe from '../../components/AdserverIframe';
+import AdserverLeaderboard from '../../components/AdserverLeaderboard';
 
 const CategoryPage = ({
     fetchArticles,
@@ -103,7 +104,7 @@ const CategoryPage = ({
                                 MEHR ANZEIGEN{' '}
                                 <FontAwesome name="angle-double-down" />
                             </button> */}
-                            <BannerSection />
+                            <AdserverLeaderboard />
                         </div>
                         <div className="d-lg-block col-lg-3 col-xl-3 px-xl-0">
                             <div className="row justify-content-center">
