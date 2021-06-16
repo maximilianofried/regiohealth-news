@@ -69,6 +69,14 @@ const BusinessNewsTwo = ({ publisherArticles = [], articleLimit, offer }) => {
                                                 {moment(item.publishAt).format(
                                                     'LL'
                                                 )}
+
+                                                {offer && item.company
+                                                    ? `, ${item.company}`
+                                                    : ''}
+
+                                                {offer && item.postalCode
+                                                    ? `, ${item.postalCode}`
+                                                    : ''}
                                             </p>
                                         </div>
                                     </div>
