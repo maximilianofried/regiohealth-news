@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useRef, useCallback } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import { isMobileOnly } from 'react-device-detect';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import StickyBox from 'react-sticky-box';
 import {
@@ -104,7 +105,7 @@ const CategoryPage = ({
                                 MEHR ANZEIGEN{' '}
                                 <FontAwesome name="angle-double-down" />
                             </button> */}
-                            <AdserverLeaderboard />
+                            {!isMobileOnly && <AdserverLeaderboard />}
                         </div>
                         <div className="d-lg-block col-lg-3 col-xl-3 px-xl-0">
                             <div className="row justify-content-center">
