@@ -49,7 +49,7 @@ const CategoryPage = ({
         fetchAds();
 
         return () => {
-            fetchArticlesCleanUp();
+            if (stateArticles.articles.length > 0) fetchArticlesCleanUp();
         };
     }, []);
     const observer = useRef();

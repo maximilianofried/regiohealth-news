@@ -38,7 +38,7 @@ const OffersPage = ({
         // fetchArticles({ categories, start: 0, limit: 4 });
         if (adsCategory.length === 0) fetchAds();
         return () => {
-            fetchOffersForPageCleanUp();
+            if (latestOffers.length > 0) fetchOffersForPageCleanUp();
         };
     }, []);
     const banner350x292 =

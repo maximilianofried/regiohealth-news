@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import { Spinner } from 'reactstrap';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import FontAwesome from '../uiStyle/FontAwesome';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -8,8 +9,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 const BusinessNewsTwo = ({ publisherArticles = [], articleLimit, offer }) => {
     return (
         <div className="business3 padding20 white_bg border-radious5">
-            {publisherArticles &&
-                publisherArticles.length > 0 &&
+            {publisherArticles && publisherArticles.length > 0 ? (
                 publisherArticles.slice(0, articleLimit).map((item, i) => (
                     <div
                         key={item.id}
@@ -118,7 +118,14 @@ const BusinessNewsTwo = ({ publisherArticles = [], articleLimit, offer }) => {
                             </div>
                         )}
                     </div>
-                ))}
+                ))
+            ) : (
+                <Spinner
+                    className="spinner_custom"
+                    animation="border"
+                    variant="success"
+                />
+            )}
             {/* <Link to="/" className="showmore">
                 Show more
             </Link> */}
