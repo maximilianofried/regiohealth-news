@@ -25,11 +25,6 @@ const PostGalleryTwo = ({
         (offer) => offer.end > moment().format('YYYY-MM-DD')
     );
 
-    const iframe = document.getElementById('a64f1ca8');
-    iframe.addEventListener('load', function () {
-        console.log('Finish');
-    });
-
     return (
         <div className="post_gallary_area theme3_bg mb40 padding-top-30">
             <div className="container">
