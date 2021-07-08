@@ -24,6 +24,13 @@ const replaceContent = (data) => {
     return content;
 };
 
+const addhttp = (url) => {
+    if (!/^(?:f|ht)tps?\:\/\//.test(url)) {
+        url = `http://${url}`;
+    }
+    return url;
+};
+
 const getMetaDescription = (description, categories) => {
     let metaDescription = '';
     if (description) {
@@ -142,7 +149,10 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                                 href={
                                                     offer.profile &&
                                                     offer.profile.website
-                                                        ? offer.profile.website
+                                                        ? addhttp(
+                                                              offer.profile
+                                                                  .website
+                                                          )
                                                         : '#'
                                                 }
                                             >
