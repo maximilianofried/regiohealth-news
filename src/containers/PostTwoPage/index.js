@@ -24,6 +24,13 @@ const replaceContent = (data) => {
     return content;
 };
 
+const addhttp = (url) => {
+    if (!/^(?:f|ht)tps?\:\/\//.test(url)) {
+        url = `http://${url}`;
+    }
+    return url;
+};
+
 const transform = (data) => {
     const imageLink = `${process.env.REACT_APP_CMS_URL + data}`;
     return imageLink;
@@ -66,6 +73,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const article = articleData.article || null;
+    console.log(article);
     return (
         article && (
             <>
@@ -156,8 +164,10 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                                 href={
                                                     article.profile &&
                                                     article.profile.website
-                                                        ? article.profile
-                                                              .website
+                                                        ? addhttp(
+                                                              article.profile
+                                                                  .website
+                                                          )
                                                         : '#'
                                                 }
                                             >
