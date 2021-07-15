@@ -13,7 +13,6 @@ const AdserverIframe = () => {
                 width="308"
                 height="257"
                 allow="autoplay"
-                className="iframe_style"
             >
                 <a
                     href="https://adserver.gesundheitsticket.de/revive/www/delivery/ck.php?n=a75df846&amp;cb=INSERT_RANDOM_NUMBER_HERE"
