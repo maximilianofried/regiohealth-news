@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { isMobileOnly, isTablet } from 'react-device-detect';
 import moment from 'moment';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import StickyBox from 'react-sticky-box';
 import FontAwesome from '../uiStyle/FontAwesome';
 import FollowUs from '../FollowUs';
 import NewsLetter from '../Newsletter';
@@ -127,80 +128,84 @@ const PostGalleryTwo = ({
                         </div>
                     </div> */}
                     <div className="d-lg-block col-lg-3 col-xl-3 px-xl-0">
-                        {!isTablet && <AdserverIframe />}
-                        <FollowUs
-                            title="FOLGEN SIE UNS"
-                            className="border-radious5 white_bg padding20 sm-mt30"
-                        />
-                        <div className="white_bg padding15 border-radious5 sm-mt30">
-                            <div>
-                                <h2 className="widget-title">News</h2>
-                                <div className="space-20" />
-                                {newsArticles &&
-                                    newsArticles.slice(0, 4).map((item, i) => (
-                                        <div
-                                            key={item.id}
-                                            className="single_post widgets_small type8 type17"
-                                        >
-                                            <div className="post_img">
-                                                <div className="img_wrap_2">
-                                                    <Link
-                                                        to={`/article/${item.slug}`}
-                                                    >
-                                                        <img
-                                                            className="lazyLoad crop_image"
-                                                            src={
-                                                                item.main_image
-                                                                    ? `${
-                                                                          process
-                                                                              .env
-                                                                              .REACT_APP_CMS_URL +
-                                                                          item
-                                                                              .main_image
-                                                                              .formats
-                                                                              .thumbnail
-                                                                              .url
-                                                                      }`
-                                                                    : big_img
-                                                            }
-                                                            alt="thumb"
-                                                            effect="blur"
-                                                        />
-                                                    </Link>
+                        <StickyBox>
+                            {!isTablet && <AdserverIframe />}
+                            <FollowUs
+                                title="FOLGEN SIE UNS"
+                                className="border-radious5 white_bg padding20 sm-mt30"
+                            />
+                            <div className="white_bg padding15 border-radious5 sm-mt30">
+                                <div>
+                                    <h2 className="widget-title">News</h2>
+                                    <div className="space-20" />
+                                    {newsArticles &&
+                                        newsArticles
+                                            .slice(0, 4)
+                                            .map((item, i) => (
+                                                <div
+                                                    key={item.id}
+                                                    className="single_post widgets_small type8 type17"
+                                                >
+                                                    <div className="post_img">
+                                                        <div className="img_wrap_2">
+                                                            <Link
+                                                                to={`/article/${item.slug}`}
+                                                            >
+                                                                <img
+                                                                    className="lazyLoad crop_image"
+                                                                    src={
+                                                                        item.main_image
+                                                                            ? `${
+                                                                                  process
+                                                                                      .env
+                                                                                      .REACT_APP_CMS_URL +
+                                                                                  item
+                                                                                      .main_image
+                                                                                      .formats
+                                                                                      .thumbnail
+                                                                                      .url
+                                                                              }`
+                                                                            : big_img
+                                                                    }
+                                                                    alt="thumb"
+                                                                    effect="blur"
+                                                                />
+                                                            </Link>
+                                                        </div>
+                                                    </div>
+                                                    <div className="single_post_text">
+                                                        <h4>
+                                                            <Link
+                                                                to={`/article/${item.slug}`}
+                                                            >
+                                                                {item.title}
+                                                            </Link>
+                                                        </h4>
+                                                        <div className="meta4">
+                                                            <p>
+                                                                {moment(
+                                                                    item.publishAt
+                                                                ).format('LL')}
+                                                            </p>
+                                                        </div>
+                                                        {i + 1 <
+                                                        newsArticles.length ? (
+                                                            <>
+                                                                <div className="space-20" />
+                                                                {/* <div className="border_black" /> */}
+                                                            </>
+                                                        ) : null}
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="single_post_text">
-                                                <h4>
-                                                    <Link
-                                                        to={`/article/${item.slug}`}
-                                                    >
-                                                        {item.title}
-                                                    </Link>
-                                                </h4>
-                                                <div className="meta4">
-                                                    <p>
-                                                        {moment(
-                                                            item.publishAt
-                                                        ).format('LL')}
-                                                    </p>
-                                                </div>
-                                                {i + 1 < newsArticles.length ? (
-                                                    <>
-                                                        <div className="space-20" />
-                                                        {/* <div className="border_black" /> */}
-                                                    </>
-                                                ) : null}
-                                            </div>
-                                        </div>
-                                    ))}
+                                            ))}
+                                </div>
                             </div>
-                        </div>
-                        <div className="row justify-content-center">
-                            <div
-                                id="ads"
-                                className="col-md-6 col-lg-12 d-md-none d-lg-block  mb20 mt20"
-                            >
-                                {/* {adsHome && adsHome.length > 0 && (
+                            <div className="row justify-content-center">
+                                <div
+                                    id="ads"
+                                    className="col-md-6 col-lg-12 d-md-none d-lg-block  mb20 mt20"
+                                >
+                                    {/* {adsHome && adsHome.length > 0 && (
                                     <div className="banner2 mb30 mt20 border-radious5">
                                         <a
                                             target="_blank"
@@ -219,7 +224,7 @@ const PostGalleryTwo = ({
                                     </div>
                                 )} */}
 
-                                {/* <div className="banner2 border-radious5 banner_homepage">
+                                    {/* <div className="banner2 border-radious5 banner_homepage">
                                     <iframe
                                         title="adserver"
                                         id="a45246e8"
@@ -242,17 +247,17 @@ const PostGalleryTwo = ({
                                         </a>
                                     </iframe>
                                 </div> */}
-                            </div>
-                            {displayOffersHomepage && (
-                                <div className="col-md-12 col-lg-12">
-                                    <MostViewTwo
-                                        title="ANGEBOTE"
-                                        latestOffers={latestOffers}
-                                    />
                                 </div>
-                            )}
-                        </div>
-                        {/* <div className="single_post post_type3 post_type15 mb30 border-radious5 sm-mt30">
+                                {displayOffersHomepage && (
+                                    <div className="col-md-12 col-lg-12">
+                                        <MostViewTwo
+                                            title="ANGEBOTE"
+                                            latestOffers={latestOffers}
+                                        />
+                                    </div>
+                                )}
+                            </div>
+                            {/* <div className="single_post post_type3 post_type15 mb30 border-radious5 sm-mt30">
                             <div className="post_img">
                                 <div className="img_wrap">
                                     <Link to="/">
@@ -283,6 +288,7 @@ const PostGalleryTwo = ({
                                 </div>
                             </div>
                         </div> */}
+                        </StickyBox>
                     </div>
                 </div>
             </div>
