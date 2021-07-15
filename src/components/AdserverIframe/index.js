@@ -1,9 +1,6 @@
 import React from 'react';
 
 const AdserverIframe = () => {
-    const style = {
-        postion: 'sticky',
-    };
     return (
         <div className="banner2 border-radious5 banner_homepage mb20 mt20 mt-lg-0">
             <iframe
@@ -16,7 +13,7 @@ const AdserverIframe = () => {
                 width="308"
                 height="257"
                 allow="autoplay"
-                style={style}
+                className="iframe_style"
             >
                 <a
                     href="https://adserver.gesundheitsticket.de/revive/www/delivery/ck.php?n=a75df846&amp;cb=INSERT_RANDOM_NUMBER_HERE"
