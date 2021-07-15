@@ -128,7 +128,7 @@ const PostGalleryTwo = ({
                         </div>
                     </div> */}
                     <div className="d-lg-block col-lg-3 col-xl-3 px-xl-0">
-                        <StickyBox>
+                        <StickyBox offsetTop={20}>
                             {!isTablet && <AdserverIframe />}
                             <FollowUs
                                 title="FOLGEN SIE UNS"
