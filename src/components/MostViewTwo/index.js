@@ -48,7 +48,7 @@ const MostViewTwo = ({ title, latestOffers }) => {
                                         {item.main_image ? (
                                             <Link to={`/offer/${item.slug}`}>
                                                 <img
-                                                    className="lazyLoad cropimage"
+                                                    className="lazyLoad crop_image"
                                                     src={
                                                         process.env
                                                             .REACT_APP_CMS_URL +
@@ -65,7 +65,7 @@ const MostViewTwo = ({ title, latestOffers }) => {
                                         ) : (
                                             <Link to={`/offer/${item.slug}`}>
                                                 <img
-                                                    className="lazyLoad cropimage"
+                                                    className="lazyLoad crop_image"
                                                     src={
                                                         rgOfferPlaceholderThumbnail
                                                     }
