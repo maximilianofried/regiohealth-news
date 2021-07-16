@@ -1,9 +1,11 @@
+/* eslint-disable no-nested-ternary */
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import { Spinner } from 'reactstrap';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import FontAwesome from '../uiStyle/FontAwesome';
+import rgOfferPlaceholderSmall from '../../doc/img/dummy_small.png';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const BusinessNewsTwo = ({ publisherArticles = [], articleLimit, offer }) => {
@@ -39,8 +41,17 @@ const BusinessNewsTwo = ({ publisherArticles = [], articleLimit, offer }) => {
                                                           item.main_image
                                                               .formats.small.url
                                                       }`
+                                                    : offer
+                                                    ? rgOfferPlaceholderSmall
                                                     : ''
                                             }
+                                            alt="thumb"
+                                            effect="blur"
+                                        />
+                                    ) : offer ? (
+                                        <img
+                                            className="lazyLoad border-radious5"
+                                            src={rgOfferPlaceholderSmall}
                                             alt="thumb"
                                             effect="blur"
                                         />
