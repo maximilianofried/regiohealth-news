@@ -6,6 +6,7 @@ import moment from 'moment';
 import Swiper from 'react-id-swiper';
 import FontAwesome from '../uiStyle/FontAwesome';
 import { mostViewSort } from '../../utils/commonFunctions';
+import rgOfferPlaceholderThumbnail from '../../doc/img/dummy_thumbnail.png';
 
 const MostViewTwo = ({ title, latestOffers }) => {
     // const [swiper, setSwiper] = useState(null);
@@ -29,13 +30,14 @@ const MostViewTwo = ({ title, latestOffers }) => {
     return (
         <div className="most_widget3 padding20 white_bg border-radious5 mb30 sm-mt30">
             <div className="heading">
-                <h2 className="widget-title">{title || 'Most View'}</h2>
+                <h2 className="widget-title">{title || ''}</h2>
             </div>
             <div className="space-20" />
             <div className="post_type2_carousel multipleRowCarousel pt12_wrapper nav_style1">
                 {/* CAROUSEL START */}
                 {latestOffers.map((item, i) => {
-                    if (item.end > moment().format('YYYY-MM-DD'))
+                    if (item.end > moment().format('YYYY-MM-DD')) {
+                        console.log('##', item);
                         return (
                             <div
                                 key={item.id}
@@ -43,7 +45,7 @@ const MostViewTwo = ({ title, latestOffers }) => {
                             >
                                 <div className="post_img">
                                     <div className="img_wrap_2">
-                                        {item.main_image && (
+                                        {item.main_image ? (
                                             <Link to={`/offer/${item.slug}`}>
                                                 <img
                                                     className="lazyLoad cropimage"
@@ -60,6 +62,14 @@ const MostViewTwo = ({ title, latestOffers }) => {
                                                     alt="thumb"
                                                 />
                                             </Link>
+                                        ) : (
+                                            <img
+                                                className="lazyLoad cropimage"
+                                                src={
+                                                    rgOfferPlaceholderThumbnail
+                                                }
+                                                alt="thumb"
+                                            />
                                         )}
                                     </div>
                                 </div>
@@ -80,6 +90,7 @@ const MostViewTwo = ({ title, latestOffers }) => {
                                 </div>
                             </div>
                         );
+                    }
                     return '';
                 })}
                 {/* <div className="navBtns">
