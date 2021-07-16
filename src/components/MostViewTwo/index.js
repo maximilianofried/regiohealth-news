@@ -63,13 +63,15 @@ const MostViewTwo = ({ title, latestOffers }) => {
                                                 />
                                             </Link>
                                         ) : (
-                                            <img
-                                                className="lazyLoad cropimage"
-                                                src={
-                                                    rgOfferPlaceholderThumbnail
-                                                }
-                                                alt="thumb"
-                                            />
+                                            <Link to={`/offer/${item.slug}`}>
+                                                <img
+                                                    className="lazyLoad cropimage"
+                                                    src={
+                                                        rgOfferPlaceholderThumbnail
+                                                    }
+                                                    alt="thumb"
+                                                />
+                                            </Link>
                                         )}
                                     </div>
                                 </div>
