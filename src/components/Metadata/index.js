@@ -26,7 +26,11 @@ const Metadata = ({
             <meta property="og:url" content={urlLowerCase} />
             <meta property="og:type" content="article" />
             <meta property="og:site_name" content="Regio Health News" />
-            <meta property="og:image" itemProp="image" content={image} />
+            <meta
+                property="og:image:secure_url"
+                itemProp="image"
+                content={image}
+            />
             <meta
                 property="og:image:type"
                 content={`image/${imageExtension}`}
