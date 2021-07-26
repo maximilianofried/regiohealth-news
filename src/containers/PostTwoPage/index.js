@@ -84,9 +84,13 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                         article.categories
                     )}
                     image={
-                        article.main_image
+                        // eslint-disable-next-line no-nested-ternary
+                        article.main_image.formats.medium
                             ? process.env.REACT_APP_CMS_URL +
-                              article.main_image.url
+                              article.main_image.formats.medium.url
+                            : article.main_image
+                            ? process.env.REACT_APP_CMS_URL +
+                              article.main_imageurl
                             : ''
                     }
                     imageSize={
