@@ -31,6 +31,7 @@ const Metadata = ({
                 itemProp="image"
                 content={image}
             />
+            <meta property="og:image" itemProp="image" content={image} />
             <meta
                 property="og:image:type"
                 content={`image/${imageExtension}`}
