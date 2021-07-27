@@ -130,10 +130,7 @@ const SearchPage = ({
                                         </div>
                                     </div>
                                 )} */}
-                                <div
-                                    ref={lastElementRef}
-                                    className="space-20"
-                                />
+                                <div className="space-20" />
                                 {/* {geoData && geoData.length > 0 && (
                                     <div className="row">
                                         <div className="col-12">
@@ -214,7 +211,7 @@ const SearchPage = ({
                     </div>
                 </div>
             </div>
-            <div className="space-40" />
+            <div ref={lastElementRef} className="space-40" />
         </>
     );
 };
