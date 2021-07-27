@@ -6,7 +6,7 @@ import {
 
 const initialState = {
     place: '',
-    type: 'article',
+    type: 'alle',
     keyword: '',
 };
 
