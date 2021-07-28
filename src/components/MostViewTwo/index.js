@@ -37,7 +37,6 @@ const MostViewTwo = ({ title, latestOffers }) => {
                 {/* CAROUSEL START */}
                 {latestOffers.map((item, i) => {
                     if (item.end > moment().format('YYYY-MM-DD')) {
-                        console.log('##', item);
                         return (
                             <div
                                 key={item.id}

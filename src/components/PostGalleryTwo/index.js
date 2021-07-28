@@ -2,11 +2,8 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { isMobileOnly, isTablet } from 'react-device-detect';
 import moment from 'moment';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import StickyBox from 'react-sticky-box';
-import FontAwesome from '../uiStyle/FontAwesome';
 import FollowUs from '../FollowUs';
-import NewsLetter from '../Newsletter';
 import BusinessNewsTwo from '../BusinessNewsTwo';
 import AdserverIframe from '../AdserverIframe';
 import AdserverLeaderboard from '../AdserverLeaderboard';
@@ -19,10 +16,8 @@ const PostGalleryTwo = ({
     newsArticles,
     articleLimit,
     publisherArticles,
-    adsHome,
     latestOffers,
 }) => {
-    console.log('main', mainArticle);
     const displayOffersHomepage = latestOffers.some(
         (offer) => offer.end > moment().format('YYYY-MM-DD')
     );
