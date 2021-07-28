@@ -36,7 +36,9 @@ export const fetchOffer = (slug) => {
     return (dispatch) => {
         dispatch(fetchOfferRequest);
         axios
-            .get(`${process.env.REACT_APP_CMS_URL}/offers/published/${slug}`)
+            .get(
+                `${process.env.REACT_APP_CMS_URL}/contents/published-by-slug/${slug}`
+            )
             .then((response) => {
                 const offer = response.data;
                 dispatch(fetchOfferSuccess(offer));

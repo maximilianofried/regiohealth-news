@@ -22,6 +22,7 @@ const PostGalleryTwo = ({
     adsHome,
     latestOffers,
 }) => {
+    console.log('main', mainArticle);
     const displayOffersHomepage = latestOffers.some(
         (offer) => offer.end > moment().format('YYYY-MM-DD')
     );
@@ -154,7 +155,10 @@ const PostGalleryTwo = ({
                                                                 <img
                                                                     className="lazyLoad crop_image"
                                                                     src={
-                                                                        item.main_image
+                                                                        item.main_image &&
+                                                                        item
+                                                                            .main_image
+                                                                            .formats
                                                                             ? `${
                                                                                   process
                                                                                       .env

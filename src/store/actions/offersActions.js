@@ -80,7 +80,7 @@ export const fetchOffers = ({
         );
         const url = `${
             process.env.REACT_APP_CMS_URL
-        }/offers/published?_sort=publishAt:DESC${
+        }/contents/published?_sort=publishAt:DESC&type=offer${
             categories ? `&${query}` : ''
         }${city ? `&city=${city}` : ''}${start ? `&_start=${start}` : ''}${
             limit ? `&_limit=${limit}` : ''
@@ -121,7 +121,7 @@ export const fetchOffersForPage = ({
         );
         const url = `${
             process.env.REACT_APP_CMS_URL
-        }/offers/published?_sort=publishAt:DESC${
+        }/contents/published?_sort=publishAt:DESC&type=offer${
             categories ? `&${query}` : ''
         }${city ? `&city=${city}` : ''}${start ? `&_start=${start}` : ''}${
             limit ? `&_limit=${limit}` : ''

@@ -276,7 +276,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                             source={article.content}
                                         />
                                     )}
-                                    {article.bodyIsHtml && (
+                                    {article.bodyIsHtml && article.content && (
                                         <div
                                             // eslint-disable-next-line react/no-danger
                                             dangerouslySetInnerHTML={{

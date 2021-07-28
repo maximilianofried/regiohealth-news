@@ -38,7 +38,7 @@ export const fetchArticle = (slug) => {
         dispatch(fetchArticleRequest);
         axios
             .get(
-                `${process.env.REACT_APP_CMS_URL}/articles/published-by-slug/${slug}`
+                `${process.env.REACT_APP_CMS_URL}/contents/published-by-slug/${slug}`
             )
             .then((response) => {
                 const article = response.data;
