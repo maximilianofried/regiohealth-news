@@ -73,7 +73,6 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const article = articleData.article || null;
-    console.log(article);
     return (
         article && (
             <>
@@ -85,7 +84,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                     )}
                     image={
                         // eslint-disable-next-line no-nested-ternary
-                        article.main_image.formats.medium
+                        article.main_image && article.main_image.formats.medium
                             ? process.env.REACT_APP_CMS_URL +
                               article.main_image.formats.medium.url
                             : article.main_image
@@ -276,7 +275,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                             source={article.content}
                                         />
                                     )}
-                                    {article.bodyIsHtml && (
+                                    {article.bodyIsHtml && article.content && (
                                         <div
                                             // eslint-disable-next-line react/no-danger
                                             dangerouslySetInnerHTML={{
