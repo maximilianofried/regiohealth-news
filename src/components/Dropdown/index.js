@@ -30,7 +30,7 @@ const Dropdown = ({ menus }) => {
                     {item.linkText === 'angebote' ? (
                         <img
                             className="angebote-icon"
-                            src="https://strapi-sandbox.gesundheitsticket.de/uploads/icon_app_7bc6820dc7.png"
+                            src="https://cms.gesundheitsticket.de/uploads/icon_app_25b83c377e.png"
                             alt="author2"
                             //   effect="blur"
                         />

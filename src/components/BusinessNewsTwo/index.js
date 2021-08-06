@@ -85,8 +85,8 @@ const BusinessNewsTwo = ({ publisherArticles = [], articleLimit, offer }) => {
                                                     ? `, ${item.company}`
                                                     : ''}
 
-                                                {offer && item.postalCode
-                                                    ? `, ${item.postalCode}`
+                                                {offer && item.region
+                                                    ? `, ${item.region}`
                                                     : ''}
                                             </p>
                                         </div>
