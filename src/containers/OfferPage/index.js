@@ -144,24 +144,35 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                                         </div>
                                                     </div>
                                                 )}
-                                            <a
-                                                target="_blank"
-                                                href={
-                                                    offer.profile &&
-                                                    offer.profile.website
-                                                        ? addhttp(
-                                                              offer.profile
-                                                                  .website
-                                                          )
-                                                        : '#'
-                                                }
-                                            >
-                                                {offer.author}
-                                                {offer.profile &&
-                                                offer.profile.company
-                                                    ? ` / ${offer.profile.company}`
-                                                    : ''}
-                                            </a>
+                                            {offer.profile &&
+                                            offer.profile.website ? (
+                                                <a
+                                                    target="_blank"
+                                                    href={
+                                                        offer.profile &&
+                                                        offer.profile.website
+                                                            ? addhttp(
+                                                                  offer.profile
+                                                                      .website
+                                                              )
+                                                            : '#'
+                                                    }
+                                                >
+                                                    {offer.author}
+                                                    {offer.profile &&
+                                                    offer.profile.company
+                                                        ? ` / ${offer.profile.company}`
+                                                        : ''}
+                                                </a>
+                                            ) : (
+                                                <p className="company-no-link">
+                                                    {offer.author}
+                                                    {offer.profile &&
+                                                    offer.profile.company
+                                                        ? ` / ${offer.profile.company}`
+                                                        : ''}
+                                                </p>
+                                            )}
                                             <ul>
                                                 <li>
                                                     {moment(
@@ -224,8 +235,8 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                     <ul>
                                         {offer.price && (
                                             <li>
-                                                Preis:
-                                                {offer.price}
+                                                Preis: {offer.price}
+                                                {' €'}
                                             </li>
                                         )}
                                         {offer.start && (
@@ -241,6 +252,9 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                                 Ende:{' '}
                                                 {moment(offer.end).format('LL')}
                                             </li>
+                                        )}
+                                        {offer.region && (
+                                            <li>Bundesland: {offer.region}</li>
                                         )}
                                     </ul>
                                 </div>

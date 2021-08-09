@@ -162,24 +162,37 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                                         </div>
                                                     </div>
                                                 )}
-                                            <a
-                                                target="_blank"
-                                                href={
-                                                    article.profile &&
-                                                    article.profile.website
-                                                        ? addhttp(
-                                                              article.profile
-                                                                  .website
-                                                          )
-                                                        : '#'
-                                                }
-                                            >
-                                                {article.author}
-                                                {article.profile &&
-                                                article.profile.company
-                                                    ? ` / ${article.profile.company}`
-                                                    : ''}
-                                            </a>
+                                            {article.profile &&
+                                            article.profile.website ? (
+                                                <a
+                                                    target="_blank"
+                                                    href={
+                                                        article.profile &&
+                                                        article.profile.website
+                                                            ? addhttp(
+                                                                  article
+                                                                      .profile
+                                                                      .website
+                                                              )
+                                                            : '#'
+                                                    }
+                                                >
+                                                    {article.author}
+                                                    {article.profile &&
+                                                    article.profile.company
+                                                        ? ` / ${article.profile.company}`
+                                                        : ''}
+                                                </a>
+                                            ) : (
+                                                <p className="company-no-link">
+                                                    {' '}
+                                                    {article.author}
+                                                    {article.profile &&
+                                                    article.profile.company
+                                                        ? ` / ${article.profile.company}`
+                                                        : ''}
+                                                </p>
+                                            )}
                                             <ul>
                                                 <li>
                                                     {moment(
