@@ -20,7 +20,7 @@
         "express": "^4.17.1",
         "font-awesome": "^4.7.0",
         "moment": "^2.27.0",
-        "node-sass": "^4.14.1",
+        "node-sass": "4.14.1",
         "path": "^0.12.7",
         "prop-types": "^15.7.2",
         "qs": "^6.9.4",
@@ -50,10 +50,11 @@
         "use-places-autocomplete": "^1.5.0"
     },
     "scripts": {
-        "start": "HTTPS=true SSL_CRT_FILE=./.cert/cert.pem SSL_KEY_FILE=./.cert/key.pem react-scripts start",
+        "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "prestart": "rm ./node_modules/webpack-dev-server/ssl/server.pem && cp -f ./ssl/server.pem ./node_modules/webpack-dev-server/ssl"
     },
     "eslintConfig": {
         "extends": "react-app"
