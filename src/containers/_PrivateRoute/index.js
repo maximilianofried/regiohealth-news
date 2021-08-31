@@ -13,26 +13,9 @@ const PrivateRoute = (props) => {
     const { component: Component, ...rest } = props;
     return (
         <div className={props.parentClass}>
-            {props.home_style === 2 ? (
-                <>
-                    {/*= == home two === */}
-                    {/* <TopBarTwo /> */}
-                    <div className="border_black" />
-                    <LogoAreaTwo />
-                    <MainMenuTwo />
-                </>
-            ) : (
-                <>
-                    <LogoArea className="white_bg" />
-                    <div className="border_black" />
-                    <MainMenu />
-                    <div className="border_black" />
-                    <div className="space-15" />
-                    <TopBar className="white_bg" />
-                    <div className="space-15" />
-                    <div className="border_black" />
-                </>
-            )}
+            <div className="border_black" />
+            <LogoAreaTwo />
+            <MainMenuTwo />
 
             <Route {...rest} render={(props) => <Component {...props} />} />
             <FooterArea />
