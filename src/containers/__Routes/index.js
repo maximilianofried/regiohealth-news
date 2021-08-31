@@ -102,7 +102,7 @@ const Routes = ({ menuData, pages }) => {
             <PrivateRoute
                 exact
                 path="/cookie-declaration"
-                parentClass="theme-1"
+                parentClass="theme-3 theme3_bg"
                 component={CookieDeclarationPage}
             />
             <Route exact component={NotFoundPage} />
