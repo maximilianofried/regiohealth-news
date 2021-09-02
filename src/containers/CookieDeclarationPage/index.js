@@ -26,21 +26,31 @@ const CookieDeclarationPage = ({ fetchPage, page, name }) => {
                 description={name}
                 url={`${process.env.REACT_APP_BASE_PAGE_URL}/${name}`}
             />
-            <div id="cookiefirst-policy-page" />
-            <div>
-                This cookie policy has been created and updated by{' '}
-                <a href="https://cookiefirst.com">CookieFirst.com</a>.
-            </div>
+            <div className="container">
+                <div className="row">
+                    <div className="col-12">
+                        <div id="cookiefirst-policy-page" />
+                        <div>
+                            This cookie policy has been created and updated by{' '}
+                            <a href="https://cookiefirst.com">
+                                CookieFirst.com
+                            </a>
+                            .
+                        </div>
 
-            <div className="space-70" />
+                        <div className="space-70" />
 
-            <div id="cookiefirst-cookies-table" />
-            <div>
-                This cookie table has been created and updated by the{' '}
-                <a href="https://cookiefirst.com">
-                    CookieFirst consent management platform
-                </a>
-                .
+                        <div id="cookiefirst-cookies-table" />
+                        <div>
+                            This cookie table has been created and updated by
+                            the{' '}
+                            <a href="https://cookiefirst.com">
+                                CookieFirst consent management platform
+                            </a>
+                            .
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <BannerSection />
