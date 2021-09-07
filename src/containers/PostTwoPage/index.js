@@ -55,6 +55,7 @@ const getMetaDescription = (description, categories) => {
 };
 
 const getMeta = (url, width, setWidth, height, setHeight) => {
+    console.log('###', url);
     const img = new Image();
     img.addEventListener('load', function () {
         setWidth(this.naturalWidth);
@@ -73,6 +74,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const article = articleData.article || null;
+    console.log('@@@@', article);
     return (
         article && (
             <>
@@ -89,7 +91,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                               article.main_image.formats.medium.url
                             : article.main_image
                             ? process.env.REACT_APP_CMS_URL +
-                              article.main_imageurl
+                              article.main_image.url
                             : ''
                     }
                     imageSize={
