@@ -1,24 +1,8 @@
-import React, { Fragment, useEffect } from 'react';
-import { connect } from 'react-redux';
-import BreadCrumb from '../../components/BreadCrumb';
+import React from 'react';
 import BannerSection from '../../components/BannerSection';
-import { fetchPage } from '../../store/actions';
 import Metadata from '../../components/Metadata';
 
-const CookieDeclarationPage = ({ fetchPage, page, name }) => {
-    // useEffect(() => {
-    //     const script = document.createElement('script');
-    //     script.id = 'CookieDeclaration';
-    //     script.src =
-    //         'https://consent.cookiebot.com/8fa59645-db52-4940-913b-5e5a06a99e9f/cd.js';
-    //     script.type = 'text/javascript';
-    //     script.async = true;
-    //     const div = document.getElementsByClassName('author_about')[0];
-    //     div.appendChild(script);
-    //     return () => {
-    //         div.removeChild(script);
-    //     };
-    // }, []);
+const CookieDeclarationPage = ({ name }) => {
     return (
         <>
             <Metadata

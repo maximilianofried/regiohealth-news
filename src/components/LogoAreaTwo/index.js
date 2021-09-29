@@ -5,7 +5,6 @@ import { fetchGeoData } from '../../store/actions';
 import SearchBox from '../SearchBox';
 
 const LogoAreaTwo = ({ history, fetchGeoData }) => {
-    // const [radius, setRadius] = useState('5000');
     return (
         <div className="logo_area white_bg">
             <div className="container">

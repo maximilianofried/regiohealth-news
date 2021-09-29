@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import FooterCopyright from '../FooterCopyright';
-import FontAwesome from '../uiStyle/FontAwesome';
 import { fetchPages } from '../../store/actions';
 import mockPages from '../../mockdata/pages.json';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -11,7 +9,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 const FooterArea = ({ className, fetchPages, pages }) => {
     useEffect(() => {
         fetchPages();
-    }, []);
+    }, [fetchPages]);
     const pagesMenu = pages && pages.pages ? pages.pages : mockPages;
     return (
         <div className={`footer footer_area1 ${className || ''}`}>
@@ -25,6 +23,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                         <a
                                             href="https://www.gesundheitsticket.de/"
                                             target="_blank"
+                                            rel="noopener noreferrer"
                                         >
                                             <img
                                                 alt="logo"
@@ -38,6 +37,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                         <a
                                             href="https://479eae97.sibforms.com/serve/MUIEAEvroLOl7gAeKgjfkbLkysmfsuAS3Tg6HJf6pH3obY0A938-9XXoyezLoftkDhOte_IPJ4UzRcIaiUwNZVuQPKYRpGLaLvT5TZ5udL7Bhv2Vlh9onojMKyw5UxBFiuAoIcA89fFusp3sdopMgDpkOXeSLuurQRJPPChbLNNYIGmg4-8iLrJQA8l6xcpt-8K9i8z56LepgN9j"
                                             target="_blank"
+                                            rel="noopener noreferrer"
                                         >
                                             <img
                                                 alt="logo"
@@ -51,6 +51,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                         <a
                                             href="http://diewohlfuehler-akademie.de/gesundheit-in-der-kommune/"
                                             target="_blank"
+                                            rel="noopener noreferrer"
                                         >
                                             <img
                                                 alt="logo"
@@ -64,6 +65,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                         <a
                                             href="https://www.diewohlfuehler.de/"
                                             target="_blank"
+                                            rel="noopener noreferrer"
                                         >
                                             <img
                                                 alt="logo"
@@ -77,6 +79,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                         <a
                                             href="http://diewohlfuehler-akademie.de/"
                                             target="_blank"
+                                            rel="noopener noreferrer"
                                         >
                                             <img
                                                 alt="logo"
@@ -89,43 +92,6 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                 </ul>
                             </div>
                         </div>
-                        {/* <div className="col-8 col-md-3 ">
-                            <div className="newsletter">
-                                <ul className="inline">
-                                    <li>
-                                        <a
-                                            target="_blank"
-                                            href="https://479eae97.sibforms.com/serve/MUIEAEvroLOl7gAeKgjfkbLkysmfsuAS3Tg6HJf6pH3obY0A938-9XXoyezLoftkDhOte_IPJ4UzRcIaiUwNZVuQPKYRpGLaLvT5TZ5udL7Bhv2Vlh9onojMKyw5UxBFiuAoIcA89fFusp3sdopMgDpkOXeSLuurQRJPPChbLNNYIGmg4-8iLrJQA8l6xcpt-8K9i8z56LepgN9j"
-                                        >
-                                            Newsletter{' '}
-                                            <FontAwesome name="newspaper-o" />
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div> */}
-                        {/* <div className="col-4 col-md-2 align-end">
-                            <div className="social2">
-                                <ul className="inline">
-                                    <li>
-                                        <a
-                                            href="https://www.facebook.com/RegioHealthNews"
-                                            target="_blank"
-                                        >
-                                            <FontAwesome name="facebook-f" />
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="https://www.instagram.com/regiohealth.news"
-                                            target="_blank"
-                                        >
-                                            <FontAwesome name="instagram" />
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div> */}
                     </div>
                 </div>
             </div>

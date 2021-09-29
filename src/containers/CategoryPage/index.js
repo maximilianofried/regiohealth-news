@@ -1,10 +1,8 @@
-import React, { Fragment, useEffect, useRef, useCallback } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import { isMobileOnly } from 'react-device-detect';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import StickyBox from 'react-sticky-box';
 import {
     fetchArticles,
     fetchArticleHomepage,
@@ -12,14 +10,10 @@ import {
     fetchAds,
     fetchArticlesCleanUp,
 } from '../../store/actions';
-import BreadCrumb from '../../components/BreadCrumb';
-import BusinessNews from '../../components/BusinessNews';
 import BusinessNewsTwo from '../../components/BusinessNewsTwo';
 import MostViewTwo from '../../components/MostViewTwo';
-import BannerSection from '../../components/BannerSection';
 import FollowUs from '../../components/FollowUs';
 import Metadata from '../../components/Metadata';
-import FontAwesome from '../../components/uiStyle/FontAwesome';
 import { MENU_DESCRIPTION } from '../../utils/constants';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import AdserverIframe from '../../components/AdserverIframe';
@@ -85,26 +79,13 @@ const CategoryPage = ({
                 description={MENU_DESCRIPTION[menuName]}
                 url={`${process.env.REACT_APP_BASE_PAGE_URL}/${menuName}`}
             />
-            {/* <BreadCrumb title={name} /> */}
             <div className="archives padding-top-30">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12 col-lg-9 homepage_col_top">
-                            {/* <TrendingNewsTwo />
-                            <FeatureNewsTwo /> */}
-                            <BusinessNewsTwo
-                                // articleLimit={articleLimit}
-                                publisherArticles={allArticles}
-                            />
+                            <BusinessNewsTwo publisherArticles={allArticles} />
                             <div ref={lastElementRef} className="space-20" />
-                            {/* <button
-                                className="more_articles"
-                                type="button"
-                                onClick={showMore}
-                            >
-                                MEHR ANZEIGEN{' '}
-                                <FontAwesome name="angle-double-down" />
-                            </button> */}
+
                             {!isMobileOnly && <AdserverLeaderboard />}
                         </div>
                         <div className="d-lg-block col-lg-3 col-xl-3 px-xl-0">
@@ -114,6 +95,7 @@ const CategoryPage = ({
                                         <div className="banner2 mb30 mt20 border-radious5">
                                             <a
                                                 target="_blank"
+                                                rel="noopener noreferrer"
                                                 href={banner350x292[0].link}
                                             >
                                                 <img
@@ -169,29 +151,6 @@ const CategoryPage = ({
                                                 </div>
                                             ))}
                                     </div>
-
-                                    {/* <div className="banner2 mb30 border-radious5">
-                                        <a
-                                            href={banner350x292.link}
-                                            target="_blank"
-                                        >
-                                            {banner350x292.image &&
-                                                banner350x292.image.length >
-                                                    0 && (
-                                                    <img
-                                                        src={
-                                                            process.env
-                                                                .REACT_APP_CMS_URL +
-                                                            banner350x292
-                                                                .image[0].url
-                                                        }
-                                                        alt="banner"
-                                                        effect="blur"
-                                                    />
-                                                )}
-                                        </a>
-                                    </div> */}
-
                                     {displayOffers && (
                                         <MostViewTwo
                                             title="ANGEBOTE"
@@ -199,10 +158,6 @@ const CategoryPage = ({
                                         />
                                     )}
                                 </div>
-
-                                {/* <div className="col-md-6 col-lg-12">
-                                    <WidgetFinance />
-                                </div> */}
                             </div>
                         </div>
                     </div>
