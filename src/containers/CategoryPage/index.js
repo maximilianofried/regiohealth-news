@@ -1,17 +1,18 @@
-import React, { useEffect, useRef, useCallback } from 'react';
+import React, { useEffect, useRef, useCallback, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import { isMobileOnly } from 'react-device-detect';
 import {
     fetchArticles,
-    fetchArticleHomepage,
+    fetchArticleCategoryPage,
     fetchOffers,
     fetchAds,
     fetchArticlesCleanUp,
 } from '../../store/actions';
 import BusinessNewsTwo from '../../components/BusinessNewsTwo';
 import MostViewTwo from '../../components/MostViewTwo';
+import MostViewTextonly from '../../components/MostViewTextOnly';
 import FollowUs from '../../components/FollowUs';
 import Metadata from '../../components/Metadata';
 import { MENU_DESCRIPTION } from '../../utils/constants';
@@ -22,7 +23,7 @@ import AdserverLeaderboard from '../../components/AdserverLeaderboard';
 const CategoryPage = ({
     fetchArticles,
     fetchArticlesCleanUp,
-    fetchArticleHomepage,
+    fetchArticleCategoryPage,
     fetchOffers,
     allArticles,
     newsArticles,
@@ -34,19 +35,44 @@ const CategoryPage = ({
     categories,
     stateArticles,
 }) => {
+    const [newLatestOffers, setNewLatestOffers] = useState([]);
+    const [newArticlesCategoryPage, setNewArticlesCategoryPage] = useState([]);
     useEffect(() => {
         // window.scrollTo(0, 0);
-        if (latestOffers.length === 0) fetchOffers({ start: 0, limit: 4 });
-        fetchArticleHomepage();
+
         // if (categories.length > 0)
+        console.log('render');
         if (stateArticles.articles.length === 0)
             fetchArticles({ categories, start: 0, limit: 4, menuName });
-        fetchAds();
+        // fetchAds();
 
         return () => {
             if (stateArticles.articles.length > 0) fetchArticlesCleanUp();
         };
-    }, []);
+    }, [
+        categories,
+        fetchArticles,
+        fetchArticlesCleanUp,
+        menuName,
+        stateArticles.articles.length,
+    ]);
+
+    useEffect(() => {
+        if (latestOffers.length === 0) fetchOffers({ start: 0, limit: 4 });
+    }, [fetchOffers, latestOffers.length]);
+
+    useEffect(() => {
+        setNewLatestOffers(latestOffers);
+    }, [latestOffers]);
+
+    useEffect(() => {
+        if (newLatestOffers.length === 0) fetchArticleCategoryPage();
+    }, [fetchArticleCategoryPage, newLatestOffers.length]);
+
+    useEffect(() => {
+        setNewArticlesCategoryPage(newsArticles);
+    }, [newsArticles]);
+
     const observer = useRef();
 
     const lastElementRef = useCallback(
@@ -64,7 +90,7 @@ const CategoryPage = ({
             });
             if (node) observer.current.observe(node);
         },
-        [limit]
+        [categories, fetchArticles, limit, menuName]
     );
     const banner350x292 =
         adsCategory.filter((ad) => ad.size === 's350x292')[0] || {};
@@ -117,44 +143,52 @@ const CategoryPage = ({
                                         title="FOLGEN SIE UNS"
                                         className="border-radious5 white_bg padding20 sm-mt30"
                                     />
-                                    <div className="white_bg padding15 border-radious5 sm-mt30 mb30">
+                                    <MostViewTextonly
+                                        title="NEWS"
+                                        data={newArticlesCategoryPage}
+                                    />
+                                    {/* <div className="white_bg padding15 border-radious5 sm-mt30 mb30">
                                         <h2 className="widget-title">News</h2>
                                         <div className="space-20" />
-                                        {newsArticles &&
-                                            newsArticles.map((item, i) => (
-                                                <div
-                                                    key={item.id}
-                                                    className="single_post type14 widgets_small"
-                                                >
-                                                    <div className="single_post_text">
-                                                        <h4>
-                                                            <Link
-                                                                to={`/article/${item.slug}`}
-                                                            >
-                                                                {item.title}
-                                                            </Link>
-                                                        </h4>
-                                                        <div className="meta4">
-                                                            <p>
-                                                                {moment(
-                                                                    item.publishAt
-                                                                ).format('LL')}
-                                                            </p>
+                                        {newArticlesCategoryPage &&
+                                            newArticlesCategoryPage.map(
+                                                (item, i) => (
+                                                    <div
+                                                        key={item.id}
+                                                        className="single_post type14 widgets_small"
+                                                    >
+                                                        <div className="single_post_text">
+                                                            <h4>
+                                                                <Link
+                                                                    to={`/article/${item.slug}`}
+                                                                >
+                                                                    {item.title}
+                                                                </Link>
+                                                            </h4>
+                                                            <div className="meta4">
+                                                                <p>
+                                                                    {moment(
+                                                                        item.publishAt
+                                                                    ).format(
+                                                                        'LL'
+                                                                    )}
+                                                                </p>
+                                                            </div>
+                                                            {i + 1 <
+                                                            newsArticles.length ? (
+                                                                <>
+                                                                    <div className="space-20" />
+                                                                </>
+                                                            ) : null}
                                                         </div>
-                                                        {i + 1 <
-                                                        newsArticles.length ? (
-                                                            <>
-                                                                <div className="space-20" />
-                                                            </>
-                                                        ) : null}
                                                     </div>
-                                                </div>
-                                            ))}
-                                    </div>
+                                                )
+                                            )}
+                                    </div> */}
                                     {displayOffers && (
                                         <MostViewTwo
                                             title="ANGEBOTE"
-                                            latestOffers={latestOffers}
+                                            latestOffers={newLatestOffers}
                                         />
                                     )}
                                 </div>
@@ -173,7 +207,7 @@ const mapStateToProps = (state) => {
         stateArticles: state.articles,
         allArticles: state.articles.articles,
         limit: state.articles.limit,
-        newsArticles: state.articles.articlesHomepage.newsArticles,
+        newsArticles: state.articles.articlesCategoryPage.newsArticles,
         latestOffers: state.offers.offers,
     };
 };
@@ -183,7 +217,7 @@ const mapDispatchToProps = (dispatch) => {
         fetchArticles: ({ categories, start, limit, menuName }) =>
             dispatch(fetchArticles({ categories, start, limit, menuName })),
         fetchAds: () => dispatch(fetchAds()),
-        fetchArticleHomepage: () => dispatch(fetchArticleHomepage()),
+        fetchArticleCategoryPage: () => dispatch(fetchArticleCategoryPage()),
         fetchOffers: ({ start, limit }) =>
             dispatch(fetchOffers({ start, limit })),
         fetchArticlesCleanUp: () => dispatch(fetchArticlesCleanUp()),

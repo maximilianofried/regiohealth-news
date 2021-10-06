@@ -8,9 +8,9 @@ import { fetchMenu } from '../../store/actions';
 import mockMenu from '../../mockdata/menu.json';
 
 const MainMenu = ({ className, fetchMenu }) => {
-    useEffect(() => {
-        fetchMenu();
-    }, [fetchMenu]);
+    // useEffect(() => {
+    //     fetchMenu();
+    // }, [fetchMenu]);
     const [sideShow, setSideShow] = useState(false);
     return (
         <>
@@ -58,16 +58,16 @@ const MainMenu = ({ className, fetchMenu }) => {
     );
 };
 
-const mapStateToProps = (state) => {
-    return {
-        menuData: state.menu,
-    };
-};
+// const mapStateToProps = (state) => {
+//     return {
+//         menuData: state.menu,
+//     };
+// };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchMenu: () => dispatch(fetchMenu()),
-    };
-};
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         fetchMenu: () => dispatch(fetchMenu()),
+//     };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainMenu);
+export default MainMenu;

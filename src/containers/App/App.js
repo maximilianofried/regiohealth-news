@@ -8,10 +8,10 @@ import { fetchMenu, fetchPages } from '../../store/actions';
 import 'moment/locale/de';
 
 const App = ({ fetchMenu, fetchPages, pages, menuData, error, success }) => {
-    useEffect(() => {
-        fetchMenu();
-        fetchPages();
-    }, [fetchMenu, fetchPages]);
+    // useEffect(() => {
+    //     fetchMenu();
+    //     fetchPages();
+    // }, [fetchMenu, fetchPages]);
 
     if (error) toast.error(error);
     if (success) toast.success(success);
@@ -19,27 +19,27 @@ const App = ({ fetchMenu, fetchPages, pages, menuData, error, success }) => {
     return (
         <>
             <ScrollToTop />
-            <Routes menuData={menuData} pages={pages} />
+            <Routes />
             <ToastContainer position="top-center" />
             <ScrollTopButton />
         </>
     );
 };
 
-const mapStateToProps = (state) => {
-    return {
-        error: state.meta.error,
-        success: state.meta.success,
-        menuData: state.menu,
-        pages: state.pages,
-    };
-};
+// const mapStateToProps = (state) => {
+//     return {
+//         error: state.meta.error,
+//         success: state.meta.success,
+//         menuData: state.menu,
+//         pages: state.pages,
+//     };
+// };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchMenu: () => dispatch(fetchMenu()),
-        fetchPages: () => dispatch(fetchPages()),
-    };
-};
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         fetchMenu: () => dispatch(fetchMenu()),
+//         fetchPages: () => dispatch(fetchPages()),
+//     };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

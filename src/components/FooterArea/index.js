@@ -7,10 +7,10 @@ import mockPages from '../../mockdata/pages.json';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const FooterArea = ({ className, fetchPages, pages }) => {
-    useEffect(() => {
-        fetchPages();
-    }, [fetchPages]);
-    const pagesMenu = pages && pages.pages ? pages.pages : mockPages;
+    // useEffect(() => {
+    //     fetchPages();
+    // }, [fetchPages]);
+    const pagesMenu = mockPages;
     return (
         <div className={`footer footer_area1 ${className || ''}`}>
             <div className="container">
@@ -108,16 +108,16 @@ FooterArea.defaultProps = {
     className: '',
 };
 
-const mapStateToProps = (state) => {
-    return {
-        pages: state.pages,
-    };
-};
+// const mapStateToProps = (state) => {
+//     return {
+//         pages: state.pages,
+//     };
+// };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchPages: () => dispatch(fetchPages()),
-    };
-};
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         fetchPages: () => dispatch(fetchPages()),
+//     };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FooterArea);
+export default FooterArea;
