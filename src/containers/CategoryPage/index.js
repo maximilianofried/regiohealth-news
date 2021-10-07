@@ -31,19 +31,30 @@ const CategoryPage = ({
     menuName,
     fetchAds,
     adsCategory,
-    limit,
+    // limit,
     categories,
     stateArticles,
 }) => {
     const [newLatestOffers, setNewLatestOffers] = useState([]);
     const [newArticlesCategoryPage, setNewArticlesCategoryPage] = useState([]);
+    const limit = useRef(2);
+
+    const fetchArticlesHook = useCallback(() => {
+        limit.current += 2;
+        fetchArticles({
+            categories,
+            start: 0,
+            limit: limit.current,
+            menuName,
+        });
+    }, [categories, fetchArticles, limit, menuName]);
+
     useEffect(() => {
         // window.scrollTo(0, 0);
 
         // if (categories.length > 0)
-        console.log('render');
-        if (stateArticles.articles.length === 0)
-            fetchArticles({ categories, start: 0, limit: 4, menuName });
+        if (stateArticles.articles.length === 0) fetchArticlesHook();
+        // fetchArticles({ categories, start: 0, limit: 4, menuName });
         // fetchAds();
 
         return () => {
@@ -53,6 +64,7 @@ const CategoryPage = ({
         categories,
         fetchArticles,
         fetchArticlesCleanUp,
+        fetchArticlesHook,
         menuName,
         stateArticles.articles.length,
     ]);
@@ -80,17 +92,18 @@ const CategoryPage = ({
             if (observer.current) observer.current.disconnect();
             observer.current = new IntersectionObserver((entries) => {
                 if (entries[0].isIntersecting) {
-                    fetchArticles({
-                        categories,
-                        start: 0,
-                        limit: limit + 2,
-                        menuName,
-                    });
+                    fetchArticlesHook();
+                    // fetchArticles({
+                    //     categories,
+                    //     start: 0,
+                    //     limit: limit + 2,
+                    //     menuName,
+                    // });
                 }
             });
             if (node) observer.current.observe(node);
         },
-        [categories, fetchArticles, limit, menuName]
+        [fetchArticlesHook]
     );
     const banner350x292 =
         adsCategory.filter((ad) => ad.size === 's350x292')[0] || {};
@@ -206,7 +219,7 @@ const mapStateToProps = (state) => {
         adsCategory: state.ads.ads.filter((ad) => ad.position === 'category'),
         stateArticles: state.articles,
         allArticles: state.articles.articles,
-        limit: state.articles.limit,
+        // limit: state.articles.limit,
         newsArticles: state.articles.articlesCategoryPage.newsArticles,
         latestOffers: state.offers.offers,
     };
