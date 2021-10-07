@@ -1,32 +1,10 @@
-import React, { Fragment, useState } from 'react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import React from 'react';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import Swiper from 'react-id-swiper';
-import FontAwesome from '../uiStyle/FontAwesome';
-import { mostViewSort } from '../../utils/commonFunctions';
 import rgOfferPlaceholderThumbnail from '../../doc/img/dummy_thumbnail.png';
 
 const MostViewTwo = ({ title, latestOffers }) => {
-    // const [swiper, setSwiper] = useState(null);
-
-    // const goNext = () => {
-    //     if (swiper !== null) {
-    //         swiper.slideNext();
-    //     }
-    // };
-
-    // const goPrev = () => {
-    //     if (swiper !== null) {
-    //         swiper.slidePrev();
-    //     }
-    // };
-
-    // const params = {
-    //     slidesPerView: 1,
-    //     slidesPerColumn: 6,
-    // };
     return (
         <div className="most_widget3 padding20 white_bg border-radious5 mb30 sm-mt30">
             <div className="heading">
@@ -35,7 +13,7 @@ const MostViewTwo = ({ title, latestOffers }) => {
             <div className="space-20" />
             <div className="post_type2_carousel multipleRowCarousel pt12_wrapper nav_style1">
                 {/* CAROUSEL START */}
-                {latestOffers.map((item, i) => {
+                {latestOffers.map((item) => {
                     if (item.end > moment().format('YYYY-MM-DD')) {
                         return (
                             <div
@@ -94,14 +72,6 @@ const MostViewTwo = ({ title, latestOffers }) => {
                     }
                     return '';
                 })}
-                {/* <div className="navBtns">
-                    <div onClick={goPrev} className="navBtn prevtBtn">
-                        <FontAwesome name="angle-left" />
-                    </div>
-                    <div onClick={goNext} className="navBtn nextBtn">
-                        <FontAwesome name="angle-right" />
-                    </div>
-                </div> */}
                 {/* CAROUSEL END */}
             </div>
         </div>

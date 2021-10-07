@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import moment from 'moment';
 import ReactTooltip from 'react-tooltip';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { isMobileOnly } from 'react-device-detect';
 import { fetchOffer, fetchOfferCleanUp } from '../../store/actions';
-import BreadCrumb from '../../components/BreadCrumb';
 import FontAwesome from '../../components/uiStyle/FontAwesome';
-import BannerSection from '../../components/BannerSection';
 import rgOfferPlaceholderMedium from '../../doc/img/dummy_medium.png';
 import Metadata from '../../components/Metadata';
 import { RG_LOGO } from '../../utils/constants';
@@ -25,8 +22,9 @@ const replaceContent = (data) => {
 };
 
 const addhttp = (url) => {
-    if (!/^(?:f|ht)tps?\:\/\//.test(url)) {
-        url = `http://${url}`;
+    if (!/^(?:f|ht)tps?:\/\//.test(url)) {
+        const newUrl = `http://${url}`;
+        return newUrl;
     }
     return url;
 };
@@ -90,10 +88,6 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                     url={`${process.env.REACT_APP_BASE_PAGE_URL}/offer/${slug}`}
                 />
                 <div className="archives post post1">
-                    {/* <BreadCrumb
-                        className="shadow5 padding-top-30"
-                        title="Archive / Offers"
-                    /> */}
                     <div className="space-20" />
                     <div className="container">
                         <div className="row">
@@ -293,21 +287,11 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                         </ul>
                                     </div>
                                 )}
-                                {/* <div className="space-40"/>
-                            <PostOnePagination className="next_prv_single padding20 fourth_bg"/> */}
                             </div>
                         </div>
                     </div>
                 </div>
-                {/* <div className="space-100"/> */}
                 {!isMobileOnly && <AdserverLeaderboard />}
-                {/* <div className="space-60"/>
-            <OurBlogSection/>
-            <div className="space-60"/>
-            <BlogComment/>
-
-            <ModalVideo channel='youtube' isOpen={vModal} videoId={videoId}
-                        onClose={() => setvModal(false)}/> */}
             </>
         )
     );

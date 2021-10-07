@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { isMobileOnly } from 'react-device-detect';
 import moment from 'moment';
 import ReactTooltip from 'react-tooltip';
 import ReactMarkdown from 'react-markdown';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { fetchArticle, fetchArticleCleanUp } from '../../store/actions';
-import BreadCrumb from '../../components/BreadCrumb';
 import FontAwesome from '../../components/uiStyle/FontAwesome';
-import BannerSection from '../../components/BannerSection';
 import singlePost1 from '../../doc/img/blog/single_post1.jpg';
 import Metadata from '../../components/Metadata';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -25,8 +22,9 @@ const replaceContent = (data) => {
 };
 
 const addhttp = (url) => {
-    if (!/^(?:f|ht)tps?\:\/\//.test(url)) {
-        url = `http://${url}`;
+    if (!/^(?:f|ht)tps?:\/\//.test(url)) {
+        const newUrl = `http://${url}`;
+        return newUrl;
     }
     return url;
 };
@@ -38,7 +36,7 @@ const transform = (data) => {
 
 const LinkRenderer = ({ href, children }) => {
     return (
-        <a href={href} target="_blank">
+        <a href={href} target="_blank" rel="noopener noreferrer">
             {children}
         </a>
     );
@@ -65,7 +63,7 @@ const getMeta = (url, width, setWidth, height, setHeight) => {
     return { width, height };
 };
 
-const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
+const ArticlePage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
     const { slug } = useParams();
     useEffect(() => {
         fetchArticle(slug);
@@ -168,6 +166,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                             article.profile.website ? (
                                                 <a
                                                     target="_blank"
+                                                    rel="noopener noreferrer"
                                                     href={
                                                         article.profile &&
                                                         article.profile.website
@@ -217,6 +216,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                                         data-tip="Twitter"
                                                         href={`https://twitter.com/share?url=${process.env.REACT_APP_BASE_PAGE_URL}/article/${article.slug}`}
                                                         target="_blank"
+                                                        rel="noopener noreferrer"
                                                     >
                                                         <FontAwesome name="twitter" />
                                                     </a>
@@ -226,6 +226,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                                         data-tip="Facebook"
                                                         href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.REACT_APP_BASE_PAGE_URL}/article/${article.slug}`}
                                                         target="_blank"
+                                                        rel="noopener noreferrer"
                                                     >
                                                         <FontAwesome name="facebook-f" />
                                                     </a>
@@ -235,6 +236,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                                         data-tip="Whatsapp"
                                                         href={`https://wa.me/?text=${process.env.REACT_APP_BASE_PAGE_URL}/article/${article.slug}`}
                                                         target="_blank"
+                                                        rel="noopener noreferrer"
                                                     >
                                                         <FontAwesome name="whatsapp" />
                                                     </a>
@@ -244,40 +246,15 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                                         data-tip="Telegram"
                                                         href={`https://t.me/share/url?url=${process.env.REACT_APP_BASE_PAGE_URL}/article/${article.slug}`}
                                                         target="_blank"
+                                                        rel="noopener noreferrer"
                                                     >
                                                         <FontAwesome name="telegram" />
                                                     </a>
                                                 </li>
-                                                {/* <li>
-                                                    <a
-                                                        data-tip="Signal"
-                                                        href={`https://wa.me/?text=${process.env.REACT_APP_BASE_PAGE_URL}/article/${article.slug}`}
-                                                        target="_blank"
-                                                    >
-                                                        <FontAwesome name="commenting-o" />
-                                                    </a>
-                                                </li> */}
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
-                                {/* <div className="space-30" />
-                                <div className="row">
-                                    <div className="col-12">
-                                        <div className="page_comments">
-                                            <ul className="inline">
-                                                <li className="page_category">
-                                                    {article.categories.length >
-                                                    0
-                                                        ? article.categories[0].name.toUpperCase()
-                                                        : ''}
-                                                </li>
-                                                <li><FontAwesome name="comment"/>563</li>
-                                            <li><FontAwesome name="fire"/>536</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div> */}
                                 <div className="space-20" />
                                 <div className="single_post_content">
                                     {!article.bodyIsHtml && (
@@ -308,6 +285,7 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                                 <li key={doc.id}>
                                                     <a
                                                         target="_blank"
+                                                        rel="noopener noreferrer"
                                                         href={
                                                             process.env
                                                                 .REACT_APP_CMS_URL +
@@ -322,38 +300,11 @@ const PostTwoPage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                         </ul>
                                     </div>
                                 )}
-                                {/* <div className="space-30" />
-                                <div className="tags">
-                                    <ul className="inline">
-                                        <li className="tag_list">
-                                            <FontAwesome name="tag" /> tags
-                                        </li>
-                                        {article.categories.map((category) => (
-                                            <li key={category.id}>
-                                                <Link to="/">
-                                                    {category.name}
-                                                </Link>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                                <div className="space-40" />
-                                <div className="border_black" /> */}
-                                {/* <div className="space-40"/>
-                            <PostOnePagination className="next_prv_single padding20 fourth_bg"/> */}
                             </div>
                         </div>
                     </div>
                 </div>
-                {/* <div className="space-100"/> */}
                 {!isMobileOnly && <AdserverLeaderboard />}
-                {/* <div className="space-60"/>
-            <OurBlogSection/>
-            <div className="space-60"/>
-            <BlogComment/>
-
-            <ModalVideo channel='youtube' isOpen={vModal} videoId={videoId}
-                        onClose={() => setvModal(false)}/> */}
             </>
         )
     );
@@ -372,4 +323,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostTwoPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ArticlePage);

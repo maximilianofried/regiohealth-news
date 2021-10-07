@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { isMobile } from 'react-device-detect';
-import moment from 'moment';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import FontAwesome from '../uiStyle/FontAwesome';
@@ -9,14 +7,11 @@ import Dropdown from '../Dropdown';
 import { fetchMenu } from '../../store/actions';
 import mockMenu from '../../mockdata/menu.json';
 
-const MainMenu = ({ className, dark, fetchMenu, menuData }) => {
-    useEffect(() => {
-        fetchMenu();
-    }, []);
+const MainMenu = ({ className, fetchMenu }) => {
+    // useEffect(() => {
+    //     fetchMenu();
+    // }, [fetchMenu]);
     const [sideShow, setSideShow] = useState(false);
-    const currentDate = moment().format('dddd, MMMM D, YYYY');
-    const arr =
-        menuData.menu && menuData.menu.length > 0 ? menuData.menu : mockMenu;
     return (
         <>
             <div className={`main-menu ${className || ''}`} id="header">
@@ -63,16 +58,16 @@ const MainMenu = ({ className, dark, fetchMenu, menuData }) => {
     );
 };
 
-const mapStateToProps = (state) => {
-    return {
-        menuData: state.menu,
-    };
-};
+// const mapStateToProps = (state) => {
+//     return {
+//         menuData: state.menu,
+//     };
+// };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchMenu: () => dispatch(fetchMenu()),
-    };
-};
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         fetchMenu: () => dispatch(fetchMenu()),
+//     };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainMenu);
+export default MainMenu;

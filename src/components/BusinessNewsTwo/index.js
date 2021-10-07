@@ -1,10 +1,8 @@
 /* eslint-disable no-nested-ternary */
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import { Spinner } from 'reactstrap';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import FontAwesome from '../uiStyle/FontAwesome';
 import rgOfferPlaceholderSmall from '../../doc/img/dummy_small.png';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
@@ -91,20 +89,6 @@ const BusinessNewsTwo = ({ publisherArticles = [], articleLimit, offer }) => {
                                             </p>
                                         </div>
                                     </div>
-                                    {/* <div className="col-6 text-right align-self-center">
-                                    <ul className="meta_share inline">
-                                        <li>
-                                            <Link to="/">
-                                                <FontAwesome name="bookmark" />
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link to="/">
-                                                <FontAwesome name="share" />
-                                            </Link>
-                                        </li>
-                                    </ul>
-                                </div> */}
                                 </div>
                                 <p className="post-p">{item.description}</p>
                                 <div className="space-10" />
@@ -123,7 +107,6 @@ const BusinessNewsTwo = ({ publisherArticles = [], articleLimit, offer }) => {
                                 {i + 1 < publisherArticles.length ? (
                                     <>
                                         <div className="space-10" />
-                                        {/* <div className="border_black" /> */}
                                     </>
                                 ) : null}
                             </div>
@@ -137,9 +120,6 @@ const BusinessNewsTwo = ({ publisherArticles = [], articleLimit, offer }) => {
                     variant="success"
                 />
             )}
-            {/* <Link to="/" className="showmore">
-                Show more
-            </Link> */}
         </div>
     );
 };

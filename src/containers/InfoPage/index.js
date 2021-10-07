@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import BreadCrumb from '../../components/BreadCrumb';
 import BannerSection from '../../components/BannerSection';
@@ -8,7 +8,7 @@ import Metadata from '../../components/Metadata';
 const InfoPage = ({ fetchPage, page, name }) => {
     useEffect(() => {
         fetchPage(name);
-    }, []);
+    }, [fetchPage, name]);
     return (
         <>
             <Metadata
@@ -38,7 +38,6 @@ const InfoPage = ({ fetchPage, page, name }) => {
                     </div>
                 </>
             </BreadCrumb>
-            {/* <div className="space-70" /> */}
             <BannerSection />
         </>
     );

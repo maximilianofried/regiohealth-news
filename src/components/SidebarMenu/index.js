@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { Collapse } from 'reactstrap';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import FontAwesome from '../uiStyle/FontAwesome';
 import { fetchGeoData } from '../../store/actions';
 import SearchBox from '../SearchBox';
@@ -69,7 +68,6 @@ const SidebarMenu = ({
                                               className="angebote-icon"
                                               src="https://cms.gesundheitsticket.de/uploads/icon_app_25b83c377e.png"
                                               alt="author2"
-                                              //   effect="blur"
                                           />
                                       ) : null}
                                   </NavLink>
