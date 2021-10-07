@@ -1,12 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import PrivateRoute from '../_PrivateRoute';
+import PublicRoute from '../_PublicRoute';
 import HomePage from '../HomePage';
-import HomePageTwo from '../HomePageTwo';
 import CategoryPage from '../CategoryPage';
 import InfoPage from '../InfoPage';
 import NotFoundPage from '../NotFoundPage';
-import PostTwoPage from '../PostTwoPage';
+import ArticlePage from '../ArticlePage';
 import SearchPage from '../SearchPage';
 import OfferPage from '../OfferPage';
 import OffersPage from '../OffersPage';
@@ -14,7 +13,6 @@ import useTracking from '../../utils/useTracking';
 import mockMenu from '../../mockdata/menu.json';
 import mockPages from '../../mockdata/pages.json';
 import CookieDeclarationPage from '../CookieDeclarationPage';
-// import PublicRoute from '../_PublicRoute';
 
 const selectPage = (pageName, categories, props) => {
     if (pageName === 'Suchportal') {
@@ -34,28 +32,19 @@ const selectPage = (pageName, categories, props) => {
     );
 };
 
-const Routes = ({ menuData, pages }) => {
-    const menu =
-        menuData && menuData.menu.length > 0 ? menuData.menu : mockMenu;
-    const pagesMenu = pages && pages.pages ? pages.pages : mockPages;
+const Routes = () => {
     useTracking(process.env.REACT_APP_UA_TRACK);
     return (
         <Switch>
-            <PrivateRoute
-                exact
-                path="/home-one"
-                parentClass="theme-1"
-                component={HomePage}
-            />
-            <PrivateRoute
+            <PublicRoute
                 exact
                 home_style={2}
                 parentClass="theme-3 theme3_bg"
                 path="/"
-                component={HomePageTwo}
+                component={HomePage}
             />
             {mockMenu.map((item) => (
-                <PrivateRoute
+                <PublicRoute
                     key={item.id}
                     exact
                     path={item.link}
@@ -67,7 +56,7 @@ const Routes = ({ menuData, pages }) => {
                 />
             ))}
             {mockPages.map((item) => (
-                <PrivateRoute
+                <PublicRoute
                     key={item.id}
                     exact
                     path={item.link}
@@ -78,28 +67,28 @@ const Routes = ({ menuData, pages }) => {
                     )}
                 />
             ))}
-            <PrivateRoute
+            <PublicRoute
                 exact
                 path="/article/:slug"
                 home_style={2}
                 parentClass="theme-3 theme3_bg"
-                component={PostTwoPage}
+                component={ArticlePage}
             />
-            <PrivateRoute
+            <PublicRoute
                 exact
                 path="/offer/:slug"
                 home_style={2}
                 parentClass="theme-3 theme3_bg"
                 component={OfferPage}
             />
-            <PrivateRoute
+            <PublicRoute
                 exact
                 path="/such-portal"
                 home_style={2}
                 parentClass="theme-3 theme3_bg"
                 component={(props) => <SearchPage {...props} />}
             />
-            <PrivateRoute
+            <PublicRoute
                 exact
                 path="/cookie-declaration"
                 parentClass="theme-3 theme3_bg"

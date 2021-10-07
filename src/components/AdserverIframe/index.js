@@ -17,6 +17,7 @@ const AdserverIframe = () => {
                 <a
                     href="https://adserver.gesundheitsticket.de/revive/www/delivery/ck.php?n=a75df846&amp;cb=INSERT_RANDOM_NUMBER_HERE"
                     target="_blank"
+                    rel="noopener noreferrer"
                 >
                     <img
                         src="https://adserver.gesundheitsticket.de/revive/www/delivery/avw.php?zoneid=1&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a75df846"

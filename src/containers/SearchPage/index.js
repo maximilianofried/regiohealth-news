@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useCallback } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useRef, useCallback } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import {
@@ -22,41 +21,14 @@ const SearchPage = ({
     fetchGeoData,
     fetchNationalData,
     fetchNationalDataCleanUp,
-    fetchOffers,
     latestOffers,
     geoData,
     nationalData,
-    fetchAds,
-    adsCategory,
     limit,
     place,
     type,
     keyword,
 }) => {
-    const location = useLocation();
-    useEffect(() => {
-        if (latestOffers.length === 0) fetchOffers({ start: 0, limit: 4 });
-        fetchAds();
-        fetchNationalData({
-            limit: 6,
-            start: 0,
-            type: 'article',
-            responseType: 'mixed',
-            includeCountry: 'Germany',
-        });
-    }, []);
-    // const [radius, setRadius] = useState('5000');
-    const showMore = () => {
-        fetchGeoData({
-            limit: limit + 2,
-            start: 0,
-            place,
-            type,
-            keyword,
-            responseType: 'mixed',
-        });
-    };
-
     const observer = useRef();
 
     const lastElementRef = useCallback(
@@ -78,21 +50,16 @@ const SearchPage = ({
         },
         [limit]
     );
-    const banner350x292 =
-        adsCategory.filter((ad) => ad.size === 's350x292')[0] || {};
 
     const displayOffers = latestOffers.some(
         (offer) => offer.end > moment().format('YYYY-MM-DD')
     );
     return (
         <>
-            {/* <BreadCrumb title="Suchportal GesundheitsTicket" /> */}
             <div className="archives padding-top-30">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6 col-lg-9">
-                            {/* <h5 className="categories_title">Deine Suche:</h5>
-                            <div className="space-20" /> */}
                             <div className="search_page">
                                 {geoData && geoData.length > 0 ? (
                                     <GeoDataNews
@@ -103,51 +70,7 @@ const SearchPage = ({
                                 ) : (
                                     'Leider konnten wir keine Ergebnisse finden.'
                                 )}
-                                {/* <div className="row">
-                                    <div className="col-12 align-self-center">
-                                        <div className="categories_title">
-                                            <h5>Deine Suche:</h5>
-                                            <SearchBox
-                                                fetchGeoData={fetchGeoData}
-                                                place={place}
-                                                type={type}
-                                                keyWord={keyWord}
-                                                setPlace={setPlace}
-                                                setType={setType}
-                                                setKeyWord={setKeyWord}
-                                            />
-                                        </div>
-                                    </div>
-                                </div> */}
-                                {/* {geoData && (
-                                    <div className="row search_results">
-                                        <div className="col-12">
-                                            <GeoDataNews
-                                                fetchGeoData={fetchGeoData}
-                                                geoData={geoData}
-                                                headerHide
-                                            />
-                                        </div>
-                                    </div>
-                                )} */}
                                 <div className="space-20" />
-                                {/* {geoData && geoData.length > 0 && (
-                                    <div className="row">
-                                        <div className="col-12">
-                                            <div className="cpagination">
-                                                <button
-                                                    type="button"
-                                                    onClick={showMore}
-                                                    className="more_articles cursor_pointer"
-                                                >
-                                                    MEHR ANZEIGEN{' '}
-                                                    <FontAwesome name="angle-double-down" />
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                )} */}
-                                {/* <BannerSection /> */}
                             </div>
                         </div>
                         <div className="d-lg-block col-lg-3 col-xl-3 px-xl-0">
@@ -163,50 +86,12 @@ const SearchPage = ({
                                     fetchNationalDataCleanUp
                                 }
                             />
-                            {/* <div className="banner2 mb30 border-radious5  mt30">
-                                <a href={banner350x292.link} target="_blank">
-                                    {banner350x292.image &&
-                                        banner350x292.image.length > 0 && (
-                                            <img
-                                                src={
-                                                    process.env
-                                                        .REACT_APP_CMS_URL +
-                                                    banner350x292.image[0].url
-                                                }
-                                                alt="banner"
-                                                effect="blur"
-                                            />
-                                        )}
-                                </a>
-                            </div> */}
                             {displayOffers && (
                                 <MostViewTwo
                                     title="ANGEBOTE"
                                     latestOffers={latestOffers}
                                 />
                             )}
-                            {/* <StickyBox offsetTop={20}>
-                                <div className="banner2 mb30 mt30">
-                                    <a
-                                        href={banner350x292.link}
-                                        target="_blank"
-                                    >
-                                        {banner350x292.image &&
-                                            banner350x292.image.length > 0 && (
-                                                <img
-                                                    src={
-                                                        process.env
-                                                            .REACT_APP_CMS_URL +
-                                                        banner350x292.image[0]
-                                                            .url
-                                                    }
-                                                    alt="banner"
-                                                    effect="blur"
-                                                />
-                                            )}
-                                    </a>
-                                </div>
-                            </StickyBox> */}
                         </div>
                     </div>
                 </div>

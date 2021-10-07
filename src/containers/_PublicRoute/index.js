@@ -1,20 +1,21 @@
-import React, { Component } from 'react';
-import { Redirect, Route } from 'react-router-dom';
+/* eslint-disable react/destructuring-assignment */
+import React from 'react';
+import { Route } from 'react-router-dom';
+import FooterArea from '../../components/FooterArea';
+import LogoAreaTwo from '../../components/LogoAreaTwo';
+import MainMenuTwo from '../../components/MainMenuTwo';
 
 const PublicRoute = (props) => {
-    const redirect = null;
+    const { component: Component, ...rest } = props;
     return (
-        <Route
-            {...props}
-            render={(props) =>
-                !redirect ? (
-                    <Component {...props} />
-                ) : (
-                    <Redirect to={redirect} />
-                )
-            }
-        />
+        <div className={props.parentClass}>
+            <div className="border_black" />
+            <LogoAreaTwo />
+            <MainMenuTwo />
+
+            <Route {...rest} render={(props) => <Component {...props} />} />
+            <FooterArea />
+        </div>
     );
 };
-
 export default PublicRoute;

@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import FontAwesome from '../uiStyle/FontAwesome';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
@@ -32,7 +31,6 @@ const Dropdown = ({ menus }) => {
                             className="angebote-icon"
                             src="https://cms.gesundheitsticket.de/uploads/icon_app_25b83c377e.png"
                             alt="author2"
-                            //   effect="blur"
                         />
                     ) : null}{' '}
                 </NavLink>

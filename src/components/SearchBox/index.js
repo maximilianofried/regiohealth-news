@@ -1,8 +1,5 @@
 import React from 'react';
-import usePlacesAutocomplete, {
-    getGeocode,
-    // getLatLng,
-} from 'use-places-autocomplete';
+import usePlacesAutocomplete, { getGeocode } from 'use-places-autocomplete';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import {
@@ -164,18 +161,6 @@ const SearchBox = ({
                         </ComboboxPopover>
                     </div>
                 )}
-                {/* <div className="col-auto">
-                    <Listbox radius={radius} onChange={setRadius}>
-                        <ListboxOption value="5000">+5 km</ListboxOption>
-                        <ListboxOption value="10000">+10 km</ListboxOption>
-                        <ListboxOption value="20000">+20 km</ListboxOption>
-                        <ListboxOption value="30000">+30 km</ListboxOption>
-                        <ListboxOption value="50000">+50 km</ListboxOption>
-                        <ListboxOption value="100000">+100 km</ListboxOption>
-                        <ListboxOption value="150000">+150 km</ListboxOption>
-                        <ListboxOption value="200000">+200 km</ListboxOption>
-                    </Listbox>
-                </div> */}
                 <div className="col-auto">
                     <button type="submit" className="btn-sm search-button">
                         SUCHEN

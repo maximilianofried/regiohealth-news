@@ -5,12 +5,14 @@ import {
     FETCH_ARTICLES_CITY_SUCCESS,
     FETCH_ARTICLES_HOMEPAGE_SUCCESS,
     FETCH_ARTICLES_CLEAN_UP,
+    FETCH_ARTICLES_CATEGORYPAGE_SUCCESS,
 } from '../constants/articlesTypes';
 
 const initialState = {
     loading: false,
     articles: [],
     articlesHomepage: {},
+    articlesCategoryPage: {},
     articlesByCity: [],
     error: '',
     limit: 4,
@@ -50,6 +52,13 @@ const articlesReducer = (state = initialState, action) => {
                 ...state,
                 loading: false,
                 articlesHomepage: action.payload.articles,
+                error: '',
+            };
+        case FETCH_ARTICLES_CATEGORYPAGE_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                articlesCategoryPage: action.payload.articles,
                 error: '',
             };
         case FETCH_ARTICLES_CLEAN_UP:
