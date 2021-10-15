@@ -1,12 +1,11 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Swiper from 'react-id-swiper';
 import hside1 from '../../doc/img/header/slider/hside1.jpg';
 import FontAwesome from '../uiStyle/FontAwesome';
-
-const CMS_LINK = 'https://cms.gesundheitsticket.de';
 
 const PostCarousel = ({ className, latestArticles }) => {
     const ref = useRef(null);
@@ -35,6 +34,7 @@ const PostCarousel = ({ className, latestArticles }) => {
     const params = {
         slidesPerView: 3,
         spaceBetween: 20,
+        allowTouchMove: false,
         loop: true,
         pagination: {
             el: '.swiper-pagination',
@@ -77,64 +77,63 @@ const PostCarousel = ({ className, latestArticles }) => {
                                     {...params}
                                     shouldSwiperUpdate
                                 >
-                                    {latestArticles.length > 0 &&
-                                        latestArticles.map((item) => (
-                                            <div
-                                                key={item.id}
-                                                className={`single_post widgets_small post_type5 ${
-                                                    item.main_image
-                                                        ? ''
-                                                        : 'no_padding_left'
-                                                }`}
-                                            >
-                                                {item.main_image && (
-                                                    <div className="post_img">
-                                                        <div className="img_wrap">
-                                                            <Link
-                                                                to={`/article/${item.id}`}
-                                                            >
-                                                                <img
-                                                                    src={
-                                                                        item.main_image
-                                                                            ? `${
-                                                                                  CMS_LINK +
-                                                                                  item
-                                                                                      .main_image
-                                                                                      .url
-                                                                              }`
-                                                                            : hside1
-                                                                    }
-                                                                    alt="slider5"
-                                                                />
-                                                            </Link>
-                                                        </div>
-                                                    </div>
-                                                )}
-                                                <div className="single_post_text">
-                                                    {/* {item.categories && <p>{item.categories[0].name}</p>}
-                                                <p className="date_carousel">{formatDate(item.createdAt)}</p> */}
-                                                    <h4>
+                                    {latestArticles.map((item) => (
+                                        <div
+                                            key={item.id}
+                                            className={`single_post widgets_small post_type5 ${
+                                                item.main_image
+                                                    ? ''
+                                                    : 'no_padding_left'
+                                            }`}
+                                        >
+                                            {item.main_image && (
+                                                <div className="post_img">
+                                                    <div className="img_wrap">
                                                         <Link
-                                                            to={`/article/${item.id}`}
+                                                            to={`/article/${item.slug}`}
                                                         >
-                                                            {item.title.length >
-                                                            35
-                                                                ? `${item.title.substr(
-                                                                      0,
-                                                                      35
-                                                                  )}\u2026`
-                                                                : item.title}
+                                                            <img
+                                                                src={
+                                                                    item.main_image
+                                                                        ? `${
+                                                                              process
+                                                                                  .env
+                                                                                  .REACT_APP_CMS_URL +
+                                                                              item
+                                                                                  .main_image
+                                                                                  .url
+                                                                          }`
+                                                                        : hside1
+                                                                }
+                                                                alt="slider5"
+                                                                effect="blur"
+                                                            />
                                                         </Link>
-                                                    </h4>
-                                                    <p>
-                                                        {renderText(
-                                                            item.description,
-                                                            item.categories
-                                                        )}
-                                                    </p>
+                                                    </div>
+                                                </div>
+                                            )}
+                                            <div className="single_post_text">
+                                                <h4>
+                                                    <Link
+                                                        to={`/article/${item.slug}`}
+                                                    >
+                                                        {item.title.length > 35
+                                                            ? `${item.title.substr(
+                                                                  0,
+                                                                  35
+                                                              )}\u2026`
+                                                            : item.title}
+                                                    </Link>
+                                                </h4>
+                                                <div className="post-p">
+                                                    {renderText(
+                                                        item.description,
+                                                        item.categories
+                                                    )}
                                                 </div>
                                             </div>
-                                        ))}
+                                        </div>
+                                    ))}
                                 </Swiper>
                                 <div className="owl-nav">
                                     <div onClick={goPrev} className="owl-prev">

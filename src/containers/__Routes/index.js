@@ -1,157 +1,98 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import PrivateRoute from '../_PrivateRoute';
+import PublicRoute from '../_PublicRoute';
 import HomePage from '../HomePage';
-import BusinessPage from '../BusinessPage';
-import AboutUsPage from '../AboutUsPage';
+import CategoryPage from '../CategoryPage';
+import InfoPage from '../InfoPage';
 import NotFoundPage from '../NotFoundPage';
-import PostTwoPage from '../PostTwoPage';
+import ArticlePage from '../ArticlePage';
 import SearchPage from '../SearchPage';
-// import PublicRoute from '../_PublicRoute';
+import OfferPage from '../OfferPage';
+import OffersPage from '../OffersPage';
+import useTracking from '../../utils/useTracking';
+import mockMenu from '../../mockdata/menu.json';
+import mockPages from '../../mockdata/pages.json';
+import CookieDeclarationPage from '../CookieDeclarationPage';
+
+const selectPage = (pageName, categories, props) => {
+    if (pageName === 'Suchportal') {
+        return <SearchPage {...props} />;
+    }
+    if (pageName === 'angebote') {
+        return (
+            <OffersPage
+                {...props}
+                menuName={pageName}
+                categories={categories}
+            />
+        );
+    }
+    return (
+        <CategoryPage {...props} menuName={pageName} categories={categories} />
+    );
+};
 
 const Routes = () => {
+    useTracking(process.env.REACT_APP_UA_TRACK);
     return (
         <Switch>
-            {/* home one routes */}
-            <PrivateRoute
+            <PublicRoute
                 exact
+                home_style={2}
+                parentClass="theme-3 theme3_bg"
                 path="/"
-                parentClass="theme-1"
                 component={HomePage}
             />
-            <PrivateRoute
+            {mockMenu.map((item) => (
+                <PublicRoute
+                    key={item.id}
+                    exact
+                    path={item.link}
+                    home_style={2}
+                    parentClass="theme-3 theme3_bg"
+                    component={(props) =>
+                        selectPage(item.linkText, item.categories, props)
+                    }
+                />
+            ))}
+            {mockPages.map((item) => (
+                <PublicRoute
+                    key={item.id}
+                    exact
+                    path={item.link}
+                    home_style={2}
+                    parentClass="theme-3 theme3_bg"
+                    component={(props) => (
+                        <InfoPage {...props} name={item.name} />
+                    )}
+                />
+            ))}
+            <PublicRoute
                 exact
-                path="/business"
-                parentClass="theme-1"
-                component={(props) => (
-                    <BusinessPage {...props} category="Business" />
-                )}
+                path="/article/:slug"
+                home_style={2}
+                parentClass="theme-3 theme3_bg"
+                component={ArticlePage}
             />
-            <PrivateRoute
+            <PublicRoute
                 exact
-                path="/politics"
-                parentClass="theme-1"
-                component={(props) => (
-                    <BusinessPage {...props} category="Politics" />
-                )}
+                path="/offer/:slug"
+                home_style={2}
+                parentClass="theme-3 theme3_bg"
+                component={OfferPage}
             />
-            <PrivateRoute
+            <PublicRoute
                 exact
-                path="/food"
-                parentClass="theme-1"
-                component={(props) => (
-                    <BusinessPage {...props} category="Food" />
-                )}
-            />
-            <PrivateRoute
-                exact
-                path="/society"
-                parentClass="theme-1"
-                component={(props) => (
-                    <BusinessPage {...props} category="Society" />
-                )}
-            />
-            <PrivateRoute
-                exact
-                path="/blue-zones"
-                parentClass="theme-1"
-                component={(props) => (
-                    <BusinessPage {...props} category="Blue Zones" />
-                )}
-            />
-            <PrivateRoute
-                exact
-                path="/ngos"
-                parentClass="theme-1"
-                component={(props) => (
-                    <BusinessPage {...props} category="NGOs" />
-                )}
-            />
-            <PrivateRoute
-                exact
-                path="/film"
-                parentClass="theme-1"
-                component={(props) => (
-                    <BusinessPage {...props} category="Film" />
-                )}
-            />
-            <PrivateRoute
-                exact
-                path="/sustainability"
-                parentClass="theme-1"
-                component={(props) => (
-                    <BusinessPage {...props} category="Sustainability" />
-                )}
-            />
-            <PrivateRoute
-                exact
-                path="/agriculture"
-                parentClass="theme-1"
-                component={(props) => (
-                    <BusinessPage {...props} category="Agriculture" />
-                )}
-            />
-            <PrivateRoute
-                exact
-                path="/art"
-                parentClass="theme-1"
-                component={(props) => (
-                    <BusinessPage {...props} category="Art" />
-                )}
-            />
-            <PrivateRoute
-                exact
-                path="/search"
-                parentClass="theme-1"
+                path="/such-portal"
+                home_style={2}
+                parentClass="theme-3 theme3_bg"
                 component={(props) => <SearchPage {...props} />}
             />
-            <PrivateRoute
+            <PublicRoute
                 exact
-                path="/science"
-                parentClass="theme-1"
-                component={(props) => (
-                    <BusinessPage {...props} category="Science" />
-                )}
-            />
-            <PrivateRoute
-                exact
-                path="/about"
-                parentClass="theme-1"
-                component={(props) => <AboutUsPage {...props} name="About" />}
-            />
-            <PrivateRoute
-                exact
-                path="/advertise"
-                parentClass="theme-1"
-                component={(props) => (
-                    <AboutUsPage {...props} name="Advertise" />
-                )}
-            />
-            <PrivateRoute
-                exact
-                path="/privacypolicy"
-                parentClass="theme-1"
-                component={(props) => (
-                    <AboutUsPage {...props} name="Privacy and Policy" />
-                )}
-            />
-            <PrivateRoute
-                exact
-                path="/contact"
-                parentClass="theme-1"
-                component={(props) => <AboutUsPage {...props} name="Contact" />}
-            />
-            <PrivateRoute
-                exact
-                path="/404"
-                parentClass="theme-1"
-                component={NotFoundPage}
-            />
-            <PrivateRoute
-                exact
-                path="/article/:id"
-                parentClass="theme-1"
-                component={PostTwoPage}
+                path="/cookie-declaration"
+                parentClass="theme-3 theme3_bg"
+                component={CookieDeclarationPage}
             />
             <Route exact component={NotFoundPage} />
         </Switch>

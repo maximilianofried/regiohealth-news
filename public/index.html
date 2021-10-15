@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="theme-color" content="#000000"/>
-    <!-- <meta
-            name="description"
-            content="Web site created using create-react-app"
-    /> -->
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png"/>
-    <!--
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <base href="/" />
+        <!-- <script
+            id="Cookiebot"
+            src="https://consent.cookiebot.com/uc.js"
+            data-cbid="8fa59645-db52-4940-913b-5e5a06a99e9f"
+            data-blockingmode="auto"
+            type="text/javascript"
+        ></script> -->
+        <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+        <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json"/>
-    <!--
+        <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+        <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -24,13 +28,42 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8BTZiI8mQlbxR68KJnPWP3RQEuHvdJDM&libraries=places"></script>
-    <!-- <title>GesundheitsTicket NEWS</title> -->
-</head>
-<body>
-<noscript>You need to enable JavaScript to run this app.</noscript>
-<div id="root"></div>
-<!--
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8BTZiI8mQlbxR68KJnPWP3RQEuHvdJDM&libraries=places"></script>
+        <% if (process.env.NODE_ENV === 'production') { %>
+        <script
+            data-ad-client="ca-pub-2572107090270969"
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=%REACT_APP_UA_TRACK%"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+            gtag('config', '%REACT_APP_UA_TRACK%');
+        </script>
+        <% } %>
+    </head>
+    <body>
+        <script
+            src="https://consent.cookiefirst.com/banner.js"
+            data-cookiefirst-key="0b5e21ae-ffd4-418a-bb49-4743b0d68c6a"
+        ></script>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div id="root"></div>
+        <!-- <div class="loader-container">
+            <div class="loader"></div>
+        </div> -->
+        <!--
   This HTML file is a template.
   If you open it directly in the browser, you will see an empty page.
 
@@ -40,5 +73,33 @@
   To begin the development, run `npm start` or `yarn start`.
   To create a production bundle, use `npm run build` or `yarn build`.
 -->
-</body>
+        <!-- <% if (process.env.NODE_ENV === 'production') { %>
+        <script>
+            // Initialise cookie consent banner
+            window.cookieconsent.initialise({
+                palette: {
+                    popup: {
+                        background: '#efefef',
+                        text: '#404040',
+                    },
+                    button: {
+                        background: '#8ec760',
+                        text: '#ffffff',
+                    },
+                },
+                type: 'opt-out',
+                content: {
+                    allow: 'Approve',
+                    dismiss: 'Approve',
+                    deny: 'Reject',
+                    href: 'https://regiohealth.news/privacypolicy',
+                },
+                // Reload the page on user choice to make sure cookie is set
+                onStatusChange: function (status, chosenBefore) {
+                    location.reload();
+                },
+            });
+        </script>
+        <% } %> -->
+    </body>
 </html>

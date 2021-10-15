@@ -1,81 +1,92 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import FooterCopyright from '../FooterCopyright';
-import FontAwesome from '../uiStyle/FontAwesome';
-import { ReactComponent as GtLogo } from '../../doc/img/gt-logo/logo-gt.svg';
-import { ReactComponent as GtLogo2 } from '../../doc/img/gt-logo/GT-PLUS.svg';
+import { fetchPages } from '../../store/actions';
+import mockPages from '../../mockdata/pages.json';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
-const FooterArea = ({ className }) => {
+const FooterArea = ({ className, fetchPages, pages }) => {
+    // useEffect(() => {
+    //     fetchPages();
+    // }, [fetchPages]);
+    const pagesMenu = mockPages;
     return (
         <div className={`footer footer_area1 ${className || ''}`}>
             <div className="container">
                 <div className="cta">
                     <div className="row">
-                        <div className="col-8 col-md-7 ">
-                            <div className="social2 partner_logos">
-                                <ul className="inline">
-                                    <li>
-                                        <GtLogo className="gt_logo" />
-                                    </li>
-                                    <li>
-                                        <GtLogo2 className="gt_logo" />
-                                    </li>
-                                    <li>
-                                        <img
-                                            alt="logo"
-                                            className="gt_logo"
-                                            src="https://www.regio-health.de/cms/wp-content/uploads/2020/10/regiohealth-b.svg"
-                                        />
-                                    </li>
-                                    <li>
-                                        <img
-                                            alt="logo"
-                                            className="gt_logo"
-                                            src="https://www.regio-health.de/cms/wp-content/uploads/2020/10/regiohealth-k.svg"
-                                        />
-                                    </li>
-                                    <li>
-                                        <img
-                                            alt="logo"
-                                            className="gt_logo"
-                                            src="https://www.regio-health.de/cms/wp-content/uploads/2020/09/LOGO-WF.svg"
-                                        />
-                                    </li>
-                                    <li>
-                                        <img
-                                            alt="logo"
-                                            className="gt_logo"
-                                            src="https://www.gesundheitsticket.de/woak-logo.svg"
-                                        />
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="col-5 col-md-5 align-end">
-                            <div className="social2">
+                        <div className="col-12 ">
+                            <div className=" partner_logos">
                                 <ul className="inline">
                                     <li>
                                         <a
-                                            href="https://twitter.com/gesundticket"
+                                            href="https://www.gesundheitsticket.de/"
                                             target="_blank"
+                                            rel="noopener noreferrer"
                                         >
-                                            <FontAwesome name="twitter" />
+                                            <img
+                                                alt="logo"
+                                                className="gt_logo"
+                                                src={`${process.env.REACT_APP_CMS_URL}/uploads/logo_gt3_d2142e249a.svg`}
+                                                effect="blur"
+                                            />
                                         </a>
                                     </li>
                                     <li>
                                         <a
-                                            href="https://www.facebook.com/gesundheitsticket"
+                                            href="https://479eae97.sibforms.com/serve/MUIEAEvroLOl7gAeKgjfkbLkysmfsuAS3Tg6HJf6pH3obY0A938-9XXoyezLoftkDhOte_IPJ4UzRcIaiUwNZVuQPKYRpGLaLvT5TZ5udL7Bhv2Vlh9onojMKyw5UxBFiuAoIcA89fFusp3sdopMgDpkOXeSLuurQRJPPChbLNNYIGmg4-8iLrJQA8l6xcpt-8K9i8z56LepgN9j"
                                             target="_blank"
+                                            rel="noopener noreferrer"
                                         >
-                                            <FontAwesome name="facebook-f" />
+                                            <img
+                                                alt="logo"
+                                                className="gt_logo"
+                                                src={`${process.env.REACT_APP_CMS_URL}/uploads/regiohealth_b_7bbe36540e.svg`}
+                                                effect="blur"
+                                            />
                                         </a>
                                     </li>
                                     <li>
                                         <a
-                                            href="https://www.instagram.com/gesundheitsticket/"
+                                            href="http://diewohlfuehler-akademie.de/gesundheit-in-der-kommune/"
                                             target="_blank"
+                                            rel="noopener noreferrer"
                                         >
-                                            <FontAwesome name="instagram" />
+                                            <img
+                                                alt="logo"
+                                                className="gt_logo"
+                                                src={`${process.env.REACT_APP_CMS_URL}/uploads/regiohealth_k_45f8d252a5.svg`}
+                                                effect="blur"
+                                            />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="https://www.diewohlfuehler.de/"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <img
+                                                alt="logo"
+                                                className="gt_logo"
+                                                src={`${process.env.REACT_APP_CMS_URL}/uploads/LOGO_WF_3f61100d67.svg`}
+                                                effect="blur"
+                                            />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="http://diewohlfuehler-akademie.de/"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <img
+                                                alt="logo"
+                                                className="gt_logo"
+                                                src="https://www.gesundheitsticket.de/woak-logo.svg"
+                                                effect="blur"
+                                            />
                                         </a>
                                     </li>
                                 </ul>
@@ -84,7 +95,7 @@ const FooterArea = ({ className }) => {
                     </div>
                 </div>
             </div>
-            <FooterCopyright />
+            <FooterCopyright pagesMenu={pagesMenu} />
         </div>
     );
 };
@@ -96,5 +107,17 @@ FooterArea.propTypes = {
 FooterArea.defaultProps = {
     className: '',
 };
+
+// const mapStateToProps = (state) => {
+//     return {
+//         pages: state.pages,
+//     };
+// };
+
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         fetchPages: () => dispatch(fetchPages()),
+//     };
+// };
 
 export default FooterArea;

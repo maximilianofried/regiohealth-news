@@ -2,43 +2,44 @@ import axios from 'axios';
 import {
     FETCH_MENU_REQUEST,
     FETCH_MENU_SUCCESS,
-    FETCH_MENU_FAILURE
-} from "../constants/menuTypes";
+    FETCH_MENU_FAILURE,
+} from '../constants/menuTypes';
 
 const fetchMenuRequest = () => {
     return {
-        type: FETCH_MENU_REQUEST
-    }
-}
+        type: FETCH_MENU_REQUEST,
+    };
+};
 
-const fetchMenuSuccess = menu => {
+const fetchMenuSuccess = (menu) => {
     return {
         type: FETCH_MENU_SUCCESS,
-        payload: menu
-    }
-}
+        payload: menu,
+    };
+};
 
-
-const fetchMenuFailure = error => {
+const fetchMenuFailure = (error) => {
     return {
         type: FETCH_MENU_FAILURE,
-        payload: error
-    }
-}
+        payload: error,
+    };
+};
 
 // action creator, return function not object, not pure function ,async api calls
 export const fetchMenu = () => {
     return (dispatch) => {
         dispatch(fetchMenuRequest);
-        axios.get('https://cms.gesundheitsticket.de/menus')
-            .then(response => {
-                //separar en categorias y guardar en objeto los array correspondientes
+        axios
+            .get(`${process.env.REACT_APP_CMS_URL}/menus?_sort=position:asc`)
+            .then((response) => {
                 const menu = response.data;
-                dispatch(fetchMenuSuccess(menu))
+                dispatch(fetchMenuSuccess(menu));
             })
-            .catch(error => {
+            .catch((error) => {
                 const errorMsg = error.message;
                 dispatch(fetchMenuFailure(errorMsg));
-            })
-    }
-}
+            });
+    };
+};
+
+export default fetchMenu;

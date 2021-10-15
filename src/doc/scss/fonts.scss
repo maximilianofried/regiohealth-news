@@ -1,14 +1,28 @@
+/* FONTS REGIO HEALTH */
+$font_oswald: 'Oswald', sans-serif;
+$font_open_sans_semi: 'Open Sans Semibold', sans-serif;
+$font_open_sans_regular: 'Open Sans Regular', sans-serif;
+$header1: 40px;
+$header2: 32px;
+$header3: 26px;
+$header4: 16px;
+$description_text: 14px;
+$paragraph: 16px;
+$menu_text: 18px;
+$link_text: 16px;
+$button_text: 16px;
+$textfield_text: 16px;
+/* ---------------------  */
 
-$font1:'Heebo', sans-serif;
-
-$extra_small:12px;
-$small_font_size:14px;
-$body_font_size:16px;
-$match_title_size:18px;
-$widget_title_font_size:20px;
-$widget_font_size2:24px;
-$heading3:30px;
-$heading2:36px;
+$font1: 'Heebo', sans-serif;
+$extra_small: 12px;
+$small_font_size: 14px;
+$body_font_size: 16px;
+$match_title_size: 18px;
+$widget_title_font_size: 20px;
+$widget_font_size2: 24px;
+$heading3: 30px;
+$heading2: 36px;
 
 /*
 =====================
@@ -16,13 +30,10 @@ font weight
 
 */
 
-
-$wightLight:300;
-$wightRegular:400;
-$wightMedium:500;
-$wightSemi:600;
-$wightBold:700;
-$wightEBold:800;
-$wightBlack:900;
-
-
+$wightLight: 300;
+$wightRegular: 400;
+$wightMedium: 500;
+$wightSemi: 600;
+$wightBold: 700;
+$wightEBold: 800;
+$wightBlack: 900;
