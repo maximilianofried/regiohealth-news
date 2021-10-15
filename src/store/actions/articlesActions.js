@@ -93,6 +93,7 @@ export const fetchArticles = ({
                     fetchArticlesSuccess({
                         articles,
                         limit,
+                        start,
                     })
                 );
             })
