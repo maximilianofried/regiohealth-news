@@ -47,7 +47,7 @@ export const fetchArticlesGtTips = ({
     city = undefined,
     start = undefined,
     limit = undefined,
-    menuName = '',
+    menuId = '6040a5cd1acb2a3475c7ab39',
 } = {}) => {
     return (dispatch) => {
         let categoriesList = [];
@@ -65,9 +65,9 @@ export const fetchArticlesGtTips = ({
             process.env.REACT_APP_CMS_URL
         }/contents/published?_sort=publishAt:desc&type=article${
             categoriesList.length > 0 ? `&${query}` : ''
-        }${menuName ? `&menu.linkText=${menuName}` : ''}${
-            city ? `&city=${city}` : ''
-        }${start ? `&_start=${start}` : ''}${limit ? `&_limit=${limit}` : ''}`;
+        }${menuId ? `&menu=${menuId}` : ''}${city ? `&city=${city}` : ''}${
+            start ? `&_start=${start}` : ''
+        }${limit ? `&_limit=${limit}` : ''}`;
         dispatch(fetchArticlesGtTipsRequest);
         axios
             .get(url)

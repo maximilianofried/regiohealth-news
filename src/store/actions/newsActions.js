@@ -47,7 +47,7 @@ export const fetchArticlesNews = ({
     city = undefined,
     start = undefined,
     limit = undefined,
-    menuName = '',
+    menuId = '6040a5dc1acb2a3475c7ab3a',
 } = {}) => {
     return (dispatch) => {
         let categoriesList = [];
@@ -63,11 +63,11 @@ export const fetchArticlesNews = ({
         }
         const url = `${
             process.env.REACT_APP_CMS_URL
-        }/contents/published?_sort=publishAt:desc&type=article${
+        }/contents/published?_sort=publishAt:DESC&type=article${
             categoriesList.length > 0 ? `&${query}` : ''
-        }${menuName ? `&menu.linkText=${menuName}` : ''}${
-            city ? `&city=${city}` : ''
-        }${start ? `&_start=${start}` : ''}${limit ? `&_limit=${limit}` : ''}`;
+        }${menuId ? `&menu=${menuId}` : ''}${city ? `&city=${city}` : ''}${
+            start ? `&_start=${start}` : ''
+        }${limit ? `&_limit=${limit}` : ''}`;
         dispatch(fetchArticlesNewsRequest);
         axios
             .get(url)

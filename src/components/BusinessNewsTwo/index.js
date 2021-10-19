@@ -10,12 +10,12 @@ const BusinessNewsTwo = ({
     publisherArticles = [],
     articleLimit,
     offer,
-    fetchArticlesHook,
-    setClickedLoadMore,
+    fetchContentHook,
+    isHomePage,
+    buttonText,
 }) => {
     const onClickLoadMore = () => {
-        setClickedLoadMore(true);
-        fetchArticlesHook();
+        fetchContentHook();
     };
     return (
         <div className="business3 padding20 white_bg border-radious5">
@@ -130,13 +130,15 @@ const BusinessNewsTwo = ({
                     variant="success"
                 />
             )}
-            <button
-                type="button"
-                onClick={() => onClickLoadMore()}
-                className="btn btn-primary"
-            >
-                Primary
-            </button>
+            {publisherArticles && publisherArticles.length > 0 && !isHomePage && (
+                <button
+                    type="button"
+                    onClick={() => onClickLoadMore()}
+                    className="btn-sm search-button"
+                >
+                    {buttonText || 'MEHR'}
+                </button>
+            )}
         </div>
     );
 };

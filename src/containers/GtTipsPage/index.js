@@ -34,15 +34,13 @@ const GtTipsPage = ({
 }) => {
     const [newLatestOffers, setNewLatestOffers] = useState([]);
     const [newArticlesCategoryPage, setNewArticlesCategoryPage] = useState([]);
-    const [clickedLoadMore, setClickedLoadMore] = useState(false);
-    const limit = useRef(2);
+    const limit = useRef(6);
 
     const fetchArticlesHook = useCallback(() => {
         fetchArticlesGtTips({
             categories,
             start,
             limit: limit.current,
-            menuName,
         });
         updateGtTipsPageStartParam();
     }, [start]);
@@ -86,8 +84,8 @@ const GtTipsPage = ({
                         <div className="col-md-12 col-lg-9 homepage_col_top">
                             <BusinessNewsTwo
                                 publisherArticles={articles}
-                                fetchArticlesHook={fetchArticlesHook}
-                                setClickedLoadMore={setClickedLoadMore}
+                                fetchContentHook={fetchArticlesHook}
+                                buttonText="MEHR GESUNDHEITSTIPPS"
                             />
                             {!isMobileOnly && <AdserverLeaderboard />}
                         </div>
@@ -157,10 +155,8 @@ const mapDispatchToProps = (dispatch) => {
         fetchArticleCategoryPage: () => dispatch(fetchArticleCategoryPage()),
         fetchOffers: ({ start, limit }) =>
             dispatch(fetchOffers({ start, limit })),
-        fetchArticlesGtTips: ({ categories, start, limit, menuName }) =>
-            dispatch(
-                fetchArticlesGtTips({ categories, start, limit, menuName })
-            ),
+        fetchArticlesGtTips: ({ categories, start, limit }) =>
+            dispatch(fetchArticlesGtTips({ categories, start, limit })),
         updateGtTipsPageStartParam: () =>
             dispatch(updateGtTipsPageStartParam({})),
     };

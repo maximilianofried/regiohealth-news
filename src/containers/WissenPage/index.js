@@ -34,15 +34,13 @@ const WissenPage = ({
 }) => {
     const [newLatestOffers, setNewLatestOffers] = useState([]);
     const [newArticlesCategoryPage, setNewArticlesCategoryPage] = useState([]);
-    const [clickedLoadMore, setClickedLoadMore] = useState(false);
-    const limit = useRef(2);
+    const limit = useRef(6);
 
     const fetchArticlesHook = useCallback(() => {
         fetchArticlesWissen({
             categories,
             start,
             limit: limit.current,
-            menuName,
         });
         updateWissenPageStartParam();
     }, [start]);
@@ -86,8 +84,8 @@ const WissenPage = ({
                         <div className="col-md-12 col-lg-9 homepage_col_top">
                             <BusinessNewsTwo
                                 publisherArticles={articles}
-                                fetchArticlesHook={fetchArticlesHook}
-                                setClickedLoadMore={setClickedLoadMore}
+                                fetchContentHook={fetchArticlesHook}
+                                buttonText="MEHR WISSEN ARTIKEL"
                             />
 
                             {!isMobileOnly && <AdserverLeaderboard />}
@@ -158,10 +156,8 @@ const mapDispatchToProps = (dispatch) => {
         fetchArticleCategoryPage: () => dispatch(fetchArticleCategoryPage()),
         fetchOffers: ({ start, limit }) =>
             dispatch(fetchOffers({ start, limit })),
-        fetchArticlesWissen: ({ categories, start, limit, menuName }) =>
-            dispatch(
-                fetchArticlesWissen({ categories, start, limit, menuName })
-            ),
+        fetchArticlesWissen: ({ categories, start, limit }) =>
+            dispatch(fetchArticlesWissen({ categories, start, limit })),
         updateWissenPageStartParam: () =>
             dispatch(updateWissenPageStartParam({})),
     };

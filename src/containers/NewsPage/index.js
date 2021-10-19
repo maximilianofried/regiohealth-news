@@ -34,15 +34,13 @@ const NewsPage = ({
 }) => {
     const [newLatestOffers, setNewLatestOffers] = useState([]);
     const [newArticlesCategoryPage, setNewArticlesCategoryPage] = useState([]);
-    const [clickedLoadMore, setClickedLoadMore] = useState(false);
-    const limit = useRef(2);
+    const limit = useRef(6);
 
     const fetchArticlesHook = useCallback(() => {
         fetchArticlesNews({
             categories,
             start,
             limit: limit.current,
-            menuName,
         });
         updateNewsPageStartParam();
     }, [start]);
@@ -86,8 +84,8 @@ const NewsPage = ({
                         <div className="col-md-12 col-lg-9 homepage_col_top">
                             <BusinessNewsTwo
                                 publisherArticles={articles}
-                                fetchArticlesHook={fetchArticlesHook}
-                                setClickedLoadMore={setClickedLoadMore}
+                                fetchContentHook={fetchArticlesHook}
+                                buttonText="MEHR NEWS ARTIKEL"
                             />
 
                             {!isMobileOnly && <AdserverLeaderboard />}
@@ -158,8 +156,8 @@ const mapDispatchToProps = (dispatch) => {
         fetchArticleCategoryPage: () => dispatch(fetchArticleCategoryPage()),
         fetchOffers: ({ start, limit }) =>
             dispatch(fetchOffers({ start, limit })),
-        fetchArticlesNews: ({ categories, start, limit, menuName }) =>
-            dispatch(fetchArticlesNews({ categories, start, limit, menuName })),
+        fetchArticlesNews: ({ categories, start, limit }) =>
+            dispatch(fetchArticlesNews({ categories, start, limit })),
         updateNewsPageStartParam: () => dispatch(updateNewsPageStartParam({})),
     };
 };
