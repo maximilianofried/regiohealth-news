@@ -40,7 +40,7 @@ const articlesNewsReducer = (state = initialState, action) => {
         case UPDATE_NEWS_PAGE_START_PARAM:
             return {
                 ...state,
-                start: state.start + 2,
+                start: state.start + 6,
             };
         default:
             return state;
