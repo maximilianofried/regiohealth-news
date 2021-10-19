@@ -6,7 +6,17 @@ import { Spinner } from 'reactstrap';
 import rgOfferPlaceholderSmall from '../../doc/img/dummy_small.png';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
-const BusinessNewsTwo = ({ publisherArticles = [], articleLimit, offer }) => {
+const BusinessNewsTwo = ({
+    publisherArticles = [],
+    articleLimit,
+    offer,
+    fetchContentHook,
+    isHomePage,
+    buttonText,
+}) => {
+    const onClickLoadMore = () => {
+        fetchContentHook();
+    };
     return (
         <div className="business3 padding20 white_bg border-radious5">
             {publisherArticles && publisherArticles.length > 0 ? (
@@ -119,6 +129,15 @@ const BusinessNewsTwo = ({ publisherArticles = [], articleLimit, offer }) => {
                     animation="border"
                     variant="success"
                 />
+            )}
+            {publisherArticles && publisherArticles.length > 0 && !isHomePage && (
+                <button
+                    type="button"
+                    onClick={() => onClickLoadMore()}
+                    className="btn-sm search-button"
+                >
+                    {buttonText || 'MEHR'}
+                </button>
             )}
         </div>
     );

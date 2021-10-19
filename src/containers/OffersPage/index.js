@@ -9,6 +9,7 @@ import {
     fetchAds,
     fetchOffersForPageCleanUp,
     fetchOffersForPage,
+    updateOffersPageStartParam,
 } from '../../store/actions';
 import BusinessNewsTwo from '../../components/BusinessNewsTwo';
 import MostViewTwo from '../../components/MostViewTwo';
@@ -22,40 +23,52 @@ import AdserverLeaderboard from '../../components/AdserverLeaderboard';
 const OffersPage = ({
     fetchOffersForPageCleanUp,
     fetchArticleHomepage,
+    updateOffersPageStartParam,
     fetchOffersForPage,
     newsArticles = [],
     latestOffers = [],
     menuName,
     fetchAds,
     adsCategory,
-    limit,
+    start,
 }) => {
+    const limit = useRef(6);
+    // useEffect(() => {
+    //     // window.scrollTo(0, 0);
+    //     if (latestOffers.length === 0)
+    //         fetchOffersForPage({ start: 0, limit: 2 });
+    //     if (newsArticles.length === 0) fetchArticleHomepage();
+    //     // fetchArticles({ categories, start: 0, limit: 4 });
+    //     if (adsCategory.length === 0) fetchAds();
+    //     return () => {
+    //         if (latestOffers.length > 0) fetchOffersForPageCleanUp();
+    //     };
+    // }, []);
+    console.log('offers', start);
+    const fetchOffersHook = useCallback(() => {
+        fetchOffersForPage({ start, limit: limit.current });
+        updateOffersPageStartParam();
+    }, [start]);
+
     useEffect(() => {
-        // window.scrollTo(0, 0);
-        if (latestOffers.length === 0)
-            fetchOffersForPage({ start: 0, limit: 4 });
-        if (newsArticles.length === 0) fetchArticleHomepage();
-        // fetchArticles({ categories, start: 0, limit: 4 });
-        if (adsCategory.length === 0) fetchAds();
-        return () => {
-            if (latestOffers.length > 0) fetchOffersForPageCleanUp();
-        };
+        if (latestOffers.length === 0) fetchOffersHook();
     }, []);
 
-    const observer = useRef();
+    // const observer = useRef();
 
-    const lastElementRef = useCallback(
-        (node) => {
-            if (observer.current) observer.current.disconnect();
-            observer.current = new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting) {
-                    fetchOffersForPage({ start: 0, limit: limit + 2 });
-                }
-            });
-            if (node) observer.current.observe(node);
-        },
-        [limit]
-    );
+    // const lastElementRef = useCallback(
+    //     (node) => {
+    //         if (observer.current) observer.current.disconnect();
+    //         observer.current = new IntersectionObserver((entries) => {
+    //             if (entries[0].isIntersecting) {
+    //                 fetchOffersForPage({ start: 0, limit: limit + 2 });
+    //             }
+    //         });
+    //         if (node) observer.current.observe(node);
+    //     },
+    //     [limit]
+    // );
+    console.log('latest', latestOffers);
     const displayOffers = latestOffers.some(
         (offer) => offer.end > moment().format('YYYY-MM-DD')
     );
@@ -73,8 +86,10 @@ const OffersPage = ({
                             <BusinessNewsTwo
                                 offer
                                 publisherArticles={latestOffers}
+                                fetchContentHook={fetchOffersHook}
+                                buttonText="MEHR ANGEBOTE"
                             />
-                            <div ref={lastElementRef} className="space-20" />
+                            {/* <div ref={lastElementRef} className="space-20" /> */}
                             {!isMobileOnly && <AdserverLeaderboard />}
                         </div>
                         <div className="d-lg-block col-lg-3 col-xl-3 px-xl-0">
@@ -140,9 +155,9 @@ const mapStateToProps = (state) => {
     return {
         adsCategory: state.ads.ads.filter((ad) => ad.position === 'category'),
         allArticles: state.articles.articles,
-        limit: state.articles.limit,
         newsArticles: state.articles.articlesHomepage.newsArticles,
         latestOffers: state.offers.offersForPage,
+        start: state.offers.start,
     };
 };
 
@@ -155,6 +170,8 @@ const mapDispatchToProps = (dispatch) => {
         fetchOffersForPage: ({ start, limit }) =>
             dispatch(fetchOffersForPage({ start, limit })),
         fetchOffersForPageCleanUp: () => dispatch(fetchOffersForPageCleanUp()),
+        updateOffersPageStartParam: () =>
+            dispatch(updateOffersPageStartParam()),
     };
 };
 

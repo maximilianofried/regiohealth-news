@@ -9,6 +9,7 @@ import {
     FETCH_OFFERS_FOR_PAGE_SUCCESS,
     FETCH_OFFERS_FOR_PAGE_FAILURE,
     FETCH_OFFERS_FOR_PAGE_CLEAN_UP,
+    UPDATE_OFFERS_PAGE_START_PARAM,
 } from '../constants/offersTypes';
 
 const fetchOffersRequest = () => {
@@ -60,6 +61,12 @@ const fetchOffersForPageFailure = (error) => {
 export const fetchOffersForPageCleanUp = () => {
     return {
         type: FETCH_OFFERS_FOR_PAGE_CLEAN_UP,
+    };
+};
+
+export const updateOffersPageStartParam = () => {
+    return {
+        type: UPDATE_OFFERS_PAGE_START_PARAM,
     };
 };
 
@@ -122,7 +129,7 @@ export const fetchOffersForPage = ({
         const url = `${
             process.env.REACT_APP_CMS_URL
         }/contents/published?_sort=publishAt:DESC&type=offer${
-            categories ? `&${query}` : ''
+            categories.length > 0 ? `&${query}` : ''
         }${city ? `&city=${city}` : ''}${start ? `&_start=${start}` : ''}${
             limit ? `&_limit=${limit}` : ''
         }`;
@@ -134,7 +141,6 @@ export const fetchOffersForPage = ({
                 dispatch(
                     fetchOffersForPageSuccess({
                         offers,
-                        limit,
                     })
                 );
             })

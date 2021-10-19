@@ -82,6 +82,7 @@ const PostGalleryTwo = ({
                         <div className="space-10" />
                         {!isMobileOnly && <AdserverLeaderboard />}
                         <BusinessNewsTwo
+                            isHomePage
                             articleLimit={articleLimit}
                             publisherArticles={publisherArticles}
                         />
