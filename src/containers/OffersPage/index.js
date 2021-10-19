@@ -54,6 +54,9 @@ const OffersPage = ({
         if (latestOffers.length === 0) fetchOffersHook();
     }, []);
 
+    useEffect(() => {
+        if (newsArticles.length === 0) fetchArticleHomepage();
+    }, [fetchArticleHomepage, newsArticles.length]);
     // const observer = useRef();
 
     // const lastElementRef = useCallback(
@@ -135,12 +138,12 @@ const OffersPage = ({
                                                 </div>
                                             ))}
                                     </div>
-                                    {displayOffers && (
+                                    {/* {displayOffers && (
                                         <MostViewTwo
                                             title="ANGEBOTE"
                                             latestOffers={latestOffers}
                                         />
-                                    )}
+                                    )} */}
                                 </div>
                             </div>
                         </div>
