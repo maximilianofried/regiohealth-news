@@ -40,7 +40,7 @@ const articlesWissenReducer = (state = initialState, action) => {
         case UPDATE_WISSEN_PAGE_START_PARAM:
             return {
                 ...state,
-                start: state.start + 2,
+                start: state.start + 6,
             };
         default:
             return state;
