@@ -28,9 +28,10 @@ const articlesReducer = (state = initialState, action) => {
         case FETCH_ARTICLES_SUCCESS:
             return {
                 ...state,
-                articles: action.payload.articles,
+                articles: [...state.articles, ...action.payload.articles],
                 articlesHomepage: state.articlesHomepage,
                 limit: action.payload.limit,
+                start: action.payload.start,
                 error: '',
             };
         case FETCH_ARTICLES_FAILURE:
