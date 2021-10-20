@@ -85,7 +85,7 @@ const NewsPage = ({
                             <BusinessNewsTwo
                                 publisherArticles={articles}
                                 fetchContentHook={fetchArticlesHook}
-                                buttonText="MEHR NEWS ARTIKEL"
+                                buttonText="MEHR NEWS"
                             />
 
                             {!isMobileOnly && <AdserverLeaderboard />}
