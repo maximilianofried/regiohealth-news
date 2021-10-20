@@ -13,8 +13,12 @@ import useTracking from '../../utils/useTracking';
 import mockMenu from '../../mockdata/menu.json';
 import mockPages from '../../mockdata/pages.json';
 import CookieDeclarationPage from '../CookieDeclarationPage';
+import WissenPage from '../WissenPage';
+import GtTipsPage from '../GtTipsPage';
+import NewsPage from '../NewsPage';
 
 const selectPage = (pageName, categories, props) => {
+    console.log(pageName, categories, props);
     if (pageName === 'Suchportal') {
         return <SearchPage {...props} />;
     }
@@ -26,6 +30,15 @@ const selectPage = (pageName, categories, props) => {
                 categories={categories}
             />
         );
+    }
+    if (pageName === 'wissen') {
+        return <WissenPage menuName={pageName} />;
+    }
+    if (pageName === 'gesundheitstipps') {
+        return <GtTipsPage menuName={pageName} />;
+    }
+    if (pageName === 'news') {
+        return <NewsPage menuName={pageName} />;
     }
     return (
         <CategoryPage {...props} menuName={pageName} categories={categories} />

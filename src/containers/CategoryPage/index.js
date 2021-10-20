@@ -37,16 +37,18 @@ const CategoryPage = ({
 }) => {
     const [newLatestOffers, setNewLatestOffers] = useState([]);
     const [newArticlesCategoryPage, setNewArticlesCategoryPage] = useState([]);
+    const [clickedLoadMore, setClickedLoadMore] = useState(false);
     const limit = useRef(2);
+    const start = useRef(0);
 
     const fetchArticlesHook = useCallback(() => {
-        limit.current += 2;
         fetchArticles({
             categories,
-            start: 0,
+            start: start.current,
             limit: limit.current,
             menuName,
         });
+        start.current += 2;
     }, [categories, fetchArticles, limit, menuName]);
 
     useEffect(() => {
@@ -56,18 +58,19 @@ const CategoryPage = ({
         if (stateArticles.articles.length === 0) fetchArticlesHook();
         // fetchArticles({ categories, start: 0, limit: 4, menuName });
         // fetchAds();
+    }, [fetchArticlesHook, stateArticles.articles.length]);
 
-        return () => {
-            if (stateArticles.articles.length > 0) fetchArticlesCleanUp();
-        };
-    }, [
-        categories,
-        fetchArticles,
-        fetchArticlesCleanUp,
-        fetchArticlesHook,
-        menuName,
-        stateArticles.articles.length,
-    ]);
+    // useEffect(() => {
+    //     console.log(clickedLoadMore);
+    //     return () => {
+    //         if (clickedLoadMore) {
+    //             setClickedLoadMore(false);
+    //         }
+    //         if (stateArticles.articles.length > 0 && !clickedLoadMore) {
+    //             fetchArticlesCleanUp();
+    //         }
+    //     };
+    // }, [clickedLoadMore, fetchArticlesCleanUp, stateArticles.articles.length]);
 
     useEffect(() => {
         if (latestOffers.length === 0) fetchOffers({ start: 0, limit: 4 });
@@ -85,26 +88,26 @@ const CategoryPage = ({
         setNewArticlesCategoryPage(newsArticles);
     }, [newsArticles]);
 
-    const observer = useRef();
+    // const observer = useRef();
 
-    const lastElementRef = useCallback(
-        (node) => {
-            if (observer.current) observer.current.disconnect();
-            observer.current = new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting) {
-                    fetchArticlesHook();
-                    // fetchArticles({
-                    //     categories,
-                    //     start: 0,
-                    //     limit: limit + 2,
-                    //     menuName,
-                    // });
-                }
-            });
-            if (node) observer.current.observe(node);
-        },
-        [fetchArticlesHook]
-    );
+    // const lastElementRef = useCallback(
+    //     (node) => {
+    //         if (observer.current) observer.current.disconnect();
+    //         observer.current = new IntersectionObserver((entries) => {
+    //             if (entries[0].isIntersecting) {
+    //                 fetchArticlesHook();
+    //                 // fetchArticles({
+    //                 //     categories,
+    //                 //     start: 0,
+    //                 //     limit: limit + 2,
+    //                 //     menuName,
+    //                 // });
+    //             }
+    //         });
+    //         if (node) observer.current.observe(node);
+    //     },
+    //     [fetchArticlesHook]
+    // );
     const banner350x292 =
         adsCategory.filter((ad) => ad.size === 's350x292')[0] || {};
 
@@ -122,11 +125,17 @@ const CategoryPage = ({
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12 col-lg-9 homepage_col_top">
-                            <BusinessNewsTwo publisherArticles={allArticles} />
-                            <div ref={lastElementRef} className="space-20" />
+                            <BusinessNewsTwo
+                                publisherArticles={allArticles}
+                                fetchArticlesHook={fetchArticlesHook}
+                                setClickedLoadMore={setClickedLoadMore}
+                            />
+
+                            {/* <div ref={lastElementRef} className="space-20" /> */}
 
                             {!isMobileOnly && <AdserverLeaderboard />}
                         </div>
+
                         <div className="d-lg-block col-lg-3 col-xl-3 px-xl-0">
                             <div className="row justify-content-center">
                                 <div className="col-md-6 col-lg-12 d-md-none d-lg-block">

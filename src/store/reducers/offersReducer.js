@@ -7,6 +7,7 @@ import {
     FETCH_OFFERS_FOR_PAGE_SUCCESS,
     FETCH_OFFERS_FOR_PAGE_FAILURE,
     FETCH_OFFERS_FOR_PAGE_CLEAN_UP,
+    UPDATE_OFFERS_PAGE_START_PARAM,
 } from '../constants/offersTypes';
 
 const initialState = {
@@ -14,10 +15,12 @@ const initialState = {
     offers: [],
     offersForPage: [],
     error: '',
-    limit: 4,
+    // limit: 4,
+    start: 0,
 };
 
 const offersReducer = (state = initialState, action) => {
+    console.log(action.type, action.payload);
     switch (action.type) {
         case FETCH_OFFERS_REQUEST:
             return {
@@ -28,7 +31,7 @@ const offersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 offers: action.payload.offers,
-                limit: action.payload.limit,
+                // limit: action.payload.limit,
                 error: '',
             };
         case FETCH_OFFERS_FAILURE:
@@ -50,8 +53,12 @@ const offersReducer = (state = initialState, action) => {
         case FETCH_OFFERS_FOR_PAGE_SUCCESS:
             return {
                 ...state,
-                offersForPage: action.payload.offers,
-                limit: action.payload.limit,
+                offersForPage: [
+                    ...state.offersForPage,
+                    ...action.payload.offers,
+                ],
+                // limit: action.payload.limit,
+                start: state.start + 6,
                 error: '',
             };
         case FETCH_OFFERS_FOR_PAGE_FAILURE:
@@ -64,6 +71,11 @@ const offersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 offersForPage: [],
+            };
+        case UPDATE_OFFERS_PAGE_START_PARAM:
+            return {
+                ...state,
+                start: state.start + 6,
             };
         default:
             return state;

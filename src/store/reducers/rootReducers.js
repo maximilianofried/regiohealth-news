@@ -13,6 +13,9 @@ import offerReducer from './offerReducer';
 import geoDataReducer from './geoDataReducer';
 import nationalDataReducer from './nationalDataReducer';
 import searchReducer from './searchReducer';
+import articlesWissenReducer from './wissenReducer';
+import articlesGtTipsReducer from './gtTipsReducer';
+import articlesNewsReducer from './newsReducer';
 
 const rootReducer = combineReducers({
     meta: metaReducer,
@@ -29,5 +32,8 @@ const rootReducer = combineReducers({
     geoData: geoDataReducer,
     nationalData: nationalDataReducer,
     searchData: searchReducer,
+    articlesWissen: articlesWissenReducer,
+    articlesGtTips: articlesGtTipsReducer,
+    articlesNews: articlesNewsReducer,
 });
 export default rootReducer;

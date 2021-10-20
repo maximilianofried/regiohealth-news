@@ -11,3 +11,6 @@ export * from './offerActions';
 export * from './geoDataActions';
 export * from './nationalDataActions';
 export * from './searchActions';
+export * from './wissenActions';
+export * from './gtTipsActions';
+export * from './newsActions';
