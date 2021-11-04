@@ -27,58 +27,62 @@ const PostGalleryTwo = ({
             <div className="container">
                 <div className="row">
                     <div className="col-md-12 col-lg-9 ">
-                        {mainArticle && (
-                            <Link to={`/article/${mainArticle.slug}`}>
-                                <div className="single_post post_type6 border-radious7 xs-mb30 main_article_homepage">
-                                    <div className="post_img gradient1">
-                                        <div className="img_wrap">
-                                            <img
-                                                className="lazyLoad wrapper__img"
-                                                src={
-                                                    mainArticle.main_image
-                                                        ? `${
-                                                              process.env
-                                                                  .REACT_APP_CMS_URL +
-                                                              mainArticle
-                                                                  .main_image
-                                                                  .url
-                                                          }`
-                                                        : bigImg
-                                                }
-                                                alt="thumb"
-                                                effect="blur"
-                                            />
+                        <div className="main-article-container">
+                            {mainArticle && (
+                                <Link to={`/article/${mainArticle.slug}`}>
+                                    <div className="single_post post_type6 border-radious7 xs-mb30 main_article_homepage">
+                                        <div className="post_img gradient1">
+                                            <div className="img_wrap">
+                                                <img
+                                                    className="lazyLoad wrapper__img"
+                                                    src={
+                                                        mainArticle.main_image
+                                                            ? `${
+                                                                  process.env
+                                                                      .REACT_APP_CMS_URL +
+                                                                  mainArticle
+                                                                      .main_image
+                                                                      .url
+                                                              }`
+                                                            : bigImg
+                                                    }
+                                                    alt="thumb"
+                                                    effect="blur"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="single_post_text">
+                                            <h2 className="single_post_title">
+                                                {mainArticle.title}
+                                            </h2>
+                                            <div className="space-10" />
+
+                                            <p className="post-p">
+                                                {mainArticle.description}
+                                            </p>
+
+                                            <div className="meta meta_separator1">
+                                                <span className="meta-category">
+                                                    {mainArticle.categories
+                                                        .length > 0
+                                                        ? mainArticle
+                                                              .categories[0]
+                                                              .name
+                                                        : ''}
+                                                </span>
+                                                <span>
+                                                    {' '}
+                                                    {moment(
+                                                        mainArticle.publishAt
+                                                    ).format('LL')}
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="single_post_text">
-                                        <h2 className="single_post_title">
-                                            {mainArticle.title}
-                                        </h2>
-                                        <div className="space-10" />
+                                </Link>
+                            )}
+                        </div>
 
-                                        <p className="post-p">
-                                            {mainArticle.description}
-                                        </p>
-
-                                        <div className="meta meta_separator1">
-                                            <span className="meta-category">
-                                                {mainArticle.categories.length >
-                                                0
-                                                    ? mainArticle.categories[0]
-                                                          .name
-                                                    : ''}
-                                            </span>
-                                            <span>
-                                                {' '}
-                                                {moment(
-                                                    mainArticle.publishAt
-                                                ).format('LL')}
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Link>
-                        )}
                         <div className="space-10" />
                         {!isMobileOnly && <AdserverLeaderboard />}
                         <BusinessNewsTwo
