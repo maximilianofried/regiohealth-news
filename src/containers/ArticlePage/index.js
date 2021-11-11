@@ -7,7 +7,7 @@ import ReactTooltip from 'react-tooltip';
 import ReactMarkdown from 'react-markdown';
 import { fetchArticle, fetchArticleCleanUp } from '../../store/actions';
 import FontAwesome from '../../components/uiStyle/FontAwesome';
-import singlePost1 from '../../doc/img/blog/single_post1.jpg';
+import rgOfferPlaceholderMedium from '../../doc/img/dummy_medium.png';
 import Metadata from '../../components/Metadata';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import AdserverLeaderboard from '../../components/AdserverLeaderboard';
@@ -131,9 +131,10 @@ const ArticlePage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                                           .REACT_APP_CMS_URL +
                                                       article.main_image.url
                                                   }`
-                                                : singlePost1
+                                                : rgOfferPlaceholderMedium
                                         }
                                         alt="thumb"
+                                        className="border-radious7"
                                         effect="blur"
                                     />
                                 </div>

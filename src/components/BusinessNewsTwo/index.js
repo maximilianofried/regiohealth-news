@@ -17,6 +17,7 @@ const BusinessNewsTwo = ({
     const onClickLoadMore = () => {
         fetchContentHook();
     };
+    console.log(publisherArticles);
     return (
         <div className="business3 padding20 white_bg border-radious5">
             {publisherArticles && publisherArticles.length > 0 ? (
@@ -29,14 +30,12 @@ const BusinessNewsTwo = ({
                             <div className="img_wrap">
                                 <Link
                                     to={
-                                        (offer ? `/offer/` : `/article/`) +
-                                        item.slug
+                                        (item.type === 'offer'
+                                            ? `/offer/`
+                                            : `/article/`) + item.slug
                                     }
                                 >
-                                    {item &&
-                                    item.main_image &&
-                                    item.main_image.formats &&
-                                    item.main_image.formats.small ? (
+                                    {item && item.main_image ? (
                                         <img
                                             className="lazyLoad border-radious5"
                                             src={
@@ -49,22 +48,22 @@ const BusinessNewsTwo = ({
                                                           item.main_image
                                                               .formats.small.url
                                                       }`
-                                                    : offer
-                                                    ? rgOfferPlaceholderSmall
-                                                    : ''
+                                                    : `${
+                                                          process.env
+                                                              .REACT_APP_CMS_URL +
+                                                          item.main_image.url
+                                                      }`
                                             }
                                             alt="thumb"
                                             effect="blur"
                                         />
-                                    ) : offer ? (
+                                    ) : (
                                         <img
                                             className="lazyLoad border-radious5"
                                             src={rgOfferPlaceholderSmall}
                                             alt="thumb"
                                             effect="blur"
                                         />
-                                    ) : (
-                                        ''
                                     )}
                                 </Link>
                             </div>
@@ -74,8 +73,9 @@ const BusinessNewsTwo = ({
                                 <h3>
                                     <Link
                                         to={
-                                            (offer ? `/offer/` : `/article/`) +
-                                            item.slug
+                                            (item.type === 'offer'
+                                                ? `/offer/`
+                                                : `/article/`) + item.slug
                                         }
                                     >
                                         {item.title}
@@ -105,8 +105,9 @@ const BusinessNewsTwo = ({
                                 <div className="readmore3_wrapper">
                                     <Link
                                         to={
-                                            (offer ? `/offer/` : `/article/`) +
-                                            item.slug
+                                            (item.type === 'offer'
+                                                ? `/offer/`
+                                                : `/article/`) + item.slug
                                         }
                                         className="readmore3"
                                     >
