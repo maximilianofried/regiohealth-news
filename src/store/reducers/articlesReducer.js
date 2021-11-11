@@ -3,46 +3,73 @@ import {
     FETCH_ARTICLES_SUCCESS,
     FETCH_ARTICLES_FAILURE,
     FETCH_ARTICLES_CITY_SUCCESS,
-    SHOW_MORE_ARTICLES}
-from "../constants/articlesTypes";
+    FETCH_ARTICLES_HOMEPAGE_SUCCESS,
+    FETCH_ARTICLES_CLEAN_UP,
+    FETCH_ARTICLES_CATEGORYPAGE_SUCCESS,
+} from '../constants/articlesTypes';
 
 const initialState = {
     loading: false,
     articles: [],
+    articlesHomepage: {},
+    articlesCategoryPage: {},
     articlesByCity: [],
     error: '',
-    limit: 2
-}
+    limit: 4,
+};
 
 const articlesReducer = (state = initialState, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case FETCH_ARTICLES_REQUEST:
-        return {
-            ...state,
-            loading: true
-        }
+            return {
+                ...state,
+                loading: true,
+            };
         case FETCH_ARTICLES_SUCCESS:
-        return {
-            ...state,
-            articles: action.payload.articles,
-            limit: action.payload.limit,
-            error: '',
-        }
+            return {
+                ...state,
+                articles: [...state.articles, ...action.payload.articles],
+                articlesHomepage: state.articlesHomepage,
+                limit: action.payload.limit,
+                start: action.payload.start,
+                error: '',
+            };
         case FETCH_ARTICLES_FAILURE:
-        return {
-            loading: false,
-            articles: [],
-            error: action.payload
-        }
+            return {
+                loading: false,
+                articles: [],
+                error: action.payload,
+            };
         case FETCH_ARTICLES_CITY_SUCCESS:
             return {
                 ...state,
                 loading: false,
                 articlesByCity: action.payload.articles,
-                error: action.payload
-            }
-        default: return state
+                limit: action.payload.limit,
+                error: '',
+            };
+        case FETCH_ARTICLES_HOMEPAGE_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                articlesHomepage: action.payload.articles,
+                error: '',
+            };
+        case FETCH_ARTICLES_CATEGORYPAGE_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                articlesCategoryPage: action.payload.articles,
+                error: '',
+            };
+        case FETCH_ARTICLES_CLEAN_UP:
+            return {
+                ...state,
+                articles: [],
+            };
+        default:
+            return state;
     }
-}
+};
 
 export default articlesReducer;

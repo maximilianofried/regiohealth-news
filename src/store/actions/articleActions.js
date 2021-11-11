@@ -3,56 +3,50 @@ import {
     FETCH_ARTICLE_BY_ID_REQUEST,
     FETCH_ARTICLE_BY_ID_SUCCESS,
     FETCH_ARTICLE_BY_ID_FAILURE,
-    FETCH_ARTICLE_CLEAN_UP
-} from "../constants/articleTypes";
+    FETCH_ARTICLE_CLEAN_UP,
+} from '../constants/articleTypes';
 
 const fetchArticleRequest = () => {
     return {
-        type: FETCH_ARTICLE_BY_ID_REQUEST
-    }
-}
+        type: FETCH_ARTICLE_BY_ID_REQUEST,
+    };
+};
 
-const fetchArticleSuccess = article => {
+const fetchArticleSuccess = (article) => {
     return {
         type: FETCH_ARTICLE_BY_ID_SUCCESS,
-        payload: article
-    }
-}
+        payload: article,
+    };
+};
 
-
-const fetchArticleFailure = error => {
+const fetchArticleFailure = (error) => {
     return {
         type: FETCH_ARTICLE_BY_ID_FAILURE,
-        payload: error
-    }
-}
+        payload: error,
+    };
+};
 
 export const fetchArticleCleanUp = () => {
     return {
-        type: FETCH_ARTICLE_CLEAN_UP
-    }
-}
+        type: FETCH_ARTICLE_CLEAN_UP,
+    };
+};
 
 // action creator, return function not object, not pure function ,async api calls
-export const fetchArticle = (id) => {
-    return (dispatch, state) => {
-        dispatch(fetchArticleRequest)
-        const articles = state().articles.articles;
-        if(articles.length > 0) {
-            const article = articles.find(article => article._id === id);
-            dispatch(fetchArticleSuccess(article))
-        }
-        else {
-            axios.get(`https://cms.gesundheitsticket.de/articles/published/${id}`)
-            .then(response => {
-                //separar en categorias y guardar en objeto los array correspondientes
+export const fetchArticle = (slug) => {
+    return (dispatch) => {
+        dispatch(fetchArticleRequest);
+        axios
+            .get(
+                `${process.env.REACT_APP_CMS_URL}/contents/published-by-slug/${slug}`
+            )
+            .then((response) => {
                 const article = response.data;
-                dispatch(fetchArticleSuccess(article))
+                dispatch(fetchArticleSuccess(article));
             })
-            .catch(error => {
+            .catch((error) => {
                 const errorMsg = error.message;
                 dispatch(fetchArticleFailure(errorMsg));
-            })
-        }
-    }
-}
+            });
+    };
+};

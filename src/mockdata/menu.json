@@ -1,0 +1,130 @@
+[
+    {
+        "position": "m01",
+        "categories": [],
+        "_id": "6040a5be1acb2a3475c7ab38",
+        "linkText": "wissen",
+        "link": "/wissen",
+        "submenu": [],
+        "createdAt": "2021-03-04T09:17:50.346Z",
+        "updatedAt": "2021-03-15T10:24:24.206Z",
+        "__v": 0,
+        "created_by": {
+            "_id": "6023ebb6d4fb3722c2ebbe28",
+            "username": null,
+            "firstname": "Maximiliano",
+            "lastname": "Fried",
+            "createdAt": "2021-02-10T14:20:38.204Z",
+            "updatedAt": "2021-02-10T14:20:38.209Z",
+            "__v": 0,
+            "id": "6023ebb6d4fb3722c2ebbe28"
+        },
+        "updated_by": {
+            "_id": "6023ebb6d4fb3722c2ebbe28",
+            "username": null,
+            "firstname": "Maximiliano",
+            "lastname": "Fried",
+            "createdAt": "2021-02-10T14:20:38.204Z",
+            "updatedAt": "2021-02-10T14:20:38.209Z",
+            "__v": 0,
+            "id": "6023ebb6d4fb3722c2ebbe28"
+        },
+        "id": "6040a5be1acb2a3475c7ab38"
+    },
+    {
+        "position": "m02",
+        "categories": [],
+        "_id": "6040a5cd1acb2a3475c7ab39",
+        "linkText": "gesundheitstipps",
+        "link": "/gesundheitstipps",
+        "submenu": [],
+        "createdAt": "2021-03-04T09:18:05.790Z",
+        "updatedAt": "2021-03-04T09:18:05.809Z",
+        "__v": 0,
+        "created_by": {
+            "_id": "6023ebb6d4fb3722c2ebbe28",
+            "username": null,
+            "firstname": "Maximiliano",
+            "lastname": "Fried",
+            "createdAt": "2021-02-10T14:20:38.204Z",
+            "updatedAt": "2021-02-10T14:20:38.209Z",
+            "__v": 0,
+            "id": "6023ebb6d4fb3722c2ebbe28"
+        },
+        "updated_by": {
+            "_id": "6023ebb6d4fb3722c2ebbe28",
+            "username": null,
+            "firstname": "Maximiliano",
+            "lastname": "Fried",
+            "createdAt": "2021-02-10T14:20:38.204Z",
+            "updatedAt": "2021-02-10T14:20:38.209Z",
+            "__v": 0,
+            "id": "6023ebb6d4fb3722c2ebbe28"
+        },
+        "id": "6040a5cd1acb2a3475c7ab39"
+    },
+    {
+        "position": "m03",
+        "categories": [],
+        "_id": "6040a5dc1acb2a3475c7ab3a",
+        "linkText": "news",
+        "link": "/news",
+        "submenu": [],
+        "createdAt": "2021-03-04T09:18:20.177Z",
+        "updatedAt": "2021-03-04T09:18:20.183Z",
+        "__v": 0,
+        "created_by": {
+            "_id": "6023ebb6d4fb3722c2ebbe28",
+            "username": null,
+            "firstname": "Maximiliano",
+            "lastname": "Fried",
+            "createdAt": "2021-02-10T14:20:38.204Z",
+            "updatedAt": "2021-02-10T14:20:38.209Z",
+            "__v": 0,
+            "id": "6023ebb6d4fb3722c2ebbe28"
+        },
+        "updated_by": {
+            "_id": "6023ebb6d4fb3722c2ebbe28",
+            "username": null,
+            "firstname": "Maximiliano",
+            "lastname": "Fried",
+            "createdAt": "2021-02-10T14:20:38.204Z",
+            "updatedAt": "2021-02-10T14:20:38.209Z",
+            "__v": 0,
+            "id": "6023ebb6d4fb3722c2ebbe28"
+        },
+        "id": "6040a5dc1acb2a3475c7ab3a"
+    },
+    {
+        "position": "m04",
+        "categories": [],
+        "_id": "6040a5eb1acb2a3475c7ab3b",
+        "linkText": "angebote",
+        "link": "/angebote",
+        "submenu": [],
+        "createdAt": "2021-03-04T09:18:35.340Z",
+        "updatedAt": "2021-03-04T09:18:35.347Z",
+        "__v": 0,
+        "created_by": {
+            "_id": "6023ebb6d4fb3722c2ebbe28",
+            "username": null,
+            "firstname": "Maximiliano",
+            "lastname": "Fried",
+            "createdAt": "2021-02-10T14:20:38.204Z",
+            "updatedAt": "2021-02-10T14:20:38.209Z",
+            "__v": 0,
+            "id": "6023ebb6d4fb3722c2ebbe28"
+        },
+        "updated_by": {
+            "_id": "6023ebb6d4fb3722c2ebbe28",
+            "username": null,
+            "firstname": "Maximiliano",
+            "lastname": "Fried",
+            "createdAt": "2021-02-10T14:20:38.204Z",
+            "updatedAt": "2021-02-10T14:20:38.209Z",
+            "__v": 0,
+            "id": "6023ebb6d4fb3722c2ebbe28"
+        },
+        "id": "6040a5eb1acb2a3475c7ab3b"
+    }
+]

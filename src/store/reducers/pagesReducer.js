@@ -2,38 +2,36 @@ import {
     FETCH_PAGES_REQUEST,
     FETCH_PAGES_SUCCESS,
     FETCH_PAGES_FAILURE,
-}
-from "../constants/pagesTypes";
+} from '../constants/pagesTypes';
 
 const initialState = {
     loading: false,
     pages: [],
-    error: ''
-}
-
-
+    error: '',
+};
 
 const pagesReducer = (state = initialState, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case FETCH_PAGES_REQUEST:
-        return {
-            ...state,
-            loading: true
-        }
+            return {
+                ...state,
+                loading: true,
+            };
         case FETCH_PAGES_SUCCESS:
-        return {
-            loading: false,
-            pages: action.payload,
-            error: ''
-        }
+            return {
+                loading: false,
+                pages: action.payload,
+                error: '',
+            };
         case FETCH_PAGES_FAILURE:
-        return {
-            loading: false,
-            ads: [],
-            error: action.payload
-        }
-        default: return state
+            return {
+                loading: false,
+                ads: [],
+                error: action.payload,
+            };
+        default:
+            return state;
     }
-}
+};
 
 export default pagesReducer;
