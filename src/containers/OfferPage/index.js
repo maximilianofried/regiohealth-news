@@ -112,6 +112,7 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                         }
                                         alt="thumb"
                                         effect="blur"
+                                        className="border-radious7"
                                     />
                                 </div>
                                 <div className="space-20" />
