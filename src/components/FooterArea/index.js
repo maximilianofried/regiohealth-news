@@ -35,7 +35,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                     </li>
                                     <li>
                                         <a
-                                            href="https://479eae97.sibforms.com/serve/MUIEAEvroLOl7gAeKgjfkbLkysmfsuAS3Tg6HJf6pH3obY0A938-9XXoyezLoftkDhOte_IPJ4UzRcIaiUwNZVuQPKYRpGLaLvT5TZ5udL7Bhv2Vlh9onojMKyw5UxBFiuAoIcA89fFusp3sdopMgDpkOXeSLuurQRJPPChbLNNYIGmg4-8iLrJQA8l6xcpt-8K9i8z56LepgN9j"
+                                            href="http://diewohlfuehler-akademie.de/regio-health-betriebliches-gesundheitsmanagement-in-regionalen-mikrozellen/"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
@@ -49,7 +49,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                     </li>
                                     <li>
                                         <a
-                                            href="http://diewohlfuehler-akademie.de/gesundheit-in-der-kommune/"
+                                            href="https://www.regio-health.de"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
