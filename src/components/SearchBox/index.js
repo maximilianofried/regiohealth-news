@@ -17,6 +17,7 @@ import {
 
 const SearchBox = ({
     fetchGeoData,
+    searchByKeyword,
     place,
     type,
     keyword,
@@ -95,14 +96,24 @@ const SearchBox = ({
             type,
             keyword,
         });
-        fetchGeoData({
-            limit: 6,
-            start: 0,
-            place,
-            type,
-            responseType: 'mixed',
-            keyword,
-        });
+        if (place) {
+            fetchGeoData({
+                limit: 6,
+                start: 0,
+                place,
+                type,
+                responseType: 'mixed',
+                keyword,
+            });
+        } else {
+            searchByKeyword({
+                limit: 6,
+                start: 0,
+                type,
+                responseType: 'mixed',
+                keyword,
+            });
+        }
     };
     return (
         <form

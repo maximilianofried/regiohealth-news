@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { fetchGeoData } from '../../store/actions';
+import { fetchGeoData, searchByKeyword } from '../../store/actions';
 import SearchBox from '../SearchBox';
 
-const LogoAreaTwo = ({ history, fetchGeoData }) => {
+const LogoAreaTwo = ({ history, fetchGeoData, searchByKeyword }) => {
     return (
         <div className="logo_area white_bg">
             <div className="container">
@@ -20,7 +20,10 @@ const LogoAreaTwo = ({ history, fetchGeoData }) => {
 
                     <div className="col-sm-12 col-md-8 col-lg-9 col-xl-9 align-self-center search_logo display_search_box">
                         <div className="logo_area_searchbox">
-                            <SearchBox fetchGeoData={fetchGeoData} />
+                            <SearchBox
+                                fetchGeoData={fetchGeoData}
+                                searchByKeyword={searchByKeyword}
+                            />
                         </div>
                     </div>
                 </div>
@@ -32,6 +35,7 @@ const LogoAreaTwo = ({ history, fetchGeoData }) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchGeoData: (filters) => dispatch(fetchGeoData(filters)),
+        searchByKeyword: (filters) => dispatch(searchByKeyword(filters)),
     };
 };
 
