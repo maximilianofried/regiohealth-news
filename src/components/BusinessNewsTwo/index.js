@@ -11,13 +11,11 @@ const BusinessNewsTwo = ({
     articleLimit,
     offer,
     fetchContentHook,
-    isHomePage,
     buttonText,
 }) => {
     const onClickLoadMore = () => {
         fetchContentHook();
     };
-    console.log(publisherArticles);
     return (
         <div className="business3 padding20 white_bg border-radious5">
             {publisherArticles && publisherArticles.length > 0 ? (
@@ -131,7 +129,7 @@ const BusinessNewsTwo = ({
                     variant="success"
                 />
             )}
-            {publisherArticles && publisherArticles.length > 0 && !isHomePage && (
+            {publisherArticles && publisherArticles.length > 0 && (
                 <button
                     type="button"
                     onClick={() => onClickLoadMore()}

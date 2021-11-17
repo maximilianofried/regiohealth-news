@@ -28,23 +28,9 @@ const HomePage = ({
 
     const [articleLimit, setArticleLimit] = useState(4);
 
-    const observer = useRef();
-
-    const lastElementRef = useCallback(
-        (node) => {
-            if (observer.current) observer.current.disconnect();
-            observer.current = new IntersectionObserver((entries) => {
-                if (
-                    entries[0].isIntersecting &&
-                    publisherArticles.length > articleLimit
-                ) {
-                    setArticleLimit(articleLimit + 2);
-                }
-            });
-            if (node) observer.current.observe(node);
-        },
-        [articleLimit, publisherArticles]
-    );
+    const fetchArticleHomepageHook = useCallback(() => {
+        setArticleLimit(articleLimit + 2);
+    }, [articleLimit]);
 
     return (
         <>
@@ -59,9 +45,9 @@ const HomePage = ({
                 publisherArticles={publisherArticles}
                 adsHome={adsHome}
                 latestOffers={latestOffers}
+                buttonText="MEHR INHALT"
+                fetchArticleHomepageHook={fetchArticleHomepageHook}
             />
-
-            <div ref={lastElementRef} className="space-40" />
         </>
     );
 };
