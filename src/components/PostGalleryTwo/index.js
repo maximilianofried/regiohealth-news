@@ -17,6 +17,8 @@ const PostGalleryTwo = ({
     articleLimit,
     publisherArticles,
     latestOffers,
+    buttonText,
+    fetchArticleHomepageHook,
 }) => {
     const displayOffersHomepage = latestOffers.some(
         (offer) => offer.end > moment().format('YYYY-MM-DD')
@@ -89,6 +91,8 @@ const PostGalleryTwo = ({
                             isHomePage
                             articleLimit={articleLimit}
                             publisherArticles={publisherArticles}
+                            buttonText={buttonText}
+                            fetchContentHook={fetchArticleHomepageHook}
                         />
                     </div>
                     <div className="d-lg-block col-lg-3 col-xl-3 px-xl-0">

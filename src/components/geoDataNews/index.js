@@ -2,7 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
-const GeoDataNews = ({ geoData }) => {
+const GeoDataNews = ({ geoData, buttonText, fetchContentHook }) => {
+    const onClickLoadMore = () => {
+        fetchContentHook();
+    };
     return (
         <div className="row">
             <div className="col-12">
@@ -38,6 +41,14 @@ const GeoDataNews = ({ geoData }) => {
                             ))}
                         </div>
                     </div>
+
+                    <button
+                        type="button"
+                        onClick={() => onClickLoadMore()}
+                        className="btn-sm search-button"
+                    >
+                        {buttonText || 'MEHR'}
+                    </button>
                 </div>
             </div>
         </div>

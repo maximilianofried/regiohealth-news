@@ -1,9 +1,8 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { TabContent, TabPane, Nav, NavItem, Fade } from 'reactstrap';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Heading from '../uiStyle/Heading';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
@@ -49,9 +48,19 @@ const WidgetSuchPortal = ({
     const toggle = (tab) => {
         if (activeTab !== tab) setActiveTab(tab);
     };
+    useEffect(() => {
+        fetchNationalData({
+            limit: 6,
+            start: 0,
+            type: 'article',
+            responseType: 'mixed',
+            includeCountry: 'Germany',
+        });
+    }, [fetchNationalData]);
+
     return (
         <div className={` white_bg padding15 border-radious5 sm-mt30 mb30`}>
-            <Heading title="NEWS" />
+            <Heading title="NATIONALE NEWS" />
             <Nav tabs>
                 <NavItem>
                     <button

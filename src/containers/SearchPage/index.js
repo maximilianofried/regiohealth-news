@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import {
@@ -29,27 +29,16 @@ const SearchPage = ({
     type,
     keyword,
 }) => {
-    const observer = useRef();
-
-    const lastElementRef = useCallback(
-        (node) => {
-            if (observer.current) observer.current.disconnect();
-            observer.current = new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting) {
-                    fetchGeoData({
-                        limit: limit + 2,
-                        start: 0,
-                        place,
-                        type,
-                        keyword,
-                        responseType: 'mixed',
-                    });
-                }
-            });
-            if (node) observer.current.observe(node);
-        },
-        [limit]
-    );
+    const fetchSearchHook = useCallback(() => {
+        fetchGeoData({
+            limit: limit + 2,
+            start: 0,
+            place,
+            type,
+            keyword,
+            responseType: 'mixed',
+        });
+    }, [fetchGeoData, keyword, limit, place, type]);
 
     const displayOffers = latestOffers.some(
         (offer) => offer.end > moment().format('YYYY-MM-DD')
@@ -65,6 +54,7 @@ const SearchPage = ({
                                     <GeoDataNews
                                         fetchGeoData={fetchGeoData}
                                         geoData={geoData}
+                                        fetchContentHook={fetchSearchHook}
                                         headerHide
                                     />
                                 ) : (
@@ -96,7 +86,6 @@ const SearchPage = ({
                     </div>
                 </div>
             </div>
-            <div ref={lastElementRef} className="space-40" />
         </>
     );
 };
