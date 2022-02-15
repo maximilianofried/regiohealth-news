@@ -40,25 +40,6 @@ const Metadata = ({
             <meta property="og:image:height" content={imageSize.height} />
             <meta property="og:image:alt" content={title} />
             <meta property="fb:app_id" content="342431574212549" />
-            <script>
-                {`
-                        var _paq = (window._paq = window._paq || []);
-                        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-                        _paq.push(['trackPageView']);
-                        _paq.push(['enableLinkTracking']);
-                        (function () {
-                            var u = 'https://analytics.gesundheitsticket.de/';
-                            _paq.push(['setTrackerUrl', u + 'matomo.php']);
-                            _paq.push(['setSiteId', '2']);
-                            var d = document,
-                                g = d.createElement('script'),
-                                s = d.getElementsByTagName('script')[0];
-                            g.async = true;
-                            g.src = u + 'matomo.js';
-                            s.parentNode.insertBefore(g, s);
-                        })();
-            `}
-            </script>
         </Helmet>
     );
 };
