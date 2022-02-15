@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import { MatomoProvider, createInstance } from '@datapunt/matomo-tracker-react';
 import App from './containers/App/App';
 import store from './store';
 import * as serviceWorker from './serviceWorker';
@@ -13,10 +14,19 @@ import 'font-awesome/css/font-awesome.min.css';
 import 'swiper/swiper.scss';
 import 'react-modal-video/scss/modal-video.scss';
 
+const instance = createInstance({
+    urlBase: 'https://analytics.gesundheitsticket.de',
+    siteId: 2,
+    userId: 'UID76903202', // optional, default value: `undefined`.
+    trackerUrl: 'https://analytics.gesundheitsticket.de/matomo.php', // optional, default value: `${urlBase}matomo.php`
+});
+
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
-            <App />
+            <MatomoProvider value={instance}>
+                <App />
+            </MatomoProvider>
         </BrowserRouter>
     </Provider>,
     document.getElementById('root')
