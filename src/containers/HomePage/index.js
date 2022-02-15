@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { connect } from 'react-redux';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 import {
     fetchArticleHomepage,
     fetchAds,
@@ -25,6 +26,11 @@ const HomePage = ({
         fetchOffers({ start: 0, limit: 4 });
         fetchAds();
     }, [fetchArticleHomepage, fetchOffers, fetchAds]);
+    const { trackPageView } = useMatomo();
+    // Track page view
+    useEffect(() => {
+        trackPageView();
+    }, []);
 
     const [articleLimit, setArticleLimit] = useState(4);
 
