@@ -22,13 +22,14 @@ const instance = createInstance({
 });
 
 ReactDOM.render(
-    <Provider store={store}>
-        <BrowserRouter>
-            <MatomoProvider value={instance}>
+    <MatomoProvider value={instance}>
+        <Provider store={store}>
+            <BrowserRouter>
                 <App />
-            </MatomoProvider>
-        </BrowserRouter>
-    </Provider>,
+            </BrowserRouter>
+        </Provider>
+    </MatomoProvider>,
+
     document.getElementById('root')
 );
 
