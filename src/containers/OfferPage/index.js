@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 import moment from 'moment';
 import ReactTooltip from 'react-tooltip';
 import { isMobileOnly } from 'react-device-detect';
@@ -58,6 +59,13 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const offer = offerData.offer || null;
+
+    const { trackPageView } = useMatomo();
+    // Track page view
+    useEffect(() => {
+        trackPageView();
+    }, []);
+
     return (
         offer && (
             <>

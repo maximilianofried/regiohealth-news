@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { isMobileOnly } from 'react-device-detect';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 import moment from 'moment';
 import ReactTooltip from 'react-tooltip';
 import ReactMarkdown from 'react-markdown';
@@ -64,6 +65,12 @@ const getMeta = (url, width, setWidth, height, setHeight) => {
 };
 
 const ArticlePage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
+    const { trackPageView } = useMatomo();
+    // Track page view
+    useEffect(() => {
+        trackPageView();
+    }, []);
+
     const { slug } = useParams();
     useEffect(() => {
         fetchArticle(slug);

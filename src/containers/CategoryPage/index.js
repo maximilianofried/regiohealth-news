@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useCallback, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 import moment from 'moment';
 import { isMobileOnly } from 'react-device-detect';
 import {
@@ -40,6 +41,12 @@ const CategoryPage = ({
     const [clickedLoadMore, setClickedLoadMore] = useState(false);
     const limit = useRef(2);
     const start = useRef(0);
+
+    const { trackPageView } = useMatomo();
+    // Track page view
+    useEffect(() => {
+        trackPageView();
+    }, []);
 
     const fetchArticlesHook = useCallback(() => {
         fetchArticles({
