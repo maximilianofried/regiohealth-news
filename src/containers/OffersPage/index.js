@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useCallback } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 import moment from 'moment';
 import { isMobileOnly } from 'react-device-detect';
 import {
@@ -33,18 +34,13 @@ const OffersPage = ({
     start,
 }) => {
     const limit = useRef(6);
-    // useEffect(() => {
-    //     // window.scrollTo(0, 0);
-    //     if (latestOffers.length === 0)
-    //         fetchOffersForPage({ start: 0, limit: 2 });
-    //     if (newsArticles.length === 0) fetchArticleHomepage();
-    //     // fetchArticles({ categories, start: 0, limit: 4 });
-    //     if (adsCategory.length === 0) fetchAds();
-    //     return () => {
-    //         if (latestOffers.length > 0) fetchOffersForPageCleanUp();
-    //     };
-    // }, []);
-    console.log('offers', start);
+
+    const { trackPageView } = useMatomo();
+    // Track page view
+    useEffect(() => {
+        trackPageView();
+    }, []);
+
     const fetchOffersHook = useCallback(() => {
         fetchOffersForPage({ start, limit: limit.current });
         updateOffersPageStartParam();

@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 import { Link } from 'react-router-dom';
 
 const NotFoundPage = () => {
+    const { trackPageView } = useMatomo();
+    // Track page view
+    useEffect(() => {
+        trackPageView();
+    }, []);
+
     return (
         <>
             <div className="inner_table">

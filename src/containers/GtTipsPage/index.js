@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useCallback, useState } from 'react';
 import { connect } from 'react-redux';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 import moment from 'moment';
 import { isMobileOnly } from 'react-device-detect';
 import {
@@ -35,6 +36,12 @@ const GtTipsPage = ({
     const [newLatestOffers, setNewLatestOffers] = useState([]);
     const [newArticlesCategoryPage, setNewArticlesCategoryPage] = useState([]);
     const limit = useRef(6);
+
+    const { trackPageView } = useMatomo();
+    // Track page view
+    useEffect(() => {
+        trackPageView();
+    }, []);
 
     const fetchArticlesHook = useCallback(() => {
         fetchArticlesGtTips({

@@ -1,6 +1,7 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 import {
     fetchGeoData,
     fetchAds,
@@ -29,6 +30,12 @@ const SearchPage = ({
     type,
     keyword,
 }) => {
+    const { trackPageView } = useMatomo();
+    // Track page view
+    useEffect(() => {
+        trackPageView();
+    }, []);
+
     const fetchSearchHook = useCallback(() => {
         fetchGeoData({
             limit: limit + 2,
