@@ -2,7 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import { MatomoProvider, createInstance } from '@datapunt/matomo-tracker-react';
+import {
+    MatomoProvider,
+    createInstance,
+    useMatomo,
+} from '@datapunt/matomo-tracker-react';
 import App from './containers/App/App';
 import store from './store';
 import * as serviceWorker from './serviceWorker';
