@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import { connect } from 'react-redux';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 import Routes from '../__Routes';
 import ScrollTopButton from '../../components/ScrollTopButton';
 import ScrollToTop from '../../components/ScrollToTop';
@@ -15,7 +16,8 @@ const App = ({ fetchMenu, fetchPages, pages, menuData, error, success }) => {
 
     if (error) toast.error(error);
     if (success) toast.success(success);
-
+    const { enableLinkTracking } = useMatomo();
+    enableLinkTracking();
     return (
         <>
             <ScrollToTop />
