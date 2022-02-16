@@ -21,8 +21,7 @@ import 'react-modal-video/scss/modal-video.scss';
 const instance = createInstance({
     urlBase: 'https://analytics.gesundheitsticket.de',
     siteId: 2,
-    userId: 'UID76903202', // optional, default value: `undefined`.
-    trackerUrl: 'https://analytics.gesundheitsticket.de/matomo.php', // optional, default value: `${urlBase}matomo.php`
+    trackerUrl: 'https://analytics.gesundheitsticket.de/matomo.php',
 });
 
 ReactDOM.render(
