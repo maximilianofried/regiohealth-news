@@ -54,7 +54,6 @@ const getMetaDescription = (description, categories) => {
 };
 
 const getMeta = (url, width, setWidth, height, setHeight) => {
-    console.log('###', url);
     const img = new Image();
     img.addEventListener('load', function () {
         setWidth(this.naturalWidth);
@@ -79,7 +78,6 @@ const ArticlePage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const article = articleData.article || null;
-    console.log('@@@@', article);
     return (
         article && (
             <>

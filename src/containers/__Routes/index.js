@@ -9,7 +9,6 @@ import ArticlePage from '../ArticlePage';
 import SearchPage from '../SearchPage';
 import OfferPage from '../OfferPage';
 import OffersPage from '../OffersPage';
-import useTracking from '../../utils/useTracking';
 import mockMenu from '../../mockdata/menu.json';
 import mockPages from '../../mockdata/pages.json';
 import CookieDeclarationPage from '../CookieDeclarationPage';
@@ -18,7 +17,6 @@ import GtTipsPage from '../GtTipsPage';
 import NewsPage from '../NewsPage';
 
 const selectPage = (pageName, categories, props) => {
-    console.log(pageName, categories, props);
     if (pageName === 'Suchportal') {
         return <SearchPage {...props} />;
     }
@@ -46,7 +44,6 @@ const selectPage = (pageName, categories, props) => {
 };
 
 const Routes = () => {
-    useTracking(process.env.REACT_APP_UA_TRACK);
     return (
         <Switch>
             <PublicRoute

@@ -67,7 +67,6 @@ const OffersPage = ({
     //     },
     //     [limit]
     // );
-    console.log('latest', latestOffers);
     const displayOffers = latestOffers.some(
         (offer) => offer.end > moment().format('YYYY-MM-DD')
     );
