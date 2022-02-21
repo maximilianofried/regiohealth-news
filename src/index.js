@@ -22,6 +22,7 @@ const instance = createInstance({
     urlBase: 'https://analytics.gesundheitsticket.de',
     siteId: 2,
     trackerUrl: 'https://analytics.gesundheitsticket.de/matomo.php',
+    userId: `user-${Math.floor(Math.random() * 10000) + 1}`,
 });
 
 ReactDOM.render(
