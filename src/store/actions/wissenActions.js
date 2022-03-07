@@ -47,7 +47,7 @@ export const fetchArticlesWissen = ({
     city = undefined,
     start = undefined,
     limit = undefined,
-    menuId = '6040a5be1acb2a3475c7ab38',
+    menu = 'wissen',
 } = {}) => {
     return (dispatch) => {
         let categoriesList = [];
@@ -65,7 +65,7 @@ export const fetchArticlesWissen = ({
             process.env.REACT_APP_CMS_URL
         }/contents/published?_sort=publishAt:desc&type=article${
             categoriesList.length > 0 ? `&${query}` : ''
-        }${menuId ? `&menu=${menuId}` : ''}${city ? `&city=${city}` : ''}${
+        }${menu ? `&menu=${menu}` : ''}${city ? `&city=${city}` : ''}${
             start ? `&_start=${start}` : ''
         }${limit ? `&_limit=${limit}` : ''}`;
         dispatch(fetchArticlesWissenRequest);
