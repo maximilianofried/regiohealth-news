@@ -24,7 +24,7 @@ const NotFoundPage = () => {
                             </div>
                             <div className="space-30" />
                             <div className="back4040 text-center col-lg-6 m-auto">
-                                <h3>Page not faund</h3>
+                                <h3>Page not found</h3>
                                 <div className="space-10" />
                                 <div>
                                     Sorry the page you were looking for cannot

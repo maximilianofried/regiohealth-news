@@ -81,9 +81,9 @@ export const fetchArticles = ({
             process.env.REACT_APP_CMS_URL
         }/contents/published?_sort=publishAt:desc&type=article${
             categoriesList.length > 0 ? `&${query}` : ''
-        }${menuName ? `&menu.linkText=${menuName}` : ''}${
-            city ? `&city=${city}` : ''
-        }${start ? `&_start=${start}` : ''}${limit ? `&_limit=${limit}` : ''}`;
+        }${menuName ? `&menu=${menuName}` : ''}${city ? `&city=${city}` : ''}${
+            start ? `&_start=${start}` : ''
+        }${limit ? `&_limit=${limit}` : ''}`;
         dispatch(fetchArticlesRequest);
         axios
             .get(url)
