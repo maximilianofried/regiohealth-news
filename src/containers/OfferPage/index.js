@@ -5,13 +5,19 @@ import { useMatomo } from '@datapunt/matomo-tracker-react';
 import moment from 'moment';
 import ReactTooltip from 'react-tooltip';
 import { isMobileOnly } from 'react-device-detect';
-import { fetchOffer, fetchOfferCleanUp } from '../../store/actions';
+import {
+    fetchOffer,
+    fetchOfferCleanUp,
+    fetchOffersForPage,
+    fetchOffersForPageCleanUp,
+} from '../../store/actions';
 import FontAwesome from '../../components/uiStyle/FontAwesome';
 import rgOfferPlaceholderMedium from '../../doc/img/dummy_medium.png';
 import Metadata from '../../components/Metadata';
 import { RG_LOGO } from '../../utils/constants';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import AdserverLeaderboard from '../../components/AdserverLeaderboard';
+import LatestContent from '../../components/LatestContent';
 
 const replaceContent = (data) => {
     let content = data.replace(/href/g, "target='_blank' href");
@@ -50,12 +56,28 @@ const getMeta = (url, width, setWidth, height, setHeight) => {
     return { width, height };
 };
 
-const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
+const OfferPage = ({
+    offerData,
+    fetchOffer,
+    fetchOfferCleanUp,
+    fetchOffersForPage,
+    fetchOffersForPageCleanUp,
+    latestOffers = [],
+}) => {
     const { slug } = useParams();
     useEffect(() => {
         fetchOffer(slug);
         return () => fetchOfferCleanUp();
     }, [slug]);
+
+    useEffect(() => {
+        const { offer } = offerData;
+        if (offer) {
+            fetchOffersForPage({ limit: 8, slug });
+        }
+        return () => fetchOffersForPageCleanUp();
+    }, [fetchOffersForPage, fetchOffersForPageCleanUp, offerData, slug]);
+
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const offer = offerData.offer || null;
@@ -298,6 +320,14 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                 )}
                             </div>
                         </div>
+                        <div className="row">
+                            <div className="col-12 col-md-10 col-lg-8 m-auto">
+                                <LatestContent
+                                    contentData={latestOffers}
+                                    type="offer"
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
                 {!isMobileOnly && <AdserverLeaderboard />}
@@ -309,6 +339,7 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
 const mapStateToProps = (state) => {
     return {
         offerData: state.offer,
+        latestOffers: state.offers.offersForPage,
     };
 };
 
@@ -316,6 +347,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         fetchOffer: (slug) => dispatch(fetchOffer(slug)),
         fetchOfferCleanUp: () => dispatch(fetchOfferCleanUp()),
+        fetchOffersForPage: ({ limit, slug }) =>
+            dispatch(fetchOffersForPage({ limit, slug })),
+        fetchOffersForPageCleanUp: () => dispatch(fetchOffersForPageCleanUp()),
     };
 };
 
