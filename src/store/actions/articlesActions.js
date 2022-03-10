@@ -64,6 +64,7 @@ export const fetchArticles = ({
     start = undefined,
     limit = undefined,
     menuName = '',
+    slug = undefined,
 } = {}) => {
     return (dispatch) => {
         let categoriesList = [];
@@ -83,7 +84,7 @@ export const fetchArticles = ({
             categoriesList.length > 0 ? `&${query}` : ''
         }${menuName ? `&menu=${menuName}` : ''}${city ? `&city=${city}` : ''}${
             start ? `&_start=${start}` : ''
-        }${limit ? `&_limit=${limit}` : ''}`;
+        }${limit ? `&_limit=${limit}` : ''}${slug ? `&slug_ne=${slug}` : ''}`;
         dispatch(fetchArticlesRequest);
         axios
             .get(url)

@@ -116,6 +116,7 @@ export const fetchOffersForPage = ({
     city = undefined,
     start = undefined,
     limit = undefined,
+    slug = undefined,
 } = {}) => {
     return (dispatch) => {
         let categoriesList = [];
@@ -132,7 +133,7 @@ export const fetchOffersForPage = ({
             categories.length > 0 ? `&${query}` : ''
         }${city ? `&city=${city}` : ''}${start ? `&_start=${start}` : ''}${
             limit ? `&_limit=${limit}` : ''
-        }`;
+        }${slug ? `&slug_ne=${slug}` : ''}`;
         dispatch(fetchOffersForPageRequest);
         axios
             .get(url)

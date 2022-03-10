@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { isMobileOnly } from 'react-device-detect';
 import { useMatomo } from '@datapunt/matomo-tracker-react';
 import moment from 'moment';
 import ReactTooltip from 'react-tooltip';
 import ReactMarkdown from 'react-markdown';
-import { fetchArticle, fetchArticleCleanUp } from '../../store/actions';
+import {
+    fetchArticle,
+    fetchArticleCleanUp,
+    fetchArticles,
+    fetchArticlesCleanUp,
+} from '../../store/actions';
 import FontAwesome from '../../components/uiStyle/FontAwesome';
 import rgOfferPlaceholderMedium from '../../doc/img/dummy_medium.png';
 import Metadata from '../../components/Metadata';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import AdserverLeaderboard from '../../components/AdserverLeaderboard';
+import LatestContent from '../../components/LatestContent';
 
 const replaceContent = (data) => {
     let content = data.replace(/href/g, "target='_blank' href");
@@ -63,7 +69,14 @@ const getMeta = (url, width, setWidth, height, setHeight) => {
     return { width, height };
 };
 
-const ArticlePage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
+const ArticlePage = ({
+    articleData,
+    stateArticles,
+    fetchArticle,
+    fetchArticleCleanUp,
+    fetchArticles,
+    fetchArticlesCleanUp,
+}) => {
     const { trackPageView } = useMatomo();
     // Track page view
     useEffect(() => {
@@ -75,6 +88,16 @@ const ArticlePage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
         fetchArticle(slug);
         return () => fetchArticleCleanUp();
     }, [slug]);
+
+    useEffect(() => {
+        const { article } = articleData;
+        if (article) {
+            fetchArticles({ limit: 8, menuName: article.menu, slug });
+        }
+
+        return () => fetchArticlesCleanUp();
+    }, [articleData, fetchArticles, fetchArticlesCleanUp, slug]);
+
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const article = articleData.article || null;
@@ -308,6 +331,14 @@ const ArticlePage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                 )}
                             </div>
                         </div>
+                        <div className="row">
+                            <div className="col-12 col-md-10 col-lg-8 m-auto">
+                                <LatestContent
+                                    contentData={stateArticles}
+                                    type={article}
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
                 {!isMobileOnly && <AdserverLeaderboard />}
@@ -319,6 +350,7 @@ const ArticlePage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
 const mapStateToProps = (state) => {
     return {
         articleData: state.article,
+        stateArticles: state.articles.articles,
     };
 };
 
@@ -326,6 +358,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         fetchArticle: (slug) => dispatch(fetchArticle(slug)),
         fetchArticleCleanUp: () => dispatch(fetchArticleCleanUp()),
+        fetchArticles: ({ limit, menuName, slug }) =>
+            dispatch(fetchArticles({ limit, menuName, slug })),
+        fetchArticlesCleanUp: () => dispatch(fetchArticlesCleanUp()),
     };
 };
 
