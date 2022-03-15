@@ -11,7 +11,7 @@ import {
     fetchAds,
 } from '../../store/actions';
 import BusinessNewsTwo from '../../components/BusinessNewsTwo';
-import MostViewTwo from '../../components/MostViewTwo';
+import MostViewOffers from '../../components/MostViewOffers';
 import MostViewTextonly from '../../components/MostViewTextOnly';
 import FollowUs from '../../components/FollowUs';
 import Metadata from '../../components/Metadata';
@@ -131,9 +131,9 @@ const GtTipsPage = ({
                                         data={newArticlesCategoryPage}
                                     />
                                     {displayOffers && (
-                                        <MostViewTwo
+                                        <MostViewOffers
                                             title="ANGEBOTE"
-                                            latestOffers={newLatestOffers}
+                                            contentData={newLatestOffers}
                                         />
                                     )}
                                 </div>

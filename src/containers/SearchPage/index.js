@@ -13,7 +13,7 @@ import GeoDataNews from '../../components/geoDataNews';
 import WidgetSuchPortal from '../../components/WidgetSuchPortal';
 import '@reach/combobox/styles.css';
 import '@reach/listbox/styles.css';
-import MostViewTwo from '../../components/MostViewTwo';
+import MostViewOffers from '../../components/MostViewOffers';
 import FollowUs from '../../components/FollowUs';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import AdserverIframe from '../../components/AdserverIframe';
@@ -84,9 +84,9 @@ const SearchPage = ({
                                 }
                             />
                             {displayOffers && (
-                                <MostViewTwo
+                                <MostViewOffers
                                     title="ANGEBOTE"
-                                    latestOffers={latestOffers}
+                                    contentData={latestOffers}
                                 />
                             )}
                         </div>

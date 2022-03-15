@@ -7,7 +7,8 @@ import FollowUs from '../FollowUs';
 import BusinessNewsTwo from '../BusinessNewsTwo';
 import AdserverIframe from '../AdserverIframe';
 import AdserverLeaderboard from '../AdserverLeaderboard';
-import MostViewTwo from '../MostViewTwo';
+import MostViewOffers from '../MostViewOffers';
+import MostViewArticles from '../MostViewArticles';
 import bigImg from '../../doc/img/header/sider-top3.jpg';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
@@ -19,11 +20,12 @@ const PostGalleryTwo = ({
     latestOffers,
     buttonText,
     fetchArticleHomepageHook,
+    articlesWissen,
+    articlesGtTips,
 }) => {
     const displayOffersHomepage = latestOffers.some(
         (offer) => offer.end > moment().format('YYYY-MM-DD')
     );
-
     return (
         <div className="post_gallary_area theme3_bg mb40 padding-top-30">
             <div className="container">
@@ -159,12 +161,12 @@ const PostGalleryTwo = ({
                                                                 ).format('LL')}
                                                             </p>
                                                         </div>
-                                                        {i + 1 <
+                                                        {/* {i + 1 <
                                                         newsArticles.length ? (
                                                             <>
                                                                 <div className="space-20" />
                                                             </>
-                                                        ) : null}
+                                                        ) : null} */}
                                                     </div>
                                                 </div>
                                             ))}
@@ -177,9 +179,17 @@ const PostGalleryTwo = ({
                                 />
                                 {displayOffersHomepage && (
                                     <div className="col-md-12 col-lg-12">
-                                        <MostViewTwo
+                                        <MostViewOffers
                                             title="ANGEBOTE"
-                                            latestOffers={latestOffers}
+                                            contentData={latestOffers}
+                                        />
+                                        <MostViewArticles
+                                            title="WISSEN"
+                                            contentData={articlesWissen}
+                                        />
+                                        <MostViewArticles
+                                            title="GESUNDHEITSTIPS"
+                                            contentData={articlesGtTips}
                                         />
                                     </div>
                                 )}

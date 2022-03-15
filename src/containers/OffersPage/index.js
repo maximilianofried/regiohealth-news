@@ -11,15 +11,17 @@ import {
     fetchOffersForPageCleanUp,
     fetchOffersForPage,
     updateOffersPageStartParam,
+    fetchArticlesWissen,
+    fetchArticlesGtTips,
 } from '../../store/actions';
 import BusinessNewsTwo from '../../components/BusinessNewsTwo';
-import MostViewTwo from '../../components/MostViewTwo';
 import FollowUs from '../../components/FollowUs';
 import Metadata from '../../components/Metadata';
 import { ANGEBOTE_DESCRIPTION } from '../../utils/constants';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import AdserverIframe from '../../components/AdserverIframe';
 import AdserverLeaderboard from '../../components/AdserverLeaderboard';
+import MostViewArticles from '../../components/MostViewArticles';
 
 const OffersPage = ({
     fetchOffersForPageCleanUp,
@@ -32,8 +34,12 @@ const OffersPage = ({
     fetchAds,
     adsCategory,
     start,
+    fetchArticlesWissen,
+    articlesWissen,
+    fetchArticlesGtTips,
+    articlesGtTips,
 }) => {
-    const limit = useRef(6);
+    const limit = useRef(7);
 
     const { trackPageView } = useMatomo();
     // Track page view
@@ -53,20 +59,17 @@ const OffersPage = ({
     useEffect(() => {
         if (newsArticles.length === 0) fetchArticleHomepage();
     }, [fetchArticleHomepage, newsArticles.length]);
-    // const observer = useRef();
 
-    // const lastElementRef = useCallback(
-    //     (node) => {
-    //         if (observer.current) observer.current.disconnect();
-    //         observer.current = new IntersectionObserver((entries) => {
-    //             if (entries[0].isIntersecting) {
-    //                 fetchOffersForPage({ start: 0, limit: limit + 2 });
-    //             }
-    //         });
-    //         if (node) observer.current.observe(node);
-    //     },
-    //     [limit]
-    // );
+    useEffect(() => {
+        if (articlesWissen.length === 0)
+            fetchArticlesWissen({ start: 0, limit: 4 });
+    }, [fetchArticlesWissen, articlesWissen.length]);
+
+    useEffect(() => {
+        if (articlesGtTips.length === 0)
+            fetchArticlesGtTips({ start: 0, limit: 4 });
+    }, [fetchArticlesGtTips, articlesGtTips.length]);
+
     const displayOffers = latestOffers.some(
         (offer) => offer.end > moment().format('YYYY-MM-DD')
     );
@@ -133,12 +136,14 @@ const OffersPage = ({
                                                 </div>
                                             ))}
                                     </div>
-                                    {/* {displayOffers && (
-                                        <MostViewTwo
-                                            title="ANGEBOTE"
-                                            latestOffers={latestOffers}
-                                        />
-                                    )} */}
+                                    <MostViewArticles
+                                        title="WISSEN"
+                                        contentData={articlesWissen}
+                                    />
+                                    <MostViewArticles
+                                        title="GESUNDHEITSTIPS"
+                                        contentData={articlesGtTips}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -156,6 +161,8 @@ const mapStateToProps = (state) => {
         newsArticles: state.articles.articlesHomepage.newsArticles,
         latestOffers: state.offers.offersForPage,
         start: state.offers.start,
+        articlesWissen: state.articlesWissen.articles,
+        articlesGtTips: state.articlesGtTips.articles,
     };
 };
 
@@ -170,6 +177,10 @@ const mapDispatchToProps = (dispatch) => {
         fetchOffersForPageCleanUp: () => dispatch(fetchOffersForPageCleanUp()),
         updateOffersPageStartParam: () =>
             dispatch(updateOffersPageStartParam()),
+        fetchArticlesWissen: ({ start, limit }) =>
+            dispatch(fetchArticlesWissen({ start, limit })),
+        fetchArticlesGtTips: ({ start, limit }) =>
+            dispatch(fetchArticlesGtTips({ start, limit })),
     };
 };
 
