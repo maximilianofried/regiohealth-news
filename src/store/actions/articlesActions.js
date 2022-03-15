@@ -109,7 +109,7 @@ export const fetchArticleHomepage = () => {
     return (dispatch) => {
         const urlMainArticle = `${process.env.REACT_APP_CMS_URL}/contents/published?_sort=publishAt:desc&&homepage=main_article`;
         const urlPublisher = `${process.env.REACT_APP_CMS_URL}/contents/published?_sort=publishAt:desc&homepage=publisher`;
-        const urlNews = `${process.env.REACT_APP_CMS_URL}/contents/published?_sort=publishAt:desc&homepage=news&_limit=5`;
+        const urlNews = `${process.env.REACT_APP_CMS_URL}/contents/published?_sort=publishAt:desc&homepage=news&_limit=4`;
         dispatch(fetchArticlesRequest);
         axios
             .all([
