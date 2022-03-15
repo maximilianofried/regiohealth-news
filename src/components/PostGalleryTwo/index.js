@@ -104,95 +104,35 @@ const PostGalleryTwo = ({
                                 title="FOLGEN SIE UNS"
                                 className="border-radious5 white_bg padding20 sm-mt30"
                             />
-                            <div className="white_bg padding15 border-radious5 sm-mt30">
-                                <div>
-                                    <h2 className="widget-title">News</h2>
-                                    <div className="space-20" />
-                                    {newsArticles &&
-                                        newsArticles
-                                            .slice(0, 4)
-                                            .map((item, i) => (
-                                                <div
-                                                    key={item.id}
-                                                    className="single_post widgets_small type8 type17"
-                                                >
-                                                    <div className="post_img">
-                                                        <div className="img_wrap_2">
-                                                            <Link
-                                                                to={`/article/${item.slug}`}
-                                                            >
-                                                                <img
-                                                                    className="lazyLoad crop_image"
-                                                                    src={
-                                                                        item.main_image &&
-                                                                        item
-                                                                            .main_image
-                                                                            .formats
-                                                                            ? `${
-                                                                                  process
-                                                                                      .env
-                                                                                      .REACT_APP_CMS_URL +
-                                                                                  item
-                                                                                      .main_image
-                                                                                      .formats
-                                                                                      .thumbnail
-                                                                                      .url
-                                                                              }`
-                                                                            : bigImg
-                                                                    }
-                                                                    alt="thumb"
-                                                                    effect="blur"
-                                                                />
-                                                            </Link>
-                                                        </div>
-                                                    </div>
-                                                    <div className="single_post_text">
-                                                        <h4>
-                                                            <Link
-                                                                to={`/article/${item.slug}`}
-                                                            >
-                                                                {item.title}
-                                                            </Link>
-                                                        </h4>
-                                                        <div className="meta4">
-                                                            <p>
-                                                                {moment(
-                                                                    item.publishAt
-                                                                ).format('LL')}
-                                                            </p>
-                                                        </div>
-                                                        {/* {i + 1 <
-                                                        newsArticles.length ? (
-                                                            <>
-                                                                <div className="space-20" />
-                                                            </>
-                                                        ) : null} */}
-                                                    </div>
-                                                </div>
-                                            ))}
-                                </div>
-                            </div>
+                            {newsArticles && (
+                                <MostViewArticles
+                                    title="NEWS"
+                                    contentData={newsArticles}
+                                />
+                            )}
+
                             <div className="row justify-content-center">
-                                <div
+                                {/* <div
                                     id="ads"
                                     className="col-md-6 col-lg-12 d-md-none d-lg-block  mb20 mt20"
-                                />
-                                {displayOffersHomepage && (
-                                    <div className="col-md-12 col-lg-12">
+                                /> */}
+
+                                <div className="col-md-12 col-lg-12">
+                                    {displayOffersHomepage && (
                                         <MostViewOffers
                                             title="ANGEBOTE"
                                             contentData={latestOffers}
                                         />
-                                        <MostViewArticles
-                                            title="WISSEN"
-                                            contentData={articlesWissen}
-                                        />
-                                        <MostViewArticles
-                                            title="GESUNDHEITSTIPPS"
-                                            contentData={articlesGtTips}
-                                        />
-                                    </div>
-                                )}
+                                    )}
+                                    <MostViewArticles
+                                        title="WISSEN"
+                                        contentData={articlesWissen}
+                                    />
+                                    <MostViewArticles
+                                        title="GESUNDHEITSTIPPS"
+                                        contentData={articlesGtTips}
+                                    />
+                                </div>
                             </div>
                         </StickyBox>
                     </div>
