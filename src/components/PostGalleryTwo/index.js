@@ -188,7 +188,7 @@ const PostGalleryTwo = ({
                                             contentData={articlesWissen}
                                         />
                                         <MostViewArticles
-                                            title="GESUNDHEITSTIPS"
+                                            title="GESUNDHEITSTIPPS"
                                             contentData={articlesGtTips}
                                         />
                                     </div>
