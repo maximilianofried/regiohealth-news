@@ -141,7 +141,7 @@ const OffersPage = ({
                                         contentData={articlesWissen}
                                     />
                                     <MostViewArticles
-                                        title="GESUNDHEITSTIPS"
+                                        title="GESUNDHEITSTIPPS"
                                         contentData={articlesGtTips}
                                     />
                                 </div>
