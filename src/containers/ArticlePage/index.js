@@ -331,6 +331,7 @@ const ArticlePage = ({
                                 )}
                             </div>
                         </div>
+                        <div className="space-50" />
                         <div className="row">
                             <div className="col-12 col-md-10 col-lg-8 m-auto">
                                 <LatestContent
