@@ -6,8 +6,6 @@ import {
     fetchArticleHomepage,
     fetchAds,
     fetchOffers,
-    fetchArticlesWissen,
-    fetchArticlesGtTips,
 } from '../../store/actions';
 import Metadata from '../../components/Metadata';
 import { RG_DESCRIPTION } from '../../utils/constants';
@@ -22,16 +20,14 @@ const HomePage = ({
     newsArticles,
     latestOffers,
     adsHome,
-    fetchArticlesWissen,
-    articlesWissen,
-    fetchArticlesGtTips,
-    articlesGtTips,
+    wissenArticles,
+    gtTippsArticles,
 }) => {
     useEffect(() => {
         fetchArticleHomepage();
         fetchOffers({ start: 0, limit: 4 });
         fetchAds();
-    }, [fetchArticleHomepage, fetchOffers, fetchAds, fetchArticlesWissen]);
+    }, [fetchArticleHomepage, fetchOffers, fetchAds]);
     const { trackPageView } = useMatomo();
     // Track page view
     useEffect(() => {
@@ -43,16 +39,6 @@ const HomePage = ({
     const fetchArticleHomepageHook = useCallback(() => {
         setArticleLimit(articleLimit + 2);
     }, [articleLimit]);
-
-    useEffect(() => {
-        if (articlesWissen.length === 0)
-            fetchArticlesWissen({ start: 0, limit: 4 });
-    }, [fetchArticlesWissen, articlesWissen.length]);
-
-    useEffect(() => {
-        if (articlesGtTips.length === 0)
-            fetchArticlesGtTips({ start: 0, limit: 4 });
-    }, [fetchArticlesGtTips, articlesGtTips.length]);
 
     return (
         <>
@@ -69,8 +55,8 @@ const HomePage = ({
                 latestOffers={latestOffers}
                 buttonText="MEHR INHALT"
                 fetchArticleHomepageHook={fetchArticleHomepageHook}
-                articlesWissen={articlesWissen}
-                articlesGtTips={articlesGtTips}
+                wissenArticles={wissenArticles}
+                gtTippsArticles={gtTippsArticles}
             />
         </>
     );
@@ -85,8 +71,8 @@ const mapStateToProps = (state) => {
         adsHome: state.ads.ads.filter(
             (ad) => ad.position === 'home' && ad.size === 's350x292'
         ),
-        articlesWissen: state.articlesWissen.articles,
-        articlesGtTips: state.articlesGtTips.articles,
+        wissenArticles: state.articles.articlesHomepage.wissenArticles,
+        gtTippsArticles: state.articles.articlesHomepage.gtTippsArticles,
     };
 };
 
@@ -96,10 +82,6 @@ const mapDispatchToProps = (dispatch) => {
         fetchOffers: ({ start, limit }) =>
             dispatch(fetchOffers({ start, limit })),
         fetchAds: () => dispatch(fetchAds()),
-        fetchArticlesWissen: ({ start, limit }) =>
-            dispatch(fetchArticlesWissen({ start, limit })),
-        fetchArticlesGtTips: ({ start, limit }) =>
-            dispatch(fetchArticlesGtTips({ start, limit })),
     };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

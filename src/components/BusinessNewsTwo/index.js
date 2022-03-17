@@ -21,15 +21,13 @@ const BusinessNewsTwo = ({
             {publisherArticles && publisherArticles.length > 0 ? (
                 publisherArticles.slice(0, articleLimit).map((item, i) => (
                     <Link
+                        key={item.id}
                         to={
                             (item.type === 'offer' ? `/offer/` : `/article/`) +
                             item.slug
                         }
                     >
-                        <div
-                            key={item.id}
-                            className="single_post post_type12 type20"
-                        >
+                        <div className="single_post post_type12 type20">
                             <div className="post_img">
                                 <div className="img_wrap">
                                     {/* <Link
