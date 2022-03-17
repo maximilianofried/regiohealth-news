@@ -20,8 +20,8 @@ const PostGalleryTwo = ({
     latestOffers,
     buttonText,
     fetchArticleHomepageHook,
-    articlesWissen,
-    articlesGtTips,
+    wissenArticles,
+    gtTippsArticles,
 }) => {
     const displayOffersHomepage = latestOffers.some(
         (offer) => offer.end > moment().format('YYYY-MM-DD')
@@ -126,11 +126,11 @@ const PostGalleryTwo = ({
                                     )}
                                     <MostViewArticles
                                         title="WISSEN"
-                                        contentData={articlesWissen}
+                                        contentData={wissenArticles}
                                     />
                                     <MostViewArticles
                                         title="GESUNDHEITSTIPPS"
-                                        contentData={articlesGtTips}
+                                        contentData={gtTippsArticles}
                                     />
                                 </div>
                             </div>

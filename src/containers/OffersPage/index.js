@@ -34,10 +34,8 @@ const OffersPage = ({
     fetchAds,
     adsCategory,
     start,
-    fetchArticlesWissen,
-    articlesWissen,
-    fetchArticlesGtTips,
-    articlesGtTips,
+    wissenArticles,
+    gtTippsArticles,
 }) => {
     const limit = useRef(7);
 
@@ -59,16 +57,6 @@ const OffersPage = ({
     useEffect(() => {
         if (newsArticles.length === 0) fetchArticleHomepage();
     }, [fetchArticleHomepage, newsArticles.length]);
-
-    useEffect(() => {
-        if (articlesWissen.length === 0)
-            fetchArticlesWissen({ start: 0, limit: 4 });
-    }, [fetchArticlesWissen, articlesWissen.length]);
-
-    useEffect(() => {
-        if (articlesGtTips.length === 0)
-            fetchArticlesGtTips({ start: 0, limit: 4 });
-    }, [fetchArticlesGtTips, articlesGtTips.length]);
 
     const displayOffers = latestOffers.some(
         (offer) => offer.end > moment().format('YYYY-MM-DD')
@@ -138,11 +126,11 @@ const OffersPage = ({
                                     </div>
                                     <MostViewArticles
                                         title="WISSEN"
-                                        contentData={articlesWissen}
+                                        contentData={wissenArticles}
                                     />
                                     <MostViewArticles
                                         title="GESUNDHEITSTIPPS"
-                                        contentData={articlesGtTips}
+                                        contentData={gtTippsArticles}
                                     />
                                 </div>
                             </div>
@@ -161,8 +149,8 @@ const mapStateToProps = (state) => {
         newsArticles: state.articles.articlesHomepage.newsArticles,
         latestOffers: state.offers.offersForPage,
         start: state.offers.start,
-        articlesWissen: state.articlesWissen.articles,
-        articlesGtTips: state.articlesGtTips.articles,
+        wissenArticles: state.articles.articlesHomepage.wissenArticles,
+        gtTippsArticles: state.articles.articlesHomepage.gtTippsArticles,
     };
 };
 
@@ -177,10 +165,6 @@ const mapDispatchToProps = (dispatch) => {
         fetchOffersForPageCleanUp: () => dispatch(fetchOffersForPageCleanUp()),
         updateOffersPageStartParam: () =>
             dispatch(updateOffersPageStartParam()),
-        fetchArticlesWissen: ({ start, limit }) =>
-            dispatch(fetchArticlesWissen({ start, limit })),
-        fetchArticlesGtTips: ({ start, limit }) =>
-            dispatch(fetchArticlesGtTips({ start, limit })),
     };
 };
 
