@@ -99,27 +99,6 @@ const GtTipsPage = ({
 
                         <div className="d-lg-block col-lg-3 col-xl-3 px-xl-0">
                             <div className="row justify-content-center">
-                                <div className="col-md-6 col-lg-12 d-md-none d-lg-block">
-                                    {banner350x292 && banner350x292.length > 0 && (
-                                        <div className="banner2 mb30 mt20 border-radious5">
-                                            <a
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                href={banner350x292[0].link}
-                                            >
-                                                <img
-                                                    src={
-                                                        process.env
-                                                            .REACT_APP_CMS_URL +
-                                                        banner350x292[0]
-                                                            .image[0].url
-                                                    }
-                                                    alt="thumb"
-                                                />
-                                            </a>
-                                        </div>
-                                    )}
-                                </div>
                                 <div className="col-md-6 col-lg-12">
                                     <AdserverIframe />
                                     <FollowUs

@@ -33,7 +33,9 @@ const PostGalleryTwo = ({
                     <div className="col-md-12 col-lg-9 ">
                         <div className="main-article-container">
                             {mainArticle && (
-                                <Link to={`/article/${mainArticle.slug}`}>
+                                <Link
+                                    to={`/${mainArticle.type}/${mainArticle.slug}`}
+                                >
                                     <div className="single_post post_type6 border-radious7 xs-mb30 main_article_homepage">
                                         <div className="post_img gradient1">
                                             <div className="img_wrap">

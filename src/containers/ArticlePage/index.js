@@ -336,7 +336,7 @@ const ArticlePage = ({
                             <div className="col-12 col-md-10 col-lg-8 m-auto">
                                 <LatestContent
                                     contentData={stateArticles}
-                                    type={article}
+                                    type="article"
                                 />
                             </div>
                         </div>

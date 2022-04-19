@@ -11,8 +11,6 @@ import {
     fetchOffersForPageCleanUp,
     fetchOffersForPage,
     updateOffersPageStartParam,
-    fetchArticlesWissen,
-    fetchArticlesGtTips,
 } from '../../store/actions';
 import BusinessNewsTwo from '../../components/BusinessNewsTwo';
 import FollowUs from '../../components/FollowUs';
@@ -24,15 +22,12 @@ import AdserverLeaderboard from '../../components/AdserverLeaderboard';
 import MostViewArticles from '../../components/MostViewArticles';
 
 const OffersPage = ({
-    fetchOffersForPageCleanUp,
     fetchArticleHomepage,
     updateOffersPageStartParam,
     fetchOffersForPage,
     newsArticles = [],
     latestOffers = [],
     menuName,
-    fetchAds,
-    adsCategory,
     start,
     wissenArticles,
     gtTippsArticles,
