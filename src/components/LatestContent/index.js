@@ -22,7 +22,9 @@ const LatestContent = ({ contentData, type }) => {
                                                 className="lazyLoad crop_image"
                                                 src={
                                                     item.main_image &&
+                                                    item.main_image.formats &&
                                                     item.main_image.formats
+                                                        .small
                                                         ? `${
                                                               process.env
                                                                   .REACT_APP_CMS_URL +
@@ -30,7 +32,13 @@ const LatestContent = ({ contentData, type }) => {
                                                                   .formats.small
                                                                   .url
                                                           }`
-                                                        : bigImg
+                                                        : `${
+                                                              process.env
+                                                                  .REACT_APP_CMS_URL +
+                                                              item.main_image
+                                                                  .formats
+                                                                  .thumbnail.url
+                                                          }`
                                                 }
                                                 alt="thumb"
                                                 effect="blur"
