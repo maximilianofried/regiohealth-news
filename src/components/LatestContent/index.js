@@ -8,7 +8,7 @@ const LatestContent = ({ contentData, type }) => {
             <h2 className="widget-title">Verwandte Inhalte</h2>
             <div className="space-20" />
             <div className="d-flex flex-column flex-md-row">
-                <div>
+                <div className="col-sm-12 col-md-6">
                     {contentData &&
                         contentData.slice(0, 4).map((item, i) => (
                             <div
@@ -68,7 +68,7 @@ const LatestContent = ({ contentData, type }) => {
                             </div>
                         ))}
                 </div>
-                <div>
+                <div className="col-sm-12 col-md-6">
                     {contentData &&
                         contentData.slice(4, 8).map((item, i) => (
                             <div
@@ -82,7 +82,9 @@ const LatestContent = ({ contentData, type }) => {
                                                 className="lazyLoad crop_image"
                                                 src={
                                                     item.main_image &&
+                                                    item.main_image.formats &&
                                                     item.main_image.formats
+                                                        .small
                                                         ? `${
                                                               process.env
                                                                   .REACT_APP_CMS_URL +
@@ -90,7 +92,13 @@ const LatestContent = ({ contentData, type }) => {
                                                                   .formats.small
                                                                   .url
                                                           }`
-                                                        : bigImg
+                                                        : `${
+                                                              process.env
+                                                                  .REACT_APP_CMS_URL +
+                                                              item.main_image
+                                                                  .formats
+                                                                  .thumbnail.url
+                                                          }`
                                                 }
                                                 alt="thumb"
                                                 effect="blur"
