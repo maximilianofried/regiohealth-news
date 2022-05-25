@@ -60,23 +60,14 @@ const OfferPage = ({
     offerData,
     fetchOffer,
     fetchOfferCleanUp,
-    fetchOffersForPage,
-    fetchOffersForPageCleanUp,
     latestOffers = [],
 }) => {
     const { slug } = useParams();
+
     useEffect(() => {
         fetchOffer(slug);
         return () => fetchOfferCleanUp();
-    }, [slug]);
-
-    useEffect(() => {
-        const { offer } = offerData;
-        if (offer) {
-            fetchOffersForPage({ limit: 8, slug });
-        }
-        return () => fetchOffersForPageCleanUp();
-    }, [fetchOffersForPage, fetchOffersForPageCleanUp, offerData, slug]);
+    }, [fetchOffer, fetchOfferCleanUp, slug]);
 
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
