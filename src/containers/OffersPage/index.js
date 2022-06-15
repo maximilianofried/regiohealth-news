@@ -17,9 +17,10 @@ import FollowUs from '../../components/FollowUs';
 import Metadata from '../../components/Metadata';
 import { ANGEBOTE_DESCRIPTION } from '../../utils/constants';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import AdserverIframe from '../../components/AdserverIframe';
+import SquareIframe from '../../components/AdserverIframe/Angebote/SquareIframe';
 import AdserverLeaderboard from '../../components/AdserverLeaderboard';
 import MostViewArticles from '../../components/MostViewArticles';
+import HorizontalIframeAngebote from '../../components/AdserverIframe/Angebote/HorizontalIframe';
 
 const OffersPage = ({
     fetchArticleHomepage,
@@ -74,13 +75,13 @@ const OffersPage = ({
                                 buttonText="MEHR ANGEBOTE"
                             />
                             {/* <div ref={lastElementRef} className="space-20" /> */}
-                            {!isMobileOnly && <AdserverLeaderboard />}
+                            {!isMobileOnly && <HorizontalIframeAngebote />}
                         </div>
                         <div className="d-lg-block col-lg-3 col-xl-3 px-xl-0">
                             <div className="row justify-content-center">
                                 <div className="col-md-6 col-lg-12 d-md-none d-lg-block" />
                                 <div className="col-md-6 col-lg-12">
-                                    <AdserverIframe />
+                                    <SquareIframe />
                                     <FollowUs
                                         title="FOLGEN SIE UNS"
                                         className="border-radious5 white_bg padding20 sm-mt30"
