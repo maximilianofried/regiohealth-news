@@ -7,7 +7,7 @@ const HorizontalIframeAngebote = () => {
                 title="angebote-horizontal"
                 id="a199bbe6"
                 name="a199bbe6"
-                src="http://adserver.gesundheitsticket.de/revive/www/delivery/afr.php?zoneid=6&amp;target=_blank&amp;cb=INSERT_RANDOM_NUMBER_HERE"
+                src="https://adserver.gesundheitsticket.de/revive/www/delivery/afr.php?zoneid=6&amp;target=_blank&amp;cb=INSERT_RANDOM_NUMBER_HERE"
                 frameBorder="0"
                 scrolling="no"
                 width="892"
@@ -15,11 +15,11 @@ const HorizontalIframeAngebote = () => {
                 allow="autoplay"
             >
                 <a
-                    href="http://adserver.gesundheitsticket.de/revive/www/delivery/ck.php?n=adbda12a&amp;cb=INSERT_RANDOM_NUMBER_HERE"
+                    href="https://adserver.gesundheitsticket.de/revive/www/delivery/ck.php?n=adbda12a&amp;cb=INSERT_RANDOM_NUMBER_HERE"
                     target="_blank"
                 >
                     <img
-                        src="http://adserver.gesundheitsticket.de/revive/www/delivery/avw.php?zoneid=6&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=adbda12a"
+                        src="https://adserver.gesundheitsticket.de/revive/www/delivery/avw.php?zoneid=6&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=adbda12a"
                         border="0"
                         alt=""
                     />

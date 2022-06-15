@@ -7,7 +7,7 @@ const SquareIframeAngebote = () => {
                 title="angebote-sqaure"
                 id="ad1e34be"
                 name="ad1e34be"
-                src="http://adserver.gesundheitsticket.de/revive/www/delivery/afr.php?zoneid=5&amp;target=_blank&amp;cb=INSERT_RANDOM_NUMBER_HERE"
+                src="https://adserver.gesundheitsticket.de/revive/www/delivery/afr.php?zoneid=5&amp;target=_blank&amp;cb=INSERT_RANDOM_NUMBER_HERE"
                 frameBorder="0"
                 scrolling="no"
                 width="308"
@@ -15,11 +15,11 @@ const SquareIframeAngebote = () => {
                 allow="autoplay"
             >
                 <a
-                    href="http://adserver.gesundheitsticket.de/revive/www/delivery/ck.php?n=a6b1bf03&amp;cb=INSERT_RANDOM_NUMBER_HERE"
+                    href="https://adserver.gesundheitsticket.de/revive/www/delivery/ck.php?n=a6b1bf03&amp;cb=INSERT_RANDOM_NUMBER_HERE"
                     target="_blank"
                 >
                     <img
-                        src="http://adserver.gesundheitsticket.de/revive/www/delivery/avw.php?zoneid=5&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a6b1bf03"
+                        src="https://adserver.gesundheitsticket.de/revive/www/delivery/avw.php?zoneid=5&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a6b1bf03"
                         border="0"
                         alt=""
                     />
