@@ -7,7 +7,7 @@ const SquareIframeHomepage = () => {
                 title="homepage-square"
                 id="ade584b3"
                 name="ade584b3"
-                src="http://adserver.gesundheitsticket.de/revive/www/delivery/afr.php?zoneid=7&amp;cb=INSERT_RANDOM_NUMBER_HERE"
+                src="https://adserver.gesundheitsticket.de/revive/www/delivery/afr.php?zoneid=7&amp;cb=INSERT_RANDOM_NUMBER_HERE"
                 frameBorder="0"
                 scrolling="no"
                 width="308"
@@ -15,11 +15,11 @@ const SquareIframeHomepage = () => {
                 allow="autoplay"
             >
                 <a
-                    href="http://adserver.gesundheitsticket.de/revive/www/delivery/ck.php?n=a9162331&amp;cb=INSERT_RANDOM_NUMBER_HERE"
+                    href="https://adserver.gesundheitsticket.de/revive/www/delivery/ck.php?n=a9162331&amp;cb=INSERT_RANDOM_NUMBER_HERE"
                     target="_blank"
                 >
                     <img
-                        src="http://adserver.gesundheitsticket.de/revive/www/delivery/avw.php?zoneid=7&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a9162331"
+                        src="https://adserver.gesundheitsticket.de/revive/www/delivery/avw.php?zoneid=7&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a9162331"
                         border="0"
                         alt=""
                     />
