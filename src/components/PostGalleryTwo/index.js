@@ -11,6 +11,8 @@ import MostViewOffers from '../MostViewOffers';
 import MostViewArticles from '../MostViewArticles';
 import bigImg from '../../doc/img/header/sider-top3.jpg';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import SquareIframeHomepage from '../AdserverIframe/Homepage/SquareIframe';
+import HorizontalIframeHomepage from '../AdserverIframe/Homepage/HorizontalIframe';
 
 const PostGalleryTwo = ({
     mainArticle,
@@ -90,7 +92,7 @@ const PostGalleryTwo = ({
                         </div>
 
                         <div className="space-10" />
-                        {!isMobileOnly && <AdserverLeaderboard />}
+                        {!isMobileOnly && <HorizontalIframeHomepage />}
                         <BusinessNewsTwo
                             isHomePage
                             articleLimit={articleLimit}
@@ -101,7 +103,7 @@ const PostGalleryTwo = ({
                     </div>
                     <div className="d-lg-block col-lg-3 col-xl-3 px-xl-0">
                         <StickyBox offsetTop={20}>
-                            {!isTablet && <AdserverIframe />}
+                            {!isTablet && <SquareIframeHomepage />}
                             <FollowUs
                                 title="FOLGEN SIE UNS"
                                 className="border-radious5 white_bg padding20 sm-mt30"
