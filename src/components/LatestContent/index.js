@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import bigImg from '../../doc/img/header/sider-top3.jpg';
+import rgOfferPlaceholderSmall from '../../doc/img/dummy_small.png';
 
 const LatestContent = ({ contentData, type }) => {
     return (
@@ -18,31 +18,46 @@ const LatestContent = ({ contentData, type }) => {
                                 <div className="post_img">
                                     <div className="img_wrap_2">
                                         <Link to={`/${type}/${item.slug}`}>
-                                            <img
-                                                className="lazyLoad crop_image"
-                                                src={
-                                                    item.main_image &&
-                                                    item.main_image.formats &&
-                                                    item.main_image.formats
-                                                        .small
-                                                        ? `${
-                                                              process.env
-                                                                  .REACT_APP_CMS_URL +
-                                                              item.main_image
-                                                                  .formats.small
-                                                                  .url
-                                                          }`
-                                                        : `${
-                                                              process.env
-                                                                  .REACT_APP_CMS_URL +
-                                                              item.main_image
-                                                                  .formats
-                                                                  .thumbnail.url
-                                                          }`
-                                                }
-                                                alt="thumb"
-                                                effect="blur"
-                                            />
+                                            {item && item.main_image ? (
+                                                <img
+                                                    className="lazyLoad crop_image"
+                                                    src={
+                                                        item.main_image &&
+                                                        item.main_image
+                                                            .formats &&
+                                                        item.main_image.formats
+                                                            .small
+                                                            ? `${
+                                                                  process.env
+                                                                      .REACT_APP_CMS_URL +
+                                                                  item
+                                                                      .main_image
+                                                                      .formats
+                                                                      .small.url
+                                                              }`
+                                                            : `${
+                                                                  process.env
+                                                                      .REACT_APP_CMS_URL +
+                                                                  item
+                                                                      .main_image
+                                                                      .formats
+                                                                      .thumbnail
+                                                                      .url
+                                                              }`
+                                                    }
+                                                    alt="thumb"
+                                                    effect="blur"
+                                                />
+                                            ) : (
+                                                <img
+                                                    className="lazyLoad crop_image"
+                                                    src={
+                                                        rgOfferPlaceholderSmall
+                                                    }
+                                                    alt="thumb"
+                                                    effect="blur"
+                                                />
+                                            )}
                                         </Link>
                                     </div>
                                 </div>
@@ -78,31 +93,46 @@ const LatestContent = ({ contentData, type }) => {
                                 <div className="post_img">
                                     <div className="img_wrap_2">
                                         <Link to={`/${type}/${item.slug}`}>
-                                            <img
-                                                className="lazyLoad crop_image"
-                                                src={
-                                                    item.main_image &&
-                                                    item.main_image.formats &&
-                                                    item.main_image.formats
-                                                        .small
-                                                        ? `${
-                                                              process.env
-                                                                  .REACT_APP_CMS_URL +
-                                                              item.main_image
-                                                                  .formats.small
-                                                                  .url
-                                                          }`
-                                                        : `${
-                                                              process.env
-                                                                  .REACT_APP_CMS_URL +
-                                                              item.main_image
-                                                                  .formats
-                                                                  .thumbnail.url
-                                                          }`
-                                                }
-                                                alt="thumb"
-                                                effect="blur"
-                                            />
+                                            {item && item.main_image ? (
+                                                <img
+                                                    className="lazyLoad crop_image"
+                                                    src={
+                                                        item.main_image &&
+                                                        item.main_image
+                                                            .formats &&
+                                                        item.main_image.formats
+                                                            .small
+                                                            ? `${
+                                                                  process.env
+                                                                      .REACT_APP_CMS_URL +
+                                                                  item
+                                                                      .main_image
+                                                                      .formats
+                                                                      .small.url
+                                                              }`
+                                                            : `${
+                                                                  process.env
+                                                                      .REACT_APP_CMS_URL +
+                                                                  item
+                                                                      .main_image
+                                                                      .formats
+                                                                      .thumbnail
+                                                                      .url
+                                                              }`
+                                                    }
+                                                    alt="thumb"
+                                                    effect="blur"
+                                                />
+                                            ) : (
+                                                <img
+                                                    className="lazyLoad crop_image"
+                                                    src={
+                                                        rgOfferPlaceholderSmall
+                                                    }
+                                                    alt="thumb"
+                                                    effect="blur"
+                                                />
+                                            )}
                                         </Link>
                                     </div>
                                 </div>
