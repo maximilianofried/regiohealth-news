@@ -17,8 +17,8 @@ import FollowUs from '../../components/FollowUs';
 import Metadata from '../../components/Metadata';
 import { MENU_DESCRIPTION } from '../../utils/constants';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import AdserverIframe from '../../components/AdserverIframe';
-import AdserverLeaderboard from '../../components/AdserverLeaderboard';
+import SquareIframeHomepage from '../../components/AdserverIframe/Homepage/SquareIframe';
+import HorizontalIframeHomepage from '../../components/AdserverIframe/Homepage/HorizontalIframe';
 
 const WissenPage = ({
     fetchArticlesWissen,
@@ -95,13 +95,13 @@ const WissenPage = ({
                                 buttonText="MEHR WISSEN ARTIKEL"
                             />
 
-                            {!isMobileOnly && <AdserverLeaderboard />}
+                            {!isMobileOnly && <SquareIframeHomepage />}
                         </div>
 
                         <div className="d-lg-block col-lg-3 col-xl-3 px-xl-0">
                             <div className="row justify-content-center">
                                 <div className="col-md-6 col-lg-12">
-                                    <AdserverIframe />
+                                    <HorizontalIframeHomepage />
                                     <FollowUs
                                         title="FOLGEN SIE UNS"
                                         className="border-radious5 white_bg padding20 sm-mt30"

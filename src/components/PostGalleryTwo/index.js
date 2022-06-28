@@ -5,8 +5,6 @@ import moment from 'moment';
 import StickyBox from 'react-sticky-box';
 import FollowUs from '../FollowUs';
 import BusinessNewsTwo from '../BusinessNewsTwo';
-import AdserverIframe from '../AdserverIframe';
-import AdserverLeaderboard from '../AdserverLeaderboard';
 import MostViewOffers from '../MostViewOffers';
 import MostViewArticles from '../MostViewArticles';
 import bigImg from '../../doc/img/header/sider-top3.jpg';

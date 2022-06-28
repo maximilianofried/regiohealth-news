@@ -17,9 +17,8 @@ import FollowUs from '../../components/FollowUs';
 import Metadata from '../../components/Metadata';
 import { ANGEBOTE_DESCRIPTION } from '../../utils/constants';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import SquareIframe from '../../components/AdserverIframe/Angebote/SquareIframe';
-import AdserverLeaderboard from '../../components/AdserverLeaderboard';
 import MostViewArticles from '../../components/MostViewArticles';
+import SquareIframe from '../../components/AdserverIframe/Angebote/SquareIframe';
 import HorizontalIframeAngebote from '../../components/AdserverIframe/Angebote/HorizontalIframe';
 
 const OffersPage = ({

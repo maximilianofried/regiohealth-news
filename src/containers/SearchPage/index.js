@@ -16,7 +16,7 @@ import '@reach/listbox/styles.css';
 import MostViewOffers from '../../components/MostViewOffers';
 import FollowUs from '../../components/FollowUs';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import AdserverIframe from '../../components/AdserverIframe';
+import SquareIframeHomepage from '../../components/AdserverIframe/Homepage/SquareIframe';
 
 const SearchPage = ({
     fetchGeoData,
@@ -71,7 +71,7 @@ const SearchPage = ({
                             </div>
                         </div>
                         <div className="d-lg-block col-lg-3 col-xl-3 px-xl-0">
-                            <AdserverIframe />
+                            <SquareIframeHomepage />
                             <FollowUs
                                 title="FOLGEN SIE UNS"
                                 className="border-radious5 white_bg padding20 sm-mt30"
