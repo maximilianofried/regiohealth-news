@@ -95,13 +95,13 @@ const WissenPage = ({
                                 buttonText="MEHR WISSEN ARTIKEL"
                             />
 
-                            {!isMobileOnly && <SquareIframeHomepage />}
+                            {!isMobileOnly && <HorizontalIframeHomepage />}
                         </div>
 
                         <div className="d-lg-block col-lg-3 col-xl-3 px-xl-0">
                             <div className="row justify-content-center">
                                 <div className="col-md-6 col-lg-12">
-                                    <HorizontalIframeHomepage />
+                                    <SquareIframeHomepage />
                                     <FollowUs
                                         title="FOLGEN SIE UNS"
                                         className="border-radious5 white_bg padding20 sm-mt30"
