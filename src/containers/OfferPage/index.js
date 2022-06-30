@@ -89,22 +89,45 @@ const OfferPage = ({
                         offer.categories
                     )}
                     image={
-                        offer.main_image
+                        // eslint-disable-next-line no-nested-ternary
+                        offer.main_image &&
+                        offer.main_image.formats &&
+                        offer.main_image.formats.small
+                            ? process.env.REACT_APP_CMS_URL +
+                              offer.main_image.formats.small.url
+                            : offer.main_image
                             ? process.env.REACT_APP_CMS_URL +
                               offer.main_image.url
-                            : RG_LOGO
+                            : rgOfferPlaceholderMedium
                     }
                     imageSize={
-                        offer.main_image
+                        // eslint-disable-next-line no-nested-ternary
+                        offer.main_image &&
+                        offer.main_image.formats &&
+                        offer.main_image.formats.small
                             ? getMeta(
                                   process.env.REACT_APP_CMS_URL +
-                                      offer.main_image.url,
+                                      offer.main_image.formats.small.url,
                                   width,
                                   setWidth,
                                   height,
                                   setHeight
                               )
-                            : ''
+                            : offer.main_image
+                            ? getMeta(
+                                  offer.main_image,
+                                  width,
+                                  setWidth,
+                                  height,
+                                  setHeight
+                              )
+                            : getMeta(
+                                  rgOfferPlaceholderMedium,
+                                  width,
+                                  setWidth,
+                                  height,
+                                  setHeight
+                              )
                     }
                     url={`${process.env.REACT_APP_BASE_PAGE_URL}/offer/${slug}`}
                 />
