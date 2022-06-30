@@ -114,19 +114,21 @@ const ArticlePage = ({
                         // eslint-disable-next-line no-nested-ternary
                         article.main_image &&
                         article.main_image.formats &&
-                        article.main_image.formats.medium
+                        article.main_image.formats.small
                             ? process.env.REACT_APP_CMS_URL +
-                              article.main_image.formats.medium.url
+                              article.main_image.formats.small.url
                             : article.main_image
                             ? process.env.REACT_APP_CMS_URL +
                               article.main_image.url
                             : ''
                     }
                     imageSize={
-                        article.main_image
+                        article.main_image &&
+                        article.main_image.formats &&
+                        article.main_image.formats.small
                             ? getMeta(
                                   process.env.REACT_APP_CMS_URL +
-                                      article.main_image.url,
+                                      article.main_image.formats.small.url,
                                   width,
                                   setWidth,
                                   height,
