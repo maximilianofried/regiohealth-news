@@ -87,11 +87,11 @@ export const fetchOffers = ({
         );
         const url = `${
             process.env.REACT_APP_CMS_URL
-        }/contents/published?_sort=publishAt:DESC&type=offer${
-            categories ? `&${query}` : ''
-        }${city ? `&city=${city}` : ''}${start ? `&_start=${start}` : ''}${
-            limit ? `&_limit=${limit}` : ''
-        }`;
+        }/contents/published?sort=publishAt%3Adesc&filters[type][$eq]=offer${
+            categories.length > 0 ? `&${query}` : ''
+        }${city ? `&filters[city][$eq]=${city}` : ''}${
+            start ? `&pagination[start]=${start}` : ''
+        }${limit ? `&pagination[limit]=${limit}` : ''}`;
         dispatch(fetchOffersRequest);
         axios
             .get(url)
@@ -129,11 +129,13 @@ export const fetchOffersForPage = ({
         );
         const url = `${
             process.env.REACT_APP_CMS_URL
-        }/contents/published?_sort=publishAt:DESC&type=offer${
+        }/contents/published?sort=publishAt%3Adesc&filters[type][$eq]=offer${
             categories.length > 0 ? `&${query}` : ''
-        }${city ? `&city=${city}` : ''}${start ? `&_start=${start}` : ''}${
-            limit ? `&_limit=${limit}` : ''
-        }${slug ? `&slug_ne=${slug}` : ''}`;
+        }${city ? `&filters[city][$eq]=${city}` : ''}${
+            start ? `&pagination[start]=${start}` : ''
+        }${limit ? `&pagination[limit]=${limit}` : ''}${
+            slug ? `&filters[slug][$ne]=${slug}` : ''
+        }`;
         dispatch(fetchOffersForPageRequest);
         axios
             .get(url)

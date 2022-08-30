@@ -19,15 +19,13 @@ const HomePage = ({
     publisherArticles = [],
     newsArticles,
     latestOffers,
-    adsHome,
     wissenArticles,
     gtTippsArticles,
 }) => {
     useEffect(() => {
         fetchArticleHomepage();
         fetchOffers({ start: 0, limit: 4 });
-        fetchAds();
-    }, [fetchArticleHomepage, fetchOffers, fetchAds]);
+    }, [fetchArticleHomepage, fetchOffers]);
     const { trackPageView } = useMatomo();
     // Track page view
     useEffect(() => {
@@ -51,7 +49,6 @@ const HomePage = ({
                 newsArticles={newsArticles}
                 articleLimit={articleLimit}
                 publisherArticles={publisherArticles}
-                adsHome={adsHome}
                 latestOffers={latestOffers}
                 buttonText="MEHR INHALT"
                 fetchArticleHomepageHook={fetchArticleHomepageHook}
@@ -68,9 +65,6 @@ const mapStateToProps = (state) => {
         publisherArticles: state.articles.articlesHomepage.publisherArticles,
         newsArticles: state.articles.articlesHomepage.newsArticles,
         latestOffers: state.offers.offers,
-        adsHome: state.ads.ads.filter(
-            (ad) => ad.position === 'home' && ad.size === 's350x292'
-        ),
         wissenArticles: state.articles.articlesHomepage.wissenArticles,
         gtTippsArticles: state.articles.articlesHomepage.gtTippsArticles,
     };
@@ -81,7 +75,6 @@ const mapDispatchToProps = (dispatch) => {
         fetchArticleHomepage: () => dispatch(fetchArticleHomepage()),
         fetchOffers: ({ start, limit }) =>
             dispatch(fetchOffers({ start, limit })),
-        fetchAds: () => dispatch(fetchAds()),
     };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
