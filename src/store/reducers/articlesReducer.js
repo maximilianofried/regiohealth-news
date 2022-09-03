@@ -6,12 +6,14 @@ import {
     FETCH_ARTICLES_HOMEPAGE_SUCCESS,
     FETCH_ARTICLES_CLEAN_UP,
     FETCH_ARTICLES_CATEGORYPAGE_SUCCESS,
+    FETCH_ARTICLES_PUBLISHER_SECTION_SUCCESS,
 } from '../constants/articlesTypes';
 
 const initialState = {
     loading: false,
     articles: [],
     articlesHomepage: {},
+    articlesPublisherSection: [],
     articlesCategoryPage: {},
     articlesByCity: [],
     error: '',
@@ -53,6 +55,13 @@ const articlesReducer = (state = initialState, action) => {
                 ...state,
                 loading: false,
                 articlesHomepage: action.payload.articles,
+                error: '',
+            };
+        case FETCH_ARTICLES_PUBLISHER_SECTION_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                articlesPublisherSection: action.payload.publisherArticles,
                 error: '',
             };
         case FETCH_ARTICLES_CATEGORYPAGE_SUCCESS:

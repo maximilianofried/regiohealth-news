@@ -38,14 +38,14 @@ const InfoPage = ({ fetchPage, page, name }) => {
                     </div>
                 </>
             </BreadCrumb>
-            <BannerSection />
+            {/* <BannerSection /> */}
         </>
     );
 };
 
 const mapStateToProps = (state) => {
     return {
-        page: (state.page && state.page.page && state.page.page[0]) || [],
+        page: (state.page && state.page.page && state.page.page.data[0]) || [],
     };
 };
 

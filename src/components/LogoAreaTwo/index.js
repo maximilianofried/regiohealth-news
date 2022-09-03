@@ -13,7 +13,7 @@ const LogoAreaTwo = ({ history, fetchGeoData, searchByKeyword }) => {
                         <div className="logo" onClick={() => history.push('/')}>
                             <img
                                 alt="regio health logo"
-                                src={`${process.env.REACT_APP_CMS_URL}/uploads/regiohealth_news_16cb0d731e.svg`}
+                                src={`${process.env.REACT_APP_CMS_URL_IMAGE}/uploads/regiohealth_news_16cb0d731e.svg`}
                             />
                         </div>
                     </div>

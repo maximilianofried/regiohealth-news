@@ -28,7 +28,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             <img
                                                 alt="logo"
                                                 className="gt_logo"
-                                                src={`${process.env.REACT_APP_CMS_URL}/uploads/logo_gt3_d2142e249a.svg`}
+                                                src={`${process.env.REACT_APP_CMS_URL_IMAGE}/uploads/logo_gt3_d2142e249a.svg`}
                                                 effect="blur"
                                             />
                                         </a>
@@ -42,7 +42,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             <img
                                                 alt="logo"
                                                 className="gt_logo"
-                                                src={`${process.env.REACT_APP_CMS_URL}/uploads/regiohealth_b_7bbe36540e.svg`}
+                                                src={`${process.env.REACT_APP_CMS_URL_IMAGE}/uploads/regiohealth_b_7bbe36540e.svg`}
                                                 effect="blur"
                                             />
                                         </a>
@@ -56,7 +56,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             <img
                                                 alt="logo"
                                                 className="gt_logo"
-                                                src={`${process.env.REACT_APP_CMS_URL}/uploads/regiohealth_k_45f8d252a5.svg`}
+                                                src={`${process.env.REACT_APP_CMS_URL_IMAGE}/uploads/regiohealth_k_45f8d252a5.svg`}
                                                 effect="blur"
                                             />
                                         </a>
@@ -70,7 +70,7 @@ const FooterArea = ({ className, fetchPages, pages }) => {
                                             <img
                                                 alt="logo"
                                                 className="gt_logo"
-                                                src={`${process.env.REACT_APP_CMS_URL}/uploads/LOGO_WF_3f61100d67.svg`}
+                                                src={`${process.env.REACT_APP_CMS_URL_IMAGE}/uploads/LOGO_WF_3f61100d67.svg`}
                                                 effect="blur"
                                             />
                                         </a>
