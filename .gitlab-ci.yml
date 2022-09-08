@@ -26,6 +26,7 @@ step-production:
     script:
         - echo "REACT_APP_BASE_PAGE_URL=$REACT_APP_BASE_PAGE_URL_PROD" >> .env
         - echo "REACT_APP_CMS_URL=$REACT_APP_CMS_URL_PROD" >> .env
+        - echo "REACT_APP_CMS_URL_IMAGE=$REACT_APP_CMS_URL_IMAGE" >> .env
         - echo "REACT_APP_UA_TRACK=$REACT_APP_UA_TRACK" >> .env
         - sudo docker image prune -f
         - sudo docker-compose -f docker-compose-prod.yml build --no-cache
