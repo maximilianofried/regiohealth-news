@@ -283,26 +283,32 @@ const OfferPage = ({
                                 <div className="space-20" />
                                 <div className="single_post_info">
                                     <ul>
-                                        {offer.price && (
-                                            <li>
-                                                Preis: {offer.price}
-                                                {' €'}
-                                            </li>
-                                        )}
-                                        {offer.start && (
-                                            <li>
-                                                Start:{' '}
-                                                {moment(offer.start).format(
-                                                    'LL'
-                                                )}
-                                            </li>
-                                        )}
-                                        {offer.end && (
-                                            <li>
-                                                Ende:{' '}
-                                                {moment(offer.end).format('LL')}
-                                            </li>
-                                        )}
+                                        {offer.offer_info &&
+                                            offer.offer_info.price && (
+                                                <li>
+                                                    Preis:
+                                                    {offer.offer_info.price}
+                                                    {' €'}
+                                                </li>
+                                            )}
+                                        {offer.offer_info &&
+                                            offer.offer_info.start && (
+                                                <li>
+                                                    Start:
+                                                    {moment(
+                                                        offer.offer_info.start
+                                                    ).format('LL')}
+                                                </li>
+                                            )}
+                                        {offer.offer_info &&
+                                            offer.offer_info.end && (
+                                                <li>
+                                                    Ende:{' '}
+                                                    {moment(
+                                                        offer.offer_info.end
+                                                    ).format('LL')}
+                                                </li>
+                                            )}
                                         {offer.region && (
                                             <li>Bundesland: {offer.region}</li>
                                         )}
@@ -325,7 +331,7 @@ const OfferPage = ({
                                 {offer.documents && (
                                     <div className="documents">
                                         <ul className="none">
-                                            {offer.documents.map((doc) => (
+                                            {offer.documents.data.map((doc) => (
                                                 <li key={doc.id}>
                                                     <a
                                                         target="_blank"

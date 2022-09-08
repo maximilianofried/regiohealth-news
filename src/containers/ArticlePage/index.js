@@ -314,22 +314,26 @@ const ArticlePage = ({
                                 {article.documents && (
                                     <div className="documents">
                                         <ul className="none">
-                                            {article.documents.map((doc) => (
-                                                <li key={doc.id}>
-                                                    <a
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        href={
-                                                            process.env
-                                                                .REACT_APP_CMS_URL +
-                                                            doc.url
-                                                        }
-                                                    >
-                                                        <FontAwesome name="file-text" />
-                                                        <span>{doc.name}</span>
-                                                    </a>
-                                                </li>
-                                            ))}
+                                            {article.documents.data.map(
+                                                (doc) => (
+                                                    <li key={doc.id}>
+                                                        <a
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            href={
+                                                                process.env
+                                                                    .REACT_APP_CMS_URL +
+                                                                doc.url
+                                                            }
+                                                        >
+                                                            <FontAwesome name="file-text" />
+                                                            <span>
+                                                                {doc.name}
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                )
+                                            )}
                                         </ul>
                                     </div>
                                 )}
