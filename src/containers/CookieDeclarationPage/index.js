@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 import BannerSection from '../../components/BannerSection';
 import Metadata from '../../components/Metadata';
 
 const CookieDeclarationPage = ({ name }) => {
+    const { trackPageView } = useMatomo();
+    // Track page view
+    useEffect(() => {
+        trackPageView();
+    }, []);
+
     return (
         <>
             <Metadata

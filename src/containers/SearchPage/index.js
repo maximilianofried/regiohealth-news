@@ -1,6 +1,7 @@
-import React, { useRef, useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 import {
     fetchGeoData,
     fetchAds,
@@ -12,10 +13,10 @@ import GeoDataNews from '../../components/geoDataNews';
 import WidgetSuchPortal from '../../components/WidgetSuchPortal';
 import '@reach/combobox/styles.css';
 import '@reach/listbox/styles.css';
-import MostViewTwo from '../../components/MostViewTwo';
+import MostViewOffers from '../../components/MostViewOffers';
 import FollowUs from '../../components/FollowUs';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import AdserverIframe from '../../components/AdserverIframe';
+import SquareIframeHomepage from '../../components/AdserverIframe/Homepage/SquareIframe';
 
 const SearchPage = ({
     fetchGeoData,
@@ -29,27 +30,22 @@ const SearchPage = ({
     type,
     keyword,
 }) => {
-    const observer = useRef();
+    const { trackPageView } = useMatomo();
+    // Track page view
+    useEffect(() => {
+        trackPageView();
+    }, []);
 
-    const lastElementRef = useCallback(
-        (node) => {
-            if (observer.current) observer.current.disconnect();
-            observer.current = new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting) {
-                    fetchGeoData({
-                        limit: limit + 2,
-                        start: 0,
-                        place,
-                        type,
-                        keyword,
-                        responseType: 'mixed',
-                    });
-                }
-            });
-            if (node) observer.current.observe(node);
-        },
-        [limit]
-    );
+    const fetchSearchHook = useCallback(() => {
+        fetchGeoData({
+            limit: limit + 2,
+            start: 0,
+            place,
+            type,
+            keyword,
+            responseType: 'mixed',
+        });
+    }, [fetchGeoData, keyword, limit, place, type]);
 
     const displayOffers = latestOffers.some(
         (offer) => offer.end > moment().format('YYYY-MM-DD')
@@ -65,6 +61,7 @@ const SearchPage = ({
                                     <GeoDataNews
                                         fetchGeoData={fetchGeoData}
                                         geoData={geoData}
+                                        fetchContentHook={fetchSearchHook}
                                         headerHide
                                     />
                                 ) : (
@@ -74,7 +71,7 @@ const SearchPage = ({
                             </div>
                         </div>
                         <div className="d-lg-block col-lg-3 col-xl-3 px-xl-0">
-                            <AdserverIframe />
+                            <SquareIframeHomepage />
                             <FollowUs
                                 title="FOLGEN SIE UNS"
                                 className="border-radious5 white_bg padding20 sm-mt30"
@@ -87,16 +84,15 @@ const SearchPage = ({
                                 }
                             />
                             {displayOffers && (
-                                <MostViewTwo
+                                <MostViewOffers
                                     title="ANGEBOTE"
-                                    latestOffers={latestOffers}
+                                    contentData={latestOffers}
                                 />
                             )}
                         </div>
                     </div>
                 </div>
             </div>
-            <div ref={lastElementRef} className="space-40" />
         </>
     );
 };

@@ -11,30 +11,32 @@ const BusinessNewsTwo = ({
     articleLimit,
     offer,
     fetchContentHook,
-    isHomePage,
     buttonText,
 }) => {
     const onClickLoadMore = () => {
         fetchContentHook();
     };
-    console.log(publisherArticles);
     return (
         <div className="business3 padding20 white_bg border-radious5">
             {publisherArticles && publisherArticles.length > 0 ? (
                 publisherArticles.slice(0, articleLimit).map((item, i) => (
-                    <div
+                    <Link
                         key={item.id}
-                        className="single_post post_type12 type20"
+                        to={
+                            (item.type === 'offer' ? `/offer/` : `/article/`) +
+                            item.slug
+                        }
                     >
-                        <div className="post_img">
-                            <div className="img_wrap">
-                                <Link
+                        <div className="single_post post_type12 type20">
+                            <div className="post_img">
+                                <div className="img_wrap">
+                                    {/* <Link
                                     to={
                                         (item.type === 'offer'
                                             ? `/offer/`
                                             : `/article/`) + item.slug
                                     }
-                                >
+                                > */}
                                     {item && item.main_image ? (
                                         <img
                                             className="lazyLoad border-radious5"
@@ -65,43 +67,43 @@ const BusinessNewsTwo = ({
                                             effect="blur"
                                         />
                                     )}
-                                </Link>
+                                    {/* </Link> */}
+                                </div>
                             </div>
-                        </div>
-                        {item && (
-                            <div className="single_post_text">
-                                <h3>
-                                    <Link
+                            {item && (
+                                <div className="single_post_text">
+                                    <h3>
+                                        {/* <Link
                                         to={
                                             (item.type === 'offer'
                                                 ? `/offer/`
                                                 : `/article/`) + item.slug
                                         }
-                                    >
+                                    > */}
                                         {item.title}
-                                    </Link>
-                                </h3>
-                                <div className="row">
-                                    <div className="col-12 align-self-center">
-                                        <div className="meta_col">
-                                            <p>
-                                                {moment(item.publishAt).format(
-                                                    'LL'
-                                                )}
+                                        {/* </Link> */}
+                                    </h3>
+                                    <div className="row">
+                                        <div className="col-12 align-self-center">
+                                            <div className="meta_col">
+                                                <p>
+                                                    {moment(
+                                                        item.publishAt
+                                                    ).format('LL')}
 
-                                                {offer && item.company
-                                                    ? `, ${item.company}`
-                                                    : ''}
+                                                    {offer && item.company
+                                                        ? `, ${item.company}`
+                                                        : ''}
 
-                                                {offer && item.region
-                                                    ? `, ${item.region}`
-                                                    : ''}
-                                            </p>
+                                                    {offer && item.region
+                                                        ? `, ${item.region}`
+                                                        : ''}
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <p className="post-p">{item.description}</p>
-                                <div className="space-10" />
+                                    <p className="post-p">{item.description}</p>
+                                    {/* <div className="space-10" />
                                 <div className="readmore3_wrapper">
                                     <Link
                                         to={
@@ -113,16 +115,17 @@ const BusinessNewsTwo = ({
                                     >
                                         Mehr Lesen
                                     </Link>
-                                </div>
+                                </div> */}
 
-                                {i + 1 < publisherArticles.length ? (
-                                    <>
-                                        <div className="space-10" />
-                                    </>
-                                ) : null}
-                            </div>
-                        )}
-                    </div>
+                                    {i + 1 < publisherArticles.length ? (
+                                        <>
+                                            <div className="space-10" />
+                                        </>
+                                    ) : null}
+                                </div>
+                            )}
+                        </div>
+                    </Link>
                 ))
             ) : (
                 <Spinner
@@ -131,7 +134,7 @@ const BusinessNewsTwo = ({
                     variant="success"
                 />
             )}
-            {publisherArticles && publisherArticles.length > 0 && !isHomePage && (
+            {publisherArticles && publisherArticles.length > 0 && (
                 <button
                     type="button"
                     onClick={() => onClickLoadMore()}

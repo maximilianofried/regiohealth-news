@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useCallback, useState } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import { isMobileOnly } from 'react-device-detect';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 import {
     fetchArticlesNews,
     fetchArticleCategoryPage,
@@ -10,14 +11,14 @@ import {
     updateNewsPageStartParam,
 } from '../../store/actions';
 import BusinessNewsTwo from '../../components/BusinessNewsTwo';
-import MostViewTwo from '../../components/MostViewTwo';
+import MostViewOffers from '../../components/MostViewOffers';
 import MostViewTextonly from '../../components/MostViewTextOnly';
 import FollowUs from '../../components/FollowUs';
 import Metadata from '../../components/Metadata';
 import { MENU_DESCRIPTION } from '../../utils/constants';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import AdserverIframe from '../../components/AdserverIframe';
-import AdserverLeaderboard from '../../components/AdserverLeaderboard';
+import SquareIframeHomepage from '../../components/AdserverIframe/Homepage/SquareIframe';
+import HorizontalIframeHomepage from '../../components/AdserverIframe/Homepage/HorizontalIframe';
 
 const NewsPage = ({
     fetchArticlesNews,
@@ -35,6 +36,11 @@ const NewsPage = ({
     const [newLatestOffers, setNewLatestOffers] = useState([]);
     const [newArticlesCategoryPage, setNewArticlesCategoryPage] = useState([]);
     const limit = useRef(6);
+    const { trackPageView } = useMatomo();
+    // Track page view
+    useEffect(() => {
+        trackPageView();
+    }, []);
 
     const fetchArticlesHook = useCallback(() => {
         fetchArticlesNews({
@@ -88,34 +94,13 @@ const NewsPage = ({
                                 buttonText="MEHR NEWS"
                             />
 
-                            {!isMobileOnly && <AdserverLeaderboard />}
+                            {!isMobileOnly && <HorizontalIframeHomepage />}
                         </div>
 
                         <div className="d-lg-block col-lg-3 col-xl-3 px-xl-0">
                             <div className="row justify-content-center">
-                                <div className="col-md-6 col-lg-12 d-md-none d-lg-block">
-                                    {banner350x292 && banner350x292.length > 0 && (
-                                        <div className="banner2 mb30 mt20 border-radious5">
-                                            <a
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                href={banner350x292[0].link}
-                                            >
-                                                <img
-                                                    src={
-                                                        process.env
-                                                            .REACT_APP_CMS_URL +
-                                                        banner350x292[0]
-                                                            .image[0].url
-                                                    }
-                                                    alt="thumb"
-                                                />
-                                            </a>
-                                        </div>
-                                    )}
-                                </div>
                                 <div className="col-md-6 col-lg-12">
-                                    <AdserverIframe />
+                                    <SquareIframeHomepage />
                                     <FollowUs
                                         title="FOLGEN SIE UNS"
                                         className="border-radious5 white_bg padding20 sm-mt30"
@@ -125,9 +110,9 @@ const NewsPage = ({
                                         data={newArticlesCategoryPage}
                                     />
                                     {displayOffers && (
-                                        <MostViewTwo
+                                        <MostViewOffers
                                             title="ANGEBOTE"
-                                            latestOffers={newLatestOffers}
+                                            contentData={newLatestOffers}
                                         />
                                     )}
                                 </div>

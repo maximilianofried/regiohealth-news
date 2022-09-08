@@ -1,16 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { isMobileOnly } from 'react-device-detect';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 import moment from 'moment';
 import ReactTooltip from 'react-tooltip';
 import ReactMarkdown from 'react-markdown';
-import { fetchArticle, fetchArticleCleanUp } from '../../store/actions';
+import {
+    fetchArticle,
+    fetchArticleCleanUp,
+    fetchArticles,
+    fetchArticlesCleanUp,
+} from '../../store/actions';
 import FontAwesome from '../../components/uiStyle/FontAwesome';
 import rgOfferPlaceholderMedium from '../../doc/img/dummy_medium.png';
 import Metadata from '../../components/Metadata';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import AdserverLeaderboard from '../../components/AdserverLeaderboard';
+import LatestContent from '../../components/LatestContent';
 
 const replaceContent = (data) => {
     let content = data.replace(/href/g, "target='_blank' href");
@@ -53,7 +60,6 @@ const getMetaDescription = (description, categories) => {
 };
 
 const getMeta = (url, width, setWidth, height, setHeight) => {
-    console.log('###', url);
     const img = new Image();
     img.addEventListener('load', function () {
         setWidth(this.naturalWidth);
@@ -63,16 +69,38 @@ const getMeta = (url, width, setWidth, height, setHeight) => {
     return { width, height };
 };
 
-const ArticlePage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
+const ArticlePage = ({
+    articleData,
+    stateArticles,
+    fetchArticle,
+    fetchArticleCleanUp,
+    fetchArticles,
+    fetchArticlesCleanUp,
+}) => {
+    const { trackPageView } = useMatomo();
+    // Track page view
+    useEffect(() => {
+        trackPageView();
+    }, []);
+
     const { slug } = useParams();
     useEffect(() => {
         fetchArticle(slug);
         return () => fetchArticleCleanUp();
     }, [slug]);
+
+    useEffect(() => {
+        const { article } = articleData;
+        if (article) {
+            fetchArticles({ limit: 8, menuName: article.menu, slug });
+        }
+
+        return () => fetchArticlesCleanUp();
+    }, [articleData, fetchArticles, fetchArticlesCleanUp, slug]);
+
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const article = articleData.article || null;
-    console.log('@@@@', article);
     return (
         article && (
             <>
@@ -84,19 +112,23 @@ const ArticlePage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                     )}
                     image={
                         // eslint-disable-next-line no-nested-ternary
-                        article.main_image && article.main_image.formats.medium
+                        article.main_image &&
+                        article.main_image.formats &&
+                        article.main_image.formats.small
                             ? process.env.REACT_APP_CMS_URL +
-                              article.main_image.formats.medium.url
+                              article.main_image.formats.small.url
                             : article.main_image
                             ? process.env.REACT_APP_CMS_URL +
                               article.main_image.url
                             : ''
                     }
                     imageSize={
-                        article.main_image
+                        article.main_image &&
+                        article.main_image.formats &&
+                        article.main_image.formats.small
                             ? getMeta(
                                   process.env.REACT_APP_CMS_URL +
-                                      article.main_image.url,
+                                      article.main_image.formats.small.url,
                                   width,
                                   setWidth,
                                   height,
@@ -303,6 +335,15 @@ const ArticlePage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
                                 )}
                             </div>
                         </div>
+                        <div className="space-50" />
+                        <div className="row">
+                            <div className="col-12 col-md-10 col-lg-8 m-auto">
+                                <LatestContent
+                                    contentData={stateArticles}
+                                    type="article"
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
                 {!isMobileOnly && <AdserverLeaderboard />}
@@ -314,6 +355,7 @@ const ArticlePage = ({ articleData, fetchArticle, fetchArticleCleanUp }) => {
 const mapStateToProps = (state) => {
     return {
         articleData: state.article,
+        stateArticles: state.articles.articles,
     };
 };
 
@@ -321,6 +363,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         fetchArticle: (slug) => dispatch(fetchArticle(slug)),
         fetchArticleCleanUp: () => dispatch(fetchArticleCleanUp()),
+        fetchArticles: ({ limit, menuName, slug }) =>
+            dispatch(fetchArticles({ limit, menuName, slug })),
+        fetchArticlesCleanUp: () => dispatch(fetchArticlesCleanUp()),
     };
 };
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { connect } from 'react-redux';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 import {
     fetchArticleHomepage,
     fetchAds,
@@ -19,32 +20,25 @@ const HomePage = ({
     newsArticles,
     latestOffers,
     adsHome,
+    wissenArticles,
+    gtTippsArticles,
 }) => {
     useEffect(() => {
         fetchArticleHomepage();
         fetchOffers({ start: 0, limit: 4 });
         fetchAds();
     }, [fetchArticleHomepage, fetchOffers, fetchAds]);
+    const { trackPageView } = useMatomo();
+    // Track page view
+    useEffect(() => {
+        trackPageView();
+    }, []);
 
-    const [articleLimit, setArticleLimit] = useState(4);
+    const [articleLimit, setArticleLimit] = useState(7);
 
-    const observer = useRef();
-
-    const lastElementRef = useCallback(
-        (node) => {
-            if (observer.current) observer.current.disconnect();
-            observer.current = new IntersectionObserver((entries) => {
-                if (
-                    entries[0].isIntersecting &&
-                    publisherArticles.length > articleLimit
-                ) {
-                    setArticleLimit(articleLimit + 2);
-                }
-            });
-            if (node) observer.current.observe(node);
-        },
-        [articleLimit, publisherArticles]
-    );
+    const fetchArticleHomepageHook = useCallback(() => {
+        setArticleLimit(articleLimit + 2);
+    }, [articleLimit]);
 
     return (
         <>
@@ -59,9 +53,11 @@ const HomePage = ({
                 publisherArticles={publisherArticles}
                 adsHome={adsHome}
                 latestOffers={latestOffers}
+                buttonText="MEHR INHALT"
+                fetchArticleHomepageHook={fetchArticleHomepageHook}
+                wissenArticles={wissenArticles}
+                gtTippsArticles={gtTippsArticles}
             />
-
-            <div ref={lastElementRef} className="space-40" />
         </>
     );
 };
@@ -75,6 +71,8 @@ const mapStateToProps = (state) => {
         adsHome: state.ads.ads.filter(
             (ad) => ad.position === 'home' && ad.size === 's350x292'
         ),
+        wissenArticles: state.articles.articlesHomepage.wissenArticles,
+        gtTippsArticles: state.articles.articlesHomepage.gtTippsArticles,
     };
 };
 

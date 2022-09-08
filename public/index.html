@@ -30,14 +30,14 @@
     -->
 
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8BTZiI8mQlbxR68KJnPWP3RQEuHvdJDM&libraries=places"></script>
-        <% if (process.env.NODE_ENV === 'production') { %>
-        <script
+        <!-- <% if (process.env.NODE_ENV === 'production') { %> -->
+        <!-- <script
             data-ad-client="ca-pub-2572107090270969"
             async
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-        ></script>
+        ></script> -->
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script
+        <!-- <script
             async
             src="https://www.googletagmanager.com/gtag/js?id=%REACT_APP_UA_TRACK%"
         ></script>
@@ -51,7 +51,26 @@
             gtag('js', new Date());
             gtag('config', '%REACT_APP_UA_TRACK%');
         </script>
-        <% } %>
+        <% } %> -->
+        <!-- Matomo -->
+        <!-- <script>
+            var _paq = (window._paq = window._paq || []);
+            /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+            _paq.push(['trackPageView']);
+            _paq.push(['enableLinkTracking']);
+            (function () {
+                var u = 'https://analytics.gesundheitsticket.de/';
+                _paq.push(['setTrackerUrl', u + 'matomo.php']);
+                _paq.push(['setSiteId', '2']);
+                var d = document,
+                    g = d.createElement('script'),
+                    s = d.getElementsByTagName('script')[0];
+                g.async = true;
+                g.src = u + 'matomo.js';
+                s.parentNode.insertBefore(g, s);
+            })();
+        </script> -->
+        <!-- End Matomo Code -->
     </head>
     <body>
         <script

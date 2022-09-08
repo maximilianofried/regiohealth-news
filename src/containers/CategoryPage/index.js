@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useCallback, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 import moment from 'moment';
 import { isMobileOnly } from 'react-device-detect';
 import {
@@ -11,7 +12,7 @@ import {
     fetchArticlesCleanUp,
 } from '../../store/actions';
 import BusinessNewsTwo from '../../components/BusinessNewsTwo';
-import MostViewTwo from '../../components/MostViewTwo';
+import MostViewOffers from '../../components/MostViewOffers';
 import MostViewTextonly from '../../components/MostViewTextOnly';
 import FollowUs from '../../components/FollowUs';
 import Metadata from '../../components/Metadata';
@@ -31,7 +32,6 @@ const CategoryPage = ({
     menuName,
     fetchAds,
     adsCategory,
-    // limit,
     categories,
     stateArticles,
 }) => {
@@ -40,6 +40,12 @@ const CategoryPage = ({
     const [clickedLoadMore, setClickedLoadMore] = useState(false);
     const limit = useRef(2);
     const start = useRef(0);
+
+    const { trackPageView } = useMatomo();
+    // Track page view
+    useEffect(() => {
+        trackPageView();
+    }, []);
 
     const fetchArticlesHook = useCallback(() => {
         fetchArticles({
@@ -52,25 +58,8 @@ const CategoryPage = ({
     }, [categories, fetchArticles, limit, menuName]);
 
     useEffect(() => {
-        // window.scrollTo(0, 0);
-
-        // if (categories.length > 0)
         if (stateArticles.articles.length === 0) fetchArticlesHook();
-        // fetchArticles({ categories, start: 0, limit: 4, menuName });
-        // fetchAds();
     }, [fetchArticlesHook, stateArticles.articles.length]);
-
-    // useEffect(() => {
-    //     console.log(clickedLoadMore);
-    //     return () => {
-    //         if (clickedLoadMore) {
-    //             setClickedLoadMore(false);
-    //         }
-    //         if (stateArticles.articles.length > 0 && !clickedLoadMore) {
-    //             fetchArticlesCleanUp();
-    //         }
-    //     };
-    // }, [clickedLoadMore, fetchArticlesCleanUp, stateArticles.articles.length]);
 
     useEffect(() => {
         if (latestOffers.length === 0) fetchOffers({ start: 0, limit: 4 });
@@ -88,26 +77,6 @@ const CategoryPage = ({
         setNewArticlesCategoryPage(newsArticles);
     }, [newsArticles]);
 
-    // const observer = useRef();
-
-    // const lastElementRef = useCallback(
-    //     (node) => {
-    //         if (observer.current) observer.current.disconnect();
-    //         observer.current = new IntersectionObserver((entries) => {
-    //             if (entries[0].isIntersecting) {
-    //                 fetchArticlesHook();
-    //                 // fetchArticles({
-    //                 //     categories,
-    //                 //     start: 0,
-    //                 //     limit: limit + 2,
-    //                 //     menuName,
-    //                 // });
-    //             }
-    //         });
-    //         if (node) observer.current.observe(node);
-    //     },
-    //     [fetchArticlesHook]
-    // );
     const banner350x292 =
         adsCategory.filter((ad) => ad.size === 's350x292')[0] || {};
 
@@ -130,9 +99,6 @@ const CategoryPage = ({
                                 fetchArticlesHook={fetchArticlesHook}
                                 setClickedLoadMore={setClickedLoadMore}
                             />
-
-                            {/* <div ref={lastElementRef} className="space-20" /> */}
-
                             {!isMobileOnly && <AdserverLeaderboard />}
                         </div>
 
@@ -169,48 +135,10 @@ const CategoryPage = ({
                                         title="NEWS"
                                         data={newArticlesCategoryPage}
                                     />
-                                    {/* <div className="white_bg padding15 border-radious5 sm-mt30 mb30">
-                                        <h2 className="widget-title">News</h2>
-                                        <div className="space-20" />
-                                        {newArticlesCategoryPage &&
-                                            newArticlesCategoryPage.map(
-                                                (item, i) => (
-                                                    <div
-                                                        key={item.id}
-                                                        className="single_post type14 widgets_small"
-                                                    >
-                                                        <div className="single_post_text">
-                                                            <h4>
-                                                                <Link
-                                                                    to={`/article/${item.slug}`}
-                                                                >
-                                                                    {item.title}
-                                                                </Link>
-                                                            </h4>
-                                                            <div className="meta4">
-                                                                <p>
-                                                                    {moment(
-                                                                        item.publishAt
-                                                                    ).format(
-                                                                        'LL'
-                                                                    )}
-                                                                </p>
-                                                            </div>
-                                                            {i + 1 <
-                                                            newsArticles.length ? (
-                                                                <>
-                                                                    <div className="space-20" />
-                                                                </>
-                                                            ) : null}
-                                                        </div>
-                                                    </div>
-                                                )
-                                            )}
-                                    </div> */}
                                     {displayOffers && (
-                                        <MostViewTwo
+                                        <MostViewOffers
                                             title="ANGEBOTE"
-                                            latestOffers={newLatestOffers}
+                                            contentData={newLatestOffers}
                                         />
                                     )}
                                 </div>
@@ -228,7 +156,6 @@ const mapStateToProps = (state) => {
         adsCategory: state.ads.ads.filter((ad) => ad.position === 'category'),
         stateArticles: state.articles,
         allArticles: state.articles.articles,
-        // limit: state.articles.limit,
         newsArticles: state.articles.articlesCategoryPage.newsArticles,
         latestOffers: state.offers.offers,
     };

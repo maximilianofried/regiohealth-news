@@ -5,11 +5,12 @@ import moment from 'moment';
 import StickyBox from 'react-sticky-box';
 import FollowUs from '../FollowUs';
 import BusinessNewsTwo from '../BusinessNewsTwo';
-import AdserverIframe from '../AdserverIframe';
-import AdserverLeaderboard from '../AdserverLeaderboard';
-import MostViewTwo from '../MostViewTwo';
+import MostViewOffers from '../MostViewOffers';
+import MostViewArticles from '../MostViewArticles';
 import bigImg from '../../doc/img/header/sider-top3.jpg';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import SquareIframeHomepage from '../AdserverIframe/Homepage/SquareIframe';
+import HorizontalIframeHomepage from '../AdserverIframe/Homepage/HorizontalIframe';
 
 const PostGalleryTwo = ({
     mainArticle,
@@ -17,11 +18,14 @@ const PostGalleryTwo = ({
     articleLimit,
     publisherArticles,
     latestOffers,
+    buttonText,
+    fetchArticleHomepageHook,
+    wissenArticles,
+    gtTippsArticles,
 }) => {
     const displayOffersHomepage = latestOffers.some(
         (offer) => offer.end > moment().format('YYYY-MM-DD')
     );
-
     return (
         <div className="post_gallary_area theme3_bg mb40 padding-top-30">
             <div className="container">
@@ -29,7 +33,9 @@ const PostGalleryTwo = ({
                     <div className="col-md-12 col-lg-9 ">
                         <div className="main-article-container">
                             {mainArticle && (
-                                <Link to={`/article/${mainArticle.slug}`}>
+                                <Link
+                                    to={`/${mainArticle.type}/${mainArticle.slug}`}
+                                >
                                     <div className="single_post post_type6 border-radious7 xs-mb30 main_article_homepage">
                                         <div className="post_img gradient1">
                                             <div className="img_wrap">
@@ -84,101 +90,51 @@ const PostGalleryTwo = ({
                         </div>
 
                         <div className="space-10" />
-                        {!isMobileOnly && <AdserverLeaderboard />}
+                        {!isMobileOnly && <HorizontalIframeHomepage />}
                         <BusinessNewsTwo
                             isHomePage
                             articleLimit={articleLimit}
                             publisherArticles={publisherArticles}
+                            buttonText={buttonText}
+                            fetchContentHook={fetchArticleHomepageHook}
                         />
                     </div>
                     <div className="d-lg-block col-lg-3 col-xl-3 px-xl-0">
                         <StickyBox offsetTop={20}>
-                            {!isTablet && <AdserverIframe />}
+                            {!isTablet && <SquareIframeHomepage />}
                             <FollowUs
                                 title="FOLGEN SIE UNS"
                                 className="border-radious5 white_bg padding20 sm-mt30"
                             />
-                            <div className="white_bg padding15 border-radious5 sm-mt30">
-                                <div>
-                                    <h2 className="widget-title">News</h2>
-                                    <div className="space-20" />
-                                    {newsArticles &&
-                                        newsArticles
-                                            .slice(0, 4)
-                                            .map((item, i) => (
-                                                <div
-                                                    key={item.id}
-                                                    className="single_post widgets_small type8 type17"
-                                                >
-                                                    <div className="post_img">
-                                                        <div className="img_wrap_2">
-                                                            <Link
-                                                                to={`/article/${item.slug}`}
-                                                            >
-                                                                <img
-                                                                    className="lazyLoad crop_image"
-                                                                    src={
-                                                                        item.main_image &&
-                                                                        item
-                                                                            .main_image
-                                                                            .formats
-                                                                            ? `${
-                                                                                  process
-                                                                                      .env
-                                                                                      .REACT_APP_CMS_URL +
-                                                                                  item
-                                                                                      .main_image
-                                                                                      .formats
-                                                                                      .thumbnail
-                                                                                      .url
-                                                                              }`
-                                                                            : bigImg
-                                                                    }
-                                                                    alt="thumb"
-                                                                    effect="blur"
-                                                                />
-                                                            </Link>
-                                                        </div>
-                                                    </div>
-                                                    <div className="single_post_text">
-                                                        <h4>
-                                                            <Link
-                                                                to={`/article/${item.slug}`}
-                                                            >
-                                                                {item.title}
-                                                            </Link>
-                                                        </h4>
-                                                        <div className="meta4">
-                                                            <p>
-                                                                {moment(
-                                                                    item.publishAt
-                                                                ).format('LL')}
-                                                            </p>
-                                                        </div>
-                                                        {i + 1 <
-                                                        newsArticles.length ? (
-                                                            <>
-                                                                <div className="space-20" />
-                                                            </>
-                                                        ) : null}
-                                                    </div>
-                                                </div>
-                                            ))}
-                                </div>
-                            </div>
+                            {newsArticles && (
+                                <MostViewArticles
+                                    title="NEWS"
+                                    contentData={newsArticles}
+                                />
+                            )}
+
                             <div className="row justify-content-center">
-                                <div
+                                {/* <div
                                     id="ads"
                                     className="col-md-6 col-lg-12 d-md-none d-lg-block  mb20 mt20"
-                                />
-                                {displayOffersHomepage && (
-                                    <div className="col-md-12 col-lg-12">
-                                        <MostViewTwo
+                                /> */}
+
+                                <div className="col-md-12 col-lg-12">
+                                    {displayOffersHomepage && (
+                                        <MostViewOffers
                                             title="ANGEBOTE"
-                                            latestOffers={latestOffers}
+                                            contentData={latestOffers}
                                         />
-                                    </div>
-                                )}
+                                    )}
+                                    <MostViewArticles
+                                        title="WISSEN"
+                                        contentData={wissenArticles}
+                                    />
+                                    <MostViewArticles
+                                        title="GESUNDHEITSTIPPS"
+                                        contentData={gtTippsArticles}
+                                    />
+                                </div>
                             </div>
                         </StickyBox>
                     </div>

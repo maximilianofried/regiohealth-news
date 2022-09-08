@@ -58,4 +58,36 @@ export const fetchGeoData = ({
     };
 };
 
-export default fetchGeoData;
+export const searchByKeyword = ({
+    limit = 4,
+    start = 0,
+    type = 'alle',
+    responseType = 'mixed',
+    keyword = '',
+}) => {
+    return (dispatch) => {
+        const url = `${
+            process.env.REACT_APP_CMS_URL
+        }/geoinfos/search-by-keyword?${
+            type === 'alle' ? 'type=article&type=offer' : `type=${type}`
+        }&start=${start}&limit=${limit}&responseType=${responseType}${
+            keyword ? `&keyword=${keyword}` : ''
+        }`;
+        dispatch(fetchGeoDataRequest);
+        axios
+            .get(url)
+            .then((response) => {
+                const { geoData } = response.data;
+                dispatch(
+                    fetchGeoDataSuccess({
+                        geoData,
+                        limit,
+                    })
+                );
+            })
+            .catch((error) => {
+                const errorMsg = error.message;
+                dispatch(fetchGeoDataFailure(errorMsg));
+            });
+    };
+};

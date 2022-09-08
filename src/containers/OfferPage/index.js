@@ -1,16 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 import moment from 'moment';
 import ReactTooltip from 'react-tooltip';
 import { isMobileOnly } from 'react-device-detect';
-import { fetchOffer, fetchOfferCleanUp } from '../../store/actions';
+import {
+    fetchOffer,
+    fetchOfferCleanUp,
+    fetchOffersForPage,
+    fetchOffersForPageCleanUp,
+} from '../../store/actions';
 import FontAwesome from '../../components/uiStyle/FontAwesome';
 import rgOfferPlaceholderMedium from '../../doc/img/dummy_medium.png';
 import Metadata from '../../components/Metadata';
 import { RG_LOGO } from '../../utils/constants';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import AdserverLeaderboard from '../../components/AdserverLeaderboard';
+import LatestContent from '../../components/LatestContent';
 
 const replaceContent = (data) => {
     let content = data.replace(/href/g, "target='_blank' href");
@@ -49,15 +56,29 @@ const getMeta = (url, width, setWidth, height, setHeight) => {
     return { width, height };
 };
 
-const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
+const OfferPage = ({
+    offerData,
+    fetchOffer,
+    fetchOfferCleanUp,
+    latestOffers = [],
+}) => {
     const { slug } = useParams();
+
     useEffect(() => {
         fetchOffer(slug);
         return () => fetchOfferCleanUp();
-    }, [slug]);
+    }, [fetchOffer, fetchOfferCleanUp, slug]);
+
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const offer = offerData.offer || null;
+
+    const { trackPageView } = useMatomo();
+    // Track page view
+    useEffect(() => {
+        trackPageView();
+    }, []);
+
     return (
         offer && (
             <>
@@ -68,22 +89,45 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                         offer.categories
                     )}
                     image={
-                        offer.main_image
+                        // eslint-disable-next-line no-nested-ternary
+                        offer.main_image &&
+                        offer.main_image.formats &&
+                        offer.main_image.formats.small
+                            ? process.env.REACT_APP_CMS_URL +
+                              offer.main_image.formats.small.url
+                            : offer.main_image
                             ? process.env.REACT_APP_CMS_URL +
                               offer.main_image.url
-                            : RG_LOGO
+                            : rgOfferPlaceholderMedium
                     }
                     imageSize={
-                        offer.main_image
+                        // eslint-disable-next-line no-nested-ternary
+                        offer.main_image &&
+                        offer.main_image.formats &&
+                        offer.main_image.formats.small
                             ? getMeta(
                                   process.env.REACT_APP_CMS_URL +
-                                      offer.main_image.url,
+                                      offer.main_image.formats.small.url,
                                   width,
                                   setWidth,
                                   height,
                                   setHeight
                               )
-                            : ''
+                            : offer.main_image
+                            ? getMeta(
+                                  offer.main_image,
+                                  width,
+                                  setWidth,
+                                  height,
+                                  setHeight
+                              )
+                            : getMeta(
+                                  rgOfferPlaceholderMedium,
+                                  width,
+                                  setWidth,
+                                  height,
+                                  setHeight
+                              )
                     }
                     url={`${process.env.REACT_APP_BASE_PAGE_URL}/offer/${slug}`}
                 />
@@ -290,6 +334,15 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
                                 )}
                             </div>
                         </div>
+                        <div className="space-50" />
+                        <div className="row">
+                            <div className="col-12 col-md-10 col-lg-8 m-auto">
+                                <LatestContent
+                                    contentData={latestOffers}
+                                    type="offer"
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
                 {!isMobileOnly && <AdserverLeaderboard />}
@@ -301,6 +354,7 @@ const OfferPage = ({ offerData, fetchOffer, fetchOfferCleanUp }) => {
 const mapStateToProps = (state) => {
     return {
         offerData: state.offer,
+        latestOffers: state.offers.offersForPage,
     };
 };
 
@@ -308,6 +362,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         fetchOffer: (slug) => dispatch(fetchOffer(slug)),
         fetchOfferCleanUp: () => dispatch(fetchOfferCleanUp()),
+        fetchOffersForPage: ({ limit, slug }) =>
+            dispatch(fetchOffersForPage({ limit, slug })),
+        fetchOffersForPageCleanUp: () => dispatch(fetchOffersForPageCleanUp()),
     };
 };
 

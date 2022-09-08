@@ -1,10 +1,17 @@
 import React from 'react';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import moment from 'moment';
+import { isMobileOnly, isTablet } from 'react-device-detect';
 import rgOfferPlaceholderThumbnail from '../../doc/img/dummy_thumbnail.png';
 
-const MostViewTwo = ({ title, latestOffers }) => {
+const MostViewOffers = ({ title, contentData }) => {
+    const history = useHistory();
+
+    const handleClick = () => {
+        history.push('/angebote');
+    };
+
     return (
         <div className="most_widget3 padding20 white_bg border-radious5 mb30 sm-mt30">
             <div className="heading">
@@ -13,7 +20,7 @@ const MostViewTwo = ({ title, latestOffers }) => {
             <div className="space-20" />
             <div className="post_type2_carousel multipleRowCarousel pt12_wrapper nav_style1">
                 {/* CAROUSEL START */}
-                {latestOffers.map((item) => {
+                {contentData.map((item) => {
                     if (item.end > moment().format('YYYY-MM-DD')) {
                         return (
                             <div
@@ -74,8 +81,20 @@ const MostViewTwo = ({ title, latestOffers }) => {
                 })}
                 {/* CAROUSEL END */}
             </div>
+            {(isMobileOnly || isTablet) && (
+                <>
+                    <div className="space-10" />
+                    <button
+                        type="button"
+                        onClick={() => handleClick()}
+                        className="btn-sm search-button"
+                    >
+                        MEHR ANGEBOTE
+                    </button>
+                </>
+            )}
         </div>
     );
 };
 
-export default MostViewTwo;
+export default MostViewOffers;

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useCallback } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 import moment from 'moment';
 import { isMobileOnly } from 'react-device-detect';
 import {
@@ -12,39 +13,33 @@ import {
     updateOffersPageStartParam,
 } from '../../store/actions';
 import BusinessNewsTwo from '../../components/BusinessNewsTwo';
-import MostViewTwo from '../../components/MostViewTwo';
 import FollowUs from '../../components/FollowUs';
 import Metadata from '../../components/Metadata';
 import { ANGEBOTE_DESCRIPTION } from '../../utils/constants';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import AdserverIframe from '../../components/AdserverIframe';
-import AdserverLeaderboard from '../../components/AdserverLeaderboard';
+import MostViewArticles from '../../components/MostViewArticles';
+import SquareIframe from '../../components/AdserverIframe/Angebote/SquareIframe';
+import HorizontalIframeAngebote from '../../components/AdserverIframe/Angebote/HorizontalIframe';
 
 const OffersPage = ({
-    fetchOffersForPageCleanUp,
     fetchArticleHomepage,
     updateOffersPageStartParam,
     fetchOffersForPage,
     newsArticles = [],
     latestOffers = [],
     menuName,
-    fetchAds,
-    adsCategory,
     start,
+    wissenArticles,
+    gtTippsArticles,
 }) => {
-    const limit = useRef(6);
-    // useEffect(() => {
-    //     // window.scrollTo(0, 0);
-    //     if (latestOffers.length === 0)
-    //         fetchOffersForPage({ start: 0, limit: 2 });
-    //     if (newsArticles.length === 0) fetchArticleHomepage();
-    //     // fetchArticles({ categories, start: 0, limit: 4 });
-    //     if (adsCategory.length === 0) fetchAds();
-    //     return () => {
-    //         if (latestOffers.length > 0) fetchOffersForPageCleanUp();
-    //     };
-    // }, []);
-    console.log('offers', start);
+    const limit = useRef(7);
+
+    const { trackPageView } = useMatomo();
+    // Track page view
+    useEffect(() => {
+        trackPageView();
+    }, []);
+
     const fetchOffersHook = useCallback(() => {
         fetchOffersForPage({ start, limit: limit.current });
         updateOffersPageStartParam();
@@ -57,21 +52,7 @@ const OffersPage = ({
     useEffect(() => {
         if (newsArticles.length === 0) fetchArticleHomepage();
     }, [fetchArticleHomepage, newsArticles.length]);
-    // const observer = useRef();
 
-    // const lastElementRef = useCallback(
-    //     (node) => {
-    //         if (observer.current) observer.current.disconnect();
-    //         observer.current = new IntersectionObserver((entries) => {
-    //             if (entries[0].isIntersecting) {
-    //                 fetchOffersForPage({ start: 0, limit: limit + 2 });
-    //             }
-    //         });
-    //         if (node) observer.current.observe(node);
-    //     },
-    //     [limit]
-    // );
-    console.log('latest', latestOffers);
     const displayOffers = latestOffers.some(
         (offer) => offer.end > moment().format('YYYY-MM-DD')
     );
@@ -93,13 +74,13 @@ const OffersPage = ({
                                 buttonText="MEHR ANGEBOTE"
                             />
                             {/* <div ref={lastElementRef} className="space-20" /> */}
-                            {!isMobileOnly && <AdserverLeaderboard />}
+                            {!isMobileOnly && <HorizontalIframeAngebote />}
                         </div>
                         <div className="d-lg-block col-lg-3 col-xl-3 px-xl-0">
                             <div className="row justify-content-center">
                                 <div className="col-md-6 col-lg-12 d-md-none d-lg-block" />
                                 <div className="col-md-6 col-lg-12">
-                                    <AdserverIframe />
+                                    <SquareIframe />
                                     <FollowUs
                                         title="FOLGEN SIE UNS"
                                         className="border-radious5 white_bg padding20 sm-mt30"
@@ -138,12 +119,14 @@ const OffersPage = ({
                                                 </div>
                                             ))}
                                     </div>
-                                    {/* {displayOffers && (
-                                        <MostViewTwo
-                                            title="ANGEBOTE"
-                                            latestOffers={latestOffers}
-                                        />
-                                    )} */}
+                                    <MostViewArticles
+                                        title="WISSEN"
+                                        contentData={wissenArticles}
+                                    />
+                                    <MostViewArticles
+                                        title="GESUNDHEITSTIPPS"
+                                        contentData={gtTippsArticles}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -161,6 +144,8 @@ const mapStateToProps = (state) => {
         newsArticles: state.articles.articlesHomepage.newsArticles,
         latestOffers: state.offers.offersForPage,
         start: state.offers.start,
+        wissenArticles: state.articles.articlesHomepage.wissenArticles,
+        gtTippsArticles: state.articles.articlesHomepage.gtTippsArticles,
     };
 };
 
