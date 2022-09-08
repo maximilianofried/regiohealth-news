@@ -29,7 +29,7 @@ export const fetchPage = ({ name = undefined } = {}) => {
     return (dispatch) => {
         dispatch(fetchPageRequest);
         const url = `${process.env.REACT_APP_CMS_URL}/pages${
-            name ? `?name=${name}` : ''
+            name ? `?filters[name][$eq]=${name}` : ''
         }`;
         axios
             .get(url)

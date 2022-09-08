@@ -63,11 +63,13 @@ export const fetchArticlesGtTips = ({
         }
         const url = `${
             process.env.REACT_APP_CMS_URL
-        }/contents/published?_sort=publishAt:desc&type=article${
+        }/contents/published?sort=publishAt%3Adesc&filters[type][$eq]=article${
             categoriesList.length > 0 ? `&${query}` : ''
-        }${menu ? `&menu=${menu}` : ''}${city ? `&city=${city}` : ''}${
-            start ? `&_start=${start}` : ''
-        }${limit ? `&_limit=${limit}` : ''}`;
+        }${menu ? `&filters[menu][$eq]=${menu}` : ''}${
+            city ? `&filters[city][$eq]=${city}` : ''
+        }${start ? `&pagination[start]=${start}` : ''}${
+            limit ? `&pagination[limit]=${limit}` : ''
+        }`;
         dispatch(fetchArticlesGtTipsRequest);
         axios
             .get(url)

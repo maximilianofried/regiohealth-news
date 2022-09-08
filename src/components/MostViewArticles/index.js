@@ -35,7 +35,7 @@ const MostViewArticles = ({ title, contentData }) => {
                                                     className="lazyLoad crop_image"
                                                     src={
                                                         process.env
-                                                            .REACT_APP_CMS_URL +
+                                                            .REACT_APP_CMS_URL_IMAGE +
                                                         (item.main_image.formats
                                                             ? item.main_image
                                                                   .formats
