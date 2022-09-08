@@ -59,7 +59,9 @@ const getMeta = (url, width, setWidth, height, setHeight) => {
 const OfferPage = ({
     offerData,
     fetchOffer,
+    fetchOffersForPage,
     fetchOfferCleanUp,
+    fetchOffersForPageCleanUp,
     latestOffers = [],
 }) => {
     const { slug } = useParams();
@@ -72,6 +74,15 @@ const OfferPage = ({
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const offer = offerData.offer || null;
+
+    useEffect(() => {
+        const { offer } = offerData;
+        if (offer) {
+            fetchOffersForPage({ limit: 8, slug });
+        }
+
+        return () => fetchOffersForPageCleanUp();
+    }, [fetchOffersForPage, fetchOffersForPageCleanUp, offerData, slug]);
 
     const { trackPageView } = useMatomo();
     // Track page view
@@ -93,10 +104,10 @@ const OfferPage = ({
                         offer.main_image &&
                         offer.main_image.formats &&
                         offer.main_image.formats.small
-                            ? process.env.REACT_APP_CMS_URL +
+                            ? process.env.REACT_APP_CMS_URL_IMAGE +
                               offer.main_image.formats.small.url
                             : offer.main_image
-                            ? process.env.REACT_APP_CMS_URL +
+                            ? process.env.REACT_APP_CMS_URL_IMAGE +
                               offer.main_image.url
                             : rgOfferPlaceholderMedium
                     }
@@ -106,7 +117,7 @@ const OfferPage = ({
                         offer.main_image.formats &&
                         offer.main_image.formats.small
                             ? getMeta(
-                                  process.env.REACT_APP_CMS_URL +
+                                  process.env.REACT_APP_CMS_URL_IMAGE +
                                       offer.main_image.formats.small.url,
                                   width,
                                   setWidth,
@@ -149,7 +160,7 @@ const OfferPage = ({
                                             offer.main_image
                                                 ? `${
                                                       process.env
-                                                          .REACT_APP_CMS_URL +
+                                                          .REACT_APP_CMS_URL_IMAGE +
                                                       offer.main_image.url
                                                   }`
                                                 : rgOfferPlaceholderMedium
@@ -272,26 +283,32 @@ const OfferPage = ({
                                 <div className="space-20" />
                                 <div className="single_post_info">
                                     <ul>
-                                        {offer.price && (
-                                            <li>
-                                                Preis: {offer.price}
-                                                {' €'}
-                                            </li>
-                                        )}
-                                        {offer.start && (
-                                            <li>
-                                                Start:{' '}
-                                                {moment(offer.start).format(
-                                                    'LL'
-                                                )}
-                                            </li>
-                                        )}
-                                        {offer.end && (
-                                            <li>
-                                                Ende:{' '}
-                                                {moment(offer.end).format('LL')}
-                                            </li>
-                                        )}
+                                        {offer.offer_info &&
+                                            offer.offer_info.price && (
+                                                <li>
+                                                    Preis:
+                                                    {offer.offer_info.price}
+                                                    {' €'}
+                                                </li>
+                                            )}
+                                        {offer.offer_info &&
+                                            offer.offer_info.start && (
+                                                <li>
+                                                    Start:
+                                                    {moment(
+                                                        offer.offer_info.start
+                                                    ).format('LL')}
+                                                </li>
+                                            )}
+                                        {offer.offer_info &&
+                                            offer.offer_info.end && (
+                                                <li>
+                                                    Ende:{' '}
+                                                    {moment(
+                                                        offer.offer_info.end
+                                                    ).format('LL')}
+                                                </li>
+                                            )}
                                         {offer.region && (
                                             <li>Bundesland: {offer.region}</li>
                                         )}
@@ -314,7 +331,7 @@ const OfferPage = ({
                                 {offer.documents && (
                                     <div className="documents">
                                         <ul className="none">
-                                            {offer.documents.map((doc) => (
+                                            {offer.documents.data.map((doc) => (
                                                 <li key={doc.id}>
                                                     <a
                                                         target="_blank"
@@ -335,14 +352,16 @@ const OfferPage = ({
                             </div>
                         </div>
                         <div className="space-50" />
-                        <div className="row">
-                            <div className="col-12 col-md-10 col-lg-8 m-auto">
-                                <LatestContent
-                                    contentData={latestOffers}
-                                    type="offer"
-                                />
+                        {latestOffers.length > 0 && (
+                            <div className="row">
+                                <div className="col-12 col-md-10 col-lg-8 m-auto">
+                                    <LatestContent
+                                        contentData={latestOffers}
+                                        type="offer"
+                                    />
+                                </div>
                             </div>
-                        </div>
+                        )}
                     </div>
                 </div>
                 {!isMobileOnly && <AdserverLeaderboard />}

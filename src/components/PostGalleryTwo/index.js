@@ -45,7 +45,7 @@ const PostGalleryTwo = ({
                                                         mainArticle.main_image
                                                             ? `${
                                                                   process.env
-                                                                      .REACT_APP_CMS_URL +
+                                                                      .REACT_APP_CMS_URL_IMAGE +
                                                                   mainArticle
                                                                       .main_image
                                                                       .url
@@ -68,14 +68,16 @@ const PostGalleryTwo = ({
                                             </p>
 
                                             <div className="meta meta_separator1">
-                                                <span className="meta-category">
-                                                    {mainArticle.categories
-                                                        .length > 0
-                                                        ? mainArticle
-                                                              .categories[0]
-                                                              .name
-                                                        : ''}
-                                                </span>
+                                                {mainArticle.categories && (
+                                                    <span className="meta-category">
+                                                        {mainArticle.categories
+                                                            .length > 0
+                                                            ? mainArticle
+                                                                  .categories[0]
+                                                                  .name
+                                                            : ''}
+                                                    </span>
+                                                )}
                                                 <span>
                                                     {' '}
                                                     {moment(

@@ -7,6 +7,7 @@ import {
     FETCH_ARTICLES_CITY_SUCCESS,
     FETCH_ARTICLES_HOMEPAGE_SUCCESS,
     FETCH_ARTICLES_CATEGORYPAGE_SUCCESS,
+    FETCH_ARTICLES_PUBLISHER_SECTION_SUCCESS,
     FETCH_ARTICLES_CLEAN_UP,
 } from '../constants/articlesTypes';
 
@@ -51,6 +52,13 @@ const fetchArticlesCategoryPageSuccess = (payload) => {
     };
 };
 
+const fetchArticlesPublisherSectionSuccess = (payload) => {
+    return {
+        type: FETCH_ARTICLES_PUBLISHER_SECTION_SUCCESS,
+        payload,
+    };
+};
+
 export const fetchArticlesCleanUp = () => {
     return {
         type: FETCH_ARTICLES_CLEAN_UP,
@@ -80,11 +88,13 @@ export const fetchArticles = ({
         }
         const url = `${
             process.env.REACT_APP_CMS_URL
-        }/contents/published?_sort=publishAt:desc&type=article${
+        }/contents/published?sort=publishAt%3Adesc&filters[type][$eq]=article${
             categoriesList.length > 0 ? `&${query}` : ''
-        }${menuName ? `&menu=${menuName}` : ''}${city ? `&city=${city}` : ''}${
-            start ? `&_start=${start}` : ''
-        }${limit ? `&_limit=${limit}` : ''}${slug ? `&slug_ne=${slug}` : ''}`;
+        }${menuName ? `&filters[menu][$eq]=${menuName}` : ''}${
+            city ? `&filters[city][$eq]=${city}` : ''
+        }${start ? `&pagination[start]=${start}` : ''}${
+            limit ? `&pagination[limit]=${limit}` : ''
+        }${slug ? `&filters[slug][$ne]=${slug}` : ''}`;
         dispatch(fetchArticlesRequest);
         axios
             .get(url)
@@ -107,11 +117,11 @@ export const fetchArticles = ({
 
 export const fetchArticleHomepage = () => {
     return (dispatch) => {
-        const urlMainArticle = `${process.env.REACT_APP_CMS_URL}/contents/published?_sort=publishAt:desc&&homepage=main_article`;
-        const urlPublisher = `${process.env.REACT_APP_CMS_URL}/contents/published?_sort=publishAt:desc&homepage=publisher`;
-        const urlNews = `${process.env.REACT_APP_CMS_URL}/contents/published?_sort=publishAt:desc&homepage=news&_limit=4`;
-        const urlWissen = `${process.env.REACT_APP_CMS_URL}/contents/published?_sort=publishAt:desc&menu=wissen&_limit=4`;
-        const urlGtTipps = `${process.env.REACT_APP_CMS_URL}/contents/published?_sort=publishAt:desc&menu=gesundheitstipps&_limit=4`;
+        const urlMainArticle = `${process.env.REACT_APP_CMS_URL}/contents/published?sort=publishAt%3Adesc&filters[homepage][$eq]=main_article&pagination[limit]=1`;
+        const urlPublisher = `${process.env.REACT_APP_CMS_URL}/contents/published?sort=publishAt%3Adesc&filters[homepage][$eq]=publisher`;
+        const urlNews = `${process.env.REACT_APP_CMS_URL}/contents/published?sort=publishAt%3Adesc&filters[homepage][$eq]=news&pagination[limit]=4`;
+        const urlWissen = `${process.env.REACT_APP_CMS_URL}/contents/published?sort=publishAt%3Adesc&filters[menu][$eq]=wissen&pagination[limit]=4`;
+        const urlGtTipps = `${process.env.REACT_APP_CMS_URL}/contents/published?sort=publishAt%3Adesc&filters[menu][$eq]=gesundheitstipps&pagination[limit]=4`;
         dispatch(fetchArticlesRequest);
         axios
             .all([
@@ -123,17 +133,17 @@ export const fetchArticleHomepage = () => {
             ])
             .then(
                 axios.spread((...responses) => {
-                    const mainArticle = responses[0];
-                    const publisherArticles = responses[1];
-                    const newsArticles = responses[2];
-                    const wissenArticles = responses[3];
-                    const gtTippsArticles = responses[4];
+                    const mainArticle = responses[0].data[0];
+                    const publisherArticles = responses[1].data;
+                    const newsArticles = responses[2].data;
+                    const wissenArticles = responses[3].data;
+                    const gtTippsArticles = responses[4].data;
                     const articles = {
-                        mainArticle: mainArticle.data[0],
-                        publisherArticles: publisherArticles.data,
-                        newsArticles: newsArticles.data,
-                        wissenArticles: wissenArticles.data,
-                        gtTippsArticles: gtTippsArticles.data,
+                        mainArticle,
+                        publisherArticles,
+                        newsArticles,
+                        wissenArticles,
+                        gtTippsArticles,
                     };
                     dispatch(fetchArticlesHomepageSuccess({ articles }));
                 })
@@ -153,9 +163,42 @@ export const fetchArticleHomepage = () => {
     };
 };
 
+export const fetchArticlesPublisherSection = ({
+    start = undefined,
+    limit = undefined,
+}) => {
+    return (dispatch) => {
+        const urlPublisher = `${
+            process.env.REACT_APP_CMS_URL
+        }/contents/published?sort=publishAt%3Adesc&filters[homepage][$eq]=publisher${
+            start ? `&pagination[start]=${start}` : ''
+        }${limit ? `&pagination[limit]=${limit}` : ''}`;
+        dispatch(fetchArticlesRequest);
+        axios
+            .all([axios.get(urlPublisher)])
+            .then(
+                axios.spread((...responses) => {
+                    const publisherArticles = responses[0].data;
+                    // const articles = {
+                    //     publisherArticles: publisherArticles.data,
+                    // };
+                    dispatch(
+                        fetchArticlesPublisherSectionSuccess({
+                            publisherArticles,
+                        })
+                    );
+                })
+            )
+            .catch((error) => {
+                const errorMsg = error.message;
+                dispatch(fetchArticlesFailure(errorMsg));
+            });
+    };
+};
+
 export const fetchArticleCategoryPage = () => {
     return (dispatch) => {
-        const urlNews = `${process.env.REACT_APP_CMS_URL}/contents/published?_sort=publishAt:desc&homepage=news&_limit=5`;
+        const urlNews = `${process.env.REACT_APP_CMS_URL}/contents/published?sort=publishAt%3Adesc&filters[homepage][$eq]=news&pagination[limit]=5`;
         dispatch(fetchArticlesRequest);
         axios
             .all([axios.get(urlNews)])
@@ -168,14 +211,6 @@ export const fetchArticleCategoryPage = () => {
                     dispatch(fetchArticlesCategoryPageSuccess({ articles }));
                 })
             )
-            // .then((response) => {
-            //     const articles = response.data;
-            //     dispatch(
-            //         fetchArticlesSuccess({
-            //             articles,
-            //         })
-            //     );
-            // })
             .catch((error) => {
                 const errorMsg = error.message;
                 dispatch(fetchArticlesFailure(errorMsg));

@@ -29,7 +29,7 @@ const LatestContent = ({ contentData, type }) => {
                                                             .small
                                                             ? `${
                                                                   process.env
-                                                                      .REACT_APP_CMS_URL +
+                                                                      .REACT_APP_CMS_URL_IMAGE +
                                                                   item
                                                                       .main_image
                                                                       .formats
@@ -37,7 +37,7 @@ const LatestContent = ({ contentData, type }) => {
                                                               }`
                                                             : `${
                                                                   process.env
-                                                                      .REACT_APP_CMS_URL +
+                                                                      .REACT_APP_CMS_URL_IMAGE +
                                                                   item
                                                                       .main_image
                                                                       .formats
@@ -104,7 +104,7 @@ const LatestContent = ({ contentData, type }) => {
                                                             .small
                                                             ? `${
                                                                   process.env
-                                                                      .REACT_APP_CMS_URL +
+                                                                      .REACT_APP_CMS_URL_IMAGE +
                                                                   item
                                                                       .main_image
                                                                       .formats
@@ -112,7 +112,7 @@ const LatestContent = ({ contentData, type }) => {
                                                               }`
                                                             : `${
                                                                   process.env
-                                                                      .REACT_APP_CMS_URL +
+                                                                      .REACT_APP_CMS_URL_IMAGE +
                                                                   item
                                                                       .main_image
                                                                       .formats

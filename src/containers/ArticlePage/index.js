@@ -127,7 +127,7 @@ const ArticlePage = ({
                         article.main_image.formats &&
                         article.main_image.formats.small
                             ? getMeta(
-                                  process.env.REACT_APP_CMS_URL +
+                                  process.env.REACT_APP_CMS_URL_IMAGE +
                                       article.main_image.formats.small.url,
                                   width,
                                   setWidth,
@@ -160,7 +160,7 @@ const ArticlePage = ({
                                             article.main_image
                                                 ? `${
                                                       process.env
-                                                          .REACT_APP_CMS_URL +
+                                                          .REACT_APP_CMS_URL_IMAGE +
                                                       article.main_image.url
                                                   }`
                                                 : rgOfferPlaceholderMedium
@@ -314,36 +314,42 @@ const ArticlePage = ({
                                 {article.documents && (
                                     <div className="documents">
                                         <ul className="none">
-                                            {article.documents.map((doc) => (
-                                                <li key={doc.id}>
-                                                    <a
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        href={
-                                                            process.env
-                                                                .REACT_APP_CMS_URL +
-                                                            doc.url
-                                                        }
-                                                    >
-                                                        <FontAwesome name="file-text" />
-                                                        <span>{doc.name}</span>
-                                                    </a>
-                                                </li>
-                                            ))}
+                                            {article.documents.data.map(
+                                                (doc) => (
+                                                    <li key={doc.id}>
+                                                        <a
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            href={
+                                                                process.env
+                                                                    .REACT_APP_CMS_URL +
+                                                                doc.url
+                                                            }
+                                                        >
+                                                            <FontAwesome name="file-text" />
+                                                            <span>
+                                                                {doc.name}
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                )
+                                            )}
                                         </ul>
                                     </div>
                                 )}
                             </div>
                         </div>
                         <div className="space-50" />
-                        <div className="row">
-                            <div className="col-12 col-md-10 col-lg-8 m-auto">
-                                <LatestContent
-                                    contentData={stateArticles}
-                                    type="article"
-                                />
+                        {stateArticles.length > 0 && (
+                            <div className="row">
+                                <div className="col-12 col-md-10 col-lg-8 m-auto">
+                                    <LatestContent
+                                        contentData={stateArticles}
+                                        type="article"
+                                    />
+                                </div>
                             </div>
-                        </div>
+                        )}
                     </div>
                 </div>
                 {!isMobileOnly && <AdserverLeaderboard />}
