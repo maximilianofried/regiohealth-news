@@ -16,6 +16,7 @@ services:
             args:
                 - REACT_APP_BASE_PAGE_URL=${REACT_APP_BASE_PAGE_URL}
                 - REACT_APP_CMS_URL=${REACT_APP_CMS_URL}
+                - REACT_APP_CMS_URL_IMAGE=${REACT_APP_CMS_URL_IMAGE}
                 - REACT_APP_UA_TRACK=${REACT_APP_UA_TRACK}
                 # map the exposed port from the underlying service to a port exposed to the outside
                 # in this case  map port 80 exposed by nginx to port 3000 on the outside
