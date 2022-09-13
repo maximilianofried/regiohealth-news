@@ -115,10 +115,10 @@ const ArticlePage = ({
                         article.main_image &&
                         article.main_image.formats &&
                         article.main_image.formats.small
-                            ? process.env.REACT_APP_CMS_URL +
+                            ? process.env.REACT_APP_CMS_URL_IMAGE +
                               article.main_image.formats.small.url
                             : article.main_image
-                            ? process.env.REACT_APP_CMS_URL +
+                            ? process.env.REACT_APP_CMS_URL_IMAGE +
                               article.main_image.url
                             : ''
                     }
