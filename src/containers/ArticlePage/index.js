@@ -37,7 +37,7 @@ const addhttp = (url) => {
 };
 
 const transform = (data) => {
-    const imageLink = `${process.env.REACT_APP_CMS_URL + data}`;
+    const imageLink = `${process.env.REACT_APP_CMS_URL_IMAGE + data}`;
     return imageLink;
 };
 
