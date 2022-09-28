@@ -208,7 +208,8 @@ const OfferPage = ({
                                                             : '#'
                                                     }
                                                 >
-                                                    {offer.author}
+                                                    {offer.author ||
+                                                        offer.profile.name}
                                                     {offer.profile &&
                                                     offer.profile.company
                                                         ? ` / ${offer.profile.company}`
@@ -327,7 +328,33 @@ const OfferPage = ({
                                         />
                                     )}
                                 </div>
-
+                                {offer && offer.offer_info && (
+                                    <div className="single_post_content">
+                                        <hr />
+                                        {offer.offer_info.key_data && (
+                                            <div
+                                                // eslint-disable-next-line react/no-danger
+                                                dangerouslySetInnerHTML={{
+                                                    __html: replaceContent(
+                                                        offer.offer_info
+                                                            .key_data
+                                                    ),
+                                                }}
+                                            />
+                                        )}
+                                        {offer.offer_info.sign_up_info && (
+                                            <div
+                                                // eslint-disable-next-line react/no-danger
+                                                dangerouslySetInnerHTML={{
+                                                    __html: replaceContent(
+                                                        offer.offer_info
+                                                            .sign_up_info
+                                                    ),
+                                                }}
+                                            />
+                                        )}
+                                    </div>
+                                )}
                                 {offer.documents && (
                                     <div className="documents">
                                         <ul className="none">
