@@ -41,6 +41,7 @@ export const fetchOffer = (slug) => {
             )
             .then((response) => {
                 const offer = response.data;
+                console.log('offer', offer);
                 dispatch(fetchOfferSuccess(offer));
             })
             .catch((error) => {
