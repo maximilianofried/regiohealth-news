@@ -73,7 +73,10 @@ const serviceLabel = (service) => {
     if (service.validForHealthVoucher) {
         label.push('HealthVoucher');
     }
-    return `Das Angebot ist bezahlbar mit: ${label.join(', ')}`;
+    if (label.length > 0) {
+        return `Das Angebot ist bezahlbar mit: ${label.join(', ')}`;
+    }
+    return '';
 };
 
 const OfferPage = ({
@@ -381,12 +384,16 @@ const OfferPage = ({
                                         )}
                                     </div>
                                 )}
-                                {offer.offer_info.service && (
-                                    <div>
-                                        <hr />
-                                        {serviceLabel(offer.offer_info.service)}
-                                    </div>
-                                )}
+                                {offer.offer_info.service &&
+                                    serviceLabel(offer.offer_info.service) !==
+                                        '' && (
+                                        <div>
+                                            <hr />
+                                            {serviceLabel(
+                                                offer.offer_info.service
+                                            )}
+                                        </div>
+                                    )}
                                 {offer.documents && (
                                     <div className="documents">
                                         <ul className="none">
