@@ -22,8 +22,8 @@ import LatestContent from '../../components/LatestContent';
 const replaceContent = (data) => {
     let content = data.replace(/href/g, "target='_blank' href");
     content = content.replace(
-        /src="\/uploads\//g,
-        `src="${process.env.REACT_APP_CMS_URL}/uploads/`
+        /\/uploads\//g,
+        `${process.env.REACT_APP_CMS_URL_IMAGE}/uploads/`
     );
     return content;
 };
