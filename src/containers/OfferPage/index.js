@@ -56,6 +56,26 @@ const getMeta = (url, width, setWidth, height, setHeight) => {
     return { width, height };
 };
 
+const serviceLabel = (service) => {
+    const label = [];
+    if (service.validForTicket) {
+        label.push('GesundheitsTicket');
+    }
+    if (service.validForTicketPlus) {
+        label.push('GesundheitsTicket Plus');
+    }
+    if (service.validForVoucher) {
+        label.push('GesundheitsTicket Gutschein');
+    }
+    if (service.validForDRV) {
+        label.push('GesundheitsTicket der DRV');
+    }
+    if (service.validForHealthVoucher) {
+        label.push('HealthVoucher');
+    }
+    return `Das Angebot ist bezahlbar mit: ${label.join(', ')}`;
+};
+
 const OfferPage = ({
     offerData,
     fetchOffer,
@@ -330,29 +350,41 @@ const OfferPage = ({
                                 </div>
                                 {offer && offer.offer_info && (
                                     <div className="single_post_content">
-                                        <hr />
                                         {offer.offer_info.key_data && (
-                                            <div
-                                                // eslint-disable-next-line react/no-danger
-                                                dangerouslySetInnerHTML={{
-                                                    __html: replaceContent(
-                                                        offer.offer_info
-                                                            .key_data
-                                                    ),
-                                                }}
-                                            />
+                                            <>
+                                                <hr />
+                                                <div
+                                                    // eslint-disable-next-line react/no-danger
+                                                    dangerouslySetInnerHTML={{
+                                                        __html: replaceContent(
+                                                            offer.offer_info
+                                                                .key_data
+                                                        ),
+                                                    }}
+                                                />
+                                            </>
                                         )}
+
                                         {offer.offer_info.sign_up_info && (
-                                            <div
-                                                // eslint-disable-next-line react/no-danger
-                                                dangerouslySetInnerHTML={{
-                                                    __html: replaceContent(
-                                                        offer.offer_info
-                                                            .sign_up_info
-                                                    ),
-                                                }}
-                                            />
+                                            <>
+                                                <hr />
+                                                <div
+                                                    // eslint-disable-next-line react/no-danger
+                                                    dangerouslySetInnerHTML={{
+                                                        __html: replaceContent(
+                                                            offer.offer_info
+                                                                .sign_up_info
+                                                        ),
+                                                    }}
+                                                />
+                                            </>
                                         )}
+                                    </div>
+                                )}
+                                {offer.offer_info.service && (
+                                    <div>
+                                        <hr />
+                                        {serviceLabel(offer.offer_info.service)}
                                     </div>
                                 )}
                                 {offer.documents && (
