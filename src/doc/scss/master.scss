@@ -1824,8 +1824,12 @@ span.tranding {
 .footer {
     background-color: $white;
     .gt_logo {
-        width: 100px;
-        height: 48px;
+        width: 200px;
+        // height: 48px;
+    }
+
+    .hv_logo {
+        width: 140px;
     }
 
     .align-end {
@@ -1845,6 +1849,10 @@ span.tranding {
                 list-style: none;
 
                 .gt_logo {
+                    margin-right: 10px;
+                }
+
+                .hv_logo {
                     margin-right: 10px;
                 }
             }
@@ -2532,8 +2540,8 @@ a.cbtn3 {
             }
         }
         .gt_logo {
-            width: 59px;
-            height: 25px;
+            width: 180px;
+            // height: 25px;
         }
     }
 }
