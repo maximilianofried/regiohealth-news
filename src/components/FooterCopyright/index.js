@@ -8,7 +8,7 @@ const FooterCopyright = ({ pagesMenu }) => {
                 <div className="row">
                     <div className="col-lg-6 col-md-6 align-self-center">
                         <div className="copy_text">
-                            &copy; Copyright 2021, All Rights Reserved
+                            &copy; Copyright 2022, All Rights Reserved
                         </div>
                     </div>
                     <div className="col-lg-6 col-md-6 align-self-center">
