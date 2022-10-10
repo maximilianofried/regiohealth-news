@@ -42,7 +42,7 @@ const OffersPage = ({
 
     const fetchOffersHook = useCallback(() => {
         fetchOffersForPage({ start, limit: limit.current });
-        updateOffersPageStartParam();
+        // updateOffersPageStartParam();
     }, [start]);
 
     useEffect(() => {

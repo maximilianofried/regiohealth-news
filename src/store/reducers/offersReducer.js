@@ -57,7 +57,7 @@ const offersReducer = (state = initialState, action) => {
                     ...action.payload.offers,
                 ],
                 // limit: action.payload.limit,
-                start: state.start + 6,
+                start: state.start + 7,
                 error: '',
             };
         case FETCH_OFFERS_FOR_PAGE_FAILURE:
