@@ -98,14 +98,14 @@ const OfferPage = ({
     const [height, setHeight] = useState(0);
     const offer = offerData.offer || null;
 
-    useEffect(() => {
-        const { offer } = offerData;
-        if (offer) {
-            fetchOffersForPage({ limit: 8, slug });
-        }
+    // useEffect(() => {
+    //     const { offer } = offerData;
+    //     if (offer) {
+    //         fetchOffersForPage({ limit: 8, slug });
+    //     }
 
-        return () => fetchOffersForPageCleanUp();
-    }, [fetchOffersForPage, fetchOffersForPageCleanUp, offerData, slug]);
+    //     return () => fetchOffersForPageCleanUp();
+    // }, [fetchOffersForPage, fetchOffersForPageCleanUp, offerData, slug]);
 
     const { trackPageView } = useMatomo();
     // Track page view

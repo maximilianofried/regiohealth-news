@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import usePlacesAutocomplete, { getGeocode } from 'use-places-autocomplete';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -28,6 +28,7 @@ const SearchBox = ({
     sidebar,
     setSideShow,
 }) => {
+    const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const options = {
         componentRestrictions: { country: ['de', 'pl'] },
     };
@@ -41,6 +42,7 @@ const SearchBox = ({
     } = usePlacesAutocomplete({ requestOptions: options });
 
     const onComboSelect = (address) => {
+        setIsButtonDisabled(false);
         setValue(address, false);
         clearSuggestions();
         getGeocode({ address })
@@ -153,6 +155,7 @@ const SearchBox = ({
                             onChange={(e) => {
                                 setValue(e.target.value);
                                 if (e.target.value === '') {
+                                    setIsButtonDisabled(true);
                                     saveSearchPlace('');
                                 }
                             }}
@@ -173,7 +176,11 @@ const SearchBox = ({
                     </div>
                 )}
                 <div className="col-auto">
-                    <button type="submit" className="btn-sm search-button">
+                    <button
+                        disabled={isButtonDisabled}
+                        type="submit"
+                        className="btn-sm search-button"
+                    >
                         SUCHEN
                     </button>
                 </div>
