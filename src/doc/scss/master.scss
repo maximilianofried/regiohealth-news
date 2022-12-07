@@ -3208,12 +3208,23 @@ a.cbtn3 {
         color: white;
         margin-bottom: 5px;
         border: 0;
-        &.active,
-        &:hover {
-            @include transition(all 0.4s);
-            background-color: #406314;
-            border-color: #406314;
+        // &.active,
+        // &:hover {
+        //     @include transition(all 0.4s);
+        //     background-color: #406314;
+        //     border-color: #406314;
+        // }
+        &:disabled {
+            background: #fff;
+            color: #ccc;
+            cursor: no-drop;
         }
+    }
+
+    .search-button:disabled {
+        background: #fff;
+        color: #ccc;
+        cursor: no-drop;
     }
 
     // .my-flex-container {
@@ -3254,6 +3265,11 @@ a.cbtn3 {
             @include transition(all 0.4s);
             // border-color: #406314;
             box-shadow: 2px 2px 12px rgba(50, 50, 50, 0.2);
+        }
+        &:disabled {
+            // background: #fff;
+            color: #ccc;
+            // cursor: no-drop;
         }
     }
 }

@@ -81,7 +81,7 @@ const WidgetSuchPortal = ({
                             });
                         }}
                     >
-                        ARTIKLES
+                        ARTIKEL
                     </button>
                 </NavItem>
                 <NavItem>
