@@ -30,19 +30,7 @@ const MainMenu = ({ className, fetchMenu }) => {
                                     >
                                         <FontAwesome name="bars" />
                                     </button>
-                                    <div
-                                        id="navbarSupportedContent"
-                                        className="collapse navbar-collapse navbar-responsive-collapse"
-                                    >
-                                        <ul
-                                            className="nav navbar-nav"
-                                            id="scroll"
-                                        >
-                                            {mockMenu.length > 0 ? (
-                                                <Dropdown menus={mockMenu} />
-                                            ) : null}
-                                        </ul>
-                                    </div>
+
                                     <SidebarMenu
                                         sideShow={sideShow}
                                         setSideShow={setSideShow}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import usePlacesAutocomplete, { getGeocode } from 'use-places-autocomplete';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -29,6 +29,26 @@ const SearchBox = ({
     setSideShow,
 }) => {
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+    const [isInvalidInput, setIsInvalidInput] = useState(false);
+
+    useEffect(() => {
+        const input = document.getElementById('comboboxPopover');
+        console.log(input);
+        if (input) {
+            input.addEventListener('invalid', function (event) {
+                if (event.target.validity.valueMissing) {
+                    event.target.setCustomValidity(
+                        'Please start typing and select one from the list.'
+                    );
+                }
+            });
+
+            input.addEventListener('change', function (event) {
+                event.target.setCustomValidity('');
+            });
+        }
+    }, [document.getElementById('comboboxPopover')]);
+
     const options = {
         componentRestrictions: { country: ['de', 'pl'] },
     };
@@ -90,15 +110,16 @@ const SearchBox = ({
     const handleSubmit = (event, history) => {
         event.preventDefault();
         event.stopPropagation();
+        const input = document.querySelector('input[id="comboboxInput"]');
         if (setSideShow) setSideShow(false);
-        // eslint-disable-next-line no-restricted-globals
-        history.push({
-            pathname: '/such-portal',
-            place,
-            type,
-            keyword,
-        });
         if (place) {
+            //   eslint-disable-next-line no-restricted-globals
+            history.push({
+                pathname: '/such-portal',
+                place,
+                type,
+                keyword,
+            });
             fetchGeoData({
                 limit: 6,
                 start: 0,
@@ -108,84 +129,117 @@ const SearchBox = ({
                 keyword,
             });
         } else {
-            searchByKeyword({
-                limit: 6,
-                start: 0,
-                type,
-                responseType: 'mixed',
-                keyword,
-            });
+            setIsInvalidInput(true);
+            input.reportValidity();
         }
+        // eslint-disable-next-line no-restricted-globals
+        // history.push({
+        //     pathname: '/such-portal',
+        //     place,
+        //     type,
+        //     keyword,
+        // });
+        // if (place) {
+        //     fetchGeoData({
+        //         limit: 6,
+        //         start: 0,
+        //         place,
+        //         type,
+        //         responseType: 'mixed',
+        //         keyword,
+        //     });
+        // } else {
+        //     searchByKeyword({
+        //         limit: 6,
+        //         start: 0,
+        //         type,
+        //         responseType: 'mixed',
+        //         keyword,
+        //     });
+        // }
     };
     return (
-        <form
-            onSubmit={(event) => handleSubmit(event, history)}
-            className="search_box"
+        <button
+            // disabled={isButtonDisabled}
+            type="submit"
+            className="btn-sm search-button"
         >
-            <Combobox
-                onSelect={(address) => onComboSelect(address)}
-                className="form-row flex-nowrap flex-lg-wrap align-items-center"
-            >
-                <div className="col-auto">
-                    <input
-                        className="textfield_text"
-                        value={keyword}
-                        onChange={(e) => {
-                            saveSearchKeyword(e.target.value);
-                        }}
-                        placeholder="Was suchen Sie?"
-                    />
-                </div>
-                {!sidebar && (
-                    <div className="col-auto">
-                        <Listbox type={type} onChange={saveSearchType}>
-                            <ListboxOption value="alle">ALLE</ListboxOption>
-                            <ListboxOption value="article">NEWS</ListboxOption>
-                            <ListboxOption value="offer">
-                                ANGEBOTE
-                            </ListboxOption>
-                        </Listbox>
-                    </div>
-                )}
-                {!sidebar && (
-                    <div className="col-auto">
-                        <ComboboxInput
-                            className="textfield_text"
-                            value={value}
-                            onChange={(e) => {
-                                setValue(e.target.value);
-                                if (e.target.value === '') {
-                                    setIsButtonDisabled(true);
-                                    saveSearchPlace('');
-                                }
-                            }}
-                            disabled={!ready}
-                            placeholder="PLZ oder Ort"
-                        />
-                        <ComboboxPopover className="pop_over">
-                            {status === 'OK' &&
-                                data.map((result) => {
-                                    return (
-                                        <ComboboxOption
-                                            key={result.place_id}
-                                            value={result.description}
-                                        />
-                                    );
-                                })}
-                        </ComboboxPopover>
-                    </div>
-                )}
-                <div className="col-auto">
-                    <button
-                        disabled={isButtonDisabled}
-                        type="submit"
-                        className="btn-sm search-button"
-                    >
-                        SUCHEN
-                    </button>
-                </div>
-            </Combobox>
-        </form>
+            SUCHEPORTAL
+        </button>
+        // <form
+        //     onSubmit={(event) => handleSubmit(event, history)}
+        //     className="search_box"
+        // >
+        //     <Combobox
+        //         onSelect={(address) => onComboSelect(address)}
+        //         className="form-row flex-nowrap flex-lg-wrap align-items-center"
+        //     >
+        //         <div className="col-auto">
+        //             <input
+        //                 className="textfield_text"
+        //                 value={keyword}
+        //                 onChange={(e) => {
+        //                     saveSearchKeyword(e.target.value);
+        //                 }}
+        //                 placeholder="Was suchen Sie?"
+        //             />
+        //         </div>
+        //         {!sidebar && (
+        //             <div className="col-auto">
+        //                 <Listbox type={type} onChange={saveSearchType}>
+        //                     <ListboxOption value="alle">ALLE</ListboxOption>
+        //                     <ListboxOption value="article">NEWS</ListboxOption>
+        //                     <ListboxOption value="offer">
+        //                         ANGEBOTE
+        //                     </ListboxOption>
+        //                 </Listbox>
+        //             </div>
+        //         )}
+        //         {!sidebar && (
+        //             <div className="col-auto">
+        //                 <ComboboxInput
+        //                     className="textfield_text"
+        //                     id="comboboxInput"
+        //                     // required="true"
+        //                     value={value}
+        //                     onChange={(e) => {
+        //                         setValue(e.target.value);
+        //                         if (e.target.value === '') {
+        //                             setIsButtonDisabled(true);
+        //                             saveSearchPlace('');
+        //                         }
+        //                     }}
+        //                     disabled={!ready}
+        //                     placeholder="PLZ oder Ort"
+        //                 />
+        //                 <ComboboxPopover
+        //                     id="comboboxPopover"
+        //                     className="pop_over"
+        //                 >
+        //                     <ComboboxOption key="1" value="Select one" />
+        //                     {status === 'OK' &&
+        //                         data.map((result) => {
+        //                             return (
+        //                                 <ComboboxOption
+        //                                     key={result.place_id}
+        //                                     value={result.description}
+        //                                 />
+        //                             );
+        //                         })}
+        //                 </ComboboxPopover>
+        //             </div>
+        //         )}
+        //         <div className="col-auto">
+        //             <button
+        //                 // disabled={isButtonDisabled}
+        //                 type="submit"
+        //                 className="btn-sm search-button"
+        //             >
+        //                 SUCHEN
+        //             </button>
+        //         </div>
+        //     </Combobox>
+        // </form>
     );
 };
 

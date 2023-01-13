@@ -1,0 +1,33 @@
+{
+    "engineName": "rh-news",
+    "endpointBase": "https://gt-network.ent.europe-west3.gcp.cloud.es.io",
+    "searchKey": "search-ut2xgs2awdcnvxxajzd7pwb1",
+    "resultFields": [
+        "country",
+        "image",
+        "formatted_address",
+        "author",
+        "locality",
+        "description",
+        "title",
+        "type",
+        "publish_at",
+        "content",
+        "url",
+        "administrative_area_level_2",
+        "administrative_area_level_3",
+        "administrative_area_level_1",
+        "location",
+        "company",
+        "sub_locality_level_1",
+        "postal_code",
+        "region",
+        "is_national",
+        "id"
+    ],
+    "sortFields": ["publish_at"],
+    "facets": ["type", "locality"],
+    "titleField": "title",
+    "urlField": "url",
+    "thumbnailField": "image"
+}
