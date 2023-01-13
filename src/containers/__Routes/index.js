@@ -15,10 +15,11 @@ import CookieDeclarationPage from '../CookieDeclarationPage';
 import WissenPage from '../WissenPage';
 import GtTipsPage from '../GtTipsPage';
 import NewsPage from '../NewsPage';
+import NewSearchPage from '../NewSearchPage';
 
 const selectPage = (pageName, categories, props) => {
-    if (pageName === 'Suchportal') {
-        return <SearchPage {...props} />;
+    if (pageName === 'suchportal') {
+        return <NewSearchPage {...props} />;
     }
     if (pageName === 'angebote') {
         return (
@@ -97,6 +98,13 @@ const Routes = () => {
                 home_style={2}
                 parentClass="theme-3 theme3_bg"
                 component={(props) => <SearchPage {...props} />}
+            />
+            <PublicRoute
+                exact
+                path="/searchportal"
+                home_style={2}
+                parentClass="theme-3 theme3_bg"
+                component={(props) => <NewSearchPage {...props} />}
             />
             <PublicRoute
                 exact

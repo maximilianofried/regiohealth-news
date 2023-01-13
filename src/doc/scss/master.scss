@@ -303,6 +303,11 @@ body {
     z-index: 9999 !important;
 }
 
+.invalid_input {
+    border-color: red !important;
+    border-style: solid !important;
+}
+
 .banner {
     @extend %black_overlay;
     padding: 20px 30px;
@@ -3455,4 +3460,22 @@ a.cbtn3 {
 .main-article-container {
     display: flex;
     justify-content: space-around;
+}
+
+.nav-menu-custom {
+    gap: 20px;
+    font-size: 23px;
+}
+
+.nav-menu-link {
+}
+.nav-menu-link:hover {
+    color: #7ab929 !important;
+}
+
+a,
+a:focus,
+a:hover {
+    text-decoration: none !important;
+    text-decoration-color: white;
 }
