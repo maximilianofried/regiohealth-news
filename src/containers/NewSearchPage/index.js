@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import AppSearchAPIConnector from '@elastic/search-ui-app-search-connector';
 
@@ -92,6 +92,16 @@ const CustomResultView = ({ result, onClickLink }) => {
 };
 
 export default function NewSearchPage() {
+    // const facetInputs = document.getElementsByClassName(
+    //     'sui-multi-checkbox-facet__input-text'
+    // );
+
+    // useEffect(() => {
+    //     console.log(facetInputs);
+    //     console.log(facetInputs.length);
+    //     // facetInputs[0].innerHTML = 'hello world';
+    //     console.log(facetInputs);
+    // }, [facetInputs]);
     return (
         <div className="container">
             <SearchProvider config={config}>
@@ -105,9 +115,45 @@ export default function NewSearchPage() {
                                     <Layout
                                         header={
                                             <SearchBox
-                                                // eslint-disable-next-line react/jsx-boolean-value
-                                                autocompleteSuggestions={true}
+                                                autocompleteSuggestions="true"
+                                                inputView={({
+                                                    getAutocomplete,
+                                                    getInputProps,
+                                                    getButtonProps,
+                                                }) => (
+                                                    <>
+                                                        <div className="sui-search-box__wrapper">
+                                                            <input
+                                                                // eslint-disable-next-line react/jsx-props-no-spreading
+                                                                {...getInputProps(
+                                                                    {
+                                                                        placeholder:
+                                                                            'Wonach suchst Du? Trage einen Begriff, Ort oder Name hier ein und gehe auf SUCHE',
+                                                                    }
+                                                                )}
+                                                            />
+                                                            {getAutocomplete()}
+                                                        </div>
+                                                        <input
+                                                            // eslint-disable-next-line react/jsx-props-no-spreading
+                                                            {...getButtonProps({
+                                                                value: 'SUCHE',
+                                                            })}
+                                                        />
+                                                    </>
+                                                )}
                                             />
+                                            // <SearchBox
+                                            //     // eslint-disable-next-line react/jsx-boolean-value
+                                            //     autocompleteSuggestions={true}
+                                            //     inputProps={{
+                                            //         buttonProps: {
+                                            //             value: 'SUCHE',
+                                            //         },
+                                            //         placeholder:
+                                            //             'Wonach suchst Du? Trage einen Begriff, Ort oder Name hier ein und gehe auf SUCHE',
+                                            //     }}
+                                            // />
                                         }
                                         sideContent={
                                             <div>
@@ -120,6 +166,7 @@ export default function NewSearchPage() {
                                                 {getFacetFields().map(
                                                     (field) => (
                                                         <Facet
+                                                            id={field}
                                                             key={field}
                                                             field={field}
                                                             label={field.replaceAll(

@@ -20,7 +20,7 @@ const LogoAreaTwo = ({ history, fetchGeoData, searchByKeyword }) => {
                             />
                         </div>
                     </div>
-                    <div className="col-xl-9 align-self-center main-nav">
+                    <div className="col-9 align-self-center main-nav">
                         <nav className="navbar navbar-expand-lg">
                             <div className="site-nav-inner">
                                 <div
