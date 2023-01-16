@@ -2558,12 +2558,14 @@ a.cbtn3 {
         padding-top: 140px !important;
     }
 }
-
-@media screen and (min-width: 990px) {
-    .logo_area {
-        position: static;
-    }
+.logo_area {
+    position: static !important;
 }
+// @media screen and (min-width: 990px) {
+//     .logo_area {
+//         position: static;
+//     }
+// }
 
 /*================================
 	SMALL LEPTOP DEVICE
@@ -2588,9 +2590,9 @@ a.cbtn3 {
 */
 
 @media screen and (min-width: $Medium) and (max-width: $large) {
-    .logo_area {
-        height: 110px;
-    }
+    // .logo_area {
+    //     height: 110px;
+    // }
     .md-mt-30 {
         margin-top: 30px;
     }

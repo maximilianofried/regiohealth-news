@@ -675,9 +675,8 @@
         }
 
         .navbar-toggler {
-            left: 688px;
-            // top: -87px;
-            top: 32px;
+            position: absolute;
+            right: 0;
         }
 
         .navbar {
@@ -687,22 +686,22 @@
 
     @media (min-width: 425px) and (max-width: 575px) {
         .navbar-toggler {
-            left: 345px;
-            top: 35px;
+            position: absolute;
+            right: 0;
         }
     }
 
     @media (min-width: 375px) and (max-width: 424px) {
         .navbar-toggler {
-            left: 295px;
-            top: 35px;
+            position: absolute;
+            right: 0;
         }
     }
 
     @media (min-width: 320px) and (max-width: 374px) {
         .navbar-toggler {
-            left: 240px;
-            top: 29px;
+            position: absolute;
+            right: 0;
         }
 
         .logo {
@@ -997,7 +996,7 @@
         }
 
         .logo {
-            padding: 13px 0 25px;
+            // padding: 13px 0 25px;
             text-align: center;
         }
 
