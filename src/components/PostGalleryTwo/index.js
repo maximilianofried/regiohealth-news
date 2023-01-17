@@ -31,6 +31,7 @@ const PostGalleryTwo = ({
             <div className="container">
                 <div className="row">
                     <div className="col-md-12 col-lg-9 ">
+                        {!isMobileOnly && <HorizontalIframeHomepage />}
                         <div className="main-article-container">
                             {mainArticle && (
                                 <Link

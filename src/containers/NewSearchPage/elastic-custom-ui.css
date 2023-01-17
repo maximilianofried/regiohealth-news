@@ -65,3 +65,19 @@ img {
 .sui-paging .rc-pagination-jump-next:hover:after {
     color: #666;
 }
+
+.sui-multi-checkbox-facet__option-count {
+    visibility: hidden;
+}
+
+.sui-multi-checkbox-facet__option-input-wrapper:nth-child(2) {
+    visibility: hidden;
+}
+
+/* #example_facet_typearticle:first-of-type + span {
+    content: 'Artikel';
+}
+
+#example_facet_typeoffer:first-of-type + span {
+    visibility: hidden;
+} */

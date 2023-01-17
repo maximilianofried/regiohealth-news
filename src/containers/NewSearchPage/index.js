@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import AppSearchAPIConnector from '@elastic/search-ui-app-search-connector';
 
@@ -26,6 +26,7 @@ import {
     getFacetFields,
 } from '../../config/config-helper';
 import rgOfferPlaceholderSmall from '../../doc/img/dummy_small.png';
+import MultiCheckboxFacet from './MultiCheckboxFacet';
 
 const { hostIdentifier, searchKey, endpointBase, engineName } = getConfig();
 const connector = new AppSearchAPIConnector({
@@ -92,16 +93,6 @@ const CustomResultView = ({ result, onClickLink }) => {
 };
 
 export default function NewSearchPage() {
-    // const facetInputs = document.getElementsByClassName(
-    //     'sui-multi-checkbox-facet__input-text'
-    // );
-
-    // useEffect(() => {
-    //     console.log(facetInputs);
-    //     console.log(facetInputs.length);
-    //     // facetInputs[0].innerHTML = 'hello world';
-    //     console.log(facetInputs);
-    // }, [facetInputs]);
     return (
         <div className="container">
             <SearchProvider config={config}>
@@ -143,17 +134,6 @@ export default function NewSearchPage() {
                                                     </>
                                                 )}
                                             />
-                                            // <SearchBox
-                                            //     // eslint-disable-next-line react/jsx-boolean-value
-                                            //     autocompleteSuggestions={true}
-                                            //     inputProps={{
-                                            //         buttonProps: {
-                                            //             value: 'SUCHE',
-                                            //         },
-                                            //         placeholder:
-                                            //             'Wonach suchst Du? Trage einen Begriff, Ort oder Name hier ein und gehe auf SUCHE',
-                                            //     }}
-                                            // />
                                         }
                                         sideContent={
                                             <div>
@@ -166,7 +146,9 @@ export default function NewSearchPage() {
                                                 {getFacetFields().map(
                                                     (field) => (
                                                         <Facet
-                                                            id={field}
+                                                            view={
+                                                                MultiCheckboxFacet
+                                                            }
                                                             key={field}
                                                             field={field}
                                                             label={field.replaceAll(
@@ -179,15 +161,6 @@ export default function NewSearchPage() {
                                             </div>
                                         }
                                         bodyContent={
-                                            // <Results
-                                            //     titleField={getConfig().titleField}
-                                            //     urlField={getConfig().urlField}
-                                            //     thumbnailField={
-                                            //         getConfig().thumbnailField
-                                            //     }
-                                            //     // eslint-disable-next-line react/jsx-boolean-value
-                                            //     shouldTrackClickThrough={true}
-                                            // />
                                             <Results
                                                 resultView={CustomResultView}
                                             />
