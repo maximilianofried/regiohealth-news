@@ -65,3 +65,7 @@ img {
 .sui-paging .rc-pagination-jump-next:hover:after {
     color: #666;
 }
+
+.sui-multi-checkbox-facet__option-count {
+    visibility: hidden;
+}
