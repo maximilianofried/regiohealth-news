@@ -11,6 +11,7 @@ import bigImg from '../../doc/img/header/sider-top3.jpg';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import SquareIframeHomepage from '../AdserverIframe/Homepage/SquareIframe';
 import HorizontalIframeHomepage from '../AdserverIframe/Homepage/HorizontalIframe';
+import HalfBanner from '../AdserverIframe/HalfBanner';
 
 const PostGalleryTwo = ({
     mainArticle,
@@ -31,7 +32,11 @@ const PostGalleryTwo = ({
             <div className="container">
                 <div className="row">
                     <div className="col-md-12 col-lg-9 ">
-                        {!isMobileOnly && <HorizontalIframeHomepage />}
+                        {!isMobileOnly ? (
+                            <HorizontalIframeHomepage />
+                        ) : (
+                            <HalfBanner />
+                        )}
                         <div className="main-article-container">
                             {mainArticle && (
                                 <Link
