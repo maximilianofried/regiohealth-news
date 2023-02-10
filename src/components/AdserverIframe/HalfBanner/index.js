@@ -10,6 +10,7 @@ const HalfBanner = () => {
                 src="https://adserver.gesundheitsticket.de/revive/www/delivery/afr.php?zoneid=16&amp;target=_blank&amp;cb=234"
                 width="234"
                 height="60"
+                frameBorder="0"
                 allow="autoplay"
             >
                 <a
