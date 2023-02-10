@@ -2,7 +2,7 @@ import React from 'react';
 
 const HalfBanner = () => {
     return (
-        <div className="banner2 border-radious5 mb20 mt20">
+        <div className="banner2 banner_half border-radious5 mb20 mt20">
             <iframe
                 title="halfBanner"
                 id="ac1cacf8"
