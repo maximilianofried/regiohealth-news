@@ -20,6 +20,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import MostViewArticles from '../../components/MostViewArticles';
 import SquareIframe from '../../components/AdserverIframe/Angebote/SquareIframe';
 import HorizontalIframeAngebote from '../../components/AdserverIframe/Angebote/HorizontalIframe';
+import HalfBanner from '../../components/AdserverIframe/HalfBanner';
 
 const OffersPage = ({
     fetchArticleHomepage,
@@ -67,6 +68,11 @@ const OffersPage = ({
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12 col-lg-9 homepage_col_top">
+                            {!isMobileOnly ? (
+                                <HorizontalIframeAngebote />
+                            ) : (
+                                <HalfBanner />
+                            )}
                             <BusinessNewsTwo
                                 offer
                                 publisherArticles={latestOffers}
